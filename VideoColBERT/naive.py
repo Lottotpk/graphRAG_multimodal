@@ -9,7 +9,7 @@ clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32").to(device
 clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
 def frame_sampling(video_name: str, freq: int = 60) -> int:
-    cap = cv2.VideoCapture(f"./example_video/{video_name}.mp4")
+    cap = cv2.VideoCapture(f"./../example_video/{video_name}.mp4")
     if not os.path.exists("sampled_frames"):
         os.makedirs("sampled_frames")
 
@@ -21,7 +21,7 @@ def frame_sampling(video_name: str, freq: int = 60) -> int:
             break
         if current_frame % freq != 0:
             continue
-        cv2.imwrite(f"./sampled_frames/{video_name}_{current_frame // 60}.jpg", frame)
+        cv2.imwrite(f"./../sampled_frames/{video_name}_{current_frame // 60}.jpg", frame)
 
     cap.release()
     cv2.destroyAllWindows()
@@ -31,7 +31,7 @@ def frame_sampling(video_name: str, freq: int = 60) -> int:
 def video_patch_embedding(filename: str, title: str, total_frames: int) -> torch.Tensor:
     embedded = []
     for i in range(total_frames):    
-        image = Image.open(f"./sampled_frames/{filename}_{i}.jpg")
+        image = Image.open(f"./../sampled_frames/{filename}_{i}.jpg")
         desc = f"Scene {i} from {title}"
 
         inputs = clip_processor(text=desc, images=image, return_tensors="pt", padding=True).to(device)

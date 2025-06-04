@@ -1,2 +1,5 @@
 example_video
 sampled_frames
+.env
+google_restaurants
+qdrant_gemini_3
