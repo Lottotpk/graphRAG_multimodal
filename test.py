@@ -1,2 +1,9 @@
-from ragatouille import RAGPretrainedModel
-RAG = RAGPretrainedModel.from_pretrained("colbert-ir/colbertv2.0")
+import os
+
+from plaidrepro.colbert.infra import Run, RunConfig, ColBERTConfig
+from plaidrepro.colbert.data import Queries, Collection
+from plaidrepro.colbert import Indexer, Searcher
+
+if __name__ == "__main__":
+    collection = os.getenv("COLLECTION_PATH")
+    collection = Collection(path=collection)
