@@ -24,7 +24,7 @@ from utils.dataloader import bench_data_loader
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "../../.."))
 from vectordb import VectorDB
-from rag_gemini import image_embedding
+from embedding import image_embedding
 
 def eval_model(args):
     # Setup tmp file to store temporary images
