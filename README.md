@@ -12,6 +12,9 @@ We benchmark the model by using the `gemini-2.0-flash` as a base model for the R
 Here are some results:
 
 ### Without RAG
+```bash
+~/graphRAG_multimodal/MRAG-Bench> python eval/score_without_ai.py --filename gemini_no_rag_results.jsonl
+```
 ```
 --------------Results--------------
 Scope: 70.588%
@@ -28,6 +31,9 @@ Total accuracy: 60.532%
 ```
 
 ### With RAG (Without the given retrieval from the dataset)
+```bash
+~/graphRAG_multimodal/MRAG-Bench> python eval/score_without_ai.py --filename gemini_selfrag_results.jsonl
+```
 ```
 --------------Results--------------
 Scope: 74.51%
