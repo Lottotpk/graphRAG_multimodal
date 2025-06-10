@@ -22,7 +22,18 @@ from io import BytesIO
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from utils.dataloader import bench_data_loader 
 
+sys.path.append(os.path.join(os.path.dirname(__file__), "../../.."))
+from vectordb import VectorDB
+from rag_gemini import image_embedding
+
 def eval_model(args):
+    # Setup tmp file to store temporary images
+    if not os.path.exists('./tmp'):
+        os.mkdir('./tmp')
+
+    # Vector database init
+    vectordb = VectorDB('../database')
+
     # Output file
     ans_file = open(args.answers_file, "a")
     
@@ -34,14 +45,29 @@ def eval_model(args):
     count = 0
     for item in bench_data_loader(args, image_placeholder="<image>"):
         count += 1
+        if count < 1000:
+            continue
         # qs = item['question']
         # qs_img = item['image_files']
 
+        # Add the image into the query
         msg = ChatMessage(item['question'])
         for img in item['image_files']:
             img_byte = BytesIO()
             img.save(img_byte, format='PNG')
             msg.blocks.append(ImageBlock(image=img_byte.getvalue()))
+
+            # Retrieve with our vector database
+            if args.self_rag:
+                item['image_files'][0].save('./tmp/img.png', format='PNG')
+                _, retrieved_path = vectordb.get_topk_similar(image_embedding('./tmp/img.png'), 6)
+                for ipath in retrieved_path[1:]:
+                    img_byte = BytesIO()
+                    img = Image.open(f'../{ipath}').convert('RGB')
+                    img.save(img_byte, format='PNG')
+                    msg.blocks.append(ImageBlock(image=img_byte.getvalue()))
+                os.remove('./tmp/img.png')
+                break # use only first image from dataloader, which only concerns about the question
 
         while True:
             try:
@@ -87,6 +113,7 @@ if __name__ == "__main__":
     parser.add_argument("--answers-file", type=str, default="answer.jsonl")
     parser.add_argument("--use_rag", type=lambda x: x.lower() == 'true', default=False, help="Use RAG")
     parser.add_argument("--use_retrieved_examples", type=lambda x: x.lower() == 'true', default=False, help="Use retrieved examples")
+    parser.add_argument("--self_rag", type=lambda x: x.lower() == 'true', default=False, help="Use your own retrieval")
 
     args = parser.parse_args()
 
