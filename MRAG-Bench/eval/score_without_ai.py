@@ -1,10 +1,15 @@
 import json
+import argparse
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--filename", type=str, default=None, help='File to be evaluated')
+    args = parser.parse_args()
+
     data = {}
     total_qs = 0
     total_correct = 0
-    with open("gemini_no_rag_results.jsonl", 'r') as f:
+    with open(args.filename, 'r') as f:
         for line in f:
             total_qs += 1
             choice = json.loads(line)
