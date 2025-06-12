@@ -13,7 +13,7 @@ Here are some results:
 
 ### Without RAG
 ```bash
-~/graphRAG_multimodal/MRAG-Bench> python eval/score_without_ai.py --filename gemini_no_rag_results.jsonl
+python eval/score_without_ai.py --filename gemini_no_rag_results.jsonl
 ```
 ```
 --------------Results--------------
@@ -32,7 +32,7 @@ Total accuracy: 60.532%
 
 ### With RAG (Without the given retrieval from the dataset)
 ```bash
-~/graphRAG_multimodal/MRAG-Bench> python eval/score_without_ai.py --filename gemini_selfrag_results.jsonl
+python eval/score_without_ai.py --filename gemini_selfrag_results.jsonl
 ```
 ```
 --------------Results--------------
