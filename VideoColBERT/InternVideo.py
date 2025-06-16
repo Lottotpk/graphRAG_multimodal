@@ -2,22 +2,22 @@ import os
 token = os.getenv('HF_TOKEN')
 import torch
 
-from transformers import AutoTokenizer, AutoModel
+# from transformers import AutoTokenizer, AutoModel
 
-tokenizer =  AutoTokenizer.from_pretrained('OpenGVLab/InternVideo2_chat_8B_HD',
-    trust_remote_code=True,
-    use_fast=False,
-    token=token)
-if torch.cuda.is_available():
-  model = AutoModel.from_pretrained(
-      'OpenGVLab/InternVideo2_chat_8B_HD',
-      torch_dtype=torch.bfloat16,
-      trust_remote_code=True).cuda()
-else:
-  model = AutoModel.from_pretrained(
-      'OpenGVLab/InternVideo2_chat_8B_HD',
-      torch_dtype=torch.bfloat16,
-      trust_remote_code=True)
+# tokenizer =  AutoTokenizer.from_pretrained('OpenGVLab/InternVideo2_chat_8B_HD',
+#     trust_remote_code=True,
+#     use_fast=False,
+#     token=token)
+# if torch.cuda.is_available():
+#   model = AutoModel.from_pretrained(
+#       'OpenGVLab/InternVideo2_chat_8B_HD',
+#       torch_dtype=torch.bfloat16,
+#       trust_remote_code=True).cuda()
+# else:
+#   model = AutoModel.from_pretrained(
+#       'OpenGVLab/InternVideo2_chat_8B_HD',
+#       torch_dtype=torch.bfloat16,
+#       trust_remote_code=True)
 
 
 from decord import VideoReader, cpu
@@ -178,14 +178,14 @@ def HD_transform_no_padding(frames, image_size=224, hd_num=6, fix_ratio=(2,1)):
     )
     return resized_frame
 
-video_path = "../example_video/bigbang.mp4"
+video_path = "example_video/bigbang.mp4"
 # sample uniformly 8 frames from the video
-video_tensor = load_video(video_path, num_segments=8, return_msg=False, resolution=224, hd_num=6)
-video_tensor = video_tensor.to(model.device)
+video_tensor = load_video(video_path, num_segments=8, return_msg=True, resolution=224, hd_num=6) # shape = [1,3,8,3,224,224]
+# video_tensor = video_tensor.to(model.device)
 
-chat_history = []
-response, chat_history = model.chat(tokenizer, '', 'Describe the video.', media_type='video', media_tensor=video_tensor, chat_history= chat_history, return_history=True,generation_config={'do_sample':False})
-print(response)
+# chat_history = []
+# response, chat_history = model.chat(tokenizer, '', 'Describe the video.', media_type='video', media_tensor=video_tensor, chat_history= chat_history, return_history=True,generation_config={'do_sample':False})
+# print(response)
 
-response, chat_history = model.chat(tokenizer, '', 'How many people are there in this video?', media_type='video', media_tensor=video_tensor, chat_history= chat_history, return_history=True,generation_config={'do_sample':False})
-print(response)
+# response, chat_history = model.chat(tokenizer, '', 'How many people are there in this video?', media_type='video', media_tensor=video_tensor, chat_history= chat_history, return_history=True,generation_config={'do_sample':False})
+# print(response)

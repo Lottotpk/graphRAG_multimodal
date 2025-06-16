@@ -18,6 +18,7 @@ from llama_index.core.llms import ChatMessage, ImageBlock
 from google.genai.errors import ClientError, ServerError
 from colbert import Searcher
 from io import BytesIO
+from qdrant_client import QdrantClient
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from utils.dataloader import bench_data_loader 
@@ -32,7 +33,10 @@ def eval_model(args):
         os.mkdir('./tmp')
 
     # Vector database init
-    vectordb = VectorDB('../database')
+    # vectordb = VectorDB('../database')
+    print('vector db init')
+    client = QdrantClient(path='../qdrant_db')
+    print('init successful')
 
     # Output file
     ans_file = open(args.answers_file, "a")
@@ -45,7 +49,7 @@ def eval_model(args):
     count = 0
     for item in bench_data_loader(args, image_placeholder="<image>"):
         count += 1
-        if count < 1000:
+        if count < 1003:
             continue
         # qs = item['question']
         # qs_img = item['image_files']
@@ -60,10 +64,16 @@ def eval_model(args):
             # Retrieve with our vector database
             if args.self_rag:
                 item['image_files'][0].save('./tmp/img.png', format='PNG')
-                _, retrieved_path = vectordb.get_topk_similar(image_embedding('./tmp/img.png'), 6)
+                retrieved_path = client.query_points(
+                    collection_name='MRAG-image',
+                    query=image_embedding('./tmp/img.png').tolist(),
+                    with_payload=True,
+                    limit=6,
+                ).points
+                # _, retrieved_path = vectordb.get_topk_similar(image_embedding('./tmp/img.png'), 6)
                 for ipath in retrieved_path[1:]:
                     img_byte = BytesIO()
-                    img = Image.open(f'../{ipath}').convert('RGB')
+                    img = Image.open(f'../{ipath.payload['path']}').convert('RGB')
                     img.save(img_byte, format='PNG')
                     msg.blocks.append(ImageBlock(image=img_byte.getvalue()))
                 os.remove('./tmp/img.png')

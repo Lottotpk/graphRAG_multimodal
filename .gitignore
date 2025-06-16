@@ -6,3 +6,4 @@ qdrant_gemini_3
 image_corpus
 plaidrepro/colbert/downloads
 database
+qdrant_db

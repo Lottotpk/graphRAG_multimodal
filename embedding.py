@@ -3,6 +3,7 @@ import torch
 from transformers import CLIPProcessor, CLIPModel
 from PIL import Image
 from vectordb import VectorDB
+from qdrant_client import QdrantClient, models
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32").to(device)
@@ -22,18 +23,46 @@ def image_embedding(file_path: str) -> torch.Tensor:
     return torch.nn.functional.normalize(visual_proj, dim=-1)
 
 
-def store_db(dataset_path: str) -> None:
-    vectordb = VectorDB()
+def store_db(dataset_path: str = os.getenv("COLLECTION_PATH")) -> None:
     count = 0
-
+    points = []
     for filename in os.listdir(dataset_path):
-        file_path = os.path.join(dataset_path, filename)
-        vectordb.add_vector(file_path, image_embedding(file_path), None)
         count += 1
+        file_path = os.path.join(dataset_path, filename)
+        points.append(models.PointStruct(id=count,
+                                         vector=image_embedding(file_path),
+                                         payload={"path": file_path}))
         if count % 1000 == 0:
             print(f"Done embedding {count} images.")
     
-    vectordb.save_to_json()
+    client = QdrantClient(path="qdrant_db")
+    client.create_collection(
+        "MRAG-image",
+        vectors_config=models.VectorParams(
+            size=512,
+            distance=models.Distance.COSINE,
+            datatype=models.Datatype.FLOAT16,
+            multivector_config=models.MultiVectorConfig(
+                comparator=models.MultiVectorComparator.MAX_SIM
+            ),
+            on_disk=True,   
+        ),
+        optimizers_config=models.OptimizersConfigDiff(
+            max_segment_size=5_000_000,
+        ),
+        hnsw_config=models.HnswConfigDiff(
+            m=6,
+            on_disk=False,
+        ),
+    )
+
+    op_info = client.upsert(
+        collection_name="MRAG-image",
+        wait=True,
+        points=points,
+    )
+    print(op_info)
+
 
 
 def text_embedding(text: str) -> torch.Tensor:
