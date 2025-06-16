@@ -73,7 +73,7 @@ def eval_model(args):
                 # _, retrieved_path = vectordb.get_topk_similar(image_embedding('./tmp/img.png'), 6)
                 for ipath in retrieved_path[1:]:
                     img_byte = BytesIO()
-                    img = Image.open(f'../{ipath.payload['path']}').convert('RGB')
+                    img = Image.open(f"../{ipath.payload['path']}").convert('RGB')
                     img.save(img_byte, format='PNG')
                     msg.blocks.append(ImageBlock(image=img_byte.getvalue()))
                 os.remove('./tmp/img.png')
