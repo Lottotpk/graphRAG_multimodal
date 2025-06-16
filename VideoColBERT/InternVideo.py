@@ -33,6 +33,8 @@ from torchvision import transforms
 from torchvision.transforms.functional import InterpolationMode
 decord.bridge.set_bridge("torch")
 
+from qdrant_client import QdrantClient, models
+
 def get_index(num_frames, num_segments):
     seg_size = float(num_frames - 1) / num_segments
     start = int(seg_size / 2)
@@ -177,6 +179,53 @@ def HD_transform_no_padding(frames, image_size=224, hd_num=6, fix_ratio=(2,1)):
         mode='bicubic', align_corners=False
     )
     return resized_frame
+
+
+def video_embedding(video_path):
+    video_tensor = load_video(video_path, num_segments=8, return_msg=True, resolution=224, hd_num=6)
+    video_tensor = video_tensor.to(model.device)
+    outputs = model(video_tensor, output_hidden_states=False, return_dict=True)    
+    return outputs.pooler_output
+
+
+def create_vectordb(video_dir):
+    count = 0
+    points = []
+    for filename in os.listdir(video_dir):
+        count += 1
+        file_path = os.path.join(video_dir, filename)
+        points.append(models.PointStruct(id=count,
+                                         vector=video_embedding(file_path),
+                                         payload={"path": file_path}))
+
+    client = QdrantClient(path="qdrant_db")
+    client.create_collection(
+        "RAG-video",
+        vectors_config=models.VectorParams(
+            size=512,
+            distance=models.Distance.COSINE,
+            datatype=models.Datatype.FLOAT16,
+            multivector_config=models.MultiVectorConfig(
+                comparator=models.MultiVectorComparator.MAX_SIM
+            ),
+            on_disk=True,   
+        ),
+        optimizers_config=models.OptimizersConfigDiff(
+            max_segment_size=5_000_000,
+        ),
+        hnsw_config=models.HnswConfigDiff(
+            m=6,
+            on_disk=False,
+        ),
+    )
+
+    op_info = client.upsert(
+        collection_name="RAG-video",
+        wait=True,
+        points=points,
+    )
+    print(op_info)
+
 
 video_path = "example_video/bigbang.mp4"
 # sample uniformly 8 frames from the video
