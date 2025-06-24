@@ -7,3 +7,5 @@ image_corpus
 plaidrepro/colbert/downloads
 database
 qdrant_db
+setupCSE.sh
+submit.sh

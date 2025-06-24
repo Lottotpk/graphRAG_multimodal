@@ -1,191 +1,146 @@
-import os
-token = os.getenv('HF_TOKEN')
+# need transformers==4.40.1
+import numpy as np
 import torch
-
-# from transformers import AutoTokenizer, AutoModel
-
-# tokenizer =  AutoTokenizer.from_pretrained('OpenGVLab/InternVideo2_chat_8B_HD',
-#     trust_remote_code=True,
-#     use_fast=False,
-#     token=token)
-# if torch.cuda.is_available():
-#   model = AutoModel.from_pretrained(
-#       'OpenGVLab/InternVideo2_chat_8B_HD',
-#       torch_dtype=torch.bfloat16,
-#       trust_remote_code=True).cuda()
-# else:
-#   model = AutoModel.from_pretrained(
-#       'OpenGVLab/InternVideo2_chat_8B_HD',
-#       torch_dtype=torch.bfloat16,
-#       trust_remote_code=True)
-
-
+import torchvision.transforms as T
 from decord import VideoReader, cpu
 from PIL import Image
-import numpy as np
-import numpy as np
-import decord
-from decord import VideoReader, cpu
-import torch.nn.functional as F
-import torchvision.transforms as T
-from torchvision.transforms import PILToTensor
-from torchvision import transforms
 from torchvision.transforms.functional import InterpolationMode
-decord.bridge.set_bridge("torch")
+from transformers import AutoModel, AutoTokenizer
 
+import os
 from qdrant_client import QdrantClient, models
 
-def get_index(num_frames, num_segments):
-    seg_size = float(num_frames - 1) / num_segments
-    start = int(seg_size / 2)
-    offsets = np.array([
-        start + int(np.round(seg_size * idx)) for idx in range(num_segments)
-    ])
-    return offsets
+# model setting
+model_path = 'OpenGVLab/InternVideo2_5_Chat_8B'
 
+tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+model = AutoModel.from_pretrained(model_path, trust_remote_code=True).half().cuda().to(torch.bfloat16)
 
-def load_video(video_path, num_segments=8, return_msg=False, resolution=224, hd_num=4, padding=False):
-    vr = VideoReader(video_path, ctx=cpu(0), num_threads=1)
-    num_frames = len(vr)
-    frame_indices = get_index(num_frames, num_segments)
+IMAGENET_MEAN = (0.485, 0.456, 0.406)
+IMAGENET_STD = (0.229, 0.224, 0.225)
 
-    mean = (0.485, 0.456, 0.406)
-    std = (0.229, 0.224, 0.225)
+def build_transform(input_size):
+    MEAN, STD = IMAGENET_MEAN, IMAGENET_STD
+    transform = T.Compose([T.Lambda(lambda img: img.convert("RGB") if img.mode != "RGB" else img), T.Resize((input_size, input_size), interpolation=InterpolationMode.BICUBIC), T.ToTensor(), T.Normalize(mean=MEAN, std=STD)])
+    return transform
 
-    transform = transforms.Compose([
-        transforms.Lambda(lambda x: x.float().div(255.0)),
-        transforms.Normalize(mean, std)
-    ])
-
-    frames = vr.get_batch(frame_indices)
-    frames = frames.permute(0, 3, 1, 2)
-
-    if padding:
-        frames = HD_transform_padding(frames.float(), image_size=resolution, hd_num=hd_num)
-    else:
-        frames = HD_transform_no_padding(frames.float(), image_size=resolution, hd_num=hd_num)
-
-    frames = transform(frames)
-    # print(frames.shape)
-    T_, C, H, W = frames.shape
-
-    sub_img = frames.reshape(
-        1, T_, 3, H//resolution, resolution, W//resolution, resolution
-    ).permute(0, 3, 5, 1, 2, 4, 6).reshape(-1, T_, 3, resolution, resolution).contiguous()
-
-    glb_img = F.interpolate(
-        frames.float(), size=(resolution, resolution), mode='bicubic', align_corners=False
-    ).to(sub_img.dtype).unsqueeze(0)
-
-    frames = torch.cat([sub_img, glb_img]).unsqueeze(0)
-
-    if return_msg:
-        fps = float(vr.get_avg_fps())
-        sec = ", ".join([str(round(f / fps, 1)) for f in frame_indices])
-        # " " should be added in the start and end
-        msg = f"The video contains {len(frame_indices)} frames sampled at {sec} seconds."
-        return frames, msg
-    else:
-        return frames
-
-def HD_transform_padding(frames, image_size=224, hd_num=6):
-    def _padding_224(frames):
-        _, _, H, W = frames.shape
-        tar = int(np.ceil(H / 224) * 224)
-        top_padding = (tar - H) // 2
-        bottom_padding = tar - H - top_padding
-        left_padding = 0
-        right_padding = 0
-
-        padded_frames = F.pad(
-            frames,
-            pad=[left_padding, right_padding, top_padding, bottom_padding],
-            mode='constant', value=255
-        )
-        return padded_frames
-
-    _, _, H, W = frames.shape
-    trans = False
-    if W < H:
-        frames = frames.flip(-2, -1)
-        trans = True
-        width, height = H, W
-    else:
-        width, height = W, H
-
-    ratio = width / height
-    scale = 1
-    while scale * np.ceil(scale / ratio) <= hd_num:
-        scale += 1
-    scale -= 1
-    new_w = int(scale * image_size)
-    new_h = int(new_w / ratio)
-
-    resized_frames = F.interpolate(
-        frames, size=(new_h, new_w),
-        mode='bicubic',
-        align_corners=False
-    )
-    padded_frames = _padding_224(resized_frames)
-
-    if trans:
-        padded_frames = padded_frames.flip(-2, -1)
-
-    return padded_frames
 
 def find_closest_aspect_ratio(aspect_ratio, target_ratios, width, height, image_size):
-        best_ratio_diff = float('inf')
-        best_ratio = (1, 1)
-        area = width * height
-        for ratio in target_ratios:
-            target_aspect_ratio = ratio[0] / ratio[1]
-            ratio_diff = abs(aspect_ratio - target_aspect_ratio)
-            if ratio_diff < best_ratio_diff:
-                best_ratio_diff = ratio_diff
+    best_ratio_diff = float("inf")
+    best_ratio = (1, 1)
+    area = width * height
+    for ratio in target_ratios:
+        target_aspect_ratio = ratio[0] / ratio[1]
+        ratio_diff = abs(aspect_ratio - target_aspect_ratio)
+        if ratio_diff < best_ratio_diff:
+            best_ratio_diff = ratio_diff
+            best_ratio = ratio
+        elif ratio_diff == best_ratio_diff:
+            if area > 0.5 * image_size * image_size * ratio[0] * ratio[1]:
                 best_ratio = ratio
-            elif ratio_diff == best_ratio_diff:
-                if area > 0.5 * image_size * image_size * ratio[0] * ratio[1]:
-                    best_ratio = ratio
-        return best_ratio
+    return best_ratio
 
 
-def HD_transform_no_padding(frames, image_size=224, hd_num=6, fix_ratio=(2,1)):
-    min_num = 1
-    max_num = hd_num
-    _, _, orig_height, orig_width = frames.shape
+def dynamic_preprocess(image, min_num=1, max_num=6, image_size=448, use_thumbnail=False):
+    orig_width, orig_height = image.size
     aspect_ratio = orig_width / orig_height
 
-    # calculate the existing video aspect ratio
-    target_ratios = set(
-        (i, j) for n in range(min_num, max_num + 1) for i in range(1, n + 1) for j in range(1, n + 1) if
-        i * j <= max_num and i * j >= min_num)
+    # calculate the existing image aspect ratio
+    target_ratios = set((i, j) for n in range(min_num, max_num + 1) for i in range(1, n + 1) for j in range(1, n + 1) if i * j <= max_num and i * j >= min_num)
     target_ratios = sorted(target_ratios, key=lambda x: x[0] * x[1])
 
     # find the closest aspect ratio to the target
-    if fix_ratio:
-        target_aspect_ratio = fix_ratio
-    else:
-        target_aspect_ratio = find_closest_aspect_ratio(
-            aspect_ratio, target_ratios, orig_width, orig_height, image_size)
+    target_aspect_ratio = find_closest_aspect_ratio(aspect_ratio, target_ratios, orig_width, orig_height, image_size)
 
     # calculate the target width and height
     target_width = image_size * target_aspect_ratio[0]
     target_height = image_size * target_aspect_ratio[1]
     blocks = target_aspect_ratio[0] * target_aspect_ratio[1]
 
-    # resize the frames
-    resized_frame = F.interpolate(
-        frames, size=(target_height, target_width),
-        mode='bicubic', align_corners=False
-    )
-    return resized_frame
+    # resize the image
+    resized_img = image.resize((target_width, target_height))
+    processed_images = []
+    for i in range(blocks):
+        box = ((i % (target_width // image_size)) * image_size, (i // (target_width // image_size)) * image_size, ((i % (target_width // image_size)) + 1) * image_size, ((i // (target_width // image_size)) + 1) * image_size)
+        # split the image
+        split_img = resized_img.crop(box)
+        processed_images.append(split_img)
+    assert len(processed_images) == blocks
+    if use_thumbnail and len(processed_images) != 1:
+        thumbnail_img = image.resize((image_size, image_size))
+        processed_images.append(thumbnail_img)
+    return processed_images
+
+
+def load_image(image, input_size=448, max_num=6):
+    transform = build_transform(input_size=input_size)
+    images = dynamic_preprocess(image, image_size=input_size, use_thumbnail=True, max_num=max_num)
+    pixel_values = [transform(image) for image in images]
+    pixel_values = torch.stack(pixel_values)
+    return pixel_values
+
+
+def get_index(bound, fps, max_frame, first_idx=0, num_segments=32):
+    if bound:
+        start, end = bound[0], bound[1]
+    else:
+        start, end = -100000, 100000
+    start_idx = max(first_idx, round(start * fps))
+    end_idx = min(round(end * fps), max_frame)
+    seg_size = float(end_idx - start_idx) / num_segments
+    frame_indices = np.array([int(start_idx + (seg_size / 2) + np.round(seg_size * idx)) for idx in range(num_segments)])
+    return frame_indices
+
+def get_num_frames_by_duration(duration):
+        local_num_frames = 4        
+        num_segments = int(duration // local_num_frames)
+        if num_segments == 0:
+            num_frames = local_num_frames
+        else:
+            num_frames = local_num_frames * num_segments
+        
+        num_frames = min(512, num_frames)
+        num_frames = max(128, num_frames)
+
+        return num_frames
+
+def load_video(video_path, bound=None, input_size=448, max_num=1, num_segments=32, get_frame_by_duration = False):
+    vr = VideoReader(video_path, ctx=cpu(0), num_threads=1)
+    max_frame = len(vr) - 1
+    fps = float(vr.get_avg_fps())
+
+    pixel_values_list, num_patches_list = [], []
+    transform = build_transform(input_size=input_size)
+    if get_frame_by_duration:
+        duration = max_frame / fps
+        num_segments = get_num_frames_by_duration(duration)
+    frame_indices = get_index(bound, fps, max_frame, first_idx=0, num_segments=num_segments)
+    for frame_index in frame_indices:
+        img = Image.fromarray(vr[frame_index].asnumpy()).convert("RGB")
+        img = dynamic_preprocess(img, image_size=input_size, use_thumbnail=True, max_num=max_num)
+        pixel_values = [transform(tile) for tile in img]
+        pixel_values = torch.stack(pixel_values)
+        num_patches_list.append(pixel_values.shape[0])
+        pixel_values_list.append(pixel_values)
+    pixel_values = torch.cat(pixel_values_list)
+    return pixel_values, num_patches_list
 
 
 def video_embedding(video_path):
-    video_tensor = load_video(video_path, num_segments=8, return_msg=True, resolution=224, hd_num=6)
-    video_tensor = video_tensor.to(model.device)
-    outputs = model(video_tensor, output_hidden_states=False, return_dict=True)    
-    return outputs.pooler_output
+    # evaluation setting
+    max_num_frames = 512
+    generation_config = dict(
+        do_sample=False,
+        temperature=0.0,
+        max_new_tokens=1024,
+        top_p=0.1,
+        num_beams=1
+    )
+    pixel_values, num_patches_list = load_video(video_path, num_segments=128)
+    pixel_values = pixel_values.to(torch.bfloat16).to(model.device)
+    with torch.no_grad():
+        outputs = model.vision_model(pixel_values)  
+        return outputs.pooler_output
 
 
 def create_vectordb(video_dir):
@@ -197,12 +152,13 @@ def create_vectordb(video_dir):
         points.append(models.PointStruct(id=count,
                                          vector=video_embedding(file_path),
                                          payload={"path": file_path}))
+        print(f"Done {count} video(s).")
 
     client = QdrantClient(path="qdrant_db")
     client.create_collection(
         "RAG-video",
         vectors_config=models.VectorParams(
-            size=512,
+            size=1024,
             distance=models.Distance.COSINE,
             datatype=models.Datatype.FLOAT16,
             multivector_config=models.MultiVectorConfig(
@@ -227,14 +183,26 @@ def create_vectordb(video_dir):
     print(op_info)
 
 
-video_path = "example_video/bigbang.mp4"
-# sample uniformly 8 frames from the video
-video_tensor = load_video(video_path, num_segments=8, return_msg=True, resolution=224, hd_num=6) # shape = [1,3,8,3,224,224]
-# video_tensor = video_tensor.to(model.device)
+if __name__ == "__main__":
+    # video_path = "example_video/bigbang.mp4"
+    # embedded = video_embedding(video_path)
+    # print(embedded)
+    # print(embedded.shape)
+    create_vectordb("example_video/")
 
-# chat_history = []
-# response, chat_history = model.chat(tokenizer, '', 'Describe the video.', media_type='video', media_tensor=video_tensor, chat_history= chat_history, return_history=True,generation_config={'do_sample':False})
-# print(response)
+    # with torch.no_grad():
 
-# response, chat_history = model.chat(tokenizer, '', 'How many people are there in this video?', media_type='video', media_tensor=video_tensor, chat_history= chat_history, return_history=True,generation_config={'do_sample':False})
-# print(response)
+    #     pixel_values, num_patches_list = load_video(video_path, num_segments=num_segments, max_num=1, get_frame_by_duration=False)
+    #     pixel_values = pixel_values.to(torch.bfloat16).to(model.device)
+    #     video_prefix = "".join([f"Frame{i+1}: <image>\n" for i in range(len(num_patches_list))])
+    #     # single-turn conversation
+    #     question1 = "Describe this video in detail."
+    #     question = video_prefix + question1
+    #     output1, chat_history = model.chat(tokenizer, pixel_values, question, generation_config, num_patches_list=num_patches_list, history=None, return_history=True)
+    #     print(output1)
+
+    #     # multi-turn conversation
+    #     question2 = "How many people appear in the video?"
+    #     output2, chat_history = model.chat(tokenizer, pixel_values, question, generation_config, num_patches_list=num_patches_list, history=chat_history, return_history=True)
+
+    #     print(output2)
