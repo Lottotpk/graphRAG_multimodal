@@ -1,4 +1,4 @@
-# need transformers==4.40.1
+# pip install transformers==4.40.1
 import numpy as np
 import torch
 import torchvision.transforms as T
@@ -6,9 +6,7 @@ from decord import VideoReader, cpu
 from PIL import Image
 from torchvision.transforms.functional import InterpolationMode
 from transformers import AutoModel, AutoTokenizer
-
-import os
-from qdrant_client import QdrantClient, models
+from utils import create_vectordb
 
 # model setting
 model_path = 'OpenGVLab/InternVideo2_5_Chat_8B'
@@ -128,14 +126,14 @@ def load_video(video_path, bound=None, input_size=448, max_num=1, num_segments=3
 
 def video_embedding(video_path):
     # evaluation setting
-    max_num_frames = 512
-    generation_config = dict(
-        do_sample=False,
-        temperature=0.0,
-        max_new_tokens=1024,
-        top_p=0.1,
-        num_beams=1
-    )
+    # max_num_frames = 512
+    # generation_config = dict(
+    #     do_sample=False,
+    #     temperature=0.0,
+    #     max_new_tokens=1024,
+    #     top_p=0.1,
+    #     num_beams=1
+    # )
     pixel_values, num_patches_list = load_video(video_path, num_segments=128)
     pixel_values = pixel_values.to(torch.bfloat16).to(model.device)
     with torch.no_grad():
@@ -143,52 +141,16 @@ def video_embedding(video_path):
         return outputs.pooler_output
 
 
-def create_vectordb(video_dir):
-    count = 0
-    points = []
-    for filename in os.listdir(video_dir):
-        count += 1
-        file_path = os.path.join(video_dir, filename)
-        points.append(models.PointStruct(id=count,
-                                         vector=video_embedding(file_path),
-                                         payload={"path": file_path}))
-        print(f"Done {count} video(s).")
-
-    client = QdrantClient(path="qdrant_db")
-    client.create_collection(
-        "RAG-video",
-        vectors_config=models.VectorParams(
-            size=1024,
-            distance=models.Distance.COSINE,
-            datatype=models.Datatype.FLOAT16,
-            multivector_config=models.MultiVectorConfig(
-                comparator=models.MultiVectorComparator.MAX_SIM
-            ),
-            on_disk=True,   
-        ),
-        optimizers_config=models.OptimizersConfigDiff(
-            max_segment_size=5_000_000,
-        ),
-        hnsw_config=models.HnswConfigDiff(
-            m=6,
-            on_disk=False,
-        ),
-    )
-
-    op_info = client.upsert(
-        collection_name="RAG-video",
-        wait=True,
-        points=points,
-    )
-    print(op_info)
-
-
 if __name__ == "__main__":
     # video_path = "example_video/bigbang.mp4"
     # embedded = video_embedding(video_path)
     # print(embedded)
     # print(embedded.shape)
-    create_vectordb("example_video/")
+    create_vectordb("example_video/",
+                    video_embedding,
+                    "/uac/y22/tpipatpajong2/qdrant_db",
+                    "InternVideo",
+                    1024)
 
     # with torch.no_grad():
 

@@ -1,20 +1,23 @@
-# need transformers==4.46.2
+# pip install transformers==4.46.2
 import av
 import torch
 import torch.nn.functional as F
 import numpy as np
 from huggingface_hub import hf_hub_download
-from transformers import LlavaNextVideoProcessor, LlavaNextVideoForConditionalGeneration, BitsAndBytesConfig, AutoTokenizer, AutoModel
+from transformers import LlavaNextVideoProcessor, LlavaNextVideoForConditionalGeneration, BitsAndBytesConfig, AutoModel
+from utils import create_vectordb
 
 model_id = "llava-hf/LLaVA-NeXT-Video-7B-hf"
 
-model = LlavaNextVideoForConditionalGeneration.from_pretrained(
+model_llava = LlavaNextVideoForConditionalGeneration.from_pretrained(
     model_id, 
     torch_dtype=torch.float16, 
     low_cpu_mem_usage=True,
     quantization_config=BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.bfloat16),
     attn_implementation="flash_attention_2",
 )
+
+model_nv = AutoModel.from_pretrained('nvidia/NV-Embed-v2', trust_remote_code=True)
 
 processor = LlavaNextVideoProcessor.from_pretrained(model_id)
 
@@ -39,60 +42,43 @@ def read_video_pyav(container, indices):
     return np.stack([x.to_ndarray(format="rgb24") for x in frames])
 
 
-# define a chat history and use `apply_chat_template` to get correctly formatted prompt
-# Each value in "content" has to be a list of dicts with types ("text", "image", "video") 
-messages = [
-    {
+def video_embedding(video_path):
+    # define a chat history and use `apply_chat_template` to get correctly formatted prompt
+    # Each value in "content" has to be a list of dicts with types ("text", "image", "video") 
+    messages = [
+        {
 
-        "role": "user",
-        "content": [
-            {"type": "text", "text": "What is this video about?"},
-            {"type": "video"},
-            ],
-    },
-]
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "What is this video about?"},
+                {"type": "video"},
+                ],
+        },
+    ]
 
-prompt = processor.apply_chat_template(messages, add_generation_prompt=True)
+    prompt = processor.apply_chat_template(messages, add_generation_prompt=True)
+    container = av.open(video_path)
 
-video_path = "example_video/seafood_1280p.mp4"
-container = av.open(video_path)
+    # sample uniformly 8 frames from the video, can sample more for longer videos
+    total_frames = container.streams.video[0].frames
+    indices = np.arange(0, total_frames, total_frames / 16).astype(int)
+    clip = read_video_pyav(container, indices)
+    inputs = processor(text=prompt, videos=clip, padding=True, return_tensors="pt").to(model_llava.device)
 
-# sample uniformly 8 frames from the video, can sample more for longer videos
-total_frames = container.streams.video[0].frames
-indices = np.arange(0, total_frames, total_frames / 16).astype(int)
-clip = read_video_pyav(container, indices)
-inputs = processor(text=prompt, videos=clip, padding=True, return_tensors="pt").to(model.device)
+    input_len = inputs['input_ids'].shape[-1]
+    output = model_llava.generate(**inputs, max_new_tokens=100, do_sample=False)
+    prompt_output = processor.decode(output[0][input_len:], skip_special_tokens=True)
+    # print(prompt_output)
 
-input_len = inputs['input_ids'].shape[-1]
-output = model.generate(**inputs, max_new_tokens=100, do_sample=False)
-prompt_output = processor.decode(output[0][input_len:], skip_special_tokens=True)
-print(prompt_output)
+    embeddings = model_nv.encode([prompt_output], instruction="", max_length=32768)
+    embeddings = F.normalize(embeddings, p=2, dim=1)
+
+    return embeddings
 
 
-# import sys
-# import os
-# sys.path.append(os.path.join(os.path.dirname(__file__), "../ullme"))
-# from ullme.model.ullme import ULLME
-
-# model = ULLME(
-#     encoder_name_or_path="mistralai/Mistral-7B-v0.1",
-#     encoder_backbone_type="mistral",
-#     encoder_lora_name="ullme-mistral",
-#     loar_r=16,
-#     lora_alpha=32,
-# ).to('cuda:0')
-# model_inputs = model.encoder_tokenizer(
-#     [prompt_output], 
-#     return_tensors='pt'
-# ).to('cuda:0')
-# embeddings = model(
-#     input_ids=model_inputs['input_ids'],
-#     attention_mask=model_inputs['attention_mask'],
-# )
-
-model = AutoModel.from_pretrained('nvidia/NV-Embed-v2', trust_remote_code=True)
-embeddings = model.encode([prompt_output], instruction="", max_length=32768)
-embeddings = F.normalize(embeddings, p=2, dim=1)
-
-print(embeddings)
-print(embeddings.shape)
+if __name__ == "__main__":
+    create_vectordb("example_video/",
+                    video_embedding,
+                    "/uac/y22/tpipatpajong2/qdrant_db",
+                    "LVLM",
+                    4096)
