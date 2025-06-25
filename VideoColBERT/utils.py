@@ -3,11 +3,13 @@ from typing import Callable
 import os
 import torch
 
+persistent_path = "/uac/y22/tpipatpajong2/qdrant_db"
+client = QdrantClient(path=persistent_path)
+
 def create_vectordb(video_dir: str, 
-                    embed_func: Callable[[str], torch.Tensor], 
-                    persistent_path: str, 
+                    embed_func: Callable[[str], torch.Tensor],
                     collection_name: str,
-                    ndim: int):
+                    ndim: int) -> None:
     count = 0
     points = []
     for filename in os.listdir(video_dir):
@@ -18,7 +20,6 @@ def create_vectordb(video_dir: str,
                                          payload={"path": file_path}))
         print(f"Done {count} video(s).")
 
-    client = QdrantClient(path=persistent_path)
     if not client.collection_exists(collection_name=collection_name):
         client.create_collection(
             collection_name,
@@ -46,3 +47,16 @@ def create_vectordb(video_dir: str,
         points=points,
     )
     print(op_info)
+
+
+def retrieval(query_vector: torch.Tensor, collection_name: str, top_k: int, report: bool = False):
+    retrieved = client.query_points(
+        collection_name=collection_name,
+        query=query_vector.float().cpu().numpy(),
+        limit=top_k,
+        with_payload=True,
+    ).points
+    if report:
+        for item in retrieved:
+            print(f"From the query, {item.payload['path']} is retrieved")
+    return retrieved

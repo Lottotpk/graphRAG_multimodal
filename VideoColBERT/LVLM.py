@@ -5,7 +5,7 @@ import torch.nn.functional as F
 import numpy as np
 from huggingface_hub import hf_hub_download
 from transformers import LlavaNextVideoProcessor, LlavaNextVideoForConditionalGeneration, BitsAndBytesConfig, AutoModel
-from utils import create_vectordb
+from utils import create_vectordb, retrieval
 
 model_id = "llava-hf/LLaVA-NeXT-Video-7B-hf"
 
@@ -42,15 +42,19 @@ def read_video_pyav(container, indices):
     return np.stack([x.to_ndarray(format="rgb24") for x in frames])
 
 
-def video_embedding(video_path):
-    # define a chat history and use `apply_chat_template` to get correctly formatted prompt
-    # Each value in "content" has to be a list of dicts with types ("text", "image", "video") 
+def text_embedding(text: str):
+    embeddings = model_nv.encode([text], instruction="", max_length=32768)
+    embeddings = F.normalize(embeddings, p=2, dim=1)
+    return embeddings
+
+
+def chat_llm(query: str, video_path: str):
     messages = [
         {
 
             "role": "user",
             "content": [
-                {"type": "text", "text": "What is this video about?"},
+                {"type": "text", "text": query},
                 {"type": "video"},
                 ],
         },
@@ -59,7 +63,7 @@ def video_embedding(video_path):
     prompt = processor.apply_chat_template(messages, add_generation_prompt=True)
     container = av.open(video_path)
 
-    # sample uniformly 8 frames from the video, can sample more for longer videos
+    # sample uniformly 16 frames from the video, can sample more for longer videos
     total_frames = container.streams.video[0].frames
     indices = np.arange(0, total_frames, total_frames / 16).astype(int)
     clip = read_video_pyav(container, indices)
@@ -68,17 +72,20 @@ def video_embedding(video_path):
     input_len = inputs['input_ids'].shape[-1]
     output = model_llava.generate(**inputs, max_new_tokens=100, do_sample=False)
     prompt_output = processor.decode(output[0][input_len:], skip_special_tokens=True)
-    # print(prompt_output)
+    print(prompt_output)
+    return prompt_output
 
-    embeddings = model_nv.encode([prompt_output], instruction="", max_length=32768)
-    embeddings = F.normalize(embeddings, p=2, dim=1)
 
-    return embeddings
+def video_embedding(video_path: str):
+    return text_embedding(chat_llm("What is this video about?", video_path))
+
+
+def query(msg: str):
+    text_vector = text_embedding(msg)
+    retrieved = retrieval(text_vector, "LVLM", 1, True)
+    chat_llm(msg, retrieved[0].payload['path'])
 
 
 if __name__ == "__main__":
-    create_vectordb("example_video/",
-                    video_embedding,
-                    "/uac/y22/tpipatpajong2/qdrant_db",
-                    "LVLM",
-                    4096)
+    query("From the video consists of three people, give me the details on what are they doing?")
+    # create_vectordb("example_video/", video_embedding, "LVLM", 4096)

@@ -6,13 +6,14 @@ from decord import VideoReader, cpu
 from PIL import Image
 from torchvision.transforms.functional import InterpolationMode
 from transformers import AutoModel, AutoTokenizer
-from utils import create_vectordb
+from utils import create_vectordb, retrieval
 
 # model setting
 model_path = 'OpenGVLab/InternVideo2_5_Chat_8B'
 
 tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
 model = AutoModel.from_pretrained(model_path, trust_remote_code=True).half().cuda().to(torch.bfloat16)
+model.language_model.config.output_hidden_states = True
 
 IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)
@@ -125,46 +126,59 @@ def load_video(video_path, bound=None, input_size=448, max_num=1, num_segments=3
 
 
 def video_embedding(video_path):
-    # evaluation setting
-    # max_num_frames = 512
-    # generation_config = dict(
-    #     do_sample=False,
-    #     temperature=0.0,
-    #     max_new_tokens=1024,
-    #     top_p=0.1,
-    #     num_beams=1
-    # )
-    pixel_values, num_patches_list = load_video(video_path, num_segments=128)
+    pixel_values, num_patches_list = load_video(video_path, num_segments=64)
     pixel_values = pixel_values.to(torch.bfloat16).to(model.device)
     with torch.no_grad():
-        outputs = model.vision_model(pixel_values)  
+        outputs = model.vision_model(pixel_values)
         return outputs.pooler_output
 
 
+def text_embedding(text: str):
+    with torch.no_grad():
+        inputs = tokenizer(text, return_tensors="pt").to(model.device)
+        outputs =  model.language_model(**inputs)
+        embed = outputs.hidden_states[-1][:, 0, :]
+        text_proj = torch.nn.Linear(4096, 1024, bias=False).to(dtype=torch.bfloat16, device=model.device)
+        return text_proj(embed)
+
+
+def query(msg: str):
+    # Text embedding + Retrieval
+    text_vector = text_embedding(msg)
+    retrieved = retrieval(text_vector, "InternVideo", 1, True)
+
+    # Chat
+    generation_config = dict(
+        do_sample=False,
+        temperature=0.0,
+        max_new_tokens=1024,
+        top_p=0.1,
+        num_beams=1
+    )
+    with torch.no_grad():
+        pixel_values, num_patches_list = load_video(retrieved[0].payload['path'], num_segments=128, max_num=1, get_frame_by_duration=False)
+        pixel_values = pixel_values.to(torch.bfloat16).to(model.device)
+        video_prefix = "".join([f"Frame{i+1}: <image>\n" for i in range(len(num_patches_list))])
+        
+        # single-turn conversation
+        question = video_prefix + msg
+        output1, chat_history = model.chat(tokenizer, pixel_values, question, generation_config, num_patches_list=num_patches_list, history=None, return_history=True)
+        print(output1)
+
+        # multi-turn conversation
+        # question2 = "How many people appear in the video?"
+        # output2, chat_history = model.chat(tokenizer, pixel_values, question, generation_config, num_patches_list=num_patches_list, history=chat_history, return_history=True)
+
+        # print(output2)
+
+
 if __name__ == "__main__":
+    query("Do you know what these 3 people are doing?") # should retrive example_video/bigbang.mp4
     # video_path = "example_video/bigbang.mp4"
     # embedded = video_embedding(video_path)
     # print(embedded)
     # print(embedded.shape)
-    create_vectordb("example_video/",
-                    video_embedding,
-                    "/uac/y22/tpipatpajong2/qdrant_db",
-                    "InternVideo",
-                    1024)
-
-    # with torch.no_grad():
-
-    #     pixel_values, num_patches_list = load_video(video_path, num_segments=num_segments, max_num=1, get_frame_by_duration=False)
-    #     pixel_values = pixel_values.to(torch.bfloat16).to(model.device)
-    #     video_prefix = "".join([f"Frame{i+1}: <image>\n" for i in range(len(num_patches_list))])
-    #     # single-turn conversation
-    #     question1 = "Describe this video in detail."
-    #     question = video_prefix + question1
-    #     output1, chat_history = model.chat(tokenizer, pixel_values, question, generation_config, num_patches_list=num_patches_list, history=None, return_history=True)
-    #     print(output1)
-
-    #     # multi-turn conversation
-    #     question2 = "How many people appear in the video?"
-    #     output2, chat_history = model.chat(tokenizer, pixel_values, question, generation_config, num_patches_list=num_patches_list, history=chat_history, return_history=True)
-
-    #     print(output2)
+    # create_vectordb("example_video/",
+    #                 video_embedding,
+    #                 "InternVideo",
+    #                 1024)
