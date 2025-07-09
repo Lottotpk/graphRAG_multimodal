@@ -3,23 +3,15 @@ from typing import Callable
 import os
 import torch
 
-persistent_path = "/uac/y22/tpipatpajong2/qdrant_db"
+persistent_path = "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/qdrant_db_test/"
 client = QdrantClient(path=persistent_path)
+# client = QdrantClient(":memory:")
 
 def create_vectordb(video_dir: str, 
                     embed_func: Callable[[str], torch.Tensor],
                     collection_name: str,
                     ndim: int) -> None:
-    count = 0
-    points = []
-    for filename in os.listdir(video_dir):
-        count += 1
-        file_path = os.path.join(video_dir, filename)
-        points.append(models.PointStruct(id=count,
-                                         vector=embed_func(file_path),
-                                         payload={"path": file_path}))
-        print(f"Done {count} video(s).")
-
+    print(f"checking collection: {collection_name}")
     if not client.collection_exists(collection_name=collection_name):
         client.create_collection(
             collection_name,
@@ -40,13 +32,24 @@ def create_vectordb(video_dir: str,
                 on_disk=False,
             ),
         )
-
-    op_info = client.upsert(
-        collection_name=collection_name,
-        wait=True,
-        points=points,
-    )
-    print(op_info)
+    print("start embedding")
+    count = 0
+    points = []
+    for filename in os.listdir(video_dir):
+        count += 1
+        # 353 for LVLM
+        # if count <= 2835:
+        #     continue
+        file_path = os.path.join(video_dir, filename)
+        points.append(models.PointStruct(id=count,
+                                         vector=embed_func(file_path),
+                                         payload={"path": file_path}))
+        op_info = client.upsert(
+            collection_name=collection_name,
+            wait=True,
+            points=points,
+        )
+        print(f"Done {count} embeddings.")
 
 
 def retrieval(query_vector: torch.Tensor, collection_name: str, top_k: int, report: bool = False):

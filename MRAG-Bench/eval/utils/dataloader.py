@@ -4,7 +4,7 @@ import math
 import io
 from PIL import Image
 from tqdm.auto import tqdm
-from datasets import load_dataset
+from datasets import load_from_disk
 
 def bench_data_loader(args, image_placeholder="<image>"):
     """ 
@@ -16,10 +16,10 @@ def bench_data_loader(args, image_placeholder="<image>"):
         generator: a generator that yields data (queries, image paths, ...) for each sample
     """
     # Data
-    mrag_bench = load_dataset("uclanlp/MRAG-Bench", split="test")
+    mrag_bench = load_from_disk("dataset/test")
     
     for item in tqdm(mrag_bench):
-        
+
         qs_id = item['id'] 
         qs = item['question']
         ans = item['answer']
@@ -43,9 +43,9 @@ def bench_data_loader(args, image_placeholder="<image>"):
             image_files = [image]
         else: 
             image_files = [image] + gt_images
-            prompt = f"You will be given one question concerning several images. The first image is the input image, others are retrieved examples to help you. Answer with the option's letter from the given choices directly. {image_placeholder}{image_placeholder}{image_placeholder}{image_placeholder}{image_placeholder}{image_placeholder}\n"
+            prompt = f"You will be given one question concerning several images. The first image is the input image, others are retrieved examples to help you. Answer with the option's letter from the given choices directly. {image_placeholder}{image_placeholder}{image_placeholder}{image_placeholder}{image_placeholder}{image_placeholder}{image_placeholder}{image_placeholder}\n"
             if scenario == 'Incomplete':
-                prompt = f"You will be given one question concerning several images. The first image is the input image, others are retrieved examples to help you. Answer with the option's letter from the given choices directly. {image_placeholder}{image_placeholder}\n"
+                prompt = f"You will be given one question concerning several images. The first image is the input image, others are retrieved examples to help you. Answer with the option's letter from the given choices directly. {image_placeholder}{image_placeholder}{image_placeholder}{image_placeholder}\n"
 
         qs += f"\n Choices:\nA: {choices_A}\nB: {choices_B}\nC: {choices_C}\nD: {choices_D}"
         prompt_question_part = qs

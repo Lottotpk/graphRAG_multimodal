@@ -6,6 +6,10 @@ qdrant_gemini_3
 image_corpus
 plaidrepro/colbert/downloads
 database
+qdrant_db_test
 qdrant_db
 setupCSE.sh
 submit.sh
+output*
+dataset
+**/__pycache__
