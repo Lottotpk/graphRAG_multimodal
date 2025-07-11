@@ -12,14 +12,18 @@ from VideoColBERT import utils
 import warnings
 warnings.filterwarnings("ignore")
 
+import logging
+logging.basicConfig(level=logging.INFO, 
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+
 # model setting
 model_path = 'OpenGVLab/InternVideo2_5_Chat_8B'
 
-print("test")
+logging.info(f"Begin to load model {model_path}")
 tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
 model = AutoModel.from_pretrained(model_path, trust_remote_code=True).half().cuda().to(torch.bfloat16)
 model.language_model.config.output_hidden_states = True
-print("Test")
+logging.info(f"Finish loading model {model_path}")
 
 IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)

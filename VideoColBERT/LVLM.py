@@ -8,12 +8,15 @@ from transformers import LlavaNextVideoProcessor, LlavaNextVideoForConditionalGe
 from PIL import Image
 # import utils
 from VideoColBERT import utils
+import logging
+logging.basicConfig(level=logging.INFO, 
+                    format='%(asctime)s - %(levelname)s - %(message)s')
 
 import warnings
 warnings.filterwarnings("ignore")
 
 model_id = "llava-hf/LLaVA-NeXT-Video-7B-hf"
-
+logging.info(f"Begin to load model {model_id}")
 model_llava = LlavaNextVideoForConditionalGeneration.from_pretrained(
     model_id, 
     torch_dtype=torch.float16, 
@@ -21,10 +24,10 @@ model_llava = LlavaNextVideoForConditionalGeneration.from_pretrained(
     quantization_config=BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.bfloat16),
     attn_implementation="flash_attention_2",
 )
-
-print("Loading NV-embed")
+logging.info(f"Finish loading model {model_id}")
+logging.info("Begin to load model nvidia/NV-Embed-v2")
 model_nv = AutoModel.from_pretrained('nvidia/NV-Embed-v2', trust_remote_code=True)
-print("Finished loding NV-embed")
+logging.info("Finish loading model nvidia/NV-Embed-v2")
 
 processor = LlavaNextVideoProcessor.from_pretrained(model_id)
 
