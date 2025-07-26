@@ -20,6 +20,10 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "../../.."))
 from VideoColBERT.LVLM import benchmark_chat, image_embedding
 from VideoColBERT.utils import create_vectordb
 
+import logging
+logging.basicConfig(level=logging.INFO, 
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+
 def eval_model(args):
     # Output file
     ans_file = open(args.answers_file, "a")
@@ -27,12 +31,14 @@ def eval_model(args):
     count = 0
     for item in bench_data_loader(args, image_placeholder="<image>"):
         count += 1
+        # if count <= 1265:
+        #     continue
         # qs = item['question']
         # qs_img = item['image_files']
 
         # Add the image into the query
         outputs = benchmark_chat(item['question'], item['image_files'][0], item['scenario'] == 'Incomplete')
-        print(f"\nAI Answer: {outputs}, Actual Answer: {item['gt_choice']}--{item['answer']}")
+        logging.info(f"\nAI Answer: {outputs}, Actual Answer: {item['gt_choice']}: {item['answer']}")
 
         ans_id = shortuuid.uuid()
         ans_file.write(json.dumps({
@@ -69,5 +75,5 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    create_vectordb("image_corpus/", image_embedding, "LVLM", 4096)
+    # create_vectordb("image_corpus/", image_embedding, "LVLM", 4096)
     eval_model(args)

@@ -32,7 +32,7 @@ def eval_model(args):
 
         # Add the image into the query
         outputs = benchmark_chat(item['question'], item['image_files'][0], item['scenario'] == 'Incomplete')
-        print(f"\nAI Answer: {outputs}, Actual Answer: {item['gt_choice']}--{item['answer']}")
+        print(f"AI Answer: {outputs}, Actual Answer: {item['gt_choice']}: {item['answer']}")
 
         ans_id = shortuuid.uuid()
         ans_file.write(json.dumps({
@@ -69,5 +69,5 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    create_vectordb("image_corpus/", image_embedding, "InternVideo", 1024)
+    # create_vectordb("image_corpus/", image_embedding, "InternVideo", 1024)
     eval_model(args)

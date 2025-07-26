@@ -6,6 +6,7 @@ import logging
 logging.basicConfig(level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
+logging.info("Setting up QdrantClient")
 persistent_path = "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/qdrant_db_test/"
 client = QdrantClient(path=persistent_path)
 # client = QdrantClient(":memory:")
@@ -42,8 +43,6 @@ def create_vectordb(video_dir: str,
     points = []
     for filename in os.listdir(video_dir):
         count += 1
-        if count <= 2860:
-            continue
         file_path = os.path.join(video_dir, filename)
         points.append(models.PointStruct(id=count,
                                          vector=embed_func(file_path),
@@ -62,8 +61,10 @@ def retrieval(query_vector: torch.Tensor, collection_name: str, top_k: int, repo
         query=query_vector.float().cpu().numpy(),
         limit=top_k,
         with_payload=True,
-    ).points
+        # score_threshold=0.8,
+    )
+    # logging.info(retrieved)
     if report:
-        for item in retrieved:
+        for item in retrieved.points:
             logging.info(f"From the query, {item.payload['path']} is retrieved")
-    return retrieved
+    return retrieved.points

@@ -199,9 +199,9 @@ def benchmark_chat(msg: str, image_query, incomplete) -> str:
     img_vector = image_embedding(image_query, True)
     retrieved = None
     if incomplete:
-        retrieved = utils.retrieval(img_vector, "InternVideo", 4, False)
+        retrieved = utils.retrieval(img_vector, "InternVideo", 2, False)
     else:
-        retrieved = utils.retrieval(img_vector, "InternVideo", 8, False)
+        retrieved = utils.retrieval(img_vector, "InternVideo", 6, False)
 
     # Chat
     generation_config = dict(
@@ -215,13 +215,13 @@ def benchmark_chat(msg: str, image_query, incomplete) -> str:
         pixel_values, num_patches_list = [], []
         for i in range(len(retrieved)):
             img = Image.open(retrieved[i].payload['path']).convert("RGB")
-            pv = load_image(img, max_num=1)
+            pv = load_image(img)
             pixel_values.append(pv)
             num_patches_list.append(pv.shape[0])
         pixel_values = torch.cat(pixel_values).to(torch.bfloat16).to(model.device)
         # print(msg)
-        # print(pixel_values.shape)
-        # print(num_patches_list)
+        logging.info(pixel_values.shape)
+        logging.info(num_patches_list)
         
         # single-turn conversation
         question = msg

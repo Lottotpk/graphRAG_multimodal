@@ -18,7 +18,7 @@ if __name__ == "__main__":
             else:
                 data[choice['scenario']][1] += 1
             
-            if choice['output'] == choice['gt_choice']:
+            if choice['output'][0] == choice['gt_choice']:
                 data[choice['scenario']][0] += 1
                 total_correct += 1
     

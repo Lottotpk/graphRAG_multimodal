@@ -88,7 +88,7 @@ def chat_llm_video(query: str, video_path: str):
     return prompt_output
 
 
-def chat_llm_image(query: str, image_path: list[str], opened: bool = False):
+def chat_llm_image(query: str, image_path: list[str], opened: bool = False, resize: bool = True):
     content = [{"type": "text", "text": query}]
     for _ in range(len(image_path)):
         content.append({"type": "image"})
@@ -103,9 +103,10 @@ def chat_llm_image(query: str, image_path: list[str], opened: bool = False):
     image = []
     for ipath in image_path:
         if not opened:
-            image.append(Image.open(ipath).convert("RGB").resize((224, 224)))
-        else:
-            image.append(ipath.resize((224, 224)))
+            ipath = Image.open(ipath).convert("RGB").resize((224, 224))
+        if resize:
+            ipath = ipath.resize((224, 224))
+        image.append(ipath)
     inputs = processor(text=prompt, images=image, padding=True, return_tensors="pt").to(model_llava.device)
     input_len = inputs['input_ids'].shape[-1]
     output = model_llava.generate(**inputs, max_new_tokens=256, do_sample=False)
@@ -118,7 +119,10 @@ def video_embedding(video_path: str):
 
 
 def image_embedding(image_path: str, opened: bool = False):
-    return text_embedding(chat_llm_image("Describe this image.", [image_path], opened))
+    return text_embedding(chat_llm_image("Describe this image as much detail as possible. \
+                                         Pinpoint the components as specific as possible and do not leave any detail behind. \
+                                         Do not give random information if you are not sure about something.", \
+                                         [image_path], opened, False))
 
 
 def query(msg: str):
@@ -135,12 +139,15 @@ def benchmark_chat(msg: str, image_query, incomplete):
     else:
         retrieved = utils.retrieval(img_vector, "LVLM", 3, False)
     retrieved_img = []
+    logging.info(f"Retrieved {len(retrieved)} images (including question image) consists of.")
     for i in range(len(retrieved)):
         retrieved_img.append(retrieved[i].payload['path'])
+        logging.info(f"{i+1}. {retrieved[i].payload['path']}")
     msg = msg.replace("<image>", "")
     return chat_llm_image(msg, retrieved_img)
 
-# if __name__ == "__main__":
+if __name__ == "__main__":
+    benchmark_chat("Describe this.", Image.open("image_corpus/Biological_0_gt_77fa0cfd88f3bb00ed23789a476f0acd---d.jpg").convert("RGB"), False)
     # query("From the video consists of three people, give me the details on what are they doing?")
     # print(image_embedding("image_corpus/Biological_0_gt_77fa0cfd88f3bb00ed23789a476f0acd---d.jpg"))
     # embedded = image_embedding("image_corpus/Biological_1_gt_1.jpg")
