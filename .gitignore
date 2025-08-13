@@ -12,4 +12,10 @@ setupCSE.sh
 submit.sh
 output*
 dataset
-**/__pycache__
+__pycache__/
+LaViC
+LaViC/data
+LaViC/db
+LaViC/src/lightning_logs
+LaViC/src/out_distilled
+LaViC/src/out_finetuned
