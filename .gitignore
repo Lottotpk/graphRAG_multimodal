@@ -13,7 +13,7 @@ submit.sh
 output*
 dataset
 __pycache__/
-LaViC/data
+LaViC/data/item2meta_train.json
 LaViC/db
 LaViC/src/lightning_logs
 LaViC/src/out_distilled
