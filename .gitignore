@@ -13,7 +13,6 @@ submit.sh
 output*
 dataset
 __pycache__/
-LaViC
 LaViC/data
 LaViC/db
 LaViC/src/lightning_logs
