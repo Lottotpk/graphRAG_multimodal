@@ -39,6 +39,7 @@ However, as soon as we set this. There is a data type mismatch (which I believe 
 
 <details>
 <summary>The error</summary>
+
 ```
 [rank0]: Traceback (most recent call last):
 [rank0]:   File "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/LaViC/src/prompt_tuning.py", line 729, in <module>
@@ -89,6 +90,7 @@ llava_model = llava_model.to(torch.bfloat16)
 However, the OOM errors strike again...
 <details>
 <summary>The error</summary>
+    
 ```
 [rank0]: Traceback (most recent call last):
 [rank0]:   File "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/LaViC/src/prompt_tuning.py", line 729, in <module>
