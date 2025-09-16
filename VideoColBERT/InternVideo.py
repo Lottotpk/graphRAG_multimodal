@@ -6,8 +6,8 @@ from decord import VideoReader, cpu
 from PIL import Image
 from torchvision.transforms.functional import InterpolationMode
 from transformers import AutoModel, AutoTokenizer
-# import utils
-from VideoColBERT import utils
+import utils
+# from VideoColBERT import utils
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -237,7 +237,7 @@ if __name__ == "__main__":
     # embedded = image_embedding(image_path)
     # embedded, num_patches_list = load_video("example_video/bigbang.mp4", num_segments=128, max_num=1, get_frame_by_duration=False)
     # print(num_patches_list)
-    img = Image.open("image_corpus/Biological_1_gt_1.jpg").convert("RGB")
+    img = Image.open("../image_corpus/Biological_1_gt_1.jpg").convert("RGB")
     embedded = load_image(img, max_num=1)
     print(embedded.shape)
     # utils.create_vectordb("example_video/", video_embedding, "InternVideo", 1024)

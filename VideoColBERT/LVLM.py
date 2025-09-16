@@ -2,18 +2,26 @@
 import av
 import torch
 import torch.nn.functional as F
+# import torch.distributed as dist
+#from torch.distributed.fsdp import FullyShardedDataParallel as FSDP, ShardingStrategy
+# from torch.nn.parallel import DistributedDataParallel as DDP
 import numpy as np
 from huggingface_hub import hf_hub_download
 from transformers import LlavaNextVideoProcessor, LlavaNextVideoForConditionalGeneration, BitsAndBytesConfig, AutoModel
 from PIL import Image
-# import utils
-from VideoColBERT import utils
+import utils
+# from VideoColBERT import utils
 import logging
 logging.basicConfig(level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 import warnings
 warnings.filterwarnings("ignore")
+
+# dist.init_process_group(backend="nccl")
+# device = dist.get_rank()
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# torch.cuda.set_device(device)
 
 model_id = "llava-hf/LLaVA-NeXT-Video-7B-hf"
 logging.info(f"Begin to load model {model_id}")
@@ -25,8 +33,17 @@ model_llava = LlavaNextVideoForConditionalGeneration.from_pretrained(
     attn_implementation="flash_attention_2",
 )
 logging.info(f"Finish loading model {model_id}")
+logging.info("Begin sending model to multiple GPUs")
+model_llava.to(device)
+# model_llava = DDP(
+#     model_llava,
+#     device_ids=[device],
+# )
+# model_llava.eval()
+logging.info("Finish sending model")
 logging.info("Begin to load model nvidia/NV-Embed-v2")
 model_nv = AutoModel.from_pretrained('nvidia/NV-Embed-v2', trust_remote_code=True)
+# model_nv.to(device)
 logging.info("Finish loading model nvidia/NV-Embed-v2")
 
 processor = LlavaNextVideoProcessor.from_pretrained(model_id)
@@ -78,7 +95,7 @@ def chat_llm_video(query: str, video_path: str):
     total_frames = container.streams.video[0].frames
     indices = np.arange(0, total_frames, total_frames / 16).astype(int)
     clip = read_video_pyav(container, indices)
-    inputs = processor(text=prompt, videos=clip, padding=True, return_tensors="pt").to(model_llava.device)
+    inputs = processor(text=prompt, videos=clip, padding=True, return_tensors="pt").to(device) #.to(model_llava.device)
 
     input_len = inputs['input_ids'].shape[-1]
     output = model_llava.generate(**inputs, max_new_tokens=256, do_sample=False)
@@ -107,7 +124,8 @@ def chat_llm_image(query: str, image_path: list[str], opened: bool = False, resi
         if resize:
             ipath = ipath.resize((224, 224))
         image.append(ipath)
-    inputs = processor(text=prompt, images=image, padding=True, return_tensors="pt").to(model_llava.device)
+    inputs = processor(text=prompt, images=image, padding=True, return_tensors="pt").to(device) #.to(model_llava.device)
+    # logging.info(f"Inputs are sent to {model_llava.device}")
     input_len = inputs['input_ids'].shape[-1]
     output = model_llava.generate(**inputs, max_new_tokens=256, do_sample=False)
     prompt_output = processor.decode(output[0][input_len:], skip_special_tokens=True)
@@ -147,7 +165,7 @@ def benchmark_chat(msg: str, image_query, incomplete):
     return chat_llm_image(msg, retrieved_img)
 
 if __name__ == "__main__":
-    benchmark_chat("Describe this.", Image.open("image_corpus/Biological_0_gt_77fa0cfd88f3bb00ed23789a476f0acd---d.jpg").convert("RGB"), False)
+    # benchmark_chat("Describe this.", Image.open("image_corpus/Biological_0_gt_77fa0cfd88f3bb00ed23789a476f0acd---d.jpg").convert("RGB"), False)
     # query("From the video consists of three people, give me the details on what are they doing?")
     # print(image_embedding("image_corpus/Biological_0_gt_77fa0cfd88f3bb00ed23789a476f0acd---d.jpg"))
     # embedded = image_embedding("image_corpus/Biological_1_gt_1.jpg")
@@ -157,4 +175,5 @@ if __name__ == "__main__":
     #                                                         "image_corpus/Biological_0_gt_409E7C55-DDA5-442E-BEF368457F16CAA7.jpg", \
     #                                                         "image_corpus/Biological_1_gt_1.jpg", \
     #                                                         "image_corpus/Biological_1_input.png"])
-    # create_vectordb("example_video/", video_embedding, "LVLM", 4096)
+    create_vectordb("example_video/", video_embedding, "LVLM", 4096)
+    dist.destroy_process_group()

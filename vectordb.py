@@ -20,9 +20,10 @@ class VectorDB:
         """
         self.vectordb_path = path
         self.vec_data = {} # store the embedded vector
-        # self.vec_metadata = {} # store document id of a chunk
-        # if os.path.exists(os.path.join(path, "vector.pt")) and os.path.exists(os.path.join(path, "metadata.pt")):
-        if os.path.exists(os.path.join(path, "vector.pt")):
+        self.vec_metadata = {} # store document id of a chunk
+        if not os.path.exists(path):
+            os.makedirs(path)
+        elif os.path.exists(os.path.join(path, "vector.pt")) and os.path.exists(os.path.join(path, "metadata.pt")):
             self.load_data()
 
     def load_data(self) -> None:
@@ -37,11 +38,11 @@ class VectorDB:
         None
         """
         data_path = os.path.join(self.vectordb_path, "vector.pt")
-        # metadata_path = os.path.join(self.vectordb_path, "metadata.pt")
+        metadata_path = os.path.join(self.vectordb_path, "metadata.pt")
         self.vec_data = torch.load(data_path)
-        # self.vec_metadata = torch.load(metadata_path)
+        self.vec_metadata = torch.load(metadata_path)
     
-    def add_vector(self, id: str, vector: torch.Tensor, metadata: tuple) -> None:
+    def add_vector(self, id: str, vector: torch.Tensor, metadata: str) -> None:
         """Add the embedded vector into 'vec_data' and 'vec_metadata'.
         
         Parameters
@@ -58,7 +59,7 @@ class VectorDB:
         None
         """
         self.vec_data[id] = vector
-        # self.vec_metadata[id] = metadata
+        self.vec_metadata[id] = metadata
     
     def get_vector(self, id: str) -> torch.Tensor:
         """The helper function to get the vector with corresponding id
@@ -75,20 +76,20 @@ class VectorDB:
         """
         return self.vec_data.get(id)
     
-    # def get_metadata(self, id: str) -> tuple:
-    #     """The helper function to get the metadata with corresponding id
+    def get_metadata(self, id: str) -> str:
+        """The helper function to get the metadata with corresponding id
         
-    #     Parameters
-    #     ----------
-    #     id : str
-    #         The key to access the vector
+        Parameters
+        ----------
+        id : str
+            The key to access the vector
         
-    #     Returns
-    #     -------
-    #     tuple
-    #         The metadata correspond to the id
-    #     """
-    #     return self.vec_metadata.get(id)
+        Returns
+        -------
+        str
+            The metadata (path) correspond to the id
+        """
+        return self.vec_metadata.get(id)
     
     def save_to_json(self) -> None:
         """Save the vector database to .json files, named as 'vector.pt' and 'metadata.pt'
@@ -102,9 +103,9 @@ class VectorDB:
         None, but the file will be saved in the destination at vectordb_path
         """
         data_path = os.path.join(self.vectordb_path, "vector.pt")
-        # metadata_path = os.path.join(self.vectordb_path, "metadata.pt")
+        metadata_path = os.path.join(self.vectordb_path, "metadata.pt")
         torch.save(self.vec_data, data_path)
-        # torch.save(self.vec_metadata, metadata_path)
+        torch.save(self.vec_metadata, metadata_path)
     
     def get_topk_similar(self, Eq: torch.Tensor, k: int = 5) -> tuple[torch.Tensor, list]:
         """The function to find the top k most similar context.
@@ -125,13 +126,13 @@ class VectorDB:
         """
         similarity = []
         stored_path = []
-        for path, Ed in self.vec_data.items():
+        for i, Ed in self.vec_data.items():
             # MaxSim
             scores = torch.matmul(Eq, Ed.T)
             max_row = scores.max(dim=1).values
             sim_result = max_row.sum()
             similarity.append(sim_result)
-            stored_path.append(path)
+            stored_path.append(self.vec_metadata[i])
         
         result = torch.topk(torch.Tensor(similarity), k)
         return result.values, [stored_path[i] for i in result.indices]

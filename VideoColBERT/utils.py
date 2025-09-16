@@ -43,6 +43,8 @@ def create_vectordb(video_dir: str,
     points = []
     for filename in os.listdir(video_dir):
         count += 1
+        if count <= 1782:
+            continue
         file_path = os.path.join(video_dir, filename)
         points.append(models.PointStruct(id=count,
                                          vector=embed_func(file_path),

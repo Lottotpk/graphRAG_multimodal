@@ -135,10 +135,30 @@ def build_prompt(conversation_text, candidates_info):
         f"Conversation:\n{conversation_text}\n\n"
         "Candidates:\n"
     )
+    # prompt = (
+    #     "You are an AI assistant specialized in providing personalized product recommendations based on user conversations. "
+    #     "You are given a conversation between a user seeking recommendation (denoted by <submission>) and other users providing comments (denoted by <comment>). "
+    #     "You are also given a set of candidate products with their IDs and titles formatting as \"ID: title\". "
+    #     "Among the candidates, recommend the most relevant product to the seeker. "
+    #     "Only reply with its ID, and don't say anything else.\n\n"
+    #     f"Conversation:\n{conversation_text}\n\n"
+    #     "Candidates:\n"
+    # )
+    # prompt = (
+    #     "You are an AI assistant specialized in providing personalized product recommendations based on user conversations. "
+    #     "You are given a conversation between a user seeking recommendation (denoted by <submission>) and other users providing comments (denoted by <comment>). "
+    #     "You are also given a set of candidate products with their IDs and images formatted as \"ID: \" followed by an image. "
+    #     "Among the candidates, recommend the most relevant product to the seeker. "
+    #     "Only reply with its ID, and don't say anything else.\n\n"
+    #     f"Conversation:\n{conversation_text}\n\n"
+    #     "Candidates:\n"
+    # )
+    
     for candidate in candidates_info:
         cid = candidate['id']
         title = candidate['title']
         prompt += f"{cid}: {title}\n"
+        # prompt += f"{cid}: \n"
         prompt += "".join(IMAGE_TOKENS) + "\n"
 
     prompt += "\nAssistant:"
@@ -222,6 +242,7 @@ class DataCollatorForLLaVA:
         prompts = [item['prompt'] for item in batch]
         target_texts = [item['target_text'] for item in batch]
         images_per_sample = [item['images'] for item in batch]
+        # images_per_sample = []
 
         full_prompts = [p + t for p, t in zip(prompts, target_texts)]
 
@@ -632,12 +653,13 @@ def main():
     trainer = pl.Trainer(
         max_epochs=args.num_epochs,
         accelerator="gpu",
-        # devices=-1,
+        # devices="auto",
         # strategy=FSDPStrategy(
+        #     use_orig_params=True,
         #     cpu_offload=True,
         # ),
         callbacks=[],
-        precision='16',
+        precision="16-mixed",
         gradient_clip_val=1.0,
         log_every_n_steps=10,
     )

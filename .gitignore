@@ -14,7 +14,11 @@ output*
 dataset
 __pycache__/
 LaViC/data/item2meta_train.json
+LaViC/data/train_images
+LaViC/data/valid_images
 LaViC/db
 LaViC/src/lightning_logs
 LaViC/src/out_distilled
 LaViC/src/out_finetuned
+image_*
+LaViC_Pratice
