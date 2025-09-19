@@ -62,11 +62,12 @@ def CLIP_encoder(image_path: str, text_embed: bool = False, text: str = None, op
     with torch.no_grad():
         if not text_embed:
             inputs = processor(images=image, return_tensors="pt", padding=True).to(device)
-            # vision_outputs = model.vision_model(**inputs)
+            vision_outputs = model.vision_model(**inputs)
             embeddings = model.get_image_features(**inputs)
             # img_embeddings = vision_outputs.pooler_output
+            # img_embeddings = vision_outputs.last_hidden_state[0]
             # img_embeddings = model.visual_projection(img_embeddings)
-            # img_embeddings = img_embeddings / img_embeddings.norm(dim=-1, keepdim=True)
+            # embeddings = img_embeddings / img_embeddings.norm(dim=-1, keepdim=True)
         else:
             inputs = processor(text=[text], images=image, return_tensors="pt", padding=True).to(device)
             outputs = model(**inputs)
@@ -105,7 +106,7 @@ def eval(ds, encoder: Callable[[str, bool, str, bool], torch.Tensor], collection
                 # print(path)
                 # im1 = Image.open(path)
                 # im1 = im1.save(f"image_{i}.jpg")
-                item['retrieved_images'][i] = Image.open(path).convert("RGB")
+                item['retrieved_images'][i] = img_open(path)
                 item['retrieved_images'][i] = imagehash.average_hash(item['retrieved_images'][i])
         else:
             # logging.info(item['retrieved_images'])    
@@ -141,7 +142,7 @@ def eval(ds, encoder: Callable[[str, bool, str, bool], torch.Tensor], collection
 def main():
     ds = load_dataset("uclanlp/MRAG-Bench", split="test")
     # total_retrieved, total_gt, correct = eval(ds, LVLM.image_embedding, "LVLM")
-    total_retrieved, total_gt, correct_retrieve, correct, recall5 = eval(ds, CLIP_encoder, "CLIP")
+    total_retrieved, total_gt, correct_retrieve, correct, recall5 = eval(ds, CLIP_encoder, "CLIP_colbert")
     # total_retrieved, total_gt, correct = eval(ds, SigLIP_encoder, "SigLIP", False)
     
     print("Final results:")
@@ -150,13 +151,20 @@ def main():
     print(f"Total images retrieved: {total_retrieved}")
     print(f"Percentage: {(total_retrieved*100/total_gt):.2f}%")
     print(f"Number of correct retrieval: {correct_retrieve}")
-    print(f"Retrieval Accuracy (At least one correct): {(correct*100/total_retrieved):.2f}%")
-    print(f"Percentage Recall@5: {recall5*100:.2f}%")
+    print(f"Recall@5 (At least one correct): {(correct*100/total_retrieved):.2f}%")
+    print(f"Retrieval Accuracy: {recall5*100:.2f}%")
 
 def one_eval(n: int, encoder: Callable[[str, bool, str, bool], torch.Tensor], collection_name: str, example: bool = False):
     ds = load_dataset("uclanlp/MRAG-Bench", split="test")
     item = ds[n]
     for i, img in enumerate(item['gt_images']):
+        if img.format == "PNG":
+            if img.mode != 'RGBA':
+                img.convert("RGBA")
+            else:
+                img.convert("RGB")
+        else:
+            img.convert("RGB")
         item['gt_images'][i] = imagehash.average_hash(img)
     if not example:
         #item['retrieved_images'] = utils.retrieval(encoder(item['image'], True),
@@ -166,6 +174,13 @@ def one_eval(n: int, encoder: Callable[[str, bool, str, bool], torch.Tensor], co
         db = VectorDB("./database/" + collection_name + "/")
         for i in db.vec_data:
             db.vec_data[i] = db.vec_data[i].to(device)
+        if item['image'].format == "PNG":
+            if item['image'].mode != "RGBA":
+                item['image'].convert("RGBA")
+            else:
+                item['image'].convert("RGB")
+        else:
+            item['image'].convert("RGB")
         similarity, paths = db.get_topk_similar(encoder(item['image'], False, None, True), 6)
         print(similarity[1:])
         paths.pop(0)
@@ -200,17 +215,17 @@ def create_db(path_data: str, collection_name: str = None, batch_size: int = 16)
         if count % 1000 == 0:
             logging.info(f"{count} done.")
         img = os.path.join(path_data, img)
-        images.append(Image.open(img).convert("RGB"))
+        images.append(img_open(img))
     
     db = VectorDB("./database/" + collection_name + "/")
-    vec_data = []
     for i in tqdm(range(0, len(images), batch_size)):
         inputs = processor(images=images[i:i+batch_size], return_tensors="pt", padding=True).to(device)
         images_features = model.get_image_features(**inputs).detach().cpu()
+        # vision_outputs = model.vision_model(**inputs)
+        # embedded = vision_outputs.last_hidden_state[0]
+        # images_features = (embedded / embedded.norm(dim=-1, keepdim=True)).detach().cpu()
         db.add_vector(i, images_features, img_names[i])
-        vec_data.append(images_features)
         logging.info(images_features.shape) # verify that the shape is correct
-    logging.info(torch.cat(vec_data).shape)
     db.save_to_json()
 
 if __name__ == "__main__":
@@ -246,23 +261,43 @@ if __name__ == "__main__":
 
     ds = load_dataset("uclanlp/MRAG-Bench", split="test")
     item = ds[0]
-    print(type(item['gt_images'][0]))
-    # query_img = CLIP_encoder(item['gt_images'][0], False, None, True)
-    # db = VectorDB("./database/CLIP")
-    # for i in db.vec_data:
-    #     db.vec_data[i] = db.vec_data[i].to(device)
-    # similarities, paths = db.get_topk_similar(query_img, 5)
-    # print(similarities)
-    # for i, path in enumerate(paths):
-    #     im1 = Image.open(path)
-    #     im1 = im1.save(f"image_{i}.jpg")
+    # print(type(item['gt_images'][0]))
+    if item['image'].format == "PNG":
+        if item['image'].mode != "RGBA":
+            item['image'].convert("RGBA")
+        else:
+            item['image'].convert("RGB")
+    else:
+        item['image'].convert("RGB")
+    query_img = CLIP_encoder(item['image'], False, None, True)
+    db = VectorDB("./database/CLIP")
+    for i in db.vec_data:
+        db.vec_data[i] = db.vec_data[i].to(device)
+    similarities, paths = db.get_topk_similar(query_img, 6)
+    print(similarities[1:])
+    paths.pop(0)
+    for i, path in enumerate(paths):
+        im1 = Image.open(path)
+        im1 = im1.save(f"image_{i}.png")
     
-    # gt_img = [CLIP_encoder(item['gt_images'][i], False, None, True) for i in range(5)]
-    # gt_scores = [torch.matmul(query_img, gt_img[i].T) for i in range(5)]
-    # rt_img = [CLIP_encoder(f"image_{i}.jpg", False, None, False) for i in range(5)]
-    # rt_scores = [torch.matmul(query_img, rt_img[i].T) for i in range(5)]
-    # print(f"The ground truth scores are {gt_scores},")
-    # print(f"while our retrieval scores are {rt_scores}.")
+    gt_img = []
+    gt_scores = []
+    rt_img = []
+    rt_scores = []
+    for i, img in enumerate(item['gt_images']):
+        if img.format == "PNG":
+            if img.mode != 'RGBA':
+                img.convert("RGBA")
+            else:
+                img.convert("RGB")
+        else:
+            img.convert("RGB")
+        gt_img.append(CLIP_encoder(img, False, None, True))
+    for i in range(5):
+        gt_scores.append(torch.matmul(query_img, gt_img[i].T).view(-1).detach().cpu().item())
+        rt_scores.append(torch.matmul(query_img, CLIP_encoder(f"image_{i}.png", False, None, False).T).view(-1).detach().cpu().item())
+    print(f"The ground truth scores are {gt_scores},")
+    print(f"while our retrieval scores are {rt_scores}.")
 
     # Ed = [CLIP_encoder(f"image_{i}.jpg", False, None, False).detach().cpu() for i in range(5)]
     # scores = [torch.matmul(Ed[i], Ed[i].T) for i in range(5)]

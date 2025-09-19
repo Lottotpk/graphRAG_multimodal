@@ -9,7 +9,7 @@ database
 qdrant_db_test
 qdrant_db
 setupCSE.sh
-submit.sh
+submit_*.sh
 output*
 dataset
 __pycache__/
