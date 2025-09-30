@@ -158,7 +158,7 @@ COLOR_LIGHTNING_CHAR = """
 """
 
 CULTURAL_REGIONAL = """
-    Cultural/Region Elements: Any elements that connect the image to the specific culture, region, religion, or tradition. The list of keywords are:
+    Cultural/Regional Elements: Any elements that connect the image to the specific culture, region, religion, or tradition. The list of keywords are:
     - Traditional: Adhering to the long-established customs, beliefs, and artistic practices of a particular culture.
     - Indigenous: Originating from the native inhabitants of a specific region, often reflecting a deep connection to the land and ancestral heritage.
     - Folk Art: Pertaining to the art of the common people, often characterized by a naive style and a focus on utilitarian or decorative objects.

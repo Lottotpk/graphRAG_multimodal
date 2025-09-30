@@ -74,14 +74,17 @@ def batch_processing(args):
     
     for i in range(0, len(images_dir_list), args.batch_size):
         images_path = images_dir_list[i: i + args.batch_size]
-        batch_output = []
+        batch_output = [{} for _ in range(args.batch_size)]
         for j in range(0, 8, args.num_topic):
-            batch_output.append(generate_description(images_path, ABSTRACT_PROMPT(range(j, min(j + args.num_topic, 8))), SYSTEM_PROMPT))
+            dict_output = generate_description(images_path, ABSTRACT_PROMPT(range(j, min(j + args.num_topic, 8))), SYSTEM_PROMPT)
+            for k in range(args.batch_size):
+                dict_output[k] = json.loads(dict_output[k].strip("```json"))
+                batch_output[k] |= dict_output[k]
         for output in batch_output:
             logging.info(f"Entry #{i+1}:")
             logging.info(f"Image path: {images_path[0]}")
-            logging.info(output[0])
-            text_output.append(output[0])
+            logging.info(json.dumps(output, indent=4))
+            text_output.append(output)
     
     return text_output
 
