@@ -22,3 +22,6 @@ LaViC/src/out_distilled
 LaViC/src/out_finetuned
 image_*
 LaViC_Pratice
+COCO
+test_imgs
+flickr8k
