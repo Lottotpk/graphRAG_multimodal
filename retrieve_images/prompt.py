@@ -1,7 +1,6 @@
 EMOTION_MOOD = """
     Emotion/Mood: The dominant visual atmosphere of an image. What feeling does this image represents? The list of keywords are:
     - Joyful: Evokes a feeling of great happiness and delight.
-    - Serene: Creates a sense of calm, tranquility, and peacefulness.
     - Vibrant: Full of energy, excitement, and life.
     - Hopeful: Instills a feeling of expectation and desire for a certain thing to happen.
     - Romantic: Suggests feelings of love, tenderness, and intimacy.
@@ -262,47 +261,147 @@ NARRATIVE_SYMBOLIC = """
     - Consciousness: The surface of water can represent the conscious mind, while the depths symbolize the unconscious.
 """
 
+EXAMPLE_IMAGE_ANSWER = {
+    "Emotion/Mood": [
+        {
+            "keyword": "Dramatic",
+            "reason": "The powerful contrast between the dark landscape and the brilliant, explosive sky creates a theatrical visual tension." 
+        },
+        {
+            "keyword": "Spiritual",
+            "reason": "The heavens are depicted as an immense, divine force, with the church steeple reaching towards this cosmic energy."
+        },
+        {
+            "keyword": "Turbulent",
+            "reason": "The swirling, chaotic brushstrokes of the sky and clouds suggest inner turmoil and restless, powerful motion."
+        }
+    ],
+    "Purpose/Context": [
+        {
+            "keyword": "Fine Art",
+            "reason": "It is a non-commercial, expressive piece made for aesthetic contemplation, intended to convey the artist's personal vision."
+        }
+    ],
+    "Style/Visual Attributes": [
+        {
+            "keyword": "Post-Impressionist",
+            "reason": "It uses vivid color and bold strokes not just for light, but to express emotion and symbolism."
+        },
+        {
+            "keyword": "Stylized",
+            "reason": "Forms like the swirling sky and flame-like tree are intentionally exaggerated and not meant to be realistic."
+        }
+    ],
+    "Medium/Material": [
+        {
+            "keyword": "Oil-based",
+            "reason": "The rich color depth and the ability to hold thick, textured brushstrokes are characteristic of oil paint."
+        }
+    ],
+    "Color/Lightning Characteristics": [
+        {
+            "keyword": "Cool",
+            "reason": "The composition is dominated by a palette of deep blues, indigos, and greens in the sky and landscape."
+        },
+        {
+            "keyword": "High-Contrast",
+            "reason": "The bright, glowing yellows of the stars and moon stand out sharply against the dark blues of the night."
+        },
+        {
+            "keyword": "Luminous",
+            "reason": "The celestial bodies appear to generate their own brilliant light, casting a surreal glow over the scene."
+        }
+    ],
+    "Cultural/Regional Elements": [
+        {
+            "keyword": "France",
+            "reason": "The village's architecture and the artwork's style are products of late 19th-century provincial France and its art movements."
+        }
+    ],
+    "Target Audience/Perception": [
+        {
+            "keyword": "Art-Enthusiast",
+            "reason": "Appreciating its historical context and stylistic innovations appeals to an audience knowledgeable about art."
+        },
+        {
+            "keyword": "Comtemplative",
+            "reason": "The deep symbolism and emotional weight invite viewers to reflect on themes of life, death, and spirituality."
+        }
+    ],
+    "Narrative/Symbolic Elements": [
+        {
+            "keyword": "Mortality",
+            "reason": "The dark, imposing cypress tree in the foreground is a traditional European symbol of death and mourning."
+        },
+        {
+            "keyword": "Transcendence",
+            "reason": "The enormous, powerful sky dwarfs the quiet village, suggesting a reality or spiritual plane beyond human life."
+        },
+        {
+            "keyword": "Hope",
+            "reason": "The brilliantly shining stars serve as points of light and guidance in the overwhelming darkness of the night."
+        }
+    ],
+}
+
 CATEGORY = [EMOTION_MOOD, PURPOSE_CONTEXT, STYLE_VISUAL_ATTR, MEDIUM_MATERIAL, COLOR_LIGHTNING_CHAR, CULTURAL_REGIONAL, TARGET_AUDIENCE_PERCEPTION, NARRATIVE_SYMBOLIC]
+CATEGORY_NAME = ["Emotion/Mood", "Purpose/Context", "Style/Visual Attributes", "Medium/Material", "Color/Lightning Characteristics", "Cultural/Regional Elements", "Target Audience/Perception", "Narrative/Symbolic Elements"]
 
 def ABSTRACT_PROMPT(cate_num: range):
     cate_prompt = ""
+    example = "{\n"
+    output = "{\n"
     for i, num in enumerate(cate_num):
-        cate_prompt += f"{i}" + ") " + CATEGORY[num] + '\n'
+        cate_exam = list(EXAMPLE_IMAGE_ANSWER.items())[num]
+        cate_prompt += f"{i+1}" + ") " + CATEGORY[num] + '\n'
+        example += "\t\"" + cate_exam[0] + '\": [\n'
+        output += "\t\"" + CATEGORY_NAME[num] + """\" : [{"keyword": "", "reason": "", "confidence": <number between 0.0 and 1.0>}],\n"""
+        for key in cate_exam[1]:
+            example += "\t" + str(key) + ',\n'
+        example += "\t],\n"
+    example += "}"
+    output += "}"
     return """
     Inputs (always provided)
-    - Image: input to classify
+    - Query image: The second image input to analyze
+    - Example answer: The correct answer of the example image (Starry Night)
     - Categories: description aspect to consider
     - Example keywords: possibly keyword from each category; you can use keywords other than the example
     - Example explanation: definitions of each example, which can be used as references
+
+    Example answer
+    %s
 
     Categories
     %s
     
     Workflow (apply for each category in Categories)
-    1) Analyze the image
-    - Identify up to 3 relevant keywords according to the category based on the evidence from the image, such as the main characters' expression, the place, and the image vibe.
+    0) Understand the Example
+    - Consider the Starry Night image and learn the correlation between the Example answer in this category with the Starry Night.
+    1) Analyze the Query image
+    - Identify up to 3 relevant keywords according to the category based on the evidence from the Query image, such as the main characters' expression, the place, and the Query image vibe.
     2) Justify each keyword
     - Make a compact reason for each keyword on why this keyword is chosen over other keywords that sound similar and why not the other keywords on the opposite. The clues are included in the reason. The length is not more than 20 words.
     3) Evaluate grounding
-    - Analyzing grounding behind the reasons: whether each reason from keyword can be linked to the visual evidence in the image.
+    - Analyzing grounding behind the reasons: whether each reason from keyword can be linked to the visual evidence in the Query image.
+    - No making up explanation or implication
     4) Summarize & Score
     - Write keywords and its reason after evaluation
-    - Output a confidence score (0.0–1.0), where 1.0 = highly relevant, 0.0 = irrelevant reflecting: the relevance between keyword and reason and image, the mental simulation, and the grounding candidates observed from the image.
+    - Output a confidence score (0.0–1.0), where 1.0 = highly relevant, 0.0 = irrelevant reflecting: the relevance between keyword and reason and Query image, the mental simulation, and the grounding candidates observed from the Query image.
 
     Output Requirements
     - Return strictly valid JSON  only (no prose, no markdown, no comments).
     - Use exactly these top-level keys and types for each category in Categories:
-    {
-        "category" : [{"keyword": "", "reason": "", "confidence": <number between 0.0 and 1.0>}]
-    }
+    %s
 
     Validation Checklist (must pass before you output)
     - JSON is valid: no trailing commas; correct double quotes; confidence is a number.
-    - Each "keyword" contains 1-2 words; each "reason" is a single crisp sentence
+    - Each "keyword" contains 1-2 words; each "reason" is a single crisp sentence.
     - Avoid generic keyword; recalculate confidence of the keyword with high usages
-    - At most 3 keywords per "category" per image, no more than this; can use less than this
-    - Reasons and evidence can be found from the images; avoid making up the answer
-""" % (cate_prompt)
+    - At most 3 keywords per "category", no more than this; can use less than this
+    - Reasons and evidence can be found from the Query image; No making up the answer
+    - Using the first only as a reference, generate the output for the second.
+""" % (example, cate_prompt, output)
 
 SYSTEM_PROMPT = """
     You are an expert image analyst. 

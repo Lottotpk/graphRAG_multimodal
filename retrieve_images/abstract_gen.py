@@ -18,6 +18,7 @@ model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
     device_map="auto",
     attn_implementation="flash_attention_2",   
 )
+# EXAMPLE_IMAGE_PATH = "example/starry_night.jpg"
 logging.basicConfig(level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -29,8 +30,8 @@ def generate_description(images: list[str], prompt: str, system: str):
         tmp = [
             {"role": "system", "content": system},
             {"role": "user", "content": [
-                {"type": "image", "image": image},
                 {"type": "text", "text": prompt},
+                {"type": "image", "image": image},
                 ],
             }
         ]
@@ -39,6 +40,7 @@ def generate_description(images: list[str], prompt: str, system: str):
     # Process input before inference
     texts = [processor.apply_chat_template(msg, tokenize=False, add_generation_prompt=True) 
             for msg in messages]
+    # print(texts[0])
     image_inputs, video_inputs = process_vision_info(messages)
     inputs = processor(
         text=texts,
@@ -78,6 +80,7 @@ def batch_processing(args):
         for j in range(0, 8, args.num_topic):
             dict_output = generate_description(images_path, ABSTRACT_PROMPT(range(j, min(j + args.num_topic, 8))), SYSTEM_PROMPT)
             for k in range(args.batch_size):
+                print(dict_output[k].strip("```json"))
                 dict_output[k] = json.loads(dict_output[k].strip("```json"))
                 batch_output[k] |= dict_output[k]
         for output in batch_output:
@@ -102,12 +105,12 @@ def main():
 
     images_dir = os.listdir(args.images_dir)
     for i, output in enumerate(output_list):
-        output = output.strip("```json")
+        # output = output.strip("```json")
         with open(args.output_file, "a") as f:
             entry = dict()
             entry["id"] = i
             entry["image_path"] = os.path.join(args.images_dir, images_dir[i])
-            output = json.loads(output)
+            # output = json.loads(output)
 
             for key, value in output.items():
                 entry[key] = value
