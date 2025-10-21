@@ -1,0 +1,5 @@
+{
+    "summary": "Two children are engaged in a science activity in a classroom setting. One child, wearing a blue jacket, is looking through a microscope, while the other child, dressed in a gray vest, watches attentively. The background shows bookshelves filled with books and educational materials, suggesting a learning environment. The scene conveys a sense of curiosity and exploration.",
+    "entities": "child in blue jacket: looking through a microscope\nchild in gray vest: watching attentively\nmicroscope: on a table\nbookshelves: filled with books and educational materials",
+    "relations": "child in blue jacket is using the microscope\nchild in gray vest is observing the child in blue jacket\nbookshelves are in the background\nmicroscope is on a table"
+}

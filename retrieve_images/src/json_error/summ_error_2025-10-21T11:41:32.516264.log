@@ -1,0 +1,5 @@
+{
+    "summary": "A woman in a floral dress stands in a kitchen, smiling at the camera while washing dishes. She has a flower headband and wears a necklace. The kitchen features wooden cabinets and a countertop with various items, including bottles and cans. The sink area is cluttered with dishes and a sponge.",
+    "entities": "woman: wearing a floral dress, flower headband, necklace\nsink: with dishes and a sponge\nkitchen counter: with bottles, cans, and a black bag\nwooden cabinets: in the background\nmirror: on the left side\nbottles: on the countertop\n cans: on the countertop",
+    "relations": "woman is standing in front of the sink\nwoman is smiling at the camera\nwoman is washing dishes\nsink is cluttered with dishes and a sponge\nkitchen counter has bottles and cans\nwooden cabinets are in the background\nmirror is on the left side of the image"
+}

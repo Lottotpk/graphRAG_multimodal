@@ -1,0 +1,5 @@
+{
+    "summary": "A person is running along a sandy beach with waves in the background. The individual is wearing a dark jacket and white pants. The weather appears overcast, and the sea looks choppy. The scene suggests a sense of exercise or enjoyment in a natural setting.",
+    "entities": "person: wearing a dark jacket and white pants\nbeach: sandy\nsea: choppy\nweather: overcast",
+    "relations": "person running on the beach\nbeach adjacent to the sea\novercast weather affecting the sea"
+}

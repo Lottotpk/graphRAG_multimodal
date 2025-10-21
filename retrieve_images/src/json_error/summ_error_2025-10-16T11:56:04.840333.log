@@ -1,0 +1,5 @@
+{
+    "summary": "A person is kneeling on a sandy beach with arms raised, facing the ocean. The sun is low in the sky, casting a warm glow and creating a silhouette effect. The waves gently lap at the shore, and the sky is partly cloudy, adding to the serene atmosphere.",
+    "entities": "person: kneeling, arms raised, facing the ocean\nsand: beach\nocean: waves gently lapping at the shore\nsun: low in the sky, casting a warm glow\nsky: partly cloudy",
+    "relations": "person kneeling on sand\nperson facing ocean\nsun casting glow on person\nwaves lapping at shore\nsky partly cloudy above ocean"
+}

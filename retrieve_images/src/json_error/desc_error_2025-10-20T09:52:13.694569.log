@@ -1,0 +1,10 @@
+{
+    "Color/Lightning Characteristics": [
+        {"keyword": "Warm", "reason": "The scene is lit with natural light, creating a cozy and inviting atmosphere.", "confidence": 0.9},
+        {"keyword": "Soft", "reason": "Diffused light from the window minimizes harsh shadows, giving a gentle feel.", "confidence": 0.9},
+        {"keyword": "Ambient", "reason": "Natural light fills the room, providing a realistic and comfortable environment.", "confidence": 0.8}
+    ],
+    "Cultural/Regional Elements": [
+        {"keyword": "Vernacular", "reason": "The kitchen setting reflects everyday domestic life, common in many cultures.", "confidence": 0.8}
+    ]
+}

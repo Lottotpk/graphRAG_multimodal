@@ -1,0 +1,5 @@
+{
+    "summary": "The image shows a man wearing a blue sports jersey with white wristbands, clapping his hands. He appears to be on a sports field, possibly after a game or during a practice session. The background is blurred, suggesting an outdoor setting with stadium seating.",
+    "entities": "man: wearing a blue sports jersey with white wristbands\nhands: clapping\nsports field: background with stadium seating",
+    "relations": "man is clapping his hands\nman is on a sports field\nsports field has stadium seating in the background"
+}

@@ -1,0 +1,5 @@
+{
+    "summary": "A person wearing a black hat and denim overalls is cooking in a large pan filled with food. They are using tongs and wearing gloves. The setting appears to be an outdoor event with other people in the background, suggesting a communal or market atmosphere. There are additional cooking utensils and pans nearby, indicating a busy cooking station.",
+    "entities": "Person: Wearing a black hat, denim overalls, white gloves, using tongs.\nLarge pan: Filled with food, placed on a cooking station.\nCooking utensils: Nearby, indicating a busy cooking station.\nBackground people: Suggesting a communal or market atmosphere.\nOutdoor event: Setting with other people and cooking stations.",
+    "relations": "Person is cooking in the large pan using tongs.\nPerson is wearing gloves while cooking.\nLarge pan is placed on a cooking station.\nCooking utensils are nearby the large pan.\nBackground people are observing or participating in the event.\nOutdoor event setting includes multiple cooking stations and people."
+}

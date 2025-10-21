@@ -1,0 +1,5 @@
+{
+    "summary": "A person is joyfully jumping on a sandy beach. They are wearing a blue tank top and black pants with white stripes. The background features a cliff with sparse vegetation and a clear blue sky. The scene conveys a sense of freedom and happiness.",
+    "entities": "person: wearing a blue tank top and black pants with white stripes\nbeach: sandy\ncliff: with sparse vegetation\nsky: clear blue",
+    "relations": "person is jumping on the beach\ncliff is in the background\nsky is clear and blue"
+}

@@ -1,0 +1,23 @@
+{
+  "created_at": "2025-10-21T12:42:27.510902",
+  "system_prompt": "\n    You are an expert image analyst. \n    Your task: identify entities and their relations in the images into structured JSON based on the image and its summary. \n    Follow the workflow strictly and output JSON only.\n",
+  "prompt": "\n    Inputs (always provided)\n    - Query image: The image input to analyze\n    - Image summary: The image summary as an additional relationship\n\n    Image summary\n    \n\n    Workflow\n    0) Understand the image summary\n    - Explore details from text description as an additional context along with the Query image\n    1) Capture entities\n    - Identify objects presented in the Query image.\n    - Add details of those objects. If it is a person, describe the details of that person in details.\n    2) Analyse relations\n    - Consider the Subject Placement, Object Placement, Inter-Subject & Inter-Object relations, Background Elements, Gaze & Interaction, Composition & Lightning of an image.\n\n    The output format should be in JSON format, remember, just plain JSON text, no markdown.\n    {\n        \"entities\": \"(the format should be 'entity: details' separated by '\\n')\",\n        \"relations\": \"(the format should be 'relation description' separated by '\\n')\",\n    }\n\n    Validation Checklist (must pass before you output)\n    - JSON is strictly valid: no trailing commas; correct double quotes; correct the comma delimiter; beware of unterminated string; enclose the double quotes; enclose the brackets.\n    - Each entity is straight-forward words of object; no adjective or number. They are separated clearly with '\\n'.\n    - Each entity has its details attached to the entity.\n    - Each relation truly shows connections between objects; no number. They are separated clearly with '\\n'.\n    - Relation must be a single phrase of relation description.\n    - Entities and relations can be found from the Query image; No making up the answer\n    - Strict to the output format; output only JSON format; no thinking part\n",
+  "model_path": "OpenGVLab/InternVL3_5-8B",
+  "records": [
+    {
+      "image_path": "./null_imgs/throwing_frisby_020.jpg",
+      "description": null,
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "image_path": "./null_imgs/throwing_frisby_091.jpg",
+      "description": null,
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "image_path": "./null_imgs/walking_the_dog_219.jpg",
+      "description": null,
+      "error": "Unterminated string starting at: line 2 column 17 (char 18)"
+    }
+  ]
+}

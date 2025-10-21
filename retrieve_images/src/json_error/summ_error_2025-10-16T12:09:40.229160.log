@@ -1,0 +1,5 @@
+{
+    "summary": "A person is captured mid-air while jumping in front of a brick house with a slanted roof. The individual is wearing a yellow shirt and black pants, with one foot on a railing. The scene is outdoors with green grass in the foreground and a clear blue sky above. A street lamp is visible to the right of the person, and neighboring houses can be seen in the background.",
+    "entities": "person: wearing a yellow shirt and black pants\nhouse: brick with a slanted roof\nrailing: person's foot is on it\nstreet lamp: visible to the right\ngrass: green in the foreground\nneighborhood houses: visible in the background",
+    "relations": "person is jumping in front of the house\nperson's foot is on the railing\nstreet lamp is to the right of the person\nneighborhood houses are in the background\ngrass is in the foreground"
+}

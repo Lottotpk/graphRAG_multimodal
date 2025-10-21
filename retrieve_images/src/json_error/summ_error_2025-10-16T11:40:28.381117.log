@@ -1,0 +1,5 @@
+{
+    "summary": "In the image, two people are standing outside a brick building with large windows. The person on the left is holding a black umbrella and appears to be in mid-step, wearing a black coat and skirt with a white shirt. The person on the right is dressed in a gray suit and holding a black umbrella open above their head. The ground is wet, suggesting it might be raining. The scene conveys a casual interaction between the two individuals.",
+    "entities": "Person on the left: holding a black umbrella, wearing a black coat, black skirt, white shirt\nPerson on the right: holding a black umbrella, dressed in a gray suit\nBrick building: with large windows\nGround: wet\nBlack umbrellas: one held by each person",
+    "relations": "Person on the left is holding an umbrella\nPerson on the right is holding an umbrella\nPerson on the left is standing on the wet ground\nPerson on the right is standing on the wet ground\nPerson on the left is facing the person on the right\nPerson on the right is facing the person on the left\nBrick building is in the background\nLarge windows are part of the brick building"
+}

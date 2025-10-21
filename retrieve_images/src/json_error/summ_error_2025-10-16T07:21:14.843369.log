@@ -1,0 +1,5 @@
+{
+    "summary": "A young girl is brushing her teeth in a bathroom. She is wearing a pink long-sleeve shirt with a donut graphic and the text 'drinking makes me.' She is holding a pink toothbrush and standing in front of a sink. On the counter, there is a smartphone and a tube of toothpaste.",
+    "entities": "girl: young, wearing a pink long-sleeve shirt with a donut graphic and the text 'drinking makes me'\npink toothbrush: being held by the girl\nsink: in front of which the girl is standing\nsmartphone: on the counter\ntube of toothpaste: on the counter",
+    "relations": "girl is brushing her teeth with the pink toothbrush\ngirl is standing in front of the sink\nsmartphone is on the counter\ntube of toothpaste is on the counter"
+}

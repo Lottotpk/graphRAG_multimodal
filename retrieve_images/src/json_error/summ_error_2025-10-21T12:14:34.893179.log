@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing orange shirt and jeans\nphotographs: held by person, displayed on wall\nphotographs: framed\nphotographs: prints\nphotographs: on wall\nphotographs: on ground\nphotographs: on display\nphotographs: multiple\nphotographs: black and white\nphotographs: various subjects\nphotographs: arranged\nphotographs: outdoor\nphotographs: trees in background\nphotographs: calm atmosphere\nphotographs: artistic\nphotographs: dog\nphotographs: walking\nphotographs: paved path\nphotographs: outdoor setting",
+    "relations": "person walking with dog\nperson holding photographs\nphotographs displayed on wall\nphotographs on ground\nphotographs arranged on display\nphotographs in black and white\nphotographs various subjects\nphotographs outdoor setting\nphotographs trees in background\nphotographs calm atmosphere\nphotographs artistic\nphotographs on paved path\nphotographs outdoor\nphotographs person interaction\nphotographs dog interaction"
+}

@@ -1,0 +1,3 @@
+/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/Stanford40Action_ImageLabelDescripion10template5/throwing_frisby_020.jpg
+/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/Stanford40Action_ImageLabelDescripion10template5/throwing_frisby_091.jpg
+/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/Stanford40Action_ImageLabelDescripion10template5/walking_the_dog_219.jpg

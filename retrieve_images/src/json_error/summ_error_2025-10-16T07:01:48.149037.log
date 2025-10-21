@@ -1,0 +1,5 @@
+{
+    "summary": "A person is sitting outdoors on a bench, holding a colorful cup with a straw and drinking from it. They are wearing a black T-shirt with a graphic design and blue jeans. The person is also holding a blue bottle. The background shows a grassy area with trees and a building in the distance.",
+    "entities": "person: wearing a black T-shirt with a graphic design and blue jeans\ncolorful cup: with a straw\nblue bottle: held by the person\nbench: person is sitting on\nbuilding: in the background\ntrees: in the background\ngrass: in the background",
+    "relations": "person is sitting on the bench\nperson is holding the colorful cup\nperson is drinking from the colorful cup\nperson is holding the blue bottle\nbuilding is in the background\ntrees are in the background\ngrass is in the background"
+}

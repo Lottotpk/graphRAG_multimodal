@@ -1,0 +1,5 @@
+{
+    "summary": "A young child in a red vest is being held up by an adult in a crowd. The child appears to be clapping or gesturing with their hands. The crowd consists of several older adults, some of whom are looking towards the child. The background shows a street with banners in Chinese, suggesting a public event or gathering. The atmosphere seems lively and communal.",
+    "entities": "child: young, wearing red vest, clapping hands\nadult: holding child, partially visible\nolder adults: in crowd, looking towards child\nbanners: in background, with Chinese text\nstreet: background, public event setting",
+    "relations": "child is being held by an adult\nolder adults are looking towards the child\nbanners are in the background\nchild is clapping hands\npublic event atmosphere"
+}

@@ -1,0 +1,5 @@
+{
+    "summary": "Two young girls are in a kitchen, engaged in an activity involving dough and a rolling pin. The older girl is standing behind the younger one, guiding her hands as they work on the dough. The kitchen is cluttered with various items, including a stand mixer, utensils, and a sink with dishes. The atmosphere appears to be one of learning and collaboration.",
+    "entities": "girl: young, blonde hair, wearing pink dress\nolder girl: standing behind the younger girl, guiding her hands\nkitchen: cluttered with various items, including a stand mixer, utensils, and a sink with dishes\nrolling pin: being used to flatten dough\nstand mixer: yellow, located on the counter\nutensils: various, scattered on the counter\nsink: with dishes, located in the background",
+    "relations": "younger girl is working with dough using a rolling pin\nolder girl is guiding the younger girl's hands\nboth girls are standing at the kitchen counter\nstand mixer is on the kitchen counter near the sink\nutensils are scattered on the kitchen counter\nsink with dishes is in the background"
+}

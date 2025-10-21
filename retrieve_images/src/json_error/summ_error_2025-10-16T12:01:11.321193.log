@@ -1,0 +1,5 @@
+{
+    "summary": "A person is joyfully jumping on a sandy beach with arms outstretched. They are wearing sunglasses, a black long-sleeve shirt, white shorts, and sneakers. The background features a calm ocean under a partly cloudy sky, with a small boat visible in the distance.",
+    "entities": "person: wearing sunglasses, black long-sleeve shirt, white shorts, sneakers\nsandy beach\nocean\npartly cloudy sky\nsmall boat",
+    "relations": "person is jumping on the sandy beach\nperson is in front of the ocean\nocean is under the partly cloudy sky\nsmall boat is in the distance"
+}

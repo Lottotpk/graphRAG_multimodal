@@ -1,0 +1,5 @@
+{
+    "summary": "A person is sitting on the floor playing an acoustic guitar. In the background, there is a drum set. The setting appears to be a music studio with curtains and a banner that reads 'IMAGINE.' The scene has a cozy and focused atmosphere, suggesting a practice or recording session.",
+    "entities": "person: sitting, playing guitar\nacoustic guitar: being played\nperson: wearing a white shirt and yellow pants\nacoustic guitar: light brown body, dark fretboard\ndrum set: in the background\ncurtains: in the background\nbanner: reads 'IMAGINE'\n",
+    "relations": "person is sitting on the floor\nperson is playing the acoustic guitar\nacoustic guitar is in front of the person\nperson is positioned in front of the drum set\ncurtains are in the background\nbanner is hanging in the background\n"
+}

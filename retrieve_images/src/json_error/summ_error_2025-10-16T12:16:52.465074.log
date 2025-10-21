@@ -1,0 +1,5 @@
+{
+    "summary": "A person in a lab coat and gloves is using a microscope in a laboratory setting. They are examining a petri dish on the microscope stage. The lab appears to be equipped with various scientific instruments and storage shelves in the background. The atmosphere suggests a focused and professional scientific environment.",
+    "entities": "person: wearing a white lab coat, glasses, and light blue gloves\nmicroscope: white with black components, positioned on a black stage\npetri dish: clear with multiple compartments, placed on the microscope stage\nlab coat: white, worn by the person\nstorage shelves: wooden, in the background with various items\nscientific instruments: various, in the background\n",
+    "relations": "person is using the microscope\nperson is examining the petri dish\nmicroscope is positioned on the black stage\npetri dish is placed on the microscope stage\nstorage shelves are in the background\nscientific instruments are in the background"
+}

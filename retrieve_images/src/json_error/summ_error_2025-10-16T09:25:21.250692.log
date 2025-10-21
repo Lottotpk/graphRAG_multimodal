@@ -1,0 +1,5 @@
+{
+    "summary": "Two individuals in white uniforms with insignia are standing side by side, each holding a glass of champagne. They appear to be engaged in a celebratory toast, with one person drinking from the glass and the other holding it near their mouth. The uniforms suggest a formal or official event, possibly related to a military or ceremonial occasion.",
+    "entities": "Person 1: Individual in a white uniform with insignia on the shoulder, drinking from a glass of champagne.\nPerson 2: Individual in a white uniform with insignia on the shoulder, holding a glass of champagne near their mouth.\nGlass 1: Champagne glass held by Person 1, being drunk from.\nGlass 2: Champagne glass held by Person 2, near their mouth.\nUniform: White military-style uniform with shoulder insignia and patches.",
+    "relations": "Person 1 and Person 2 are standing side by side.\nPerson 1 is drinking from Glass 1.\nPerson 2 is holding Glass 2 near their mouth.\nBoth individuals are wearing uniforms.\nThe uniforms suggest a formal or official event.\nThe individuals appear to be engaged in a celebratory toast."
+}

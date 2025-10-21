@@ -1,0 +1,5 @@
+{
+    "summary": "A shirtless man is standing in front of a bathroom mirror, brushing his teeth. The reflection shows him holding a toothbrush in his right hand. The bathroom has a modern design with a green countertop, a silver faucet, and a soap dispenser. There are two toothbrushes in a holder on the counter. The lighting is soft, creating a calm and intimate atmosphere.",
+    "entities": "man: shirtless\nmirror: reflecting the man brushing teeth\nsoap dispenser: on the countertop\nfaucet: silver, on the countertop\ntoothbrushes: two in a holder on the countertop",
+    "relations": "man is brushing teeth in front of the mirror\nmirror reflects the man and the bathroom interior\nsoap dispenser is on the countertop\nfaucet is on the countertop\ntoothbrushes are in a holder on the countertop"
+}

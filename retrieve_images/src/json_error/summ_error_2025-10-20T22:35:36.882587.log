@@ -1,0 +1,5 @@
+{
+    "summary": "A young child is brushing their teeth in a bathroom. The child is wearing a pink shirt and holding a blue toothbrush. The bathroom includes a white sink, a bathtub, and a toilet. Various toiletries are visible on the counter.",
+    "entities": "child: young, wearing pink shirt, holding blue toothbrush\nblue toothbrush: being used for brushing teeth\nwhite sink: located on the right side of the image\nbathtub: located on the left side of the image\npink shirt: worn by the child\ntoilet: located behind the child\nvarious toiletries: visible on the counter\nred towel: located on the counter\nbasket: located on the counter with toiletries",
+    "relations": "child is brushing teeth with blue toothbrush\nchild is standing in front of the white sink\nbathtub is to the left of the child\npink shirt is worn by the child\nvarious toiletries are on the counter\nred towel is on the counter\nbasket is on the counter with toiletries"
+}

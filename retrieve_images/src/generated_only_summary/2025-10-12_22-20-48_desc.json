@@ -1,0 +1,98 @@
+{
+  "created_at": "2025-10-12T22:20:48.700883",
+  "system_prompt": "\n    You are an expert image analyst. \n    Your task: summarize images showing entities, relations, and abstract feeling.\n    Follow the workflow strictly and output JSON only.\n",
+  "prompt": "Inputs (always provided)\n    - Query image: The image input to summarize\n\n    Workflow (apply for each category in Categories)\n    1) Summarize the Query image\n    - Identify the summary of the Query image. The summary is a compact paragraph that includes all entities, places, vibes, and events from the image\n\n    Output Requirements\n    - Return strictly valid JSON  only (no prose, no markdown, no comments).\n    - Use exactly these top-level keys and types for each category in Categories:\n    {\n        \"summary\": \"\"\n    }\n\n    Validation Checklist (must pass before you output)\n    - JSON is strictly valid: no trailing commas; correct double quotes; correct the comma delimiter; beware of unterminated string; enclose the double quotes; enclose the brackets.\n    - The summary's word count is lower than 400 words.\n    - Reasons and evidence can be found from the Query image; No making up the answer",
+  "model_path": "OpenGVLab/InternVL3_5-8B",
+  "records": {
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/000000000139.jpg": {
+      "description": {
+        "summary": "The image depicts a cozy living room and dining area with a warm yellow color scheme. A large flat-screen TV is mounted on the wall, with a media console below it. A vase with flowers is placed on the console. The dining area features a wooden table with four chairs, positioned near three large windows with natural light streaming in. A person is standing by the kitchen counter, which is equipped with cabinets and appliances. The flooring is wooden, and there is a rug in the living area. A fireplace with a decorative item is visible on the right, and a small table with a vase of flowers is in the foreground. The overall vibe is inviting and homely."
+      },
+      "error": null
+    },
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/000000005001.jpg": {
+      "description": {
+        "summary": "A group of people is gathered outside a building for a ribbon-cutting ceremony. A man in a police uniform and another person are cutting a red ribbon with scissors. A young girl in a pink jacket and helmet holds the ribbon, while a child in a blue helmet stands nearby. The crowd, including adults and children, watches with smiles. A blue balloon floats nearby, adding to the celebratory atmosphere."
+      },
+      "error": null
+    },
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/000000009891.jpg": {
+      "description": {
+        "summary": "The image shows two men loading luggage into a white SUV in a parking garage. One man is bending over to place a black suitcase into the car, while the other is handling luggage near a luggage cart. The SUV's driver's side door is open, and the trunk is visible. The setting appears to be an airport parking area, indicated by a sign for a shuttle bus to McCarran International Airport. The environment is well-lit with overhead lighting, and the scene conveys a sense of travel and preparation."
+      },
+      "error": null
+    },
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/000000013659.jpg": {
+      "description": {
+        "summary": "The image depicts a busy workshop or office space with several people engaged in various activities. In the foreground, a man is seated at a desk, working on a laptop. The desk is cluttered with various items, including another laptop, a keyboard, a glass of water, and some electronic components. Several cardboard boxes, one labeled '1BA,' are stacked nearby. In the background, three individuals are gathered around a table, seemingly collaborating on a project. One person is standing and appears to be explaining something, while the others are focused on the materials on the table. The room is equipped with office furniture, including chairs and desks, and has a bulletin board with papers pinned to it. The overall atmosphere is one of focused activity and collaboration."
+      },
+      "error": null
+    },
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/000000033638.jpg": {
+      "description": {
+        "summary": "The image depicts a woman in a kitchen, standing by a large black stove with a kettle on it. She is wearing a floral blouse and beige shorts, and appears to be focused on cooking or preparing something in a pan. The kitchen has a rustic feel, with a white cabinet and a wooden floor. There are various kitchen items on the countertops, including pots, pans, and a can. A window with white curtains is visible in the background, and a ladder is leaning against the wall. The overall atmosphere is cozy and domestic."
+      },
+      "error": null
+    },
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/143684568_3c59299bae.jpg": {
+      "description": {
+        "summary": "The image shows a rocky cliff with two people: one standing at the top and another climbing down the side. The landscape below is a vast green valley with fields, trees, and a few buildings. The sky is clear with a few clouds, creating a serene and adventurous atmosphere."
+      },
+      "error": null
+    },
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/2be83e8428855ce2ad1b4d64dc0f33fa.jpg": {
+      "description": {
+        "summary": "The image shows the interior of a shopping mall with people standing and sitting along the corridor. On the left side, there is a store with a green facade labeled 'ART CORNER.' People are seated on benches, and some are standing, possibly waiting or conversing. On the right side, there is a shop with a pink facade and a sign that reads '八角' (Bazhuang). The floor is shiny and tiled, and the area appears busy with shoppers. The timestamp on the image is '05-13-2017 23:08,' indicating it was taken in the evening. The atmosphere seems casual and typical of a shopping environment."
+      },
+      "error": null
+    },
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/3090593241_93a975fe2b.jpg": {
+      "description": {
+        "summary": "The image shows a large crowd of people gathered outside a stadium at night. Many individuals are wearing jerseys with the number '25' on them, suggesting they are fans of a sports team. The area is well-lit by streetlights, and a sign indicating 'NO G.P.D.' is visible, suggesting restricted access or a specific event. The atmosphere appears lively and energetic, with people standing and talking, possibly waiting for an event to start. The setting includes barriers and a tall structure with the letters 'EE' on it."
+      },
+      "error": null
+    },
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/3643684688_2f7157b23d.jpg": {
+      "description": {
+        "summary": "The image depicts a panel discussion taking place in a dimly lit venue. Four individuals are seated at a long table covered with a blue cloth, facing an audience. The audience members are seated in rows, appearing attentive. The setting includes a large screen or backdrop behind the panelists, and there are stage lights illuminating the area. The overall atmosphere suggests a formal event, possibly a conference or seminar."
+      },
+      "error": null
+    },
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/3712574653_e009f76d19.jpg": {
+      "description": {
+        "summary": "The image depicts a wedding reception scene. A bride in a white dress and a groom in a black suit are seated at a table, with the bride holding a champagne glass. A woman in a black dress stands beside them, holding a drink. Another woman, facing away from the camera, is also holding a drink. The table is decorated with candles, flowers, and a centerpiece. Fairy lights and a decorative backdrop add a warm ambiance to the setting."
+      },
+      "error": null
+    },
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/380527679_574749123d.jpg": {
+      "description": {
+        "summary": "The image depicts an outdoor market scene with a white canopy tent set up on a street. Under the tent, various fruits are displayed in crates, with people browsing and purchasing items. The setting appears to be a small neighborhood with brick buildings on either side of the street. There are several individuals, including a child in a red jacket, standing and interacting near the fruit stand. The atmosphere seems casual and community-oriented, with people dressed in casual winter clothing. Overhead, there are power lines and a cloudy sky, adding to the urban feel of the scene."
+      },
+      "error": null
+    },
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/Slide3-9-1024x576.png": {
+      "description": {
+        "summary": "The image is a dashboard for an online learning and development course. It shows a user named Charles Williamson from Texas, US. The dashboard includes sections for course statistics and progress. On the left, there are 25 courses and 20 certifications. Specific courses like UX/UI and Web Design are highlighted, showing progress percentages of 80% and 70%, respectively. The UX/UI course has 22 lessons, 60 minutes of content, 6 assignments, and 412 students. The Web Design course has 15 lessons, 50 minutes of content, 3 assignments, and 357 students. On the right, the 'Your Class Progress' section details an SEO course with 12 lessons, 48 minutes of content, 3 assignments, and a placeholder for additional text. The 'Learning Activity' graph shows hours spent on materials and exams from August to January, with a peak of 65 hours in October. The dashboard is designed to track and display progress in online courses."
+      },
+      "error": null
+    },
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/dota_v2_dota_v2_dota_v2_P10475.png": {
+      "description": {
+        "summary": "The image is an aerial view of a large industrial port area. There are several docks with ships docked alongside them. A large ship is anchored near the center, with multiple smaller vessels nearby. The port is surrounded by large storage tanks and industrial buildings, including warehouses and processing facilities. The layout shows extensive infrastructure with roads and pathways connecting different sections. The area is bustling with activity, indicating a busy commercial hub. The surrounding water is a deep blue, contrasting with the industrial landscape."
+      },
+      "error": null
+    },
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/hq_50k_test00032.png": {
+      "description": {
+        "summary": "The image is a comic book cover featuring Superman in his iconic blue and red costume with a red cape and boots, flying through a snowy cityscape. The title 'Christmas Thief' is displayed prominently at the top. Snowflakes are scattered throughout the scene. A small speech bubble near Superman reads 'Have to hurry, almost out of time!' At the bottom right, there is a text box with credits for the creators, including Karl Kesel as writer and Jerry Siegel and Joe Shuster as creators of Superman. A Christmas tree with ornaments and a wreath is visible in the foreground, adding a festive vibe to the scene."
+      },
+      "error": null
+    },
+    "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/liu4k_val_pexels-photo-763398_1.png": {
+      "description": {
+        "summary": "The image captures a rainy urban street scene with a cyclist wearing a helmet riding through the rain, surrounded by vehicles including a red pickup truck and several cars. The street is wet, reflecting the ongoing downpour. In the background, there is a building with arched windows and several Mexican flags displayed. The rain is visibly heavy, creating a dynamic and somewhat chaotic atmosphere. Street signs indicate nearby locations such as 'Jardín de Las Rosas' and 'Teatro José Rubén Romera.'"
+      },
+      "error": null
+    }
+  }
+}

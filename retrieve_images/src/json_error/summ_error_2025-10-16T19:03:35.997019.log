@@ -1,0 +1,5 @@
+{
+    "summary": "A man in a blue shirt is cooking over an open flame. He is stirring a large pan filled with food, which appears to be a mixture of vegetables and meat. The setting looks like a kitchen with various cooking utensils and pots around. There is a fan in the background, and the environment has a busy, focused atmosphere.",
+    "entities": "man: wearing a blue shirt\npan: large, filled with food\nfood: mixture of vegetables and meat\nfan: in the background\nkitchen: setting with various cooking utensils and pots",
+    "relations": "man is stirring the pan\npan is on an open flame\nman is cooking food\nfan is in the background\nkitchen has various cooking utensils and pots"
+}

@@ -1,0 +1,5 @@
+{
+    "summary": "A man is playing a classical guitar outdoors. He is wearing a white shirt and a watch on his left wrist. The background features greenery and a stone structure, creating a serene and natural setting. The man appears focused on his playing, suggesting a calm and reflective mood.",
+    "entities": "man: wearing a white shirt, playing a classical guitar, wearing a watch on left wrist\nclassical guitar: being played by the man\nstone structure: in the background\ngreenery: in the background",
+    "relations": "man is playing the classical guitar\nman is wearing a watch on his left wrist\nstone structure is in the background\ngreenery is in the background"
+}

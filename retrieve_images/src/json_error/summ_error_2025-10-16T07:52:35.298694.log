@@ -1,0 +1,5 @@
+{
+    "summary": "A person is climbing a rock wall labeled 'CHOLOLLO FALLS.' The climber is wearing a blue shirt and black shorts, using both hands and feet to ascend. The rock surface is textured and natural-looking, with some greenery visible at the base.",
+    "entities": "person: wearing a blue shirt and black shorts\nrock wall: labeled 'CHOLOLLO FALLS'\nwooden sign: with text 'CHOLOLLO FALLS'\ngreenery: at the base of the rock wall",
+    "relations": "person is climbing the rock wall\nperson is holding onto the rock wall with both hands\nperson is using their feet to ascend the rock wall\nwooden sign is attached to the rock wall\nrock wall has a natural texture\nrock wall has greenery at the base"
+}

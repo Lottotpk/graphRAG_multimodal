@@ -1,0 +1,5 @@
+{
+    "summary": "A person stands on a wet street holding a black umbrella, facing a crosswalk with a bus in the background. They are dressed in a black jacket, gray jeans, and black boots, with a black bag slung over their shoulder. The scene suggests a rainy day in an urban setting, creating a reflective and contemplative atmosphere.",
+    "entities": "person: wearing a black jacket, gray jeans, black boots, holding a black umbrella, carrying a black bag\nbus: in the background, red and blue\nstreet: wet, with a crosswalk\numbrella: black\nbag: black",
+    "relations": "person is standing on the street\nperson is holding an umbrella\nperson is facing the crosswalk\nbus is in the background\numbrella is above the person\nbag is slung over the person's shoulder"
+}

@@ -1,0 +1,5 @@
+{
+    "summary": "In the image, two individuals are engaged in gardening activities outdoors. One person, standing, is assisting an elderly person seated in a wheelchair with planting flowers in a pot. The setting appears to be a backyard with a barbecue grill visible in the background. The scene conveys a sense of care and companionship, with the focus on nurturing plants together.",
+    "entities": "person: standing, wearing light blue shirt, assisting\nelderly person: seated in wheelchair, wearing floral shirt, wearing sunglasses\nflower pot: contains flowers, being planted\nbarbecue grill: in background\nwheelchair: elderly person is seated in\nbackyard: setting with grass and fence",
+    "relations": "standing person is assisting the elderly person with planting flowers\nelderly person is seated in a wheelchair\nflower pot is on a table\nbarbecue grill is in the background\nbackyard setting with grass and fence"
+}

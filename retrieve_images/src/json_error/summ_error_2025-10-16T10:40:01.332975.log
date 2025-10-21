@@ -1,0 +1,5 @@
+{
+    "summary": "A man is working on a red car with the hood open in a garage. He is wearing a light blue shirt and gloves, using a tool on the engine. The garage is filled with various tools and equipment, including a fire extinguisher and shelves with items. The scene suggests a focus on car repair or maintenance.",
+    "entities": "man: wearing a light blue shirt and gloves\nred car: hood open, engine visible\n工具: being used on the engine\nfire extinguisher: in the garage\nshelves: with items in the garage",
+    "relations": "man is working on the red car\nman is using a tool on the engine\nfire extinguisher is in the garage\nshelves are in the garage"
+}

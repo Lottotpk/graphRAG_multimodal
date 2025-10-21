@@ -1,0 +1,4 @@
+{
+    "entities": "wall: covered in red graffiti\nperson1: wearing cap and shorts\nperson2: dressed in black outfit\nfire hydrant: black\nmetal bollards: two\ndogs: two\nsidewalk: concrete",
+    "relations": "wall is in the background\nperson1 is walking dogs\nperson2 is walking dogs\nfire hydrant is on the sidewalk\nmetal bollards are on the sidewalk\nperson1 is in front of person2"
+}

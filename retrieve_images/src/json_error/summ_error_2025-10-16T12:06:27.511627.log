@@ -1,0 +1,5 @@
+{
+    "summary": "A person is joyfully jumping in a grassy backyard. They are wearing a black t-shirt and blue jeans. The background features a variety of trees, including one with pink blossoms. The sky is partly cloudy, suggesting a pleasant day. The overall vibe is lively and carefree.",
+    "entities": "person: wearing a black t-shirt and blue jeans\ngrass\nbackyard\npink blossoms tree\nvarious trees\npartly cloudy sky",
+    "relations": "person is jumping on the grass\nperson is in the backyard\npink blossoms tree is in the background\nvarious trees are in the background\npartly cloudy sky is above the person"
+}

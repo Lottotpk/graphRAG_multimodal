@@ -1,0 +1,5 @@
+{
+    "summary": "A woman stands on a wet street holding a blue and white umbrella. She is wearing a long-sleeved gray top and a floral dress. The background shows a blurred street scene with trees and a parked car. The setting suggests a rainy day, with puddles on the ground reflecting the overcast sky.",
+    "entities": "woman: long-sleeved gray top, floral dress, holding a blue and white umbrella\numbrella: blue and white\nparked car: white\nstreet: wet, puddles\nbackground: trees, blurred street scene",
+    "relations": "woman holding umbrella\numbrella providing shelter from rain\nwoman standing on wet street\nparked car in the background\nstreet reflecting overcast sky"
+}

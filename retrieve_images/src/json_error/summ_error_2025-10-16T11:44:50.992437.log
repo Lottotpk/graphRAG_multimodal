@@ -1,0 +1,5 @@
+{
+    "summary": "A young person is playing on a beach, kicking a white object towards the ocean. They are wearing red shorts and white shoes, with one foot raised off the ground. The beach has a rocky edge and wet sand, with gentle waves in the background. The scene captures a playful and energetic vibe.",
+    "entities": "person: young, shirtless, wearing red shorts, white shoes\nwhite object: being kicked towards the ocean\nbeach: with rocky edge, wet sand, gentle waves",
+    "relations": "person is kicking the white object\nperson is on the beach\nwhite object is near the ocean\nbeach has a rocky edge\nbeach has wet sand\nbeach has gentle waves"
+}

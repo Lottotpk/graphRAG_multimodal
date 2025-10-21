@@ -1,0 +1,5 @@
+{
+    "summary": "An older man wearing a light green polo shirt and a wide-brimmed hat stands in a garden filled with tomato plants. The plants are supported by wooden structures, and some have ripe tomatoes. The sky is partly cloudy, and there are trees and a blue fence in the background. The scene suggests a sunny day, with the man possibly explaining or discussing something related to the garden.",
+    "entities": "man: older, wearing a light green polo shirt, wearing a wide-brimmed hat\nwooden structure: supporting tomato plants\nripe tomatoes: on the tomato plants\nblue fence: in the background\ntrees: in the background\nsky: partly cloudy",
+    "relations": "man standing next to wooden structure\nman gesturing with right hand\nwooden structure supporting tomato plants\nripe tomatoes hanging from tomato plants\nblue fence behind the garden\ntrees in the background\nsky above the garden"
+}

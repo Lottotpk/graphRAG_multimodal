@@ -1,0 +1,5 @@
+{
+    "summary": "A young girl is blowing bubbles in a playground. She is wearing a striped tank top and holding a green bubble bottle. The playground equipment is yellow, and there is a building in the background with balconies. A tree is visible, adding greenery to the scene.",
+    "entities": "girl: young, wearing a striped tank top\nbubble bottle: green\nplayground equipment: yellow\nbuilding: with balconies\nbalconies: on the building\nballoons: being blown by the girl\nbubble wand: yellow, being used by the girl\nbubble: being blown\nplayground: with colorful flooring\nflooring: colorful\ntree: visible, adding greenery",
+    "relations": "girl is blowing bubbles\nbubble bottle is held by the girl\nplayground equipment is in the background\nbuilding is in the background\nbalconies are on the building\nballoons are being blown by the girl\nbubble wand is being used by the girl\nbubble is being blown by the girl\nplayground has colorful flooring\ntree is adding greenery to the scene"
+}

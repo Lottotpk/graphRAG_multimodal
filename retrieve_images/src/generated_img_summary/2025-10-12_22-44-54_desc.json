@@ -1,0 +1,143 @@
+{
+  "created_at": "2025-10-12T22:44:54.247416",
+  "system_prompt": "\n    You are an expert image analyst. \n    Your task: identify entities and their relations in the images into structured JSON based on the image and its summary. \n    Follow the workflow strictly and output JSON only.\n",
+  "prompt": "\n    Inputs (always provided)\n    - Query image: The image input to analyze\n    - Image summary: The image summary as an additional relationship\n\n    Image summary\n    \n\n    Workflow\n    0) Understand the image summary\n    - Explore details from text description as an additional context along with the Query image\n    1) Capture entities\n    - Identify objects presented in the Query image.\n    - Add details of those objects. If it is a person, describe the details of that person in details.\n    2) Analyse relations\n    - Consider the Subject Placement, Object Placement, Inter-Subject & Inter-Object relations, Background Elements, Gaze & Interaction, Composition & Lightning of an image.\n    3) Summary output\n    - Add the summary of the Query image to the result\n\n    The output format should be in JSON format, remember, just plain JSON text, no markdown.\n    {\n        \"summary\": \"\",\n        \"entities\": \"(the format should be 'entity: details' separated by '\\n')\",\n        \"relations\": \"(the format should be 'relation description' separated by '\\n')\",\n    }\n\n    Validation Checklist (must pass before you output)\n    - JSON is strictly valid: no trailing commas; correct double quotes; correct the comma delimiter; beware of unterminated string; enclose the double quotes; enclose the brackets.\n    - Each entity is straight-forward words of object; no adjective or number. They are separated clearly with '\\n'.\n    - Each entity has its details attached to the entity.\n    - Each relation truly shows connections between objects; no number. They are separated clearly with '\\n'.\n    - Relation must be a single phrase of relation description.\n    - Entities and relations can be found from the Query image; No making up the answer\n    - Strict to the output format.\n",
+  "model_path": "OpenGVLab/InternVL3_5-8B",
+  "records": [
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/000000000139.jpg",
+      "description": {
+        "summary": "The image depicts a cozy living room and dining area with a warm yellow color scheme. A large flat-screen TV is mounted on the wall, with a media console below it. A vase with flowers is placed on the console. The dining area features a wooden table with four chairs, positioned near three large windows with natural light streaming in. A person is standing by the kitchen counter, which is equipped with cabinets and appliances. The flooring is wooden, and there is a rug in the living area. A fireplace with a decorative item is visible on the right, and a small table with a vase of flowers is in the foreground. The overall vibe is inviting and homely.",
+        "entities": "flat-screen TV: mounted on the wall\nmedia console: below the TV\nvase with flowers: on the media console\nwooden table: in the dining area\nchairs: four, around the table\nlarge windows: three, with natural light\nperson: standing by the kitchen counter\nkitchen counter: equipped with cabinets and appliances\nwooden flooring: throughout the room\nrug: in the living area\nfireplace: on the right with a decorative item\nsmall table: in the foreground with a vase of flowers",
+        "relations": "flat-screen TV is mounted on the wall\nmedia console is below the TV\nvase with flowers is on the media console\nwooden table is in the dining area\nchairs are around the table\nlarge windows are near the dining area\nperson is standing by the kitchen counter\nkitchen counter is equipped with cabinets and appliances\nwooden flooring is throughout the room\nrug is in the living area\nfireplace is on the right\nsmall table is in the foreground"
+      },
+      "error": null
+    },
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/000000005001.jpg",
+      "description": {
+        "summary": "A group of people is gathered outside a building for a ribbon-cutting ceremony. A man in a police uniform and another person are cutting a red ribbon with scissors. A young girl in a pink jacket and helmet holds the ribbon, while a child in a blue helmet stands nearby. The crowd, including adults and children, watches with smiles. A blue balloon floats nearby, adding to the celebratory atmosphere.",
+        "entities": "group of people: gathered outside a building\nman in police uniform: cutting a red ribbon with scissors\nperson: cutting a red ribbon with scissors\nyoung girl: in a pink jacket and helmet, holding the ribbon\nchild: in a blue helmet, standing nearby\ncrowd: watching with smiles\nblue balloon: floating nearby",
+        "relations": "group of people is gathered outside a building for a ribbon-cutting ceremony\nman in police uniform and another person are cutting a red ribbon with scissors\nyoung girl holds the ribbon\nchild stands nearby\ncrowd watches with smiles\nblue balloon floats nearby"
+      },
+      "error": null
+    },
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/000000009891.jpg",
+      "description": {
+        "summary": "The image shows two men loading luggage into a white SUV in a parking garage. One man is bending over to place a black suitcase into the car, while the other is handling luggage near a luggage cart. The SUV's driver's side door is open, and the trunk is visible. The setting appears to be an airport parking area, indicated by a sign for a shuttle bus to McCarran International Airport. The environment is well-lit with overhead lighting, and the scene conveys a sense of travel and preparation.",
+        "entities": "white SUV: vehicle with open driver's side door and visible trunk\nblack suitcase: large suitcase being placed into the SUV\nluggage cart: cart with luggage near the man handling it\nman 1: person bending over to place suitcase into the SUV, wearing a gray shirt and jeans\nman 2: person handling luggage near the luggage cart, wearing a light gray jacket and brown pants\nshuttle bus sign: sign indicating shuttle bus to McCarran International Airport\noverhead lighting: lighting fixtures illuminating the parking garage",
+        "relations": "man 1 is placing a black suitcase into the white SUV\nman 2 is handling luggage near the luggage cart\nwhite SUV is parked with its driver's side door open\nluggage cart is positioned near man 2\nshuttle bus sign is visible in the background\noverhead lighting is illuminating the scene"
+      },
+      "error": null
+    },
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/000000013659.jpg",
+      "description": {
+        "summary": "The image depicts a busy workshop or office space with several people engaged in various activities. In the foreground, a man is seated at a desk, working on a laptop. The desk is cluttered with various items, including another laptop, a keyboard, a glass of water, and some electronic components. Several cardboard boxes, one labeled '1BA,' are stacked nearby. In the background, three individuals are gathered around a table, seemingly collaborating on a project. One person is standing and appears to be explaining something, while the others are focused on the materials on the table. The room is equipped with office furniture, including chairs and desks, and has a bulletin board with papers pinned to it. The overall atmosphere is one of focused activity and collaboration.",
+        "entities": "man: seated, working on a laptop\nlaptop: on desk, being used by man\nkeyboard: on desk, near laptop\nbox: labeled '1BA', stacked nearby\nglass of water: on desk, near laptop\nbulletin board: with papers pinned to it\nchairs: office furniture, around desks\nindividuals: three people, collaborating on a project in background\ncomputer components: on desk, near man\noffice furniture: desks, chairs\n",
+        "relations": "man is seated at the desk\nlaptop is on the desk\nkeyboard is near the laptop\nglass of water is near the laptop\nbox is stacked nearby\nbulletin board has papers pinned to it\nchairs are around the desks\nindividuals are collaborating on a project\ncomputer components are on the desk\noffice furniture includes desks and chairs"
+      },
+      "error": null
+    },
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/000000033638.jpg",
+      "description": {
+        "summary": "The image depicts a woman in a kitchen, standing by a large black stove with a kettle on it. She is wearing a floral blouse and beige shorts, and appears to be focused on cooking or preparing something in a pan. The kitchen has a rustic feel, with a white cabinet and a wooden floor. There are various kitchen items on the countertops, including pots, pans, and a can. A window with white curtains is visible in the background, and a ladder is leaning against the wall. The overall atmosphere is cozy and domestic.",
+        "entities": "woman: wearing floral blouse and beige shorts\nstove: large black stove with kettle on it\npan: on the stove\nkettle: on the stove\nwhite cabinet: in the kitchen\nwooden floor: in the kitchen\nwindow: with white curtains\nladder: leaning against the wall\npots: on the countertops\npans: on the countertops\ncan: on the countertops",
+        "relations": "woman is standing by the stove\nstove has a kettle on it\npan is on the stove\nkettle is on the stove\nwhite cabinet is in the kitchen\nwooden floor is in the kitchen\nwindow is in the background\nladder is leaning against the wall\npots are on the countertops\npans are on the countertops\ncan is on the countertops"
+      },
+      "error": null
+    },
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/143684568_3c59299bae.jpg",
+      "description": {
+        "summary": "The image shows a rocky cliff with two people: one standing at the top and another climbing down the side. The landscape below is a vast green valley with fields, trees, and a few buildings. The sky is clear with a few clouds, creating a serene and adventurous atmosphere.",
+        "entities": "rocky cliff: large, steep, rugged surface\nperson at the top: standing, wearing dark clothing, facing the landscape\nclimber: descending the cliff, wearing light clothing, using equipment\nvalley: expansive, green, with fields and trees\nbuildings: small, scattered in the valley\nsky: clear, with a few clouds",
+        "relations": "person at the top is standing on the rocky cliff\nclimber is descending the rocky cliff\nrocky cliff overlooks the valley\nvalley contains fields, trees, and buildings\nsky is above the rocky cliff and valley"
+      },
+      "error": null
+    },
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/2be83e8428855ce2ad1b4d64dc0f33fa.jpg",
+      "description": {
+        "summary": "The image shows the interior of a shopping mall with people standing and sitting along the corridor. On the left side, there is a store with a green facade labeled 'ART CORNER.' People are seated on benches, and some are standing, possibly waiting or conversing. On the right side, there is a shop with a pink facade and a sign that reads '八角' (Bazhuang). The floor is shiny and tiled, and the area appears busy with shoppers. The timestamp on the image is '05-13-2017 23:08,' indicating it was taken in the evening. The atmosphere seems casual and typical of a shopping environment.",
+        "entities": "Store: 'ART CORNER'\nStore: '八角'\nPeople: standing\nPeople: sitting\nBenches\nShopping mall corridor\nTimestamp: '05-13-2017 23:08'\nShiny tiled floor",
+        "relations": "Store 'ART CORNER' is on the left side of the corridor.\nStore '八角' is on the right side of the corridor.\nPeople are standing and sitting along the corridor.\nBenches are placed along the corridor for seating.\nThe timestamp indicates the image was taken in the evening.\nThe floor is shiny and tiled, reflecting the lighting in the mall."
+      },
+      "error": null
+    },
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/3090593241_93a975fe2b.jpg",
+      "description": {
+        "summary": "The image shows a large crowd of people gathered outside a stadium at night. Many individuals are wearing jerseys with the number '25' on them, suggesting they are fans of a sports team. The area is well-lit by streetlights, and a sign indicating 'NO G.P.D.' is visible, suggesting restricted access or a specific event. The atmosphere appears lively and energetic, with people standing and talking, possibly waiting for an event to start. The setting includes barriers and a tall structure with the letters 'EE' on it.",
+        "entities": "crowd: large group of people\njerseys: sports jerseys with the number '25'\nstreetlights: tall lights illuminating the area\nsign: 'NO G.P.D.' indicating restricted access\nbarriers: metal barriers separating the crowd\nstructure: tall structure with the letters 'EE'\ntrash can: cylindrical trash can near the barriers",
+        "relations": "crowd is gathered outside the stadium\njerseys are worn by many individuals in the crowd\nstreetlights illuminate the crowd and the area\nsign is placed near the barriers indicating restricted access\nbarriers separate the crowd from the stadium area\nstructure is visible in the background near the stadium\ntrash can is located near the barriers"
+      },
+      "error": null
+    },
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/3643684688_2f7157b23d.jpg",
+      "description": {
+        "summary": "The image depicts a panel discussion taking place in a dimly lit venue. Four individuals are seated at a long table covered with a blue cloth, facing an audience. The audience members are seated in rows, appearing attentive. The setting includes a large screen or backdrop behind the panelists, and there are stage lights illuminating the area. The overall atmosphere suggests a formal event, possibly a conference or seminar.",
+        "entities": "panelists: four individuals seated at a long table\naudience: seated in rows, appearing attentive\nstage lights: illuminating the area\nlarge screen: behind the panelists\nblue cloth: covering the table",
+        "relations": "panelists are seated at the table\naudience is facing the panelists\nstage lights are positioned above the panelists\nlarge screen is positioned behind the panelists\nblue cloth is covering the table"
+      },
+      "error": null
+    },
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/3712574653_e009f76d19.jpg",
+      "description": {
+        "summary": "The image depicts a wedding reception scene. A bride in a white dress and a groom in a black suit are seated at a table, with the bride holding a champagne glass. A woman in a black dress stands beside them, holding a drink. Another woman, facing away from the camera, is also holding a drink. The table is decorated with candles, flowers, and a centerpiece. Fairy lights and a decorative backdrop add a warm ambiance to the setting.",
+        "entities": "bride: woman in a white dress with a V-neckline, holding a champagne glass\n groom: man in a black suit, seated next to the bride\n woman in black dress: standing beside the bride and groom, holding a drink\n woman facing away: holding a drink, facing away from the camera\n table: covered with a white tablecloth, decorated with candles, flowers, and a centerpiece\n champagne glasses: on the table, held by the bride and another person\n decorative backdrop: with fairy lights and a grid pattern\n chairs: black, positioned around the table\n candles: on the table, providing ambient lighting\n flowers: part of the table centerpiece\n fairy lights: hanging in the background, adding a warm ambiance",
+        "relations": "bride and groom are seated together at the table\n woman in black dress is standing beside the bride and groom\n woman facing away is holding a drink and facing the table\n table is decorated with candles, flowers, and a centerpiece\n fairy lights are hanging in the background, creating a warm ambiance\n decorative backdrop is behind the seated individuals\n champagne glasses are placed on the table, with the bride holding one\n chairs are positioned around the table for seating"
+      },
+      "error": null
+    },
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/380527679_574749123d.jpg",
+      "description": {
+        "summary": "The image depicts an outdoor market scene with a white canopy tent set up on a street. Under the tent, various fruits are displayed in crates, with people browsing and purchasing items. The setting appears to be a small neighborhood with brick buildings on either side of the street. There are several individuals, including a child in a red jacket, standing and interacting near the fruit stand. The atmosphere seems casual and community-oriented, with people dressed in casual winter clothing. Overhead, there are power lines and a cloudy sky, adding to the urban feel of the scene.",
+        "entities": "white canopy tent\nfruit crates\npeople\nchild in red jacket\nbrick buildings\npower lines\ncloudy sky",
+        "relations": "white canopy tent is set up on the street\nfruit crates are under the white canopy tent\npeople are browsing and purchasing items from the fruit crates\nchild in red jacket is standing near the fruit stand\nbrick buildings are on either side of the street\npower lines are overhead\ncloudy sky is above the scene"
+      },
+      "error": null
+    },
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/Slide3-9-1024x576.png",
+      "description": {
+        "summary": "The image is a dashboard for an online learning and development course. It shows a user named Charles Williamson from Texas, US. The dashboard includes sections for course statistics and progress. On the left, there are 25 courses and 20 certifications. Specific courses like UX/UI and Web Design are highlighted, showing progress percentages of 80% and 70%, respectively. The UX/UI course has 22 lessons, 60 minutes of content, 6 assignments, and 412 students. The Web Design course has 15 lessons, 50 minutes of content, 3 assignments, and 357 students. On the right, the 'Your Class Progress' section details an SEO course with 12 lessons, 48 minutes of content, 3 assignments, and a placeholder for additional text. The 'Learning Activity' graph shows hours spent on materials and exams from August to January, with a peak of 65 hours in October. The dashboard is designed to track and display progress in online courses.",
+        "entities": "Dashboard: Online learning and development course dashboard\nUser: Charles Williamson\nLocation: Texas, US\nCourses: 25\nCertifications: 20\nUX/UI Course: 80% progress, 22 lessons, 60 minutes, 6 assignments, 412 students\nWeb Design Course: 70% progress, 15 lessons, 50 minutes, 3 assignments, 357 students\nSEO Course: 12 lessons, 48 minutes, 3 assignments\nLearning Activity Graph: Hours spent on materials and exams from August to January, peak of 65 hours in October",
+        "relations": "Dashboard shows user information\nDashboard displays course statistics\nUX/UI Course is part of the dashboard\nWeb Design Course is part of the dashboard\nSEO Course is part of the 'Your Class Progress' section\nLearning Activity Graph shows hours spent on materials and exams"
+      },
+      "error": null
+    },
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/dota_v2_dota_v2_dota_v2_P10475.png",
+      "description": {
+        "summary": "The image is an aerial view of a large industrial port area. There are several docks with ships docked alongside them. A large ship is anchored near the center, with multiple smaller vessels nearby. The port is surrounded by large storage tanks and industrial buildings, including warehouses and processing facilities. The layout shows extensive infrastructure with roads and pathways connecting different sections. The area is bustling with activity, indicating a busy commercial hub. The surrounding water is a deep blue, contrasting with the industrial landscape.",
+        "entities": "dock: large structure extending into water\nship: large vessel anchored near center\nsmaller vessels: multiple ships near the large ship\nstorage tanks: large cylindrical tanks near the port\nindustrial buildings: warehouses and processing facilities near the port\nroads: pathways connecting different sections of the port\nwater: deep blue surrounding the port area",
+        "relations": "dock is adjacent to the large ship\nsmaller vessels are near the large ship\nstorage tanks are located near industrial buildings\nroads connect different sections of the port\nwater surrounds the entire port area"
+      },
+      "error": null
+    },
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/hq_50k_test00032.png",
+      "description": {
+        "summary": "The image is a comic book cover featuring Superman in his iconic blue and red costume with a red cape and boots, flying through a snowy cityscape. The title 'Christmas Thief' is displayed prominently at the top. Snowflakes are scattered throughout the scene. A small speech bubble near Superman reads 'Have to hurry, almost out of time!' At the bottom right, there is a text box with credits for the creators, including Karl Kesel as writer and Jerry Siegel and Joe Shuster as creators of Superman. A Christmas tree with ornaments and a wreath is visible in the foreground, adding a festive vibe to the scene.",
+        "entities": "Superman: In his iconic blue and red costume with a red cape and boots, flying through a snowy cityscape.\nChristmas tree: With ornaments and a wreath, visible in the foreground.\nSpeech bubble: Near Superman, reads 'Have to hurry, almost out of time!'\nText box: At the bottom right, with credits for creators including Karl Kesel as writer and Jerry Siegel and Joe Shuster as creators of Superman.\nSnowflakes: Scattered throughout the scene.\nTitle: 'Christmas Thief' displayed prominently at the top.",
+        "relations": "Superman is flying through the snowy cityscape.\nThe Christmas tree is in the foreground, adding a festive vibe.\nThe speech bubble is near Superman, indicating urgency.\nThe text box is at the bottom right, providing credits for the creators.\nSnowflakes are scattered throughout the scene, enhancing the wintery atmosphere."
+      },
+      "error": null
+    },
+    {
+      "image_path": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/liu4k_val_pexels-photo-763398_1.png",
+      "description": {
+        "summary": "The image captures a rainy urban street scene with a cyclist wearing a helmet riding through the rain, surrounded by vehicles including a red pickup truck and several cars. The street is wet, reflecting the ongoing downpour. In the background, there is a building with arched windows and several Mexican flags displayed. The rain is visibly heavy, creating a dynamic and somewhat chaotic atmosphere. Street signs indicate nearby locations such as 'Jardín de Las Rosas' and 'Teatro José Rubén Romera.'",
+        "entities": "cyclist: wearing a helmet, riding a bicycle\nred pickup truck: Ford, license plate JDC 34420\nseveral cars: silver, parked on the side of the street\nMexican flags: displayed on the building in the background\nbuilding: with arched windows\nstreet signs: indicating 'Jardín de Las Rosas' and 'Teatro José Rubén Romera'\nstreet: wet, reflecting the rain",
+        "relations": "cyclist riding bicycle through the rain\nred pickup truck driving on the wet street\nseveral cars parked on the side of the street\nMexican flags displayed on the building\nbuilding with arched windows in the background\nstreet signs indicating nearby locations\nwet street reflecting the rain"
+      },
+      "error": null
+    }
+  ]
+}

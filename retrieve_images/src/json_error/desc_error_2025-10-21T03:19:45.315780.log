@@ -1,0 +1,12 @@
+{
+    "Target Audience/Perception": [
+        {"keyword": "Tech-savvy", "reason": "The image shows someone using a computer, indicating familiarity with technology.", "confidence": 0.95},
+        {"keyword": "Academic", "reason": "The presence of text on the screen suggests a focus on learning or research.", "confidence": 0.85},
+        {"keyword": "Youthful", "reason": "The person's appearance and setting imply a young, modern user.", "confidence": 0.8}
+    ],
+    "Narrative/Symbolic Elements": [
+        {"keyword": "Focus", "reason": "The person is intently working on the computer, symbolizing concentration.", "confidence": 0.9},
+        {"keyword": "Study", "reason": "The desk setup and posters suggest an environment of learning and work.", "confidence": 0.85},
+        {"keyword": "Productivity", "reason": "The person is actively typing, indicating a task-oriented atmosphere.", "confidence": 0.8}
+    ]
+}

@@ -1,0 +1,6 @@
+{
+  "created_at": "2025-10-12T22:49:27.537517",
+  "query": "Man cycling in the middle of the rain image",
+  "model_path": "OpenGVLab/InternVL3_5-8B",
+  "format_prompt": "Man cycling in the middle of the rain image\nMan: cycling\nRain: present\nMan is cycling in the rain\nMelancholic,Dynamic,Isolated,\nFine Art,\nRealistic,Expressive,\nOil-based,\nCool,Moist,\n\nArt-Enthusiast,Contemplative,\nSolitude,Resilience,\n"
+}

@@ -1,0 +1,5 @@
+{
+    "summary": "Two children are climbing an indoor rock wall. The wall is covered with various handholds and footholds. Both children are wearing harnesses and are secured with ropes. They appear focused on ascending the wall. The environment suggests an indoor climbing gym with a structured and safe climbing setup.",
+    "entities": "child: wearing blue jeans and white shoes, climbing the wall\nchild: wearing a maroon top and blue shorts, climbing the wall\nrock wall: covered with handholds and footholds, indoor climbing gym\nharness: worn by both children, secured with ropes",
+    "relations": "children climbing the rock wall\nrock wall provides handholds and footholds for climbing\nchildren are secured with ropes via harnesses"
+}

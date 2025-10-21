@@ -1,0 +1,5 @@
+{
+    "summary": "A man is sitting on a log in a grassy area surrounded by trees, playing a light-colored guitar. He is wearing a maroon shirt and blue jeans. Nearby, there is a green tent set up, and a small campfire is burning in front of him. The scene conveys a peaceful and relaxed camping atmosphere.",
+    "entities": "man: wearing a maroon shirt and blue jeans\nlog: the man is sitting on it\nlight-colored guitar: the man is playing it\ngreen tent: set up nearby\ncampfire: burning in front of the man",
+    "relations": "man is sitting on the log\nman is playing the guitar\nlog is in the grassy area\nman is near the green tent\ngreen tent is set up in the grassy area\ncampfire is in front of the man\ncampfire is burning"
+}

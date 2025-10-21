@@ -1,0 +1,5 @@
+{
+    "summary": "A shirtless man is playing frisbee on a sandy beach. He is wearing black shorts with white stripes and is captured mid-action, reaching out to catch a yellow frisbee. The background features a green fence and dense foliage, suggesting a park or recreational area. The scene conveys a sense of outdoor activity and leisure.",
+    "entities": "man: shirtless, wearing black shorts with white stripes\nfrisbee: yellow\nsand: sandy beach\nfence: green\nfoliage: dense",
+    "relations": "man is reaching out to catch frisbee\nman is standing on sand\nfence is in the background\nfoliage is behind the fence"
+}

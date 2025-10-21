@@ -1,0 +1,5 @@
+{
+    "summary": "A person is mopping the wooden floor in a living room. The room has a TV on the left, a speaker, and a small table with a vase of red flowers. On the right, there is a table covered with a floral tablecloth, with a cardboard box on top and a potted plant. The room has a cozy and lived-in vibe.",
+    "entities": "person: wearing dark clothing, bending over while mopping\nTV: on the left side, black in color\nspeaker: next to the TV, tall and white\nsmall table: near the TV, with a vase of red flowers\nvase: on the small table, holding red flowers\nmopping mop: being used by the person\nwooden floor: the surface being cleaned\nfloral tablecloth: covering the table on the right\nbox: on the table with the floral tablecloth\npotted plant: on the table with the floral tablecloth",
+    "relations": "person is mopping the wooden floor\nTV is next to the speaker\nsmall table is near the TV\nvase is on the small table\nmopping mop is being used by the person\nwooden floor is the surface being cleaned\nfloral tablecloth is covering the table\nbox is on the table with the floral tablecloth\npotted plant is on the table with the floral tablecloth"
+}

@@ -1,0 +1,5 @@
+{
+    "summary": "A man is drinking from four small beer glasses at once. He is wearing a blue floral shirt and appears to be at a social event or party. The background is dark, suggesting an indoor setting with low lighting.",
+    "entities": "man: wearing a blue floral shirt\nbeer glasses: four small glasses with beer\nwristband: white wristband on the man's wrist",
+    "relations": "man drinking from beer glasses\nman wearing wristband\nbeer glasses held by the man"
+}

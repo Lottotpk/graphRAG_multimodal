@@ -1,0 +1,5 @@
+{
+    "summary": "A person is captured mid-air, jumping joyfully in a field with tall grass against a clear blue sky. The person is wearing a white shirt and dark pants, with their arms raised and legs bent. The scene evokes a sense of freedom and happiness, with the open sky and natural surroundings enhancing the feeling of carefree movement.",
+    "entities": "person: wearing a white shirt and dark pants\nfield: with tall grass\nsky: clear blue",
+    "relations": "person is jumping in the field\nfield is under the clear blue sky\nperson's arms are raised\nperson's legs are bent"
+}

@@ -1,0 +1,5 @@
+{
+    "summary": "A man wearing a red cap and a white shirt with a logo is drinking from a bottle. He appears to be in a dimly lit indoor setting, possibly a bar or restaurant, with other people in the background. The atmosphere suggests a casual social event.",
+    "entities": "man: wearing a red cap and a white shirt with a logo\nbottle: being held by the man\nother people: in the background\nindoor setting: dimly lit, possibly a bar or restaurant",
+    "relations": "man drinking from bottle\nman in indoor setting\nother people in background\nman interacting with bottle"
+}

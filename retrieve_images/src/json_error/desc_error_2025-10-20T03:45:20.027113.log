@@ -1,0 +1,10 @@
+{
+    "Style/Visual Attributes": [
+        {"keyword": "Minimalist", "reason": "The room has a simple setup with limited elements, creating a clean and uncluttered look.", "confidence": 0.9},
+        {"keyword": "Dynamic", "reason": "The person is actively sanding the floor, conveying movement and energy.", "confidence": 0.8},
+        {"keyword": "Industrial", "reason": "The unfinished walls and the act of floor sanding suggest a raw, utilitarian environment.", "confidence": 0.8}
+    ],
+    "Medium/Material": [
+        {"keyword": "Raster", "reason": "The image is a digital photograph, characterized by a grid of pixels.", "confidence": 0.9}
+    ]
+}

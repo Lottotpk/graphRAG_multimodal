@@ -1,0 +1,5 @@
+{
+    "summary": "The image shows two people playing soccer on a grassy field. The person on the left, wearing a white shirt with the number 6, is attempting to tackle the player on the right, who is wearing a light blue shirt and a white cap. Both players are focused on the ball, with the player in blue extending their arms defensively. In the background, there are parked cars, indicating the field is near a parking area. The scene conveys a competitive and active sports environment.",
+    "entities": "person on the left: wearing a white shirt with the number 6, black shorts, black socks, black and white cleats\nperson on the right: wearing a light blue shirt, black shorts, white cap, white and pink cleats\nparked cars: silver and dark-colored cars in the background\ngrass field: green grass covering the ground",
+    "relations": "person on the left is attempting to tackle the person on the right\nperson on the right is extending their arms defensively\nparked cars are in the background\ngrass field is the playing surface"
+}

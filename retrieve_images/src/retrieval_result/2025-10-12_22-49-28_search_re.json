@@ -1,0 +1,7 @@
+{
+  "created_at": "2025-10-12T22:49:28.622634",
+  "query": "Man cycling in the middle of the rain image",
+  "database": "./description_embedding_databases/2025-10-12_22-47-17_last_layer_token_level_auto",
+  "model_path": "OpenGVLab/InternVL3_5-8B",
+  "result": "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/liu4k_val_pexels-photo-763398_1.png -- 49.32570266723633\n/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/3090593241_93a975fe2b.jpg -- 47.94647979736328\n/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/143684568_3c59299bae.jpg -- 47.7867546081543\n/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/000000033638.jpg -- 46.75507354736328\n/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/test_imgs/000000005001.jpg -- 46.70230484008789\n"
+}

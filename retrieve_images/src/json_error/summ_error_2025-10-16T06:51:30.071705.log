@@ -1,0 +1,5 @@
+{
+    "summary": "A man is blowing bubbles outside a brick building. He is holding a bubble wand in his mouth and a bubble solution bottle in his hand. The background includes a satellite dish and some flowering plants. The scene appears casual and relaxed.",
+    "entities": "man: wearing a blue t-shirt\nbubble wand: in the man's mouth\nbubble solution bottle: in the man's hand\nbrick building: in the background\nsatellite dish: attached to the building\nflowering plants: near the building",
+    "relations": "man is blowing bubbles with the bubble wand\nman is holding the bubble solution bottle\nbubble wand is in the man's mouth\nbubble solution bottle is in the man's hand\nsatellite dish is attached to the brick building\nflowering plants are near the brick building"
+}

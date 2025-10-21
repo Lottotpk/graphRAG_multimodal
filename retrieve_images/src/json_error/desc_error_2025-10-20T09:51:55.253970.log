@@ -1,0 +1,11 @@
+{
+    "Color/Lightning Characteristics": [
+        {"keyword": "Warm", "reason": "The image has a natural, sunlit appearance with earthy tones.", "confidence": 0.85},
+        {"keyword": "Earth-toned", "reason": "The colors are muted and natural, reflecting the outdoor setting.", "confidence": 0.85},
+        {"keyword": "Muted", "reason": "The colors are soft and desaturated, giving a calm and realistic look.", "confidence": 0.8}
+    ],
+    "Cultural/Regional Elements": [
+        {"keyword": "Vernacular", "reason": "The setting and attire suggest a rural, everyday life context.", "confidence": 0.85},
+        {"keyword": "Traditional", "reason": "The activity of cutting a watermelon is a common, culturally rooted practice.", "confidence": 0.8}
+    ]
+}

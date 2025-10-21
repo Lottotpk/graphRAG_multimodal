@@ -1,0 +1,14 @@
+{
+    "created_at": "2025-10-20T22:31:35.703587",
+    "system_prompt": "\n    You are an expert image analyst. \n    Your task: summarize images showing entities, relations, and abstract feeling.\n    Follow the workflow strictly and output JSON only.\n",
+    "prompt": "Inputs (always provided)\n    - Query image: The image input to summarize\n\n    Workflow (apply for each category in Categories)\n    1) Summarize the Query image\n    - Identify the summary of the Query image. The summary is a compact paragraph that includes all entities, places, vibes, and events from the image\n\n    Output Requirements\n    - Return strictly valid JSON  only (no prose, no markdown, no comments).\n    - Use exactly these top-level keys and types for each category in Categories:\n    {\n        \"summary\": \"\"\n    }\n\n    Validation Checklist (must pass before you output)\n    - JSON is strictly valid: no trailing commas; correct double quotes; correct the comma delimiter; beware of unterminated string; enclose the double quotes; enclose the brackets.\n    - The summary's word count is lower than 400 words.\n    - Reasons and evidence can be found from the Query image; No making up the answer",
+    "model_path": "OpenGVLab/InternVL3_5-8B",
+    "records": {
+        "./null_imgs/walking_the_dog_219.jpg": {
+            "description": {
+                "summary": "A person wearing an orange shirt and jeans walks with a dog on a paved path. The person is holding several photographs, and there is a display of framed photos and prints on a wall to the left. The scene is set outdoors with trees in the background, creating a calm and artistic atmosphere."
+            },
+            "error": null
+        }
+    }
+}

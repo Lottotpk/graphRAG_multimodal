@@ -1,0 +1,5 @@
+{
+    "summary": "A person wearing a navy blue baseball jersey with the name 'LAMONT' and the number '22' on the back is clapping. They are also wearing a navy blue cap with an orange logo. The setting appears to be a sports field, likely a baseball game, with a green field in the background. The person seems to be engaged in cheering or supporting an event.",
+    "entities": "person: wearing a navy blue baseball jersey with the name 'LAMONT' and the number '22' on the back\nperson: wearing a navy blue cap with an orange logo\nbaseball jersey: navy blue with the name 'LAMONT' and the number '22'\ncap: navy blue with an orange logo\nsports field: green background",
+    "relations": "person is clapping\nperson is wearing a baseball jersey\nperson is wearing a cap\nbaseball jersey is on the back of the person\ncap is on the head of the person\nsports field is in the background"
+}

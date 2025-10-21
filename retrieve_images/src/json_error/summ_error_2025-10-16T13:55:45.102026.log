@@ -1,0 +1,5 @@
+{
+    "summary": "A woman is working in a kitchen, pouring a red liquid from a blender into a container. She is wearing a light blue shirt and glasses, and appears focused on her task. The kitchen has shelves stocked with various items, and the environment looks busy and functional.",
+    "entities": "woman: wearing light blue shirt and glasses\nblender: pouring red liquid\ncontainer: receiving red liquid\nshelves: stocked with various items\nkitchen: busy and functional environment",
+    "relations": "woman pouring liquid from blender into container\nblender connected to container via liquid flow\nwoman interacting with shelves in background\nkitchen environment surrounding woman and blender"
+}

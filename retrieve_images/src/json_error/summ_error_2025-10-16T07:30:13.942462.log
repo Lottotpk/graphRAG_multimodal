@@ -1,0 +1,5 @@
+{
+    "summary": "A man is kneeling on a wooden floor, smiling as he handles a roll of toilet paper. He is wearing a green V-neck T-shirt and blue jeans. There is another roll of toilet paper standing upright beside him. The setting appears to be a bathroom or a room with bathroom fixtures, creating a casual and light-hearted atmosphere.",
+    "entities": "man: wearing a green V-neck T-shirt and blue jeans\nroll of toilet paper: being handled by the man\nroll of toilet paper: standing upright beside the man\nwooden floor: the surface the man is kneeling on",
+    "relations": "man is kneeling on the wooden floor\nman is handling the roll of toilet paper\nman is smiling\nroll of toilet paper is beside the man\nroll of toilet paper is standing upright"
+}

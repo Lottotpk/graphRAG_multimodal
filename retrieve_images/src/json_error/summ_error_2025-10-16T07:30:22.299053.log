@@ -1,0 +1,5 @@
+{
+    "summary": "A person is mopping a wooden floor in a room with a large window. Next to them is a mobile cleaning cart with bright yellow storage bins. The cart holds various cleaning supplies, including spray bottles and cloths, with towels hanging on the side.",
+    "entities": "person: wearing dark clothing, holding a mop\nmobile cleaning cart: with bright yellow storage bins\nspray bottles: on the cart\nyellow storage bins: on the cart\nred spray bottle: on the cart\nyellow cloth: hanging on the cart\nred cloth: hanging on the cart\nblack tray: on the cart\nwooden floor\nlarge window",
+    "relations": "person is mopping the wooden floor\nmobile cleaning cart is next to the person\nspray bottles are on the mobile cleaning cart\nyellow storage bins are on the mobile cleaning cart\nyellow cloth is hanging on the mobile cleaning cart\nred cloth is hanging on the mobile cleaning cart\nblack tray is on the mobile cleaning cart\nlarge window is on the wall"
+}

@@ -1,0 +1,5 @@
+{
+    "summary": "A couple is walking hand-in-hand on a city street. The man is wearing a dark jacket and jeans, while the woman is holding a patterned umbrella, wearing a scarf, and carrying a bag. They appear to be enjoying a casual outing. The background includes other pedestrians and a storefront.",
+    "entities": "man: wearing a dark jacket and jeans\nwoman: holding a patterned umbrella, wearing a scarf, carrying a bag\numbrella: patterned\nother pedestrians: in the background\nstorefront: in the background",
+    "relations": "couple walking hand-in-hand\nman and woman holding hands\nwoman holding umbrella\nwoman carrying bag\nother pedestrians in the background\nstorefront in the background"
+}

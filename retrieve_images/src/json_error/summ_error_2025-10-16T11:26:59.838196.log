@@ -1,0 +1,5 @@
+{
+    "summary": "A person is standing under a blue and white umbrella in the rain. They are smiling and appear to be enjoying the rain, as water droplets are visible around them. The person is wearing a sleeveless black dress and is holding the umbrella handle with both hands. The background shows a building with windows and a wet ground, indicating a rainy environment.",
+    "entities": "person: smiling, wearing sleeveless black dress, holding umbrella handle with both hands\numbrella: blue and white\nbuilding: with windows\nwater droplets: visible around the person\nwet ground: indicating rainy environment",
+    "relations": "person is standing under the umbrella\nperson is holding the umbrella handle\numbrella is providing shelter from the rain\nperson is smiling and appears to be enjoying the rain\nwater droplets are visible around the person\nbuilding is in the background with windows\nwet ground is visible indicating rainy environment"
+}

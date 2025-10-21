@@ -1,0 +1,5 @@
+{
+    "summary": "A person is rock climbing on a cliff. They are wearing glasses, a striped shirt, and cargo shorts, with climbing gear attached to their harness. The climber is smiling and holding onto a rope for safety. The rock surface has visible holds and is bathed in sunlight, creating a warm atmosphere.",
+    "entities": "person: wearing glasses, striped shirt, cargo shorts, climbing harness with gear\nclimbing rope\nrock surface: with visible holds, bathed in sunlight\nclimbing gear: attached to harness, carabiners, quickdraws\nfootwear: climbing shoes\nrock holds",
+    "relations": "person is climbing on the rock surface\nperson is holding onto the climbing rope\nclimbing gear is attached to the person's harness\nperson is interacting with the rock holds using their feet\nrock surface is bathed in sunlight"
+}

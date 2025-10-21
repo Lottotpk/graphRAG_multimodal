@@ -1,0 +1,5 @@
+{
+    "summary": "A woman in a red and white striped dress is captured mid-jump in front of a red wooden wall. She has short hair adorned with a headband and is wearing beige shoes. The scene is vibrant and lively, with green grass and small yellow flowers visible at the bottom of the image.",
+    "entities": "woman: wearing red and white striped dress, beige shoes, short hair with headband\nred wooden wall\ngrass\nyellow flowers",
+    "relations": "woman is jumping in front of the red wooden wall\nwoman is positioned above the grass and yellow flowers"
+}

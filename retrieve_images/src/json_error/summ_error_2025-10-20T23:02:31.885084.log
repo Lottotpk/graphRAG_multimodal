@@ -1,0 +1,5 @@
+{
+    "summary": "A person is playing with a frisbee in a grassy park. They are wearing a gray t-shirt, blue shorts, a cap, and white shoes. The background features green trees, suggesting a calm and leisurely outdoor setting.",
+    "entities": "person: wearing gray t-shirt, blue shorts, cap, white shoes\nfrisbee: white\ngrass: green\nbackground: green trees",
+    "relations": "person is holding frisbee\nperson is standing on grass\nbackground features green trees"
+}

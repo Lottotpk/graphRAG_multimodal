@@ -1,0 +1,5 @@
+{
+    "summary": "Two people are standing at a fenced enclosure, interacting with a white horse. The person on the left, wearing a green top and denim shorts, is holding a brush and grooming the horse's head. The person on the right, in a black shirt and shorts, is holding a spray bottle and appears to be spraying the horse's face. They are outside, with a barn and trees in the background under a partly cloudy sky.",
+    "entities": "Person on the left: wearing a green top and denim shorts\nPerson on the right: wearing a black shirt and shorts\nWhite horse\nFenced enclosure\nBarn\nTrees\nPartly cloudy sky",
+    "relations": "Person on the left is grooming the horse's head with a brush\nPerson on the right is spraying the horse's face with a spray bottle\nBoth persons are interacting with the white horse\nFenced enclosure surrounds the area\nBarn is in the background\nTrees are in the background\nPartly cloudy sky is above"
+}

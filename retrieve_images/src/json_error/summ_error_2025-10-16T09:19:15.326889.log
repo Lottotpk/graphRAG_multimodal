@@ -1,0 +1,5 @@
+{
+    "summary": "A person is drinking from a green bottle against a backdrop of a cloudy sky. The individual is wearing a black sleeveless top and appears to be outdoors. The action suggests refreshment or hydration, with a casual and relaxed vibe.",
+    "entities": "person: wearing a black sleeveless top\nbottle: green\nsky: cloudy",
+    "relations": "person drinking from bottle\nbottle held by person\nperson positioned against sky"
+}

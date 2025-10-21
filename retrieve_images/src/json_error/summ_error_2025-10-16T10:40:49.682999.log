@@ -1,0 +1,5 @@
+{
+    "summary": "A man is working on a white car in a garage. The car's hood is open, revealing the engine. The man is using tools to work on the engine components. The car has a license plate reading '061-HRH' and a sticker labeled 'AEM.' Chains are hanging from the engine bay. The setting appears to be a workshop or garage, with the car elevated on a lift.",
+    "entities": "man: wearing a white t-shirt and ripped jeans\nwhite car: with the hood open, license plate '061-HRH', sticker labeled 'AEM'\nengine: visible with various components\nchains: hanging from the engine bay\ntools: being used by the man\nworkshop: setting with the car elevated on a lift",
+    "relations": "man is working on the engine\nman is using tools\nengine is part of the white car\nchains are hanging from the engine bay\nwhite car is elevated on a lift"
+}

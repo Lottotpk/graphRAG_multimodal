@@ -1,0 +1,5 @@
+{
+    "summary": "A man in a suit and red tie is blowing bubbles with a bubble wand. He is standing in front of a reflective glass surface, with a blurred background showing trees and power lines. The scene has a playful yet formal contrast, with the man's business attire juxtaposed against the whimsical activity of blowing bubbles.",
+    "entities": "man: wearing a black suit and red tie\nbubble wand: yellow\nbubble: transparent\nreflective glass surface: background\npower lines: blurred background\ntrees: blurred background",
+    "relations": "man is blowing bubbles with the bubble wand\nman is standing in front of the reflective glass surface\nbubble wand is in the man's hand\nreflective glass surface is behind the man\npower lines and trees are in the blurred background"
+}

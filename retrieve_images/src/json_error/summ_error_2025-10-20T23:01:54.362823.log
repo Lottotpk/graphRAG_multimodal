@@ -1,0 +1,5 @@
+{
+    "summary": "A person in a blue jacket and black shorts is crouched on a grassy field, reaching out to catch a white frisbee. In the background, other individuals in white athletic wear are standing, possibly waiting for their turn. The scene appears to be an outdoor recreational area with various items like bags and chairs scattered around, suggesting a casual, sporty atmosphere.",
+    "entities": "person: wearing blue jacket and black shorts\nfrisbee: white\nbags: black\nchairs: blue\nindividuals: wearing white athletic wear",
+    "relations": "person reaching out to catch frisbee\nindividuals standing in the background\nbags and chairs scattered around the field"
+}

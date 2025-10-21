@@ -1,0 +1,5 @@
+{
+    "summary": "A woman in a white lab coat is using a microscope in a laboratory setting. She has her hair tied back and is focused on examining something under the microscope. The background is a plain light blue, emphasizing the clinical and professional environment. The image conveys a sense of concentration and scientific inquiry.",
+    "entities": "woman: wearing a white lab coat, hair tied back\nmicroscope: on a table, being used by the woman\nlab coat: white\nhair: tied back\nbackground: plain light blue",
+    "relations": "woman is using the microscope\nmicroscope is on the table\nwoman is in front of the background"
+}

@@ -1,0 +1,5 @@
+{
+    "summary": "A young boy brushes his teeth at a public water fountain, with two women in the background filling containers. The setting appears to be outdoors, possibly in a campsite, as there is a vehicle and tents visible. The scene conveys a sense of daily routine and resourcefulness.",
+    "entities": "young boy: brushing teeth with a toothbrush\npublic water fountain: brass faucet with water flowing\nwoman 1: filling a container with water\nwoman 2: filling a container with water\nvehicle: white car with red and white stripes\n tents: green tents in the background",
+    "relations": "young boy is brushing his teeth at the public water fountain\nwoman 1 is filling a container with water from the public water fountain\nwoman 2 is filling a container with water from the public water fountain\nvehicle is parked in the background\n tents are visible in the background"
+}
