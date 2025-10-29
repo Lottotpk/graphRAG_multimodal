@@ -1,0 +1,4 @@
+{
+    "entities": "man on the left: pouring liquid from a pitcher into a glass\nman on the right: holding a plastic bag\nchalkboard menu: listing various beers like 'Gaeltic Ale' and 'Black Maria Stout'\npitcher: being used to pour liquid\npitcher: filled with liquid\nglass: receiving liquid from the pitcher\nplastic bag: held by the man on the right\nbottle: on the counter\nseveral glasses: on the counter\nbar counter: with glasses and a bottle\ncash register: visible on the counter",
+    "relations": "man on the left is pouring liquid into a glass\nman on the right is holding a plastic bag\nchalkboard menu is listing beers\npitcher is being used by the man on the left\npitcher is filled with liquid\nman on the left is interacting with the glass\nman on the right is standing next to the man on the left\nbottle is placed on the bar counter\nseveral glasses are on the bar counter\ncash register is visible on the counter"
+}

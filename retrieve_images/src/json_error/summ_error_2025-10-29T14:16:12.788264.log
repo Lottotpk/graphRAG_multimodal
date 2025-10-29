@@ -1,0 +1,4 @@
+{
+    "entities": "climber: person wearing a harness and climbing gear\nartificial climbing wall: wall with variously colored holds\nropes: securing the climber\nholds: colorful grips on the wall\nsky: clear blue background",
+    "relations": "climber is ascending the artificial climbing wall\nclimber is gripping the holds with hands and feet\nropes are attached to the climber and the wall\nholds are scattered across the wall\nsky is in the background"
+}

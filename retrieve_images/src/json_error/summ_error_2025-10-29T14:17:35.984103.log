@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing red top and patterned pants\npot: on the floor, being stirred\nflame: under the pot\nutensils: scattered around, including ladle and spoon\npots: multiple, on the floor and shelf\nwindow: letting in natural light\nsmoke: rising from the cooking area\nbottle: on the floor, near the pot\nbag: hanging on the wall\nwall: plain, with some items hanging",
+    "relations": "person is stirring the pot over the flame\npot is placed on the floor\nflame is under the pot\nutensils are scattered around the person\npots are placed on the floor and shelf\nwindow is letting in natural light\nsmoke is rising from the cooking area\nbottle is near the pot\nbag is hanging on the wall\nperson is seated on the floor"
+}

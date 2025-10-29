@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing a purple 'Diesel Jeans' t-shirt\npizza: on a piece of parchment paper\ngrater: handheld\nparchment paper: on a table\nwall: with Arabic writing",
+    "relations": "man is grating cheese onto the pizza\npizza is on the parchment paper\nman is using the grater\nparchment paper is on the table\nwall is in the background"
+}

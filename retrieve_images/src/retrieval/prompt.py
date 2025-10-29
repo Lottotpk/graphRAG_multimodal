@@ -422,7 +422,7 @@ def SUMMARY_PROMPT(query: str) -> str:
 
     Workflow (apply for each category in Categories)
     1) Summarize the Query text
-    - Repeat the Query text in the "summary" category.
+    - Identify the summary of the Query image. The summary is a compact paragraph that includes all entities, places, vibes, and events from the image
     2) Identify entities
     - Identify objects presented in the Query text.
     - Add details of those objects. If it is a person, describe the details of that person in details.
@@ -440,11 +440,88 @@ def SUMMARY_PROMPT(query: str) -> str:
 
     Validation Checklist (must pass before you output)
     - JSON is strictly valid: no trailing commas; correct double quotes; correct the comma delimiter; beware of unterminated string; enclose the double quotes; enclose the brackets.
+    - The summary's word count is lower than 400 words.
     - Each entity is straight-forward words of object; no adjective or number. They are separated clearly with \'\\n\'.
     - Each entity has a phrase of details described fully about that entity.
     - Each relation truly shows connections between objects; no number. They are separated clearly with \'\\n\'.
     - Relation must be a single phrase of relation description.
     - Entities and relations can be found from the Query text; No making up the answer
+    - Strict to the output format.
+""" % (query)
+
+def SUMMARY(query: str) -> str:
+    return """Inputs (always provided)
+    - Query text: The text input to summarize
+
+    Query text
+    %s
+
+    Workflow (apply for each category in Categories)
+    Summarize the Query text
+    - Identify the summary of the Query image. The summary is a compact paragraph that includes all entities, places, vibes, and events from the image
+
+    Output Requirements
+    - Return strictly valid JSON  only (no prose, no markdown, no comments).
+    - Follow this output format strictly:
+    {
+        "summary": ""
+    }
+
+    Validation Checklist (must pass before you output)
+    - JSON is strictly valid: no trailing commas; correct double quotes; correct the comma delimiter; beware of unterminated string; enclose the double quotes; enclose the brackets.
+    - The summary's word count is lower than 400 words.
+    - Strict to the output format.
+""" % (query)
+
+def ENTITY(query: str) -> str:
+    return """Inputs (always provided)
+    - Query text: The text input to summarize
+
+    Query text
+    %s
+
+    Workflow (apply for each category in Categories)
+    Identify entities
+    - Identify objects presented in the Query text.
+    - Add details of those objects. If it is a person, describe the details of that person in details.
+
+    Output Requirements
+    - Return strictly valid JSON  only (no prose, no markdown, no comments).
+    - Follow this output format strictly:
+    {
+        "entities": "(the format should be \'entity: details\' separated by \'\\n\')",
+    }
+
+    Validation Checklist (must pass before you output)
+    - JSON is strictly valid: no trailing commas; correct double quotes; correct the comma delimiter; beware of unterminated string; enclose the double quotes; enclose the brackets.
+    - Each entity is straight-forward words of object; no adjective or number. They are separated clearly with \'\\n\'.
+    - Each entity has a phrase of details described fully about that entity.
+    - Entities can be found from the Query text; No making up the answer
+    - Strict to the output format.
+""" % (query)
+
+def RELATION(query: str) -> str:
+    return """Inputs (always provided)
+    - Query text: The text input to summarize
+
+    Query text
+    %s
+
+    Workflow (apply for each category in Categories)
+    Analyze relationships
+    - Consider the Subject Placement, Object Placement, Inter-Subject & Inter-Object relations, Background Elements, Gaze & Interaction, Composition & Lightning of an image from the text.
+
+    Output Requirements
+    - Return strictly valid JSON  only (no prose, no markdown, no comments).
+    - Follow this output format strictly:
+    {
+        "relations": "(the format should be \'relation description\' separated by \'\\n\')"
+    }
+
+    Validation Checklist (must pass before you output)
+    - JSON is strictly valid: no trailing commas; correct double quotes; correct the comma delimiter; beware of unterminated string; enclose the double quotes; enclose the brackets.rated clearly with \'\\n\'.
+    - Relation must be a single phrase of relation description.
+    - Relations can be found from the Query text; No making up the answer
     - Strict to the output format.
 """ % (query)
 

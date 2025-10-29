@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing a black suit, glasses, holding a black telephone\nred telephone booth: with 'TELEPHONE' written at the top\nurban background: blurred, suggesting a busy city environment",
+    "relations": "man is standing inside the red telephone booth\nman is speaking on the black telephone\nred telephone booth is in a busy urban environment"
+}

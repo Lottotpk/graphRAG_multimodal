@@ -1,0 +1,4 @@
+{
+    "entities": "person: young, wearing dark blue t-shirt with graphic design, playing acoustic guitar, singing into microphone\nacoustic guitar: black, being played by person\nmicrophone: silver, being used by person for singing\nphotographs: multiple, collage in background, creating vibrant atmosphere",
+    "relations": "person is playing acoustic guitar\nperson is singing into microphone\nphotographs are in the background\nacoustic guitar is being held by person\nmicrophone is in front of person"
+}

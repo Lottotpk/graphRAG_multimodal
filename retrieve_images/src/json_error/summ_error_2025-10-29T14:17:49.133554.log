@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing a dark shirt with a colorful design and an apron\nlarge piece of meat: possibly a roast\npan: on the stove\nbottle of oil: on the countertop\nspices: on the countertop\nwooden cabinets: in the kitchen\nstove: in the kitchen\ncountertop: in the kitchen\nwindow: on the left side\nwarm lighting: in the kitchen",
+    "relations": "man is holding the large piece of meat\nlarge piece of meat is over the pan\npan is on the stove\nbottle of oil is on the countertop\nspices are on the countertop\nwooden cabinets are above the countertop\nstove is in front of the man\ncountertop is next to the stove\nwindow is on the left side of the countertop\nwarm lighting is illuminating the kitchen"
+}

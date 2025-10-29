@@ -1,0 +1,4 @@
+{
+    "entities": "person: draped in a red and white flag, wearing a lei made of red and white flowers, has a small orange stripe painted on their cheek, holding a cigarette in their right hand\nflag: red and white\nlei: red and white flowers\ncigarette: held in right hand",
+    "relations": "person is draped in flag\nperson is wearing lei\nperson has orange stripe on cheek\nperson is holding cigarette\nflag is draped over person\nlei is around person's neck\ncigarette is in person's right hand"
+}

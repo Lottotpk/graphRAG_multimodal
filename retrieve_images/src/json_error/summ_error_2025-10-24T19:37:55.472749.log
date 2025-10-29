@@ -1,0 +1,4 @@
+{
+    "entities": "person in red shirt: looking down at a device\nbench: several people sitting on it\nstreetlights: illuminating the scene\nbuilding: visible in the background\ntrees: surrounding the area",
+    "relations": "person in red shirt is seated outdoors\nperson in red shirt is looking down at a device\nbench is in the background\nseveral people are sitting on the bench\nstreetlights are illuminating the scene\nbuilding is visible in the background\ntrees are surrounding the area"
+}

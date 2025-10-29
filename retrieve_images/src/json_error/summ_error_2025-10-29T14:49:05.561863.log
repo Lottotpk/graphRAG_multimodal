@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing an orange tank top with the number 7958 and a 'Copenhagen Marathon' bib, talking on a mobile phone, wearing a purple wristband, black shorts\nrunner: wearing a red tank top with the number 6642, black shorts\nbuilding: urban street background\nspectators: standing in the background",
+    "relations": "woman is running and talking on a mobile phone\nrunner is running in the background\nbuilding is in the background\nspectators are standing in the background"
+}

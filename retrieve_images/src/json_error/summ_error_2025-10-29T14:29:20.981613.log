@@ -1,0 +1,4 @@
+{
+    "entities": "child on the left: wearing brown hoodie and beige pants, sitting cross-legged\nchild in the middle: wearing blue hoodie, bent over looking at plants\nchild on the right: wearing pink shirt and blue patterned pants, holding a small plant\nfence: in the background, made of metal\nplants: various green plants in the garden\nbasket: containing plants, near the child on the right\n gardening tools: shovel and other tools on the ground\nstones: scattered around the garden area",
+    "relations": "child on the left is sitting cross-legged and looking down at the plants\nchild in the middle is bent over and examining the plants\nchild on the right is holding a small plant and looking at it\nfence is in the background behind the children\nplants are in front of the children and in the basket\nbasket is near the child on the right\n gardening tools are on the ground near the children\nstones are scattered around the garden area"
+}

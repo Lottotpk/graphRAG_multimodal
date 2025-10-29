@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing light-colored hooded jacket, smiling, waving hand\nman1: wearing gray shirt, standing near window\nman2: wearing dark clothing, standing near window\nBud Light can: held by woman\nwindow: in background\nnight setting: outdoor",
+    "relations": "woman is waving at the camera\nwoman is holding a Bud Light can\nman1 and man2 are standing near the window\nwoman is in front of the window\nnight setting indicates outdoor environment"
+}

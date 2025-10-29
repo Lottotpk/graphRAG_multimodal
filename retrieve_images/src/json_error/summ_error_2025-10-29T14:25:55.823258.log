@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing light blue shirt and gray pants\nbicycle: upside down\nfront wheel: being held by man\nyoung girl: wearing green dress and purple shoes\ngrass: lawn\nbushes: in background\ntrees: in background",
+    "relations": "man is kneeling on the grass\nman is holding the front wheel of the bicycle\nyoung girl is standing beside the man\nman is working on the bicycle\nyoung girl is watching the man\nbicycle is upside down\nbushes are in the background\ntrees are in the background"
+}

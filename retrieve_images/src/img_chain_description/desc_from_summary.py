@@ -70,7 +70,7 @@ LATEST_IMAGE_SUMMARY_PATH: str = os.path.join(IMAGE_ONLY_SUMMARY_DIR, os.listdir
 # Generation parameters
 MAX_NEW_TOKENS: int = 8192
 DO_SAMPLE: bool = True
-TEMPERATURE: float = 0.6
+TEMPERATURE: float = 0.1
 TOP_P: float = 0.9
 # VERBOSE: bool = True
 
@@ -282,6 +282,179 @@ def generate_descriptions(args):
 
     logger.info(f'Descriptions saved to: {out_path}')
     return out_path
+
+
+# To be called by wrapper
+def _generate_abstract(args, model, tokenizer, summary = None):
+    # NOTE: summary is an actual *RAW* dictionary, not PATH
+    # TODO: For scalability, the "summary" should be removed and read from temporary file instead.
+    # Since the HUGE amount of data cannot be loaded into the memory in one go.
+
+    images = _collect_images_from_sources(args.img_dir)
+    if not images:
+        logger.info('No images found from IMAGE_SOURCE_PATHS; nothing to do.')
+        return None
+
+    # if VERBOSE:
+    if args.verbose:
+        logger.info(f'Found {len(images)} images. Loading model...')
+
+    gen_cfg = dict(
+        max_new_tokens=MAX_NEW_TOKENS,
+        do_sample=DO_SAMPLE,
+        temperature=TEMPERATURE,
+        top_p=TOP_P,
+    )
+
+    if summary == None:
+        with open(args.summ_dir, 'r') as f:
+            summary = json.load(f)
+    summary = summary["records"]
+
+    PROMPT = ABSTRACT_PROMPT(range(8), "")
+
+    records = []
+    start = time.time()
+
+    # 1) Parallel CPU image loading
+    # if VERBOSE:
+    if args.verbose:
+        logger.info('Loading images in parallel on CPU...')
+    loaded = load_images_parallel(images, max_tiles=MAX_TILES, input_size=INPUT_SIZE)
+
+    # Separate successes and failures
+    successes = []  # list of (pixel_values, path, num_tiles)
+    for (pixel_values, meta) in loaded:
+        if meta['load_success']:
+            successes.append((pixel_values, meta['image_path'], meta['num_tiles']))
+        else:
+            records.append({
+                'image_path': meta['image_path'],
+                'description': None,
+                'error': meta['error']
+            })
+
+    if not successes:
+        logger.info('No valid images to process after loading.')
+        # Still write an output file with failures only
+        filename = get_description_filename(prompt_slug='desc')
+        out_path = get_description_path(filename)
+        payload = {
+            'created_at': datetime.now().isoformat(),
+            'system_prompt': SYSTEM_PROMPT,
+            'prompt': PROMPT,
+            'model_path': MODEL_PATH,
+            'records': records
+        }
+        with open(out_path, 'w') as f:
+            json.dump(payload, f, indent=2, ensure_ascii=False)
+        logger.info(f'Descriptions saved to: {out_path}')
+        return out_path
+
+    # 2) GPU batched captioning using batch_chat when available
+    total = len(successes)
+    # if VERBOSE:
+    if args.verbose:
+        logger.info(f'Generating captions on GPU in batches of {CAPTION_BATCH_SIZE}...')
+
+    def _to_cuda_bf16(t: torch.Tensor) -> torch.Tensor:
+        if t.dtype != torch.bfloat16:
+            t = t.to(torch.bfloat16)
+        if t.device.type != 'cuda':
+            t = t.cuda()
+        return t
+
+    for start_idx in range(0, total, CAPTION_BATCH_SIZE):
+        batch = successes[start_idx:start_idx + CAPTION_BATCH_SIZE]
+        batch_paths = [p for _, p, _ in batch]
+        batch_tensors = [_to_cuda_bf16(t) for t, _, _ in batch]
+        num_patches_list = [int(t.shape[0]) for t in batch_tensors]
+
+        for j in range(0, 8, NUM_TOPIC):
+            questions = [f'<image>\n{ABSTRACT_PROMPT(range(j, min(j + NUM_TOPIC, 8)), summary[path]["description"]["summary"])}' for path in batch_paths]
+            model.system_message = SYSTEM_PROMPT
+
+            try:
+                # Concatenate along tiles dimension per talk_test.py example
+                pixel_values_cat = torch.cat(batch_tensors, dim=0)
+                if hasattr(model, 'batch_chat'):
+                    responses = model.batch_chat(
+                        tokenizer,
+                        pixel_values_cat,
+                        num_patches_list=num_patches_list,
+                        questions=questions,
+                        generation_config=gen_cfg
+                    )
+                    for pth, resp in zip(batch_paths, responses):
+                        records.append({
+                            'image_path': pth,
+                            'description': json.loads(resp.strip("```json")),
+                            'error': None
+                        })
+                else:
+                    # Fallback: per-image chat
+                    for t, pth in zip(batch_tensors, batch_paths):
+                        try:
+                            resp = model.chat(tokenizer, t, questions[0], gen_cfg)
+                            records.append({
+                                'image_path': pth,
+                                'description': json.loads(resp.strip("```json")),
+                                'error': None
+                            })
+                        except Exception as e:
+                            records.append({
+                                'image_path': pth,
+                                'description': None,
+                                'error': str(e)
+                            })
+            except Exception as be:
+                # Batch failed (e.g., OOM). Fallback to per-image sequential within this batch
+                # if VERBOSE:
+                if args.verbose:
+                    logger.info(f'Batch captioning failed, falling back per-image: {be}')
+                for t, pth in zip(batch_tensors, batch_paths):
+                    try:
+                        resp = model.chat(tokenizer, t, f'<image>\n{ABSTRACT_PROMPT(range(j, min(j + NUM_TOPIC, 8)), summary[pth]["description"]["summary"])}', gen_cfg)
+                        with open(f"json_error/desc_error_{datetime.now().isoformat()}.log", "a") as wfile:
+                            wfile.write(str(resp) + '\n')
+                        records.append({
+                            'image_path': pth,
+                            'description': json.loads(resp.strip("```json")),
+                            'error': None
+                        })
+                    except Exception as e:
+                        records.append({
+                            'image_path': pth,
+                            'description': None,
+                            'error': str(e)
+                        })
+
+    elapsed = time.time() - start
+    logger.info(f'Generated {len(records)} descriptions in {elapsed:.2f}s')
+
+    payload = {
+        'created_at': datetime.now().isoformat(),
+        'system_prompt': SYSTEM_PROMPT,
+        'prompt': PROMPT,
+        'model_path': MODEL_PATH,
+    }
+
+    # Combine abstract elements
+    tmp = {}
+    for output in records:
+        if output["image_path"] not in tmp:
+            tmp[output["image_path"]] = {
+                "image_path": output["image_path"],
+                "description": output["description"],
+                "error": output["error"],
+            }
+        else:
+            tmp[output["image_path"]]["description"].update(output["description"])
+    
+    payload["records"] = []
+    for _, value in tmp.items():
+        payload["records"].append(value)
+    return payload
 
 
 if __name__ == '__main__':

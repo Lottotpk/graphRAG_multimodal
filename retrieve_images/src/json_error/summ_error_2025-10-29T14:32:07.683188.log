@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing black and red outfit with striped leggings and a headband with mouse ears\nrock formation: distinctive shape in the background\n crowd: group of people in the background\n trees: multiple trees in the background\n sky: twilight sky",
+    "relations": "person is jumping in the air\nperson is in front of the rock formation\n crowd is in the background\n trees are surrounding the area\n sky is above the person and the rock formation"
+}

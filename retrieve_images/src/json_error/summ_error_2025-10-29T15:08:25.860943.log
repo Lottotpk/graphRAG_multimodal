@@ -1,0 +1,4 @@
+{
+    "entities": "instructor: man in white shirt\nstudents: several people sitting at desks\nwhiteboard: board with writing on it\ncomputer: multiple computers on desks\nchair: black chairs with students sitting on them\nclock: wall clock above the whiteboard\nteacher: person writing on the whiteboard\nbackpack: black backpack on a desk\nmonitor: computer monitor on a desk",
+    "relations": "instructor is writing on the whiteboard\nstudents are sitting and watching the instructor\ncomputer is on the desk\nchair is occupied by students\nwhiteboard is above the clock\nbackpack is on the desk\nmonitor is in front of the students"
+}

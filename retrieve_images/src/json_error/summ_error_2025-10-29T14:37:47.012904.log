@@ -1,0 +1,4 @@
+{
+    "entities": "person: curly hair, green shirt, shorts, playing acoustic guitar\nperson: sitting on floor\nacoustic guitar: wooden, being played\nwindow: in background, with people near\npeople: standing, interacting near window\nfloor: tiled\n",
+    "relations": "person is sitting on floor\nperson is playing acoustic guitar\nacoustic guitar is on floor\npeople are near window\nwindow is in background\nfloor is tiled\n"
+}

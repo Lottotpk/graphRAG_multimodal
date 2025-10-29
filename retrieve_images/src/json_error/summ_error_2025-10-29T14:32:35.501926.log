@@ -1,0 +1,4 @@
+{
+    "entities": "boy: young, light brown hair\nmicroscope: white and black, placed on a wooden table\nwooden table: brown, holds the microscope\nsports jersey: black and blue, with the name 'DELI' and the number '1'\npink wall: background\nwhite door: with a brass doorknob, background",
+    "relations": "boy is looking through the microscope\nmicroscope is placed on the wooden table\nboy is wearing the sports jersey\nsports jersey has the name 'DELI' and the number '1'\nwooden table is in front of the pink wall\nwhite door with a brass doorknob is in the background"
+}

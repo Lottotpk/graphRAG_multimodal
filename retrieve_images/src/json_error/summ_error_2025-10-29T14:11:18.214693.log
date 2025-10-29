@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing a pink floral top, holding a snack, drinking from a red cup\noutdoor table: round, set with colorful bottles and markers\nbottles: various colors including blue, yellow, pink, orange\nmarkers: colorful\nhouse: visible in the background with large windows\nbackyard: greenery, trees, wooden fence\n",
+    "relations": "woman is sitting at the outdoor table\nwoman is eating a snack\nwoman is drinking from a red cup\nbottles and markers are on the outdoor table\nhouse is in the background\nbackyard is surrounding the outdoor table"
+}

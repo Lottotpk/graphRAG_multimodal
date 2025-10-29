@@ -1,0 +1,4 @@
+{
+    "entities": "boy: wearing a black shirt and blue jeans\nwhiteboard: with the words 'home work' and 'read 20 pages'\nfan: on the floor next to the whiteboard\ndecorations: on the wall above the whiteboard",
+    "relations": "boy is writing on the whiteboard\nwhiteboard is above the fan\ndecorations are above the whiteboard"
+}

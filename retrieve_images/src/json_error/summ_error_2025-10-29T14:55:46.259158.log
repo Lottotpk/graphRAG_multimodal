@@ -1,0 +1,4 @@
+{
+    "entities": "woman: long blonde hair, wearing a sleeveless navy blue top over a white blouse\nsmartphone: black\nbuilding: stone walls, barred window\nperson: partial view, wearing a white shirt with a number on it",
+    "relations": "woman is holding the smartphone\nwoman is standing in front of the building\npartial view person is next to the woman"
+}

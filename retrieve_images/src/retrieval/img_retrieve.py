@@ -9,12 +9,13 @@ import json
 import logging
 import time
 from datetime import datetime
+from json.decoder import JSONDecodeError
 from typing import List, Dict, Any, Tuple
 from transformers import AutoModel, AutoTokenizer
 from text_embedding.text_embedder import TextEmbedder
 from vector_db.faiss_storage import FAISSEmbeddingDatabase
 from config import MODEL_PATH, DEVICE_MAP, TORCH_DTYPE, TEXT_DATABASE_BASE_DIR, ensure_prompt_description_dir, ensure_retrieval_result_dir, get_description_filename, get_description_path
-from retrieval.prompt import ABSTRACT_PROMPT, SUMMARY_PROMPT, SYSTEM_PROMPT
+from retrieval.prompt import ABSTRACT_PROMPT, SUMMARY_PROMPT, SYSTEM_PROMPT, SUMMARY, ENTITY, RELATION
 
 from utils.logging_config import setup_logger
 
@@ -29,12 +30,13 @@ logger = logging.getLogger(__name__)
 # Generation parameters
 MAX_NEW_TOKENS: int = 1024
 DO_SAMPLE: bool = True
-TEMPERATURE: float = 1e-4
+TEMPERATURE: float = 0.1
 TOP_P: float = 0.9
 # VERBOSE: bool = True
 
 PRESENT_DIR = "./retrieval/"
 LATEST_IMAGE_DB_PATH: str = os.path.join(TEXT_DATABASE_BASE_DIR, os.listdir(TEXT_DATABASE_BASE_DIR)[-1])
+NUM_TOPIC: int = 2
 
 # QUERY = """A man cycling in the middle of the rain\n
 # Person: A male, cycling on the street.\nBicycle: Rided by the cyclist.\nWeather: Raining outside.\n
@@ -72,12 +74,12 @@ def load_model():
     return model, tokenizer
 
 
-def describe_single(model, tokenizer, question: str, type: str = "", verbose: bool = False) -> str:
+def describe_single(model, tokenizer, question: str, type: str = "", temp: float = TEMPERATURE,verbose: bool = False) -> str:
     start = time.time()
     gen_cfg = dict(
         max_new_tokens=MAX_NEW_TOKENS,
         do_sample=DO_SAMPLE,
-        temperature=TEMPERATURE,
+        temperature=temp,
         top_p=TOP_P,
     )
     response = model.chat(tokenizer, None, question, gen_cfg)
@@ -114,7 +116,7 @@ def load_database_info(database_folder: str) -> Dict[str, Any]:
     return metadata, config
 
 
-def load_benchmark(filename: str, ds_name: str) -> Tuple[List[str]]:
+def load_benchmark(filename: str, ds_name: str) -> Tuple[List[str], List[str], int]:
     """Load existing benchmark"""
     with open(filename, 'r') as f:
         ds = json.load(f)
@@ -123,28 +125,92 @@ def load_benchmark(filename: str, ds_name: str) -> Tuple[List[str]]:
     answers = []
     for qa in ds["qa_pairs"]:
         questions.append(qa["question"])
-        answers.append(os.path.join(ds_name, qa["answer"]) + ".jpg")
+        answers.append(qa["answer"])
 
     return questions, answers, ds["total_questions"]
 
 
 def process_query(model, tokenizer, queries: List[str], verbose: bool = False) -> List[str]:
     ensure_prompt_description_dir()
-    prompt = []
+    prompts = []
+    format_prompt = []
 
-    for query in queries:
+    for i, query in enumerate(queries):
         model.system_message = SYSTEM_PROMPT
-        summary = describe_single(model, tokenizer, SUMMARY_PROMPT(query), "summary", verbose)
-        summary = json.loads(summary)
-        abstract = describe_single(model, tokenizer, ABSTRACT_PROMPT(range(8), query), "abstract", verbose)
-        abstract = json.loads(abstract)
-        prompt.append(construct_prompt(abstract, summary))
+        loop = 0
+        prompt = {
+            'id': i,
+            'query': query,
+            'format_prompt': None
+        }
+        while True:
+            try:
+                summary = describe_single(model, tokenizer, SUMMARY_PROMPT(query), "summary", TEMPERATURE + loop * 0.1, verbose)
+                summary = json.loads(summary)
+                loop = 0
+            except JSONDecodeError as e:
+                logger.info(f"Summary - Error at index {i}: {e}, Trying again... ({2 - loop} times left)")
+                logger.info(summary)
+                loop += 1
+                if loop == 3:
+                    logger.info(f"Summary - Falling back to per topic at a time")
+                    topic = "summary"
+                    try:
+                        records = []
+                        record = describe_single(model, tokenizer, SUMMARY(query), topic, verbose)
+                        records.append(json.loads(record))
+                        topic = "entity"
+                        record = describe_single(model, tokenizer, ENTITY(query), topic, verbose)
+                        records.append(json.loads(record))
+                        topic = "relation"
+                        record = describe_single(model, tokenizer, RELATION(query), topic, verbose)
+                        records.append(json.loads(record))
+                        summary = {key: val for record in records for key, val in record.items()}
+                        loop = 0
+                    except JSONDecodeError as e:
+                        logger.info(f"Summary - Error at index {i}: {e} with {topic}")
+                        logger.info(record)
+                        break
+                else:
+                    continue
+            try:
+                abstract = describe_single(model, tokenizer, ABSTRACT_PROMPT(range(8), query), "abstract", TEMPERATURE + loop * 0.1, verbose)
+                abstract = json.loads(abstract)
+                loop = 0
+            except JSONDecodeError as e:
+                logger.info(f"Abstract - Error at index {i}: {e}, Trying again... ({2 - loop} times left)")
+                logger.info(abstract)
+                loop += 1
+                if loop == 3:
+                    logger.info(f"Abstract - Falling back to {NUM_TOPIC} topics at a time")
+                    try:
+                        records = []
+                        for j in range(0, 8, NUM_TOPIC):
+                            record = describe_single(model, tokenizer, ABSTRACT_PROMPT(range(j, min(j + NUM_TOPIC, 8)), query), "abstract", verbose)
+                            records.append(json.loads(record))
+                        abstract = {key: val for record in records for key, val in record.items()}
+                        loop = 0
+                    except JSONDecodeError as e:
+                        logger.info(f"Abstract - Error at index {i}: {e} with {NUM_TOPIC} topics, Try again...")
+                        logger.info(record)
+                        break
+                else:
+                    continue
+            try:
+                prompt['format_prompt'] = construct_prompt(abstract, summary)
+                break
+            except Exception as e:
+                logger.info(f"Appending prompt - Error at index {i}: {e}, Trying again...")
+                logger.info(summary)
+                logger.info(abstract)
+        
+        prompts.append(prompt)
+        format_prompt.append(prompt['format_prompt'])
 
     payload = {
         'created_at': datetime.now().isoformat(),
         'model_path': MODEL_PATH,
-        'query': queries,
-        'format_prompt': prompt
+        'records': prompts
     }
     filename = get_description_filename(prompt_slug='prompt')
     out_path = get_description_path(filename, "prompt")
@@ -153,17 +219,10 @@ def process_query(model, tokenizer, queries: List[str], verbose: bool = False) -
 
     logger.info(f'Descriptions saved to: {out_path}')
 
-    return prompt
+    return format_prompt
 
 
-def main():
-    parser = argparse.ArgumentParser(description='Retrieve image based on the given query')
-    parser.add_argument("--db_dir", default=LATEST_IMAGE_DB_PATH, help='Path to FAISS db directory')
-    parser.add_argument("--benchmark", type=str, help='Path to benchmark json file')
-    parser.add_argument('--strategy', required=True, choices=STRATEGY_CHOICES, help='Text embedding strategy')
-    parser.add_argument('--verbose', action='store_true')
-    args = parser.parse_args()
-
+def main(args):
     # Load model and embedder
     model, tokenizer = load_model()
     embedder = TextEmbedder(model, tokenizer, device='cuda')
@@ -176,7 +235,15 @@ def main():
         total = 1
 
     # Format the query
-    prompt = process_query(model, tokenizer, query, args.verbose)
+    if not args.fprompt:
+        prompt = process_query(model, tokenizer, query, args.verbose)
+    else:
+        with open(args.fprompt, "r") as f:
+            data = json.load(f)
+            prompt = [record['format_prompt'] for record in data['records']]
+
+    if not prompt or None in prompt:
+        raise ValueError("Prompt is not ready. There are \'None\' in prompt.")
 
     # Load db   
     metadata, config = load_database_info(args.db_dir)
@@ -189,9 +256,21 @@ def main():
 
     # Embed the query and search using ColBERT
     k = 5
+    batch_size = 16
+    embeddings = []
+    for i in range(0, total, batch_size):
+        batch_texts = prompt[i:i+batch_size]
+        embedding, _ = embedder.embed(batch_texts, args.strategy)
+        embeddings.extend(embedding)
+
     results = []
-    embeddings, _ = embedder.embed(prompt, args.strategy)
+    if args.benchmark:
+        rankings = [0] * k
     for i in range(total):
+        qa = {
+            "id": i,
+            "query": query[i]
+        }
         if args.verbose:
             logger.info(f"Query {i})")
         scores, img_path_retrieved = db.search_colbert(embeddings[i].float().numpy(), k=k)
@@ -200,28 +279,45 @@ def main():
         if args.benchmark:
             ranking = None
         for j in range(k):
-            result += f"{img_path_retrieved[j]} -- {scores[j]}\n"
+            # TODO: Chage each full path img_path_retrieved[j] to only name
+            img_name = os.path.basename(img_path_retrieved[j])
+            img_name, ext = os.path.splitext(img_name)
+            result += "%s -- %.4f\n" % (img_name, scores[j])
             if args.verbose:
-                logger.info(f"{img_path_retrieved[j]} -- {scores[j]}")
+                logger.info("%s -- %.4f\n" % (img_name, scores[j]))
 
-            if args.benchmark and img_path_retrieved[j] == answer[i]:
+            if args.benchmark and img_name == answer[i]:
+                if args.verbose:
+                    logger.info(f"The answer is at the Rank {j}")
+                rankings[j] += 1
                 ranking = j
         
         if args.benchmark:
-            qa = {"query": query[i], "ranking": ranking, "result": result}
+            qa["ranking"] = ranking
+            qa["right_ans"] = answer[i]
+            qa["result"] = result
         else:
-            qa = {"query": query[i], "result": result}
+            qa["result"] = result
         results.append(qa)
 
     ensure_retrieval_result_dir()
     filename = get_description_filename(prompt_slug='search_re')
     out_path = get_description_path(filename, "result")
-    payload = {
+    if args.benchmark:
+        payload = {
         'created_at': datetime.now().isoformat(),
         'database': args.db_dir,
         'model_path': MODEL_PATH,
+        'ranking_stat': rankings,
         'result': results
-    }
+        }
+    else:
+        payload = {
+            'created_at': datetime.now().isoformat(),
+            'database': args.db_dir,
+            'model_path': MODEL_PATH,
+            'result': results
+        }
     with open(out_path, 'w') as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
 
@@ -230,6 +326,13 @@ def main():
     
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description='Retrieve image based on the given query')
+    parser.add_argument("--db_dir", default=LATEST_IMAGE_DB_PATH, help='Path to FAISS db directory')
+    parser.add_argument("--benchmark", type=str, help='Path to benchmark json file')
+    parser.add_argument("--fprompt", type=str, help='Path to formated prompt')
+    parser.add_argument('--strategy', required=True, choices=STRATEGY_CHOICES, help='Text embedding strategy')
+    parser.add_argument('--verbose', action='store_true')
+    args = parser.parse_args()
+    main(args)
     # model, tokenizer = load_model()
     # print(describe_single(model, tokenizer, ABSTRACT_PROMPT(range(8), QUERY), "abstract", True))

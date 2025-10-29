@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing white and blue athletic outfit with sunglasses, race bib pinned to shirt, running\nspectators: holding flags, cheering\nfence: green, nearby\nhedge: green, in background",
+    "relations": "woman is running in front of spectators\nspectators are behind the woman\nfence is near the spectators\nhedge is in the background"
+}

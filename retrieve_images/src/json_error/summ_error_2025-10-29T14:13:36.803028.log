@@ -1,0 +1,4 @@
+{
+    "entities": "child: young, wearing a brown dress, barefoot\nbroom: large, yellow with a green handle\nhallway: narrow, white walls, tiled floor\nwhite door: closed, at the end of the hallway",
+    "relations": "child is holding the broom\nchild is standing in the hallway\nhallway has white walls\nhallway has a tiled floor\nwhite door is at the end of the hallway"
+}

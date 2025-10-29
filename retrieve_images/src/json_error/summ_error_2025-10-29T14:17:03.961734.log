@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing light-colored t-shirt and gloves\nlarge pot: on table\npan: filled with baked potatoes\nblue umbrella: overhead\nwooden fence: in background\nplants: in background",
+    "relations": "man is standing under blue umbrella\nman is handling large pot\nlarge pot is on table\npan is on table\nman is smiling\nwooden fence is in background\nplants are in background"
+}

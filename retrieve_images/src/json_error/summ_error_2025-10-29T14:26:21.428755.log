@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing a brown t-shirt, focused on working\nbicycle: mounted on a stand, handlebars being adjusted\n工具: held by the man, used for adjusting the handlebars\n工具架: in the background, holding various tools\n窗户: large, allowing natural light to enter the workshop\n自行车支架: holding the bicycle in place",
+    "relations": "man is adjusting the handlebars of the bicycle\nman is holding a tool\nbicycle is mounted on a stand\n工具架 is in the background\n窗户 is allowing natural light into the workshop"
+}

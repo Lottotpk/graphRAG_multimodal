@@ -1,0 +1,4 @@
+{
+    "entities": "white horse: calm, looking forward\nwoman: holding hay, wearing dark shirt\nchild: interacting with hay, wearing dark shirt\nmetal fencing: surrounding the stable\nwooden barrier: horse leaning over\ndim lighting: creating a calm atmosphere",
+    "relations": "white horse is leaning over the wooden barrier to eat hay\nwoman is holding a bundle of hay\nchild is interacting with the hay\nwoman and child are feeding the horse\nmetal fencing surrounds the stable area\nwooden barrier separates the horse from the woman and child"
+}

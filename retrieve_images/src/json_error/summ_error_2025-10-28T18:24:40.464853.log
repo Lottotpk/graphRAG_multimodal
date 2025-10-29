@@ -1,0 +1,4 @@
+{
+    "entities": "child: young, wearing a yellow long-sleeve shirt and black pants with red patches, writing with a pencil\ntricycle: wooden, with a red seat\nnotebook: open, on the tricycle\npen: green, being used by the child\nfence: metal, in the background\nbackground: outdoor setting with a tree trunk visible",
+    "relations": "child is sitting on the tricycle\nchild is writing in the notebook with the pen\ntricycle is positioned outdoors near a tree trunk\nfence is in the background behind the child"
+}

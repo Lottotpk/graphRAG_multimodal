@@ -1,0 +1,4 @@
+{
+    "entities": "young man: wearing a white t-shirt, with a light blue towel draped over his shoulders, holding a mug in one hand, touching his face with the other hand\nwhite t-shirt: plain, short-sleeved\nlight blue towel: draped over shoulders\nmug: white, held in one hand\ncheckered shorts: worn by the young man\ngray door: in the background\nbrick wall: in the background",
+    "relations": "young man standing outside a building\nyoung man holding a mug\nyoung man touching his face\nlight blue towel draped over young man's shoulders\ngray door and brick wall in the background\nyoung man wearing checkered shorts"
+}

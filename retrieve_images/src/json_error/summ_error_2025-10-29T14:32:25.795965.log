@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing purple shirt, dark shorts, sunglasses, with a green bag slung across waist\nbeach: sandy\nsky: clear blue\nocean: visible in background",
+    "relations": "person is jumping on the beach\nbeach is in front of the ocean\nperson is under the clear blue sky"
+}

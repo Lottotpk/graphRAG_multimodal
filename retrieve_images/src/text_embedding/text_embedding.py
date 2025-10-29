@@ -25,7 +25,7 @@ from text_embedding.text_embedder import TextEmbedder
 from vector_db.faiss_storage import FAISSEmbeddingDatabase
 from metrics.performance_tracker import PerformanceTracker
 from config import (
-    MODEL_PATH, DEVICE_MAP, TORCH_DTYPE, IMAGE_DESCRIPTION_BASE_DIR, IMAGE_SUMMARY_BASE_DIR,
+    MODEL_PATH, DEVICE_MAP, TORCH_DTYPE, IMAGE_DESCRIPTION_BASE_DIR, IMAGE_SUMMARY_BASE_DIR, IMAGE_ALL_BASE_DIR,
     ensure_text_database_dir, get_text_database_folder_name, get_text_database_path,
 )
 import logging
@@ -47,6 +47,7 @@ STRATEGY_CHOICES = [
 
 LATEST_IMAGE_DESC_PATH: str = os.path.join(IMAGE_DESCRIPTION_BASE_DIR, os.listdir(IMAGE_DESCRIPTION_BASE_DIR)[-1])
 LATEST_IMAGE_SUMMARY_PATH: str = os.path.join(IMAGE_SUMMARY_BASE_DIR, os.listdir(IMAGE_SUMMARY_BASE_DIR)[-1])
+LATEST_IMAGE_ALL_PATH: str = os.path.join(IMAGE_ALL_BASE_DIR, os.listdir(IMAGE_ALL_BASE_DIR)[-1])
 
 
 def construct_prompt(desc: dict, smry: dict):
@@ -78,25 +79,40 @@ def load_model():
 
 
 def main(args):
-    if not os.path.exists(args.descriptions):
-        logger.info(f"Error: descriptions file not found: {args.descriptions}")
-        sys.exit(1)
-    if not os.path.exists(args.summary):
-        logger.info(f"Error: summary file not found: {args.summary}")
-        sys.exit(1)
+    # if not os.path.exists(args.descriptions):
+    #     logger.info(f"Error: descriptions file not found: {args.descriptions}")
+    #     sys.exit(1)
+    # if not os.path.exists(args.summary):
+    #     logger.info(f"Error: summary file not found: {args.summary}")
+    #     sys.exit(1)
 
-    with open(args.descriptions, 'r') as f, open(args.summary, 'r') as f2:
-        payload = json.load(f)
-        payload_smry = json.load(f2)
+    # with open(args.descriptions, 'r') as f, open(args.summary, 'r') as f2:
+    #     payload = json.load(f)
+    #     payload_smry = json.load(f2)
+    payload = None
+    if args.input == None or not os.path.exists(args.input):
+        logger.info("Cannot find directory, or directory is None, use the latest file instead")
+        with open(LATEST_IMAGE_ALL_PATH, 'r') as f:
+            payload = json.load(f)
+    else:
+        with open(args.descriptions, 'r') as f:
+            payload = json.load(f)
 
     # Collect valid texts and metadata
+    # items = payload.get('records', [])
+    # items_smry = payload_smry.get('records', [])
+    # texts: List[str] = []
+    # meta: List[dict] = []
+    # for it, it2 in zip(items, items_smry):
+    #     if it.get('description') and not it.get('error') and it2.get('description') and not it2.get('error'): 
+    #         texts.append(construct_prompt(it['description'], it2['description']))
+    #         meta.append({'source_image_path': it.get('image_path')})
     items = payload.get('records', [])
-    items_smry = payload_smry.get('records', [])
     texts: List[str] = []
     meta: List[dict] = []
-    for it, it2 in zip(items, items_smry):
-        if it.get('description') and not it.get('error') and it2.get('description') and not it2.get('error'): 
-            texts.append(construct_prompt(it['description'], it2['description']))
+    for it in items:
+        if not it.get('error'):
+            texts.append(construct_prompt(it["abstract"], {k: it[k] for k in ("summary", "entities", "relations")}))
             meta.append({'source_image_path': it.get('image_path')})
 
     if not texts:
@@ -193,8 +209,9 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Build text embedding database from descriptions JSON')
-    parser.add_argument('--descriptions', required=True, help='Path to descriptions JSON output')
-    parser.add_argument('--summary', required=True, help='Path to summary JSON output')
+    # parser.add_argument('--descriptions', required=True, help='Path to descriptions JSON output')
+    # parser.add_argument('--summary', required=True, help='Path to summary JSON output')
+    parser.add_argument('--input', help='path to the generated image elements')
     parser.add_argument('--strategy', required=True, choices=STRATEGY_CHOICES, help='Text embedding strategy')
     parser.add_argument('--db_name', help='Optional custom DB name')
     parser.add_argument('--mode', choices=['new', 'append'], default='new', help='Create new or append')

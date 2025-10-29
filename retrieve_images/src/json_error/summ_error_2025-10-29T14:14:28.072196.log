@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing white t-shirt, blue jeans, white sneakers\nfloor cleaning machine: large, with a long handle and a bag attached\nroom: with beige walls, carpeted floor, two windows with dark frames, electrical outlets on the wall",
+    "relations": "man is holding the floor cleaning machine\nman is standing in the room\nfloor cleaning machine is on the carpeted floor\nwindows are on the beige walls\nelectrical outlets are on the beige walls"
+}

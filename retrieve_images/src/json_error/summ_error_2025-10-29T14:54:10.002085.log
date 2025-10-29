@@ -1,0 +1,4 @@
+{
+    "entities": "man: playing flute, standing, wearing light-colored shirt and dark pants\nwoman: playing piano, seated, wearing white and black outfit\nflute: musical instrument, being played by the man\npiano: musical instrument, being played by the woman\nbed: in the background, red bedspread\ncurtains: elegant, golden, on the sides\nwall: red, with a poster\nmusic stand: holding sheet music, in front of the woman\npatterned carpet: on the floor, colorful design",
+    "relations": "man is playing the flute while standing\nwoman is playing the piano while seated\nman is positioned to the left of the woman\nflute is in front of the man\npiano is in front of the woman\nmusic stand is in front of the woman\nbed is in the background behind the man and woman\ncurtains are on the sides of the room\nwall is behind the man and woman\npatterned carpet is on the floor beneath the man, woman, and piano"
+}

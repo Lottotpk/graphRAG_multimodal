@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing red and white patterned top with black leggings, riding bicycle, black basket on front of bike\nman: wearing sunglasses, standing in background\nwoman: smiling, standing in background\nbicycle: black frame, front basket\npath: paved, in park\nbackground: trees, sunny day",
+    "relations": "woman riding bicycle on path\nman standing in background near woman on bicycle\nwoman smiling standing in background\nbicycle with black basket attached to front\npath surrounded by trees in park"
+}

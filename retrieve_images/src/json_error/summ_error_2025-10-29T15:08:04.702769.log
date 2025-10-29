@@ -1,0 +1,4 @@
+{
+    "entities": "man: shirtless, wearing cap, wearing shorts\nblackboard: filled with writing and diagrams, word 'REMEMBER' written on it\nkettlebell: present in the scene\ngas cylinder: present in the scene\nbench: present in the scene\nobjects: various objects around\nsetting: workshop or classroom, vintage or industrial vibe",
+    "relations": "man is standing in front of the blackboard\nman is writing on the blackboard\nkettlebell is placed near the man\ngas cylinder is placed near the blackboard\nbench is placed near the man\nobjects are scattered around the setting\nsetting appears to be a workshop or classroom with a vintage or industrial vibe"
+}

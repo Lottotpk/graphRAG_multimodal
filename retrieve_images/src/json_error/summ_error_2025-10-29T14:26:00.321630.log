@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing red helmet and blue shirt\nbicycle: silver with water bottle attached\nanother person: partially visible, holding a camera\nplants: in the background\nconcrete wall: in the background",
+    "relations": "person is kneeling and working on the bicycle\nbicycle is positioned outdoors with plants and concrete wall in the background\nanother person is holding a camera near the bicycle"
+}

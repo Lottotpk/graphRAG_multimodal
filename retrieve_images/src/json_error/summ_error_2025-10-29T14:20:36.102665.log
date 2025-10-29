@@ -1,0 +1,4 @@
+{
+    "entities": "chef: wearing a white uniform with a blue necktie and a blue hat with a logo\ngrill: teppanyaki grill with vegetables and other ingredients\nvegetables: assorted vegetables on the grill\nsmall dishes: sauces in front of the grill\ncondiments: various condiments on the side",
+    "relations": "chef is cooking on the grill\nchef is using tongs to handle vegetables\nsmall dishes are placed in front of the grill\ncondiments are visible on the side of the grill"
+}

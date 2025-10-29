@@ -1,0 +1,4 @@
+{
+    "entities": "girl: wearing pink striped shirt and blue jeans\nblack goat: black color\nwhite goat: white with black patches\nwire fence: enclosing the goats\nwhite container: held by the girl\ngrass: ground cover around the enclosure\ndirt: ground cover around the enclosure",
+    "relations": "girl is feeding the goats\nblack goat is reaching out to the girl\nwhite goat is reaching out to the girl\nwire fence separates the girl from the goats\nwhite container is near the girl's hand\ngrass and dirt are around the enclosure"
+}

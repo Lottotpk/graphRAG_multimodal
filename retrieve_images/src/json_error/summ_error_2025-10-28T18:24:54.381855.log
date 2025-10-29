@@ -1,0 +1,4 @@
+{
+    "entities": "child on the left: wearing a light green sweater, writing in a notebook\nchild on the right: wearing a blue jacket, writing in a notebook\npair of blue gloves: placed on the table near the left child\nbookshelves: visible in the background\nlibrary table: where the children are sitting",
+    "relations": "child on the left is sitting at the library table\nchild on the right is sitting at the library table\npair of blue gloves is on the library table near the child on the left\nbookshelves are in the background behind the library table"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "monk: person in a yellow robe\nperson: seated, facing away\nblue bowl: being held by the monk\nconcrete basin: in the foreground\nwooden bench: in the background\nwriting: on the walls",
+    "relations": "monk pouring water over the person's head\nperson seated in front of the monk\nblue bowl held by the monk\nconcrete basin in front of the seated person\nwooden bench against the wall\nwriting on the walls behind the monk"
+}

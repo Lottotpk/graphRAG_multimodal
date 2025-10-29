@@ -1,0 +1,4 @@
+{
+    "entities": "child: wearing a pink shirt and a black helmet\npony: small black pony with a blue halter\napple: red apple\nstable: wooden walls and a door",
+    "relations": "child is feeding the apple to the pony\npony is tied to the wooden wall\npony is in front of the stable door\nchild is standing in front of the pony"
+}

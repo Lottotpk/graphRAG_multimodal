@@ -1,0 +1,4 @@
+{
+    "entities": "adult in maroon shirt: observing\nchild in striped shirt: watching\nchild in yellow shirt: planting sapling\nwoman: assisting\nsapling: newly planted\nbuckets: filled with soil\ntarp: on the ground\nroad: in the background\ntrees: in the background",
+    "relations": "adult in maroon shirt is observing the child in yellow shirt planting the sapling\nchild in striped shirt is watching the planting process\nwoman is assisting with the planting\nbuckets are filled with soil and placed on the grass\ntarp is spread on the ground near the sapling\nroad and trees are visible in the background"
+}

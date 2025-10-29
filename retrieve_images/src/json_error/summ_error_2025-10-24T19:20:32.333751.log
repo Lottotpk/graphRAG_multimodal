@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing a pink floral dress, holding a drink, eating\noutdoor table: round, set with colorful plastic cups, green cloth\nplastic cups: colorful, various colors\nhouse: in the background, with windows\n garden: in the background, with trees\n green cloth: on the table\n drink: held by the woman\n trees: in the garden\n windows: on the house",
+    "relations": "woman is sitting at the outdoor table\nwoman is holding a drink\nwoman is eating\noutdoor table has colorful plastic cups\noutdoor table has a green cloth\nhouse is in the background\n garden is in the background\ntrees are part of the garden\nwindows are part of the house"
+}

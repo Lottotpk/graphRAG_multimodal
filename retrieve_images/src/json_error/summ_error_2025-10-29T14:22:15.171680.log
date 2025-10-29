@@ -1,0 +1,4 @@
+{
+    "entities": "person: young, wearing gray hoodie with 'SKI BALL' text, blue jeans\nperson: partially visible, reclining on brown chair\nblue couch\nbrown chair\nMountain Dew can",
+    "relations": "person is sitting on blue couch\nperson is drinking from Mountain Dew can\nperson is wearing gray hoodie\nperson is wearing blue jeans\npartially visible person is reclining on brown chair\nbrown chair is in the background"
+}

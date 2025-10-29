@@ -1,0 +1,4 @@
+{
+    "entities": "person: young, wearing blue jacket, black shorts, black shoes\nfrisbee: white\npeople: several, in white athletic wear\nfield: grassy\nbags: black, on the ground\nchairs: blue, in the background",
+    "relations": "person reaching out to catch frisbee\nperson crouched on grassy field\npeople standing in the background\nbags placed on the ground\nchairs positioned in the background"
+}

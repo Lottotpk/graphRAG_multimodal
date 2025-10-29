@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a helmet, black shirt, green pants, carrying a backpack, riding a bicycle\nbicycle: with a water bottle attached to the frame\nbridge: with yellow structural elements\nsky: clear with a few clouds",
+    "relations": "person is riding the bicycle\nperson is on the bridge\nbicycle is on the bridge\nbridge is under a clear sky"
+}

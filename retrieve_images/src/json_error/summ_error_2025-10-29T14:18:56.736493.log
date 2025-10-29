@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a red shirt, khaki pants, white helmet\nchainsaw: being held by the person\nfallen tree: being cut by the chainsaw\nforest: background with greenery and trees",
+    "relations": "person is cutting the fallen tree with the chainsaw\nperson is standing on the ground\nforest surrounds the person and the fallen tree"
+}

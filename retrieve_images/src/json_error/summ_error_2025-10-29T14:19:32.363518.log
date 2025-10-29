@@ -1,0 +1,4 @@
+{
+    "entities": "person: smiling, wearing a gray long-sleeve shirt\nonions: being chopped on a red cutting board\nred cutting board: on a kitchen counter\nutensils: various, on shelves in the background\npot: on the stove\nwhite plate: nearby on the counter\nmemo board: labeled 'MEMO', on the wall\ncontainers: various, on shelves in the background",
+    "relations": "person is chopping onions on the red cutting board\nred cutting board is on the kitchen counter\nutensils are stored on shelves in the background\npot is on the stove\nwhite plate is nearby on the counter\nmemo board is on the wall\ncontainers are on shelves in the background"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing glasses, dark long-sleeve shirt, black pants, barefoot\nTV: displaying 'LOST', scenic background\nbed: person is sitting on\nTV stand: holding TV and electronic devices\nwindow: blinds partially open in background",
+    "relations": "person is sitting on the bed\nperson is watching the TV\nTV is placed on the TV stand\nTV stand is in front of the window\nwindow is in the background"
+}

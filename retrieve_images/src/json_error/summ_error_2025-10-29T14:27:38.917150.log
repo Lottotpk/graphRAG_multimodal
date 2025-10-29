@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing green sweater and brown pants\nvehicle: green car with open hood\nvehicle: beige SUV\nvehicle: white car\nvehicle: blue car\nvehicle: black SUV\nbackground: trees\nbackground: mulch",
+    "relations": "person inspecting engine of green car\nperson standing in front of green car\nbeige SUV parked behind green car\nwhite car parked behind beige SUV\nblue car parked behind white car\nblack SUV parked behind blue car\ntrees surrounding parking lot\nmulch surrounding parking lot"
+}

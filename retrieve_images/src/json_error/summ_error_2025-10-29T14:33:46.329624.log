@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing light blue shirt and beige cap\nmicroscope: on workbench\nworkbench: cluttered with tools and materials\nmetal pieces: on workbench\ncolorful cloth: on workbench\nshelves: filled with cardboard boxes in background\nwindow: with blinds partially open in background",
+    "relations": "man is seated at workbench\nman is focusing on microscope\nmicroscope is on workbench\nworkbench has metal pieces\nworkbench has colorful cloth\nshelves are in background\nwindow is in background"
+}

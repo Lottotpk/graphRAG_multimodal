@@ -1,0 +1,4 @@
+{
+    "entities": "child: young, blonde hair, wearing dark blue hoodie, smiling\nadult: partially visible, wearing dark clothing\ntoothbrush: in child's mouth\nchart: colorful, on wall in background",
+    "relations": "child is brushing teeth with toothbrush\nadult is standing nearby the child\nchart is on the wall behind the child"
+}

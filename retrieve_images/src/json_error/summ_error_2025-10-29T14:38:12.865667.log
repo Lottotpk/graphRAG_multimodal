@@ -1,0 +1,4 @@
+{
+    "entities": "performer: person with red hair, wearing a white frilly dress, fishnet stockings, playing a violin\nviolin: musical instrument\nstage: performance area with bright lights\nlights: bright stage lights\nbackground table: table with a cloth\n",
+    "relations": "performer is playing the violin\nperformer is on the stage\nstage is lit with lights\nbackground table is on the stage\nperformer is interacting with the violin\n"
+}

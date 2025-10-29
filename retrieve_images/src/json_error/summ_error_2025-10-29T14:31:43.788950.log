@@ -1,0 +1,4 @@
+{
+    "entities": "person in pink shirt: wearing glasses, raising arms, jumping\nperson in blue shirt: clapping, cheering\nmodern glass building: background, reflective\nstairs: in the background\nmultiple people: standing, observing\n",
+    "relations": "person in pink shirt is jumping in front of the group\npeople in blue shirts are clapping and cheering\nmodern glass building surrounds the group\nstairs are visible in the background\nmultiple people are observing the scene\n"
+}

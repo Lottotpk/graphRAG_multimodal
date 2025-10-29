@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing red shirt and brown pants\ngrass: green field\nmountains: in the background\nsky: clear blue with scattered clouds",
+    "relations": "person is jumping in the grassy field\nperson is facing away from the camera\nmountains are in the background under the sky\nsky is above the mountains and the person"
+}

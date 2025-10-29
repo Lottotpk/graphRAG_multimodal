@@ -1,0 +1,4 @@
+{
+    "entities": "girl: young, wearing a plaid shirt and light-colored pants, hair tied back\nbook: open, being read by the girl\nbackpack: dark blue, placed on the ground\nred dictionary: on the ground, beside the girl\nyellow book: on the ground, beside the girl\ngrass: ground surface, where the girl is sitting\ntree: large, the girl is leaning against it\nsunlight: filtering through the trees, creating a peaceful atmosphere",
+    "relations": "girl is sitting against the tree\nbook is being read by the girl\nbackpack is placed on the ground beside the girl\nred dictionary is on the ground beside the girl\nyellow book is on the ground beside the girl\ngirl is sitting on the grass\ntree is providing shade for the girl\nsunlight is filtering through the trees"
+}

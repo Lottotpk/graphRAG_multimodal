@@ -1,0 +1,4 @@
+{
+    "entities": "Person 1: Wearing orange shirt, sunglasses, apron with 'Penang Passion' text\nPerson 2: Wearing orange shirt, assisting\nLarge wok: Being stirred with a spatula and ladle\nLarge pot: On the left side\nCooking utensils: Various, on the stall\nFan: In the background\nIngredients: Various, on the stall\nStreet food stall: Outdoor setting\nOther people: In the distance\nStructures: In the distance",
+    "relations": "Person 1 is stirring food in the large wok\nPerson 2 is assisting Person 1\nPerson 1 is using a spatula and ladle\nLarge pot is on the left side of the stall\nCooking utensils are on the stall\nFan is in the background\nIngredients are on the stall\nStreet food stall is an outdoor setting\nOther people are in the distance\nStructures are in the distance"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing a white jacket with a colorful design\nviolin: being played by the woman\nmap: in the background\nmonitor: mounted on the wall\nceiling fan: visible on the ceiling\nclock: on the wall",
+    "relations": "woman is playing the violin\nviolin is held by the woman\nmap is in the background\nmonitor is mounted on the wall\nceiling fan is on the ceiling\nclock is on the wall"
+}

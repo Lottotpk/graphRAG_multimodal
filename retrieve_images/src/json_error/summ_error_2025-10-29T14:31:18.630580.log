@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing green shirt and ripped jeans\nrocky cliff: large, uneven surface\ncoastal town: buildings, trees\nbody of water: sea\nsky: partly cloudy, blue",
+    "relations": "person is jumping on the rocky cliff\nrocky cliff overlooks the coastal town\ncoastal town is near the body of water\nbody of water is under the sky\nperson is facing the camera with arms outstretched"
+}

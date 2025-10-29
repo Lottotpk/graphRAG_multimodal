@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a gray jacket and dark pants\nbicycle: with a front basket\ndog: sitting in the front basket, wearing a backpack\nbuildings: lining the street\nbicycles: parked along the sidewalk\ntraffic lights: visible at the intersection\nroad: relatively empty with white lane markings",
+    "relations": "person is riding the bicycle\ndog is sitting in the front basket of the bicycle\nbicycle is on the road\nbuildings are lining the street\nbicycles are parked along the sidewalk\ntraffic lights are at the intersection\nroad is relatively empty"
+}

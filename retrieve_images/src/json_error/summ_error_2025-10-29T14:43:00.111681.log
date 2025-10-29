@@ -1,0 +1,4 @@
+{
+    "entities": "elderly man: wearing a brown jacket, standing next to a cart\nblue cart: adorned with a large floral arrangement, featuring a framed image of a religious figure\nfloral arrangement: includes red and white flowers, surrounding a framed image\nframed image: depicts a religious figure\nbuilding: with green doors in the background\nperson: partially visible, standing behind the elderly man",
+    "relations": "elderly man is standing next to the blue cart\nblue cart is adorned with a floral arrangement\nfloral arrangement surrounds the framed image\nelderly man is interacting with the floral arrangement\nblue cart is positioned in front of the building\nbuilding serves as the background for the scene"
+}

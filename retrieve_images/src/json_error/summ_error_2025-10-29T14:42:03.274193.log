@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing a pink shirt and brown pants\nchild: wearing a brown shirt and blue shorts\nshopping cart: containing bread and vegetables\nshelves: stocked with jars and bottles",
+    "relations": "woman is holding the child with one arm\nwoman is pushing the shopping cart with the other hand\nshopping cart is in front of the woman\nshelves are in the background behind the woman and child"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a light-colored jacket and dark pants\nrock wall: covered with variously colored holds\nrope: attached to the climber for safety\nholds: colorful and scattered on the wall",
+    "relations": "person is climbing the rock wall\nperson is holding onto a hold with one hand\nrope is connected to the person for safety\nholds are attached to the rock wall"
+}

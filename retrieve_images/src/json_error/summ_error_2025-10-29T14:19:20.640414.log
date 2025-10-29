@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing light blue t-shirt and beige pants\naxe: being used by the man to cut the tree\npink strap: tied around the tree\nforest: background with green foliage",
+    "relations": "man is cutting the tree with the axe\npink strap is marking the tree\nforest surrounds the man and the tree"
+}

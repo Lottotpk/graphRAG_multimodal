@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing a purple cap and a purple and gray sweatshirt\nmicrophone: attached to the man's shirt\nhands: gesturing\nbackground: blurred, suggesting an outdoor setting",
+    "relations": "man is speaking into the microphone\nman is gesturing with his hands\nman is wearing the cap and sweatshirt\nbackground is blurred"
+}

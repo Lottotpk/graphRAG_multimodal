@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing a white shirt with red stripes\npot: on a red portable stove\nred portable stove: on a wooden countertop\nbottle of oil: on the counter\nwindow: showing a view outside\ntelevision: in the background\nwooden cabinets: in the interior\n camper van: interior setting",
+    "relations": "man is stirring the pot\npot is on the red portable stove\nred portable stove is on the wooden countertop\nbottle of oil is on the counter\nwindow is showing a view outside\ntelevision is in the background\nwooden cabinets are in the interior\nman is inside the camper van"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing green shirt and black shorts, barefoot\ntrack: red surface with white lane markings\nfield: grassy with patches of dirt",
+    "relations": "person is running on the track\ntrack is adjacent to the grassy field"
+}

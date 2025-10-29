@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing an orange shirt and light-colored pants\n狗: black and walking on a paved path\n照片: numerous black and white photographs displayed for sale on a wall\n树木: in the background creating a casual and artistic atmosphere",
+    "relations": "person is walking the dog\nperson is passing by the wall with photographs\nphotographs are displayed for sale on the wall\n树木 are in the background"
+}

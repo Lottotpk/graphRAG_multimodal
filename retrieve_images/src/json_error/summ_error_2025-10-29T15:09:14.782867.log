@@ -1,0 +1,4 @@
+{
+    "entities": "woman: young, wearing a blue tank top and black shorts\nbench: wooden\nnotebook: open, being written in\npen: yellow, being used to write\nwater bottle: large, clear, with a blue cap\nbag: red and white, beside the woman\nbody of water: in the background\nsun: bright, indicating a sunny day",
+    "relations": "woman is sitting on the bench\nwoman is writing in the notebook with the pen\nwater bottle is placed on the bench next to the woman\nbag is beside the woman on the bench\nbody of water is in the background\nsun is shining brightly"
+}

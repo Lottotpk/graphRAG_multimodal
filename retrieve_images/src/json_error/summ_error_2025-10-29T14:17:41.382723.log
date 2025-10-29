@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing pink shirt and white apron\nlarge round white surface: with tortillas and food being prepared\nvegetables and sauce: being added to a tortilla\nkitchen items: bowls, containers, and utensils around\nsmall rustic kitchen or food stall: setting with casual and busy atmosphere",
+    "relations": "woman is preparing food on the large round white surface\nwoman is interacting with the vegetables and sauce\nlarge round white surface has tortillas on it\nkitchen items are placed around the woman\nsetting is a small rustic kitchen or food stall"
+}

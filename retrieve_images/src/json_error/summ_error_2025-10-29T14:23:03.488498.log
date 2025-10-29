@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing purple striped shirt, holding a small bag\nman: wearing red shirt, holding a camera\nhorse: standing near a wooden structure\nwooden structure: in the background\n树木: in the background\n马车: in the background",
+    "relations": "woman is feeding the horse with a small bag\nman is standing behind the woman\nhorse is near the wooden structure\nwoman and man are outside\nwoman and horse are interacting\nman is holding a camera"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing white t-shirt, camouflage shorts, cap\nacoustic guitar: black and white\nwindow: with blinds\nwooden cabinets\nceiling light",
+    "relations": "person is playing acoustic guitar\nperson is sitting on wooden cabinets\nacoustic guitar is in front of person\nwindow is to the left of person\nwooden cabinets are in the background\nceiling light is illuminating the room"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "person: young, wearing purple long-sleeve shirt with 'BEETS' text, black shorts, headband, black shoes with white socks\nfrisbee: white, in motion\nbackground: grassy field, blurred natural setting with trees and tall grass",
+    "relations": "person is throwing or catching frisbee\nperson is in motion\nfrisbee is in the air\nperson is in a grassy field\nbackground shows trees and tall grass"
+}

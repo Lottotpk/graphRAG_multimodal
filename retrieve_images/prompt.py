@@ -213,7 +213,7 @@ TARGET_AUDIENCE_PERCEPTION = """
     - Inspirational: Aims to evoke feelings of hope, encouragement, and ambition.
     - Comedic: Intended to be funny, lighthearted, and entertaining.
     - Provocative: Designed to challenge conventions, spark debate, and grab attention through controversial or surprising content.
-    - Expert: Positioned to be perceived as credible, trustworthy, and knowledgeable, often used in technical or professional contexts.
+    - [FIELD] Expert: Positioned to be perceived as credible, trustworthy, and knowledgeable on that specific FIELD, often used in technical or professional contexts. (FIELD is added freely by your thought)
     - Comforting: Creates a sense of safety, calm, and trust, often used in healthcare or financial services.
     - Relatable: Designed to feel friendly, familiar, and easy to connect with, fostering a sense of authenticity.
     - Sensational: Intended to shock, excite, or arouse strong curiosity, often used in news headlines or entertainment promotion.
@@ -363,7 +363,7 @@ def ABSTRACT_PROMPT(cate_num: range):
     output += "}"
     return """
     Inputs (always provided)
-    - Query image: The second image input to analyze
+    - Query image: The image input to analyze
     - Example answer: The correct answer of the example image (Starry Night)
     - Categories: description aspect to consider
     - Example keywords: possibly keyword from each category; you can use keywords other than the example
@@ -384,10 +384,14 @@ def ABSTRACT_PROMPT(cate_num: range):
     - Make a compact reason for each keyword on why this keyword is chosen over other keywords that sound similar and why not the other keywords on the opposite. The clues are included in the reason. The length is not more than 20 words.
     3) Evaluate grounding
     - Analyzing grounding behind the reasons: whether each reason from keyword can be linked to the visual evidence in the Query image.
-    - No making up explanation or implication
+    - No making up explanation or implication: For example, "Gallery Wall Art" is for arts not the photography, so the reason behind it has to be synchronus and grounding.
+    - Mentally simulate the situation using the image for the "Purpose/Context" category whether the keyword intuitively make sense in that specific context or not.
     4) Summarize & Score
     - Write keywords and its reason after evaluation
     - Output a confidence score (0.0–1.0), where 1.0 = highly relevant, 0.0 = irrelevant reflecting: the relevance between keyword and reason and Query image, the mental simulation, and the grounding candidates observed from the Query image.
+    5) Selection
+    - Strictly remove all keywords with confidence score lower than 0.7 even though that category remains zero keywords.
+    - Category with zero keywords can simply use [] (the empty list in response)
 
     Output Requirements
     - Return strictly valid JSON  only (no prose, no markdown, no comments).
@@ -397,10 +401,11 @@ def ABSTRACT_PROMPT(cate_num: range):
     Validation Checklist (must pass before you output)
     - JSON is valid: no trailing commas; correct double quotes; confidence is a number.
     - Each "keyword" contains 1-2 words; each "reason" is a single crisp sentence.
-    - Avoid generic keyword; recalculate confidence of the keyword with high usages
+    - Avoid generic keyword; recalculate confidence of the keyword with highly repeated usages across every image
     - At most 3 keywords per "category", no more than this; can use less than this
     - Reasons and evidence can be found from the Query image; No making up the answer
-    - Using the first only as a reference, generate the output for the second.
+    - Using the example only as a reference, generate the output for the image.
+    - All the keywords with confidence score lower than 0.7 are excluded from the output.
 """ % (example, cate_prompt, output)
 
 SYSTEM_PROMPT = """

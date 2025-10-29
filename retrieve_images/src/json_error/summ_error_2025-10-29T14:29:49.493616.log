@@ -1,0 +1,4 @@
+{
+    "entities": "Person 1: Wearing a light green shirt, blue jeans, and gloves.\nPerson 2: Wearing a black shirt, blue jeans, and gloves.\nOrange flowers: In the garden bed.\nWhite flowers: In the garden bed.\nBushes: Surrounding the garden bed.\nPaved walkway: Nearby the garden bed.\nBuilding: In the background with a white column and arched window.",
+    "relations": "Person 1 and Person 2 are gardening together.\nPerson 1 and Person 2 are both kneeling near the garden bed.\nPerson 1 and Person 2 are interacting with the orange and white flowers.\nThe garden bed is in front of the building.\nThe bushes are surrounding the garden bed.\nThe paved walkway is adjacent to the garden bed."
+}

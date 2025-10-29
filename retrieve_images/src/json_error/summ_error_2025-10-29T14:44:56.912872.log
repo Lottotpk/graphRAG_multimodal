@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing a helmet and a purple patterned shirt, with black pants\nbicycle: with a basket attached to the front\npath: paved, surrounded by lush greenery\ntrees: flanking the path on both sides\nbushes: along the sides of the path",
+    "relations": "woman is riding the bicycle\nbicycle is on the path\npath is surrounded by trees and bushes\nwoman is looking forward\nbicycle is positioned on the left side of the path"
+}

@@ -30,6 +30,8 @@ IMAGE_ONLY_SUMMARY_DIR = "./generated_only_summary/"
 FORMAT_PROMPT_DIR = "./generated_format_prompt/"
 # Retrieval result
 RETRIEVAL_RESULT = "./retrieval_result/"
+# Store all generated content
+IMAGE_ALL_BASE_DIR = "./generated_all/"
 
 # Supported extraction strategies
 EXTRACTION_STRATEGIES = {
@@ -178,6 +180,8 @@ def ensure_image_description_dir(type: str = None):
         os.makedirs(IMAGE_SUMMARY_BASE_DIR, exist_ok=True)
     elif type == "only_summary":
         os.makedirs(IMAGE_ONLY_SUMMARY_DIR, exist_ok=True)
+    elif type == "all":
+        os.makedirs(IMAGE_ALL_BASE_DIR, exist_ok=True)
     else:
         os.makedirs(IMAGE_DESCRIPTION_BASE_DIR, exist_ok=True)
 
@@ -198,5 +202,7 @@ def get_description_path(filename: str, type: str = None):
         return os.path.join(FORMAT_PROMPT_DIR, filename)
     elif type == "result":
         return os.path.join(RETRIEVAL_RESULT, filename)
+    elif type == "all":
+        return os.path.join(IMAGE_ALL_BASE_DIR, filename)
     else:
         return os.path.join(IMAGE_DESCRIPTION_BASE_DIR, filename)

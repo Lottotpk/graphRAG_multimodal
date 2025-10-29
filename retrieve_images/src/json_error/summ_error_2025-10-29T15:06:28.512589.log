@@ -1,0 +1,4 @@
+{
+    "entities": "girl: wearing colorful shirt and light-colored pants\nwindow: large, facing outside\nlawn: green\nstreet lamp: visible outside\ncomposition: back to camera, waving right hand",
+    "relations": "girl is standing inside near the window\nwindow separates the girl from the outside view\nlawn is visible outside the window\nstreet lamp is in the background outside\ncomposition shows the girl waving towards the outside"
+}

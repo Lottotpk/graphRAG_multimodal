@@ -1,0 +1,4 @@
+{
+    "entities": "child: young, red hair, wearing light-colored top with floral pattern\npencil: green\npaper: white\nchair: wooden\nkitchen appliances: blurred background\nfurniture: blurred background",
+    "relations": "child is sitting at the table\nchild is holding the pencil\nchild is writing or drawing on the paper\nchild is seated on the chair\nkitchen appliances and furniture are in the background"
+}

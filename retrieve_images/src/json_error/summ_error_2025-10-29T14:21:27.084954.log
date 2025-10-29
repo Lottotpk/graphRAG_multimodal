@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing a black dress, holding a dog, drinking from a wine glass\nsmall white and black dog: sitting on the woman's lap, tongue out\nwooden deck: the surface the woman is sitting on\nbuilding: in the background\nplant: in a pot on the left side\nfence: in the background",
+    "relations": "woman holding dog\nwoman drinking from wine glass\ndog sitting on woman's lap\nwoman sitting on wooden deck\nbuilding in background\nplant in pot on left side\nfence in background"
+}

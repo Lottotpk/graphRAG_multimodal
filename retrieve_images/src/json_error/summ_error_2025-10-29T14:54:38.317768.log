@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing glasses, maroon shirt\nsombrero drawing: on the wall\nmirror: reflecting the person\nselfie camera: being held by the person\nwooden paneling: on the lower part of the wall",
+    "relations": "person is taking a selfie with a camera\nsombrero drawing is on the wall behind the person\nmirror is reflecting the person and the sombrero drawing\nperson is standing in front of the wooden paneling"
+}

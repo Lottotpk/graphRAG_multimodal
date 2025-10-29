@@ -1,0 +1,4 @@
+{
+    "entities": "man in suit: wearing glasses, holding a booklet or program, holding a smartphone\nwoman with blonde hair: standing in the background\nman in black shirt: standing in the background\nbottles: on a table in the foreground\nindoor setting: warm lighting, carpeted floor",
+    "relations": "man in suit is looking at his smartphone\nman in suit is holding a booklet or program\nman in suit is smiling\nman in suit is standing in a social setting\nwoman with blonde hair is in the background\nman in black shirt is in the background\nbottles are on a table in the foreground\nindoor setting has warm lighting\nindoor setting has a carpeted floor"
+}

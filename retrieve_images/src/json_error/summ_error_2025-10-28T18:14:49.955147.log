@@ -1,0 +1,4 @@
+{
+    "entities": "person: dressed in traditional attire with a red skirt and light blue top\nbow: held by the person\narrow: aimed by the person\ngrass: covering the field\nforest: dense green trees in the background\ntarget: visible on the ground to the left",
+    "relations": "person is holding the bow\narrow is aimed towards the right side of the image\nperson is standing on the grass\nforest is in the background\nperson is interacting with the target"
+}

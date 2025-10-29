@@ -1,0 +1,4 @@
+{
+    "entities": "child: young, blonde hair, wearing a blue and white checkered outfit\nstuffed animal: white, held by the child\nblanket: white, held by the child\nlarge green plants: behind the child\nair conditioning unit: on the side of a house\nhouse: with siding, in the background\nsidewalk: where the child is standing\ngrass: in the foreground",
+    "relations": "child is standing on the sidewalk\nchild is waving with one hand\nchild is holding a stuffed animal and a blanket\nlarge green plants are behind the child\nair conditioning unit is on the side of the house\nhouse is in the background\nsidewalk is in front of the house\ngrass is in the foreground"
+}

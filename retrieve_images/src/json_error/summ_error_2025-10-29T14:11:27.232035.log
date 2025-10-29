@@ -1,0 +1,4 @@
+{
+    "entities": "girl: blonde hair, purple shirt with cupcake design\nbubble wand: yellow\nbubble: floating\nbackground: blurred, outdoor setting",
+    "relations": "girl is blowing bubbles using the bubble wand\nbubbles are floating in the air\nbubble wand is held by the girl\nbackground is slightly blurred"
+}

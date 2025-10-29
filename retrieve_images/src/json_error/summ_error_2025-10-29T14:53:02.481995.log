@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a light-colored sweater and blue jeans, holding a cigarette in right hand, sitting against a white wall\nsweater: light-colored\njeans: blue\ncigarette: held in right hand\nwall: white",
+    "relations": "person is sitting against the wall\nperson is holding the cigarette with right hand\nperson is wearing the sweater and jeans"
+}

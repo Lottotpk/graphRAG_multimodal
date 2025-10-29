@@ -1,0 +1,4 @@
+{
+    "entities": "jockey: wearing green and white outfit\nhorse: brown with white blaze, wearing yellow saddlecloth with number 4\ndirt racetrack: brown surface\nhedges: green, surrounding the racetrack\ngrass: green, surrounding the racetrack",
+    "relations": "jockey riding horse\nhorse galloping on dirt racetrack\nracetrack surrounded by hedges\nhedges and grass surrounding the racetrack"
+}

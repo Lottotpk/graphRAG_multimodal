@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing gray cap and shirt\nsink: filled with soapy water\nplate: white\nlarge copper pot: on shelf\nboxes: on shelf\nshelves: holding various items\ncommercial kitchen: environment\nperson: washing dishes\nsoap: in sink",
+    "relations": "man is washing dishes in the sink\nman is scrubbing a white plate\nlarge copper pot is on the shelf\nboxes are on the shelf\nshelves hold various items\ncommercial kitchen environment\nperson interacts with the sink\nsoap is in the sink"
+}

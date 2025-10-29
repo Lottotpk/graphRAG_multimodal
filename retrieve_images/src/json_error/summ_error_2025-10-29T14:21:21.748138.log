@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing white t-shirt, bracelets on wrist, sipping drink with straw\nman: wearing green shirt, standing in background\nwoman with curly hair: standing in background, browsing stalls\nmarket stalls: displaying colorful items\nstraw: green, in drink\nbracelets: on woman's wrist\n",
+    "relations": "woman is sipping drink with straw\nman is standing in background\nwoman with curly hair is browsing stalls\nmarket stalls are displaying colorful items\nstraw is in drink\nbracelets are on woman's wrist\n"
+}

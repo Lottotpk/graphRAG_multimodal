@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing green t-shirt and dark pants\nPepsi cup: large, blue, with Pepsi logo\nbed: cluttered with clothes and pillows\ndesk: with a lamp and calendar\nwall: plain, light-colored\nlight switch: on the wall\nsecurity camera: on the wall\n",
+    "relations": "woman is sitting on the bed\nwoman is holding the Pepsi cup\nPepsi cup is near the woman's mouth\nbed is cluttered with clothes and pillows\ndesk is in the background with a lamp and calendar\nwall has a light switch and a security camera\n"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "woman: smiling, wearing a green shirt, holding a toothbrush\nbaby: sitting on the bathroom counter, wearing a pink shirt and jeans, holding a toothbrush\nbathroom counter: with a soap dispenser\nmirror: on the wall\nsink: with a soap dispenser",
+    "relations": "woman is holding the baby's hand\nwoman and baby are brushing their teeth together\nbaby is sitting on the bathroom counter\nwoman is standing next to the bathroom counter\nmirror is on the wall behind the woman and baby\nsoap dispenser is on the bathroom counter near the sink"
+}

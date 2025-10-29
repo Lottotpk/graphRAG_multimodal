@@ -1,0 +1,4 @@
+{
+    "entities": "child: wearing colorful striped outfit\nTV: displaying dark image with blue streak\ndresser: child is lying on\nwhite curtain: on the left side\nred ball: on a stand next to the television\nstereo system: on a stand next to the television",
+    "relations": "child is lying on the dresser\nchild is watching the TV\nTV is placed on a stand\nwhite curtain is on the left side of the room\nred ball is next to the stereo system\nstereo system is next to the television"
+}

@@ -1,4 +1,4 @@
-from transformers import Qwen2_5_VLForConditionalGeneration, AutoTokenizer, AutoProcessor
+from transformers import Qwen2_5_VLForConditionalGeneration, AutoTokenizer, AutoProcessor, AutoModel
 from qwen_vl_utils import process_vision_info
 from PIL import Image
 from prompt import ABSTRACT_PROMPT, SYSTEM_PROMPT
@@ -10,14 +10,16 @@ import logging
 import json
 import argparse
 
-model_name = "Qwen/Qwen2.5-VL-7B-Instruct"
+model_name = "OpenGVLab/InternVL3_5-8B"
 processor = AutoProcessor.from_pretrained(model_name)
-model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+model = AutoModel.from_pretrained(
     model_name,
-    dtype=torch.bfloat16,
-    device_map="auto",
-    attn_implementation="flash_attention_2",   
-)
+    torch_dtype=torch.bfloat16,
+    low_cpu_mem_usage=True,
+    use_flash_attn=True,
+    trust_remote_code=True,
+    device_map="auto").eval()
+tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, use_fast=False)
 # EXAMPLE_IMAGE_PATH = "example/starry_night.jpg"
 logging.basicConfig(level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -38,6 +40,7 @@ def generate_description(images: list[str], prompt: str, system: str):
         messages.append(tmp)
     
     # Process input before inference
+        pixel_values = load_image(image_path, max_num=12).to(torch.bfloat16).cuda()
     texts = [processor.apply_chat_template(msg, tokenize=False, add_generation_prompt=True) 
             for msg in messages]
     # print(texts[0])
@@ -80,7 +83,7 @@ def batch_processing(args):
         for j in range(0, 8, args.num_topic):
             dict_output = generate_description(images_path, ABSTRACT_PROMPT(range(j, min(j + args.num_topic, 8))), SYSTEM_PROMPT)
             for k in range(args.batch_size):
-                print(dict_output[k].strip("```json"))
+                # print(dict_output[k].strip("```json"))
                 dict_output[k] = json.loads(dict_output[k].strip("```json"))
                 batch_output[k] |= dict_output[k]
         for output in batch_output:

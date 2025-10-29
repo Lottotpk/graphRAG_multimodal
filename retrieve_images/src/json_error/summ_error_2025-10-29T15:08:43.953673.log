@@ -1,0 +1,4 @@
+{
+    "entities": "woman: standing with arms crossed, wearing a white jacket and dark skirt\nboy: writing on the chalkboard, wearing a striped shirt\nchalkboard: displays multiplication problems and solutions\nchalk: in the boy's hand\nclassroom: background setting",
+    "relations": "woman is supervising the boy\nboy is writing on the chalkboard\nchalkboard is displaying multiplication problems\nwoman is standing in front of the chalkboard\nboy is interacting with the chalkboard"
+}

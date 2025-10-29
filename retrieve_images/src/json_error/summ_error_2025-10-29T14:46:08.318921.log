@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing sleeveless shirt, jeans, cap\nhorse: brown with white markings on legs\nhorse trailer: white\nfence: green\ngrass: visible\n trees: visible in distance",
+    "relations": "person is riding the horse\nhorse is in front of the horse trailer\nhorse trailer is in the background\nfence is surrounding the area\ngrass and trees are in the background"
+}

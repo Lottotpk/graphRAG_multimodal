@@ -1,0 +1,4 @@
+{
+    "entities": "child: young, wearing an orange shirt\nsink: filled with soapy water\njars: empty glass jars lined up on the counter\nsponge: blue, held by the child\nkitchen: cluttered with various items including a dish rack with dishes, cleaning supplies, and other household items",
+    "relations": "child is standing at the sink\nchild is washing dishes with a sponge\njars are lined up on the counter near the sink\nsink is filled with soapy water\nkitchen is cluttered with various items in the background"
+}

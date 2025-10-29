@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing sleeveless top and sunglasses\nhorse: white with brown mane\nfield: grassy\nbackground: trees and distant hills",
+    "relations": "woman feeding horse\nhorse facing woman\nwoman and horse in grassy field\nbackground showing trees and distant hills"
+}

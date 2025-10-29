@@ -1,0 +1,4 @@
+{
+    "entities": "Person 1: Wearing a light blue shirt and sunglasses, standing on the left side of the image.\nPerson 2: Wearing a white shirt and sunglasses, standing next to Person 1, slightly behind.\nPerson 3: Wearing a black shirt and a black cap, actively reeling in a fishing rod, positioned in the center of the image.\nFishing rod: Held by Person 3, extended towards the ocean.\nBoat: The individuals are standing on, with a wooden railing visible.\nOcean: Visible in the background, indicating they are out at sea.\nSky: Clear and blue, visible above the ocean.",
+    "relations": "Person 1 and Person 2 are observing Person 3.\nPerson 3 is actively reeling in the fishing rod.\nThe fishing rod is directed towards the ocean.\nPerson 1, Person 2, and Person 3 are standing on the boat.\nThe ocean is in the background, indicating they are out at sea.\nThe sky is clear and blue, above the ocean."
+}

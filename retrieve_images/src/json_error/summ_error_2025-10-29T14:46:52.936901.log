@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing sleeveless pink shirt and black pants\nblack horse: with white saddle pad featuring a logo\nmetal fencing: surrounding the arena\nstructures: in the background\nsaddle: on the horse\nwhite saddle pad: with a logo on it",
+    "relations": "woman is riding the black horse\nblack horse is inside the metal fenced arena\nmetal fencing surrounds the arena\nstructures are in the background of the arena\nsaddle is attached to the black horse\nwhite saddle pad is on the black horse"
+}

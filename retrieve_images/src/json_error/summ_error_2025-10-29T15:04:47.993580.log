@@ -1,0 +1,4 @@
+{
+    "entities": "child1: blonde hair, wearing a white tank top with colorful shorts\nchild2: brown hair, wearing a black tank top\nTV: displaying a cartoon with a blue character\nbowls: two bowls on the table\nsmall table: green tablecloth with red patterns\nroom: dimly lit background with shelves",
+    "relations": "child1 is sitting at the table\nchild2 is sitting at the table\nchild1 is watching the TV\nchild2 is watching the TV\nbowls are on the table\ntable is in front of the TV\nTV is on a stand in the room\nshelves are in the background"
+}

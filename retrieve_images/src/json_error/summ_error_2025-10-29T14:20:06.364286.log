@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing a red sweater and a striped apron\nblender: stainless steel with a clear pitcher\noven: stainless steel built into kitchen cabinetry\nlettuce: fresh green leafy vegetable on the counter\nherbs: various fresh herbs on the counter\nloaf of bread: on the counter\npot: on the counter\nchopping board: on the counter with vegetables\nkitchen cabinets: white with silver handles\nstainless steel appliances: including oven and blender",
+    "relations": "woman is standing in front of the oven\nwoman is smiling and chopping vegetables on the chopping board\nblender is placed on the counter near the woman\noven is built into the kitchen cabinetry\nlettuce and herbs are spread out on the counter\nloaf of bread is on the counter near the chopping board\npot is on the counter near the blender\nchopping board has vegetables on it\nkitchen cabinets are in the background with stainless steel appliances"
+}

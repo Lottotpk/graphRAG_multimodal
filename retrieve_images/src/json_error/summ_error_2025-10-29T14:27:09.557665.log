@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing striped shirt and khaki pants\nwhite car: hood open, engine visible\nengine: various components visible\ntools: nearby, suggesting maintenance or repair work\ncontainers: nearby, suggesting maintenance or repair work\nbackground: greenery visible",
+    "relations": "man is working on the engine of the white car\nman is wearing gloves\nengine is part of the white car\ntools and containers are placed near the white car\nbackground elements include greenery"
+}

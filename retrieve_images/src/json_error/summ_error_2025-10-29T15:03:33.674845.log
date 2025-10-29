@@ -1,0 +1,4 @@
+{
+    "entities": "person: young, wearing a gray tank top with blue trim\nwhite bowl\nfaucet\nkitchen sink\nwooden cabinets\n tiled walls\ngreen dish soap bottle\ndecorative item with flowers",
+    "relations": "person is holding the white bowl under running water from the faucet\nperson is standing in front of the kitchen sink\nfaucet is attached to the kitchen sink\nkitchen sink is located under the wooden cabinets\nwooden cabinets are on the wall with tiled walls\ngreen dish soap bottle is on the counter next to the sink\ndecorative item with flowers is on the counter next to the sink"
+}

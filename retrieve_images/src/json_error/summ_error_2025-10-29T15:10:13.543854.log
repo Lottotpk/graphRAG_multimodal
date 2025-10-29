@@ -1,0 +1,4 @@
+{
+    "entities": "child: young, wearing a yellow long-sleeve shirt and black pants with red accents, has a pink hair clip\nnotebook: open, on a wooden cart\npen: green, being used by the child\nwooden cart: with a red seat that has colorful patterns\nseat: red with colorful patterns\ntree trunk: visible to the right\nfence: blurred in the background\nblue vehicle: blurred in the background",
+    "relations": "child is sitting on the wooden cart\nchild is writing in the notebook with the pen\nnotebook is placed on the wooden cart\nwooden cart has a red seat with colorful patterns\nchild is positioned near the tree trunk\nfence and blue vehicle are in the blurred background"
+}

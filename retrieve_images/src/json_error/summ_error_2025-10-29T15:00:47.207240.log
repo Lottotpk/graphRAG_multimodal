@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing blue shirt, seated, facing monitors\ncomputer monitors: three, displaying graphs and data\nkeyboard: black, on desk\nmouse: black, on mouse pad\npen: on desk\nwindow: large, natural light, showing parking lot outside\ndesk: black, with various items\nchair: black, person is seated on it",
+    "relations": "person is seated at the desk\nperson is facing the computer monitors\ncomputer monitors are placed on the desk\nkeyboard is in front of the person\nmouse is on the mouse pad near the keyboard\npen is on the desk\nwindow is behind the desk, providing natural light"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing a pink scarf and a gray top, with a watch on her wrist\nsoap bubble: large, iridescent\nbackground: grassy area with trees",
+    "relations": "woman is blowing the soap bubble\nwoman is wearing a pink scarf\nwoman is wearing a gray top\nwoman has a watch on her wrist\nsoap bubble is in front of the woman\nbackground shows a grassy area with trees"
+}

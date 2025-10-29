@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing striped shirt and light pants\nwhite dogs: fluffy\nbenches: along the path\nlarge trees: lining the path\npath: paved\nother people: walking and sitting in the background",
+    "relations": "person walking white dogs on a paved path\nbenches placed along the path\nlarge trees providing shade along the path\nother people in the background enjoying the park\nperson carrying a bag on the back"
+}

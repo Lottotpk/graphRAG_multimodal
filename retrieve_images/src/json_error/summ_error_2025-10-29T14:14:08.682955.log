@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a light-colored, striped shirt and jeans\nmopping tool: with a yellow handle and a gray bucket\nrefrigerator: white with various items on top including bottles and a can\nstove: with pots and pans on it\ntrash can: nearby the person\nkitchen counter: with a wooden surface\nwindow: with blinds in the background\nair vent: on the wall near the stove",
+    "relations": "person is mopping the floor with the mopping tool\nmopping tool is placed in the gray bucket\nperson is standing in front of the refrigerator\nrefrigerator has items on top including bottles and a can\nstove is located to the right of the person\ntrash can is near the person\nkitchen counter is to the left of the person\nwindow is in the background behind the refrigerator\nair vent is on the wall near the stove"
+}

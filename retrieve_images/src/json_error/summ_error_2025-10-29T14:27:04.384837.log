@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing a blue shirt, working on a car engine\nred car: parked in the background\nengine: open, with various components visible\ntool: being used by the man to adjust or fix something inside the engine compartment",
+    "relations": "man is working on the car engine\nman is using a tool on the engine\nred car is parked in the background\nengine components are visible inside the open engine compartment"
+}

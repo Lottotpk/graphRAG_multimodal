@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a brown and green jacket, scarf, patterned cap\nwhite paper cup: being held to the mouth\nmarket stall: displaying various items in the background",
+    "relations": "person is holding the white paper cup\nmarket stall is in the background\nperson is standing in front of the market stall"
+}

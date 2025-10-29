@@ -1,0 +1,4 @@
+{
+    "entities": "mechanic: wearing a blue shirt and blue gloves\nengine: under the hood of a car\ngarage: workshop environment with tools and equipment",
+    "relations": "mechanic is working on the engine\nmechanic is positioned under the hood of the car\nmechanic is focused on inspecting or repairing the engine\nengine is part of the car\nmechanic is in a garage or workshop environment"
+}

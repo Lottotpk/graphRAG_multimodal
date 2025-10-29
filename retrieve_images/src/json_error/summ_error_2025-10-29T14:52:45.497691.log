@@ -1,0 +1,4 @@
+{
+    "entities": "person: male, dark hair, wearing a dark t-shirt with a logo\nsmoking cigarette: held in right hand\nchair: white, located near the person\nwooden objects: vertical, located near the wall\nbalcony or patio: dim lighting, relaxed atmosphere",
+    "relations": "person is standing outside at night\nperson is smoking a cigarette\nperson is wearing a dark t-shirt with a logo\nchair is located near the person\nwooden objects are located near the wall\nbalcony or patio has dim lighting"
+}

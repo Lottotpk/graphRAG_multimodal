@@ -1,0 +1,4 @@
+{
+    "entities": "musician: wearing white shirt, light-colored pants, sunglasses, playing electric guitar\nperson: partially visible, wearing cap, looking down\nstage: lit with colorful lights, including blue and red hues\nmicrophone stand: in front of the musician\nspeaker: in the foreground",
+    "relations": "musician is playing the electric guitar\nperson is standing behind the musician\nstage lights are illuminating the scene\nmicrophone stand is positioned in front of the musician\nspeaker is in the foreground of the image"
+}

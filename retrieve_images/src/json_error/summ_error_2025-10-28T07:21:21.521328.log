@@ -1,0 +1,4 @@
+{
+    "entities": "children: two children sitting on a wooden floor\nvintage television set: displaying an image of a bird on a grassy background\nwoodpecker: bird on the TV screen\nwooden floor: where the children are sitting\nwallpaper: subtle floral pattern on the wall",
+    "relations": "children facing the television set\nchildren sitting on the wooden floor\ntelevision set displaying the woodpecker image\nwoodpecker on the TV screen\nwooden floor in front of the television set\nwallpaper behind the television set"
+}

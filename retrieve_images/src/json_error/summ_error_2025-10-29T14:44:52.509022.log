@@ -1,0 +1,4 @@
+{
+    "entities": "child: wearing a blue helmet and a striped jacket\nbicycle: blue with yellow wheels\nsidewalk: concrete surface\nwall: colorful with orange and yellow sections\nwooden door: to the left",
+    "relations": "child is riding the bicycle\nbicycle is on the sidewalk\nchild is in front of the wall\nwooden door is to the left of the wall"
+}

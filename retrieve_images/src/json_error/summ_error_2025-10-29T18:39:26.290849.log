@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing glasses, gray shirt, white long sleeves\nchild: wearing green jacket, blonde hair in ponytail\nmeasuring cup: red, pouring liquid\ncontainer: clear plastic, on table\nmicrowave: white, on table\nplastic containers: multiple, on table\nbrick wall: adorned with numerous photographs",
+    "relations": "woman is pouring liquid from measuring cup into container\nchild is watching woman closely\nmicrowave is on the table\nplastic containers are on the table\nphotographs are on the brick wall"
+}

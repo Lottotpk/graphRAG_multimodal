@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing yellow shirt, blue helmet, black shorts, gloves, backpack\nbicycle: blue frame\nroad: lined with greenery\nhouse: visible in background\nautomobile: parked on side of road",
+    "relations": "person is riding bicycle\nbicycle is on road\nroad is lined with greenery\nhouse is in background\nautomobile is parked on side of road"
+}

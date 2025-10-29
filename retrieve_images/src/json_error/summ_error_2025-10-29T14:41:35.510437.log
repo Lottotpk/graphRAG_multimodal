@@ -1,0 +1,4 @@
+{
+    "entities": "man1: wearing a striped shirt and gray pants, barefoot\nman2: wearing a light-colored shirt and dark pants, barefoot\nchild: shirtless, wearing yellow shorts, seated on steps\nwater: being poured over the child\nchain: metallic, horizontal\nsteps: stone, wet\nbackground people: seated, partially visible",
+    "relations": "man1 pouring water over the child\nman2 pouring water over the child\nchild seated on the steps\nchain separating the foreground from the background\nbackground people observing the scene"
+}

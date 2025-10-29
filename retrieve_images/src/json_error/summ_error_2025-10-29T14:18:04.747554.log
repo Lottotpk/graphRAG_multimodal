@@ -1,0 +1,4 @@
+{
+    "entities": "worker1: wearing orange safety helmet, red protective gear, using chainsaw\nworker2: wearing orange safety helmet, red protective gear, holding tool\nchainsaw: being used by worker1 to cut tree\nlog: large, moss-covered, being cut by chainsaw\nforest: background with green foliage and fallen branches",
+    "relations": "worker1 is cutting the log with the chainsaw\nworker2 is standing nearby holding a tool\nworker1 and worker2 are both in the forest\nlog is part of the forest environment"
+}

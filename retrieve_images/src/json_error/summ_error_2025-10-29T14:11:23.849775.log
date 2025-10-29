@@ -1,0 +1,4 @@
+{
+    "entities": "girl: young, wearing red and black jacket, blowing bubbles\nbubble wand: in girl's hand, creating bubbles\nbubble: floating in air\nhouse: residential, in background\ngrass: green, in foreground\nsidewalk: gray, girl standing on\nbush: yellow, in foreground\nwindow: white, on house\npath: gray, in background",
+    "relations": "girl blowing bubbles with bubble wand\nbubbles floating in air\nbubble wand in girl's hand\ngirl standing on sidewalk\nsidewalk in front of grass\ngrass in front of house\nbush in foreground\nwindow on house\npath in background"
+}

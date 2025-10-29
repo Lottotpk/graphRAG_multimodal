@@ -1,0 +1,4 @@
+{
+    "entities": "jockey: wearing white and red outfit, riding a horse\nhorse: brown, with number 3 on saddlecloth\nphotographer: taking picture\nspectator: standing near fence\nfence: white, along racetrack\nsky: clear blue with scattered clouds\nground: grassy racetrack",
+    "relations": "jockey riding horse\nhorse galloping on racetrack\nphotographer capturing jockey and horse\nspectator observing race\nfence separating spectators from racetrack\nsky above the racetrack"
+}

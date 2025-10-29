@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing sunglasses on head, beige blazer, white shirt, necklace with pendant\nmobile phone: being held to ear\nsunglasses: on woman's head\nnecklace: with pendant\nblazer: beige\nshirt: white\npendant: on necklace\nbackground: busy urban environment with cars and buildings",
+    "relations": "woman is walking on city street\nwoman is talking on mobile phone\nwoman is wearing sunglasses on head\nwoman is wearing beige blazer\nwoman is wearing white shirt\nwoman is wearing necklace with pendant\nmobile phone is being held to woman's ear\nbackground shows busy urban environment with cars and buildings"
+}

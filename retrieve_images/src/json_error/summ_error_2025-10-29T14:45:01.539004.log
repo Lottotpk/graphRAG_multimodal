@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a helmet, light blue shirt, shorts, black bag\nbicycle: with a basket attached to the front\nother cyclists: in the background\npedestrians: in the background\nmodern buildings: in the background\ntrees: lining the street",
+    "relations": "person riding bicycle\nbicycle on city street\nother cyclists on the same street\npedestrians on the sidewalk\nmodern buildings in the background\ntrees lining the street"
+}

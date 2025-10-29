@@ -1,0 +1,4 @@
+{
+    "entities": "child: young, wearing red shirt and camouflage pants, climbing, wearing safety harness\nadult: wearing yellow shirt and black pants, holding safety rope, smiling\nrock wall: indoor, with colorful holds, vertical\nsafety harness: worn by child, attached to safety rope\nsafety rope: held by adult, connected to child's harness\npadded flooring: green, at the bottom of the climbing area\nfan: on the wall, in the background\nother people: visible in the background, near the doorway",
+    "relations": "child is climbing the rock wall\nadult is holding the safety rope connected to the child\nsafety harness is attached to the child and the safety rope\nrock wall is vertical with colorful holds\nadult is standing below the child\npadded flooring is at the bottom of the climbing area\nfan is on the wall in the background\nother people are visible in the background near the doorway"
+}

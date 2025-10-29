@@ -1,0 +1,4 @@
+{
+    "entities": "woman1: smiling, wearing a purple patterned shirt, typing on a laptop\nwoman2: focused, wearing a red and gold patterned dress, using a laptop\nman1: standing, wearing a brown shirt with a tree design\nman2: standing, wearing a green headscarf and a green shirt\nchair: brown, positioned behind woman1\nlaptop1: being used by woman1\nlaptop2: being used by woman2\nmouse: on the desk near laptop2\ndesk: wooden, holding laptops and mouse\nbackground wall: light blue\n",
+    "relations": "woman1 is seated at the desk using a laptop\nwoman2 is seated at the desk using a laptop\nman1 is standing behind woman1\nman2 is seated behind woman2\nlaptop1 is in front of woman1\nlaptop2 is in front of woman2\nmouse is on the desk near laptop2\nchair is positioned behind woman1\nbackground wall is behind the group"
+}

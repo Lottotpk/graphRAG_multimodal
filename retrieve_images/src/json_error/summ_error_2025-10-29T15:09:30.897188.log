@@ -1,0 +1,4 @@
+{
+    "entities": "child1: wearing blue uniform, holding pencil, focused on paper\nchild2: wearing blue uniform, looking at paper\nchild3: partially visible, wearing blue uniform\npencil: orange, held by child1\npaper: multiple sheets, on table\nchair: beige, plastic, behind child1 and child2\ntable: white, with papers and pencil",
+    "relations": "child1 is holding the pencil\nchild1 is looking at the paper\nchild2 is looking at the paper\nchild1 is sitting on the chair\nchild2 is sitting on the chair\npapers are on the table\npencil is on the table"
+}

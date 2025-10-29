@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing dark hoodie, hair tied back, glasses on head\nmicroscope: on white table, with control buttons and indicators\ncomputer monitors: displaying data, in background\nwhite table: with microscope and control buttons\nlab environment: scientific or research setting",
+    "relations": "person is using microscope\nmicroscope is on white table\ncomputer monitors are in background\nperson is interacting with control buttons on table\nlab environment surrounds the person and equipment"
+}

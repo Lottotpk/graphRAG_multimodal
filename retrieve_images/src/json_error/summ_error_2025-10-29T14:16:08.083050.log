@@ -1,0 +1,4 @@
+{
+    "entities": "climber: wearing a white shirt with maroon sleeves, blue jeans, and a black beanie\nrock face: rugged with visible handholds and footholds\nchalk bag: attached to the climber's harness\nmountainous landscape: in the background under a clear sky",
+    "relations": "climber is scaling the rock face\nchalk bag is attached to the climber's harness\nrock face is part of the mountainous landscape"
+}

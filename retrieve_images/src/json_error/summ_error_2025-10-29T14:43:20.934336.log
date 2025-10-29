@@ -1,0 +1,4 @@
+{
+    "entities": "boy: shirtless, dark pants\nwooden cart: loaded with large containers\nlarge containers: cylindrical, possibly milk or water containers\nwhite van: parked on the street\nred truck: parked on the street\nbicycle: parked on the left side\npedestrians: walking in the background",
+    "relations": "boy is pushing the wooden cart\nwooden cart contains large containers\nwooden cart is on the street\nwhite van is parked next to the wooden cart\nred truck is parked behind the wooden cart\nbicycle is parked on the left side of the street\npedestrians are walking in the background"
+}

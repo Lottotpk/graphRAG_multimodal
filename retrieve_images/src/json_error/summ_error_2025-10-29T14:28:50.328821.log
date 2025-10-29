@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing glasses, pink sleeveless top, black pants\nplant: in terracotta pot\nbrown dog: with collar\nwhite chairs\nwhite table\nadditional pots\ngardening tools",
+    "relations": "woman is tending to the plant\nbrown dog is observing the woman\nwhite chairs are in the background\nwhite table is in the background\nadditional pots are around\ngardening tools are around"
+}

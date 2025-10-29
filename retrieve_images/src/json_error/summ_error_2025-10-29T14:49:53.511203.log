@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing brown t-shirt with pattern, light-colored pants\nbow: wooden\narrow: being pulled back\ngrass: green field\nfence: wooden\nsky: clear blue\n trees: in background",
+    "relations": "person is holding bow\nperson is pulling arrow\nperson is standing on grass\nfence is in background\nsky is clear\n trees are in background"
+}

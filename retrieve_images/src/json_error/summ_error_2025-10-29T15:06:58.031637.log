@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing glasses, brown jacket, blue shirt, blue jeans, holding coiled cable, waving with right hand\nfire extinguisher: red, mounted on wall\nblack curtain: in background",
+    "relations": "man is standing indoors\nman is waving with his right hand\nman is holding a coiled cable in his left hand\nfire extinguisher is mounted on the wall behind the man\nblack curtain is in the background behind the man"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "boy on the left: wearing a gray hoodie with 'Maryland Terrapins' text, observing\nboy in the center: wearing a black cap and gray jacket with blue stripes, holding a bow and arrow\nboy on the right: wearing a gray jacket with black sleeves, holding an arrow\nbow: green with a black handle\narrow: green fletching\ngrass: green, scattered with leaves\nwooden structure: elevated platform in the background\nparked car: silver, in the background",
+    "relations": "boy in the center is aiming the bow at the boy on the right\nboy on the left is observing the activity\nboy on the right is holding an arrow\nwooden structure is in the background\nparked car is in the background"
+}

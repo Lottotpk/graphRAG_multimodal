@@ -1,0 +1,4 @@
+{
+    "entities": "woman: blonde hair, wearing a sleeveless top and pants\nshopping cart: red, modified with a front section and a basket\nchild 1: sitting in the shopping cart, wearing a gray shirt\nchild 2: sitting in a car seat attached to the shopping cart\nchild 3: sitting in the basket of the shopping cart\nparking lot: filled with cars, yellow lines\nStaples store: visible in the background\n",
+    "relations": "woman is pushing the shopping cart\nchild 1 is sitting inside the shopping cart\nchild 2 is sitting in a car seat attached to the shopping cart\nchild 3 is sitting in the basket of the shopping cart\nshopping cart is in the parking lot\nStaples store is in the background\n"
+}

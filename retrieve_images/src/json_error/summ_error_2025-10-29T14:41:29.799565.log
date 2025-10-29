@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing a black t-shirt with the Guinness logo, necklace, bracelets\nbottle: being held by the woman, pouring liquid\nwine glass: being held by the woman, receiving liquid from the bottle\nwooden wall: in the background\nindoor setting: casual and relaxed atmosphere",
+    "relations": "woman is pouring liquid from the bottle into the wine glass\nwoman is wearing a black t-shirt with the Guinness logo\nwoman is wearing a necklace and bracelets\nbottle is in front of the wooden wall\nwine glass is being filled by the bottle\nindoor setting with a wooden wall in the background"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing white t-shirt, blue jeans, necklace with pendant\nelectric guitar: being played by the man\nmicrophone stand: to the left of the man\ngreen foliage: in the background",
+    "relations": "man is playing the electric guitar\nman is standing in front of the microphone stand\nman is positioned against the green foliage background"
+}

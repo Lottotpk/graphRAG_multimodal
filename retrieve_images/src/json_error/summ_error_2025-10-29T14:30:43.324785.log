@@ -1,0 +1,4 @@
+{
+    "entities": "woman: young, black hair, smiling\numbrella: polka-dotted, white and black\njacket: black leather\nshirt: white\npants: black\nboots: black\npurse: small, brown\npillars: concrete\nbenches: wooden\npathway: tiled, multi-colored\n",
+    "relations": "woman holding umbrella\nwoman wearing jacket\nwoman carrying purse\nwoman standing on pathway\numbrella positioned above woman\npillars lining pathway\nbenches alongside pathway\n"
+}

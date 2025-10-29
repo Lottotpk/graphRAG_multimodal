@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing black beanie, sunglasses, gray vest over black long-sleeve shirt\nkayak: black with visible branding\npaddle: double-bladed\nwater: calm body\nshoreline: blurred in background",
+    "relations": "person is rowing kayak\nperson is using paddle\nkayak is on water\nshoreline is in background"
+}

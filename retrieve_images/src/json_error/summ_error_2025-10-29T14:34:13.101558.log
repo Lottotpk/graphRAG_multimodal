@@ -1,0 +1,4 @@
+{
+    "entities": "public telescope: black and white, mounted on a stand\nblonde person: wearing a striped sleeveless top, using the telescope\ncurly-haired person: laughing, facing the blonde person\nsky: overcast, cloudy background",
+    "relations": "blonde person is using the public telescope\ncurly-haired person is facing the blonde person\nblonde person is looking through the telescope\ncurly-haired person is laughing\npublic telescope is mounted on a stand\nsky is overcast in the background"
+}

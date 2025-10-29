@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing dark blue shirt, jeans, gloves, protective ear muffs, and a cap\nchainsaw: being used by the man to cut a log\nlog: large, being cut by the chainsaw\nbrick building: in the background\n trees: in the background\nsawdust: flying around as the man works\npartly cloudy sky: in the background",
+    "relations": "man is using chainsaw\nchainsaw is cutting log\nman is wearing protective ear muffs\nlog is in front of the man\nbrick building is in the background\n trees are behind the man\nsawdust is around the man\npartly cloudy sky is above"
+}

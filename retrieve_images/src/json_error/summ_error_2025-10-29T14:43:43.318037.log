@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing purple jacket and scarf\nbook: being read\nwhite cup: with coffee\nsaucer: under white cup\nwallet: on table\nsmartphone: on table\npamphlets: on table\nwooden table: person sitting at\nchairs: around table\nbookshelves: in background\nEXPO sign: in background\nother patrons: seated at tables",
+    "relations": "person is sitting at wooden table\nperson is reading book\nwhite cup is on saucer\nwallet is on table\nsmartphone is on table\npamphlets are on table\nbookshelves are in background\nEXPO sign is in background\nother patrons are seated at tables"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "girl1: young child with blonde hair, wearing a pink dress, washing a dish\n girl2: older child with brown hair, wearing a pink dress, guiding girl1's hands\n kitchen counter: surface with various utensils and appliances\n mixer: yellow stand mixer on the counter\n sink: stainless steel sink with a red dish rack\n dish soap: bottle of dish soap near the sink\n cabinets: wooden cabinets above the counter\n stove: white stove with a towel hanging on the handle\n plant: green plant in a pot on the counter",
+    "relations": "girl1 and girl2 are washing dishes together\n girl2 is guiding girl1's hands while washing\n mixer is placed on the kitchen counter\n sink is located next to the kitchen counter\n dish soap is near the sink\n cabinets are above the kitchen counter\n stove is to the left of the kitchen counter\n plant is on the kitchen counter"
+}

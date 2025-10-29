@@ -1,0 +1,4 @@
+{
+    "entities": "child: wearing white shirt and pink pants\nrock wall: with variously colored holds (red, blue, green, yellow)\nhold: red, blue, green, yellow\nsign: with instructions or information",
+    "relations": "child is climbing the rock wall\nchild is reaching for a red hold with one hand\nchild is stepping on a yellow hold with one foot\nsign is attached to the rock wall"
+}

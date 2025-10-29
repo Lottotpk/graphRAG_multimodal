@@ -1,0 +1,4 @@
+{
+    "entities": "man: shirtless, wearing sunglasses, khaki pants\nhorse: brown, with a halter\nvalley: green fields, distant mountains\nsky: clear blue",
+    "relations": "man is feeding the horse\nhorse is facing the man\nman and horse are on a grassy hill\nvalley is in the background\nsky is above the valley"
+}

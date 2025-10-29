@@ -1,0 +1,4 @@
+{
+    "entities": "child: boy wearing blue shirt, holding blue cup, brushing teeth with pink toothbrush\nchild: boy wearing orange shirt, holding blue cup\nchild: girl wearing floral shirt, holding green cup, brushing teeth with yellow toothbrush\nchild: boy wearing red floral shirt, holding red cup, brushing teeth\nchild: boy wearing yellow striped shirt, holding red cup\nadult: person wearing blue patterned shirt, holding green cup\ntoothbrush: pink, yellow, blue\n杯子: red, blue, green",
+    "relations": "children are gathered together outdoors\nchildren are brushing their teeth\nchildren are holding colorful cups\nadult is present with children\nsetting appears to be a natural environment with greenery in the background\nchildren are participating in a dental hygiene activity"
+}

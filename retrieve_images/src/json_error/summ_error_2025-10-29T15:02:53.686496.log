@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing a floral dress with a headband\nsink: stainless steel\nyellow sponge: being used by the woman\nbottles: on the countertop\ncontainers: on the countertop\nwooden cabinets: in the background\nmirror: on the left side\nblack bag: on the countertop",
+    "relations": "woman is standing in front of the sink\nwoman is smiling at the camera\nwoman is washing dishes\nyellow sponge is in the woman's hand\nbottles are placed on the countertop\ncontainers are placed on the countertop\nwooden cabinets are in the background\nmirror is on the left side\nblack bag is on the countertop"
+}

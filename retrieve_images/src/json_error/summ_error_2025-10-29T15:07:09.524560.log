@@ -1,0 +1,4 @@
+{
+    "entities": "elderly woman: smiling, waving, wearing traditional attire, colorful skirt, blue hat\nhouse: red roof, stone wall background\nmountainous landscape: in the distance\nstone wall: in the background\ntraditional attire: colorful skirt, blue hat\n",
+    "relations": "elderly woman is standing outdoors\nelderly woman is smiling and waving\nelderly woman is in front of the house\nhouse is in the background\nstone wall is behind the elderly woman\nmountainous landscape is in the distance behind the house\n"
+}

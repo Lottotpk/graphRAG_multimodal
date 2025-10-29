@@ -1,0 +1,4 @@
+{
+    "entities": "man: shirtless, wearing dark shorts, climbing shoes, harness\nrock: steep cliff, textured surface\nclimbing rope: attached to harness, extending upwards\nbackground: trees, clear sky",
+    "relations": "man is climbing the rock\nclimbing rope is connected to the man's harness\nman is gripping the rock surface with hands and feet\nbackground elements include trees and clear sky"
+}

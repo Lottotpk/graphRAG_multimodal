@@ -1,0 +1,4 @@
+{
+    "entities": "girl on the left: wearing navy blue hoodie with pink headband\n girl on the right: wearing red sweater with pink bow in hair\n laptop: silver Dell laptop\n shelves: wooden shelves with various items in the background",
+    "relations": "girl on the left and girl on the right: sitting at a table and focused on the laptop\n girl on the left and girl on the right: engaged in an activity on the laptop\n laptop: placed on the table in front of the girls\n shelves: located in the background behind the girls"
+}

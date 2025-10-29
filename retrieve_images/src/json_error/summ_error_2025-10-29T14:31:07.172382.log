@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing gray t-shirt and khaki shorts, holding a black umbrella, giving a thumbs-up\numbrella: black, held by the man\npark: grassy area with people in the background\npeople: sitting and standing under umbrellas in the background",
+    "relations": "man is holding the umbrella\nman is giving a thumbs-up\nman is standing in the park\npeople are sitting and standing in the background\numbrellas are being used by people in the background"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing a light-colored hat and glasses, dressed in a light blue shirt and beige pants, crouching, tending to plants\nflowers: white, lush garden\nbackground: trees, greenery",
+    "relations": "man is crouching in the garden\nman is tending to the flowers\nflowers are in the garden\nbackground elements include trees and greenery"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a green vest over a dark shirt and dark pants, holding a phone to their ear, standing in a field of tall plants\nphone: being held to the person's ear\nfield: filled with tall plants, extending to the horizon\nsky: clear, visible in the background\ntrees: distant, visible in the background",
+    "relations": "person standing in the field\nperson holding phone to their ear\nfield extending to the horizon\nsky above the field\ntrees in the background"
+}

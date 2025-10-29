@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a white shirt and shorts, hair tied up in a bun\nwindow: on the left side of the image\nwalls: blue\nfloor: tiled",
+    "relations": "person is bending over near the window\nperson is reaching for something on the floor\nwindow is on the left side of the person\nwalls are blue and surround the person\nfloor is tiled and beneath the person"
+}

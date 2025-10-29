@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing sunglasses, light yellow short-sleeved shirt, beige pants, white sneakers, watch on left wrist\nsmall dog: on a leash\nleash: black\nwindow: in the background\nbuilding: with green door\n",
+    "relations": "man is walking the small dog\nman is holding the leash\nman is wearing sunglasses\nman is wearing a watch on his left wrist\nwindow is part of the building\nbuilding has a green door\n"
+}

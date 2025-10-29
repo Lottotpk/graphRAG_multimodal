@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing black shirt, black headband, glasses\nviolin: wooden instrument\nbow: wooden instrument\nbuilding: with sign 'THE FUTURE NOW BALL'\ntree: in background\nstreet: in background",
+    "relations": "man is playing the violin\nman is holding the violin with left hand\nman is holding the bow with right hand\nman is standing in front of the building\nbuilding has a sign 'THE FUTURE NOW BALL'\ntree is in the background\nstreet is in the background"
+}

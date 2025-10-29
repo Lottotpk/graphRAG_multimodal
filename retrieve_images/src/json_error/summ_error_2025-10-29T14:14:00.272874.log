@@ -1,0 +1,4 @@
+{
+    "entities": "girl: wearing purple shirt and dark pants\nmop: long handle, silver head\nbucket: green, plastic\nbooks: stacked, on floor\nwooden cabinets: with drawers, decorative items on top\nsmall pumpkins: on top of cabinets\nframed pictures: on top of cabinets\ngreen bottle: on floor, to the right of books",
+    "relations": "girl is holding the mop\nmop is leaning against the bucket\nbucket is on the floor\nbooks are stacked on the floor\ngreen bottle is next to the books\nwooden cabinets are in the background\nsmall pumpkins are on top of the cabinets\nframed pictures are on top of the cabinets"
+}

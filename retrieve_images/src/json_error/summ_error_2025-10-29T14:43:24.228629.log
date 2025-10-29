@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing glasses, checkered shirt, focused on reading\nbook: being held by the man\nchair: the man is sitting on\nlighting: dim, creating a cozy atmosphere",
+    "relations": "man is sitting on the chair\nman is holding the book\nman is reading the book\nman is wearing glasses\nlighting is dim"
+}

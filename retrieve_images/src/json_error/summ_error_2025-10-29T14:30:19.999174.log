@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing a patterned coat, holding a transparent umbrella, smiling\nbridge: metal railing\numbrella: transparent\ncoat: patterned\nbutton: red\nbackground: tall trees with autumn leaves",
+    "relations": "woman standing on the bridge\nwoman holding the umbrella\nwoman wearing the coat\nwoman wearing the button\nbridge in the background\numbrella in front of the woman\ntrees in the background"
+}

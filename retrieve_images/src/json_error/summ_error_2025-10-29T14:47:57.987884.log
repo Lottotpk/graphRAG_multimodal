@@ -1,0 +1,5 @@
+{
+    "entities": "person: wearing red and black outfit with white cap\nsingle scull: black rowing boat with oars\nbuoy: red floating marker in water\nwater: calm body of water\nbackground: natural setting with trees and bushes",
+    "relations": "person is rowing single scull\nsingle scull is on water\nbuoy is in water\nperson is in front of background",
+    "relations": "person is focused on rowing activity"
+}

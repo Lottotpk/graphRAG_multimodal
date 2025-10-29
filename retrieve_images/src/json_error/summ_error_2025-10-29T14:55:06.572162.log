@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing glasses, dark shirt\nsmartphone: held with both hands\nbuilding: part of the background\n树木: part of the background",
+    "relations": "man is looking at smartphone\nman is holding smartphone with both hands\nsmartphone is in front of man\nbuilding is in the background\n树木 is in the background"
+}

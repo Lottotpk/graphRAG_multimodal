@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a helmet, brown shirt, blue jeans, black boots\nhorse: brown with white blaze, purple bridle\nfence: white\npath: dirt\nbackground: grassy hillside",
+    "relations": "person is riding the horse\nhorse is trotting along the path\npath is bordered by the fence\nbackground features a grassy hillside"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing white shirt with green bow tie and black belt\nwhite teapot: being held by the woman\nyellow cup: on the table\nsmall bowl: on the table\nred cloth: on the table\nwooden table: with various items on it\nornate wooden paneling: in the background",
+    "relations": "woman is pouring tea from white teapot into yellow cup\nwoman is sitting at wooden table\nwooden table has small bowl and red cloth on it\nornate wooden paneling is in the background"
+}

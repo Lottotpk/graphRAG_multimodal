@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing academic regalia, standing behind a podium, clapping\npodium: wooden, with Georgetown University emblem\nbackground: blue curtain with university logos",
+    "relations": "person is standing behind the podium\nperson is clapping\npodium has the Georgetown University emblem\nbackground features university logos"
+}

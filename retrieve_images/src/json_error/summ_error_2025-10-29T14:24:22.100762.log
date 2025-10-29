@@ -1,0 +1,4 @@
+{
+    "entities": "person: sitting, holding fishing rod, under umbrella\numbrella: large, providing shade or protection from rain\nfishing rod: long, held by person\nlake: calm, with reflections of trees\nreflection: of trees on water's surface",
+    "relations": "person is sitting by the lake\nperson is holding a fishing rod\nperson is under an umbrella\numbrella is providing shade or protection from rain\nfishing rod is extending over the lake\nreflections of trees are on the water's surface"
+}

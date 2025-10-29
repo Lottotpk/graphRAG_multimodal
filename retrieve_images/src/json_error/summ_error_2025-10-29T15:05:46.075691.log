@@ -1,0 +1,4 @@
+{
+    "entities": "Two people: one wearing a brown shirt, one wearing a dark shirt\nMultiple old television sets: displaying various images including a cartoon bear, a woman, and abstract visuals\nVEGA branded equipment\nShelves stocked with VHS tapes and other electronics\nRed and black mat on the floor\nChairs: one with a woven back, one green\nSmall table",
+    "relations": "Two people are seated facing the television sets\nTelevision sets are arranged in rows and display different images\nVEGA branded equipment is positioned near the television sets\nShelves with VHS tapes are placed against the wall\nRed and black mat is on the floor in front of the seated people\nChairs are placed in front of the television sets for seating\nSmall table is positioned near the shelves with VHS tapes"
+}

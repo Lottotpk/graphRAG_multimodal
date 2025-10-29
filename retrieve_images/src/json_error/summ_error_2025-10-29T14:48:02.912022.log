@@ -1,0 +1,4 @@
+{
+    "entities": "boat: small green boat\nperson1: person wearing red hat and jacket\nperson2: person wearing blue jacket and shorts\npaddle: yellow paddle\nwater: calm body of water\nshoreline: background with trees",
+    "relations": "person1 and person2 are in the boat\nperson1 is at the front of the boat\nperson2 is at the back of the boat\nperson1 and person2 are holding paddles\nboat is on the water\nshoreline is in the background"
+}

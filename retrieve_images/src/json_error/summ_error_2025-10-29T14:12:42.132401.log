@@ -1,0 +1,4 @@
+{
+    "entities": "child: young, blonde hair, wearing dark blue outfit\nelectric toothbrush: white handle, child is holding\nsink: white, child is sitting on\nfaucet: metallic, located on the sink\nmirror: reflecting part of the scene, located above the sink\nhand: visible near the sink, possibly of an adult\nsoap dispenser: white, located on the counter\nsoap dish: metallic, located on the counter\ntoiletries: various, placed on the counter",
+    "relations": "child is sitting on the sink\nchild is holding the electric toothbrush\nsink has the faucet\nmirror is above the sink\nhand is near the sink\nsoap dispenser is on the counter\nsoap dish is on the counter\ntoiletries are on the counter"
+}

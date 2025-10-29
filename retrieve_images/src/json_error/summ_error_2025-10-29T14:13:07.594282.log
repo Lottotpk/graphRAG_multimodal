@@ -1,0 +1,4 @@
+{
+    "entities": "boy: young, curly hair, wearing light blue shirt\nboy: brushing teeth\nboy: open mouth\nboy: playful expression\ntoothbrush: green handle\nboy: holding toothbrush\ntoothpaste foam: around toothbrush\ncolorful toothpaste bubbles: floating in air\nwindow: in background\npatterned wall: outside window",
+    "relations": "boy is brushing teeth with toothbrush\nboy is holding toothbrush\ntoothpaste foam is around toothbrush\ncolorful toothpaste bubbles are floating in air\nwindow is in background\npatterned wall is outside window"
+}

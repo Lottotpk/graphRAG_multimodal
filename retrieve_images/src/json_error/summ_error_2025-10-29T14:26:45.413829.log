@@ -1,0 +1,4 @@
+{
+    "entities": "older man: wearing a gray jacket and a dark cap\nbicycle: with a wheel being repaired\ncontainer: nearby the older man\nsecond person: seated in the background\nstone wall: in the background",
+    "relations": "older man is repairing the bicycle\nolder man is using the container\nsecond person is observing the older man\nbicycle is positioned outdoors\nstone wall is in the background"
+}

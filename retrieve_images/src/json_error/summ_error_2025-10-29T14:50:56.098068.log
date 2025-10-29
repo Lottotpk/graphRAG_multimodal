@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a white headscarf, light blue shirt, red skirt, black boots, holding a bow and arrow\nbow: being held by the person, aimed towards the right\narrow: attached to the bow, aimed towards the right\ngrass: covering the ground, in the foreground\nforest: dense green trees, in the background\nwhite object: on the ground to the left, possibly a target or marker",
+    "relations": "person is standing on the grass\nperson is holding the bow\nbow is aimed towards the right\narrow is attached to the bow\nforest is in the background\nwhite object is on the ground to the left of the person"
+}

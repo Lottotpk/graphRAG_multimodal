@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a lab coat and hairnet\nmicroscope: with adjustment knobs\ncomputer monitor: displaying a silhouette\nlab coat: worn by the person\nhairnet: worn by the person",
+    "relations": "person is seated at the microscope station\nperson is looking through the microscope\nmicroscope is positioned next to the computer monitor\nadjustment knobs are on the table near the microscope\ncomputer monitor is to the left of the microscope"
+}

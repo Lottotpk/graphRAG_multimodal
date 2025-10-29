@@ -1,0 +1,4 @@
+{
+    "entities": "person: young, wearing glasses, playing violin, dark jacket with graphic t-shirt\nviolin: wooden, being played\nbicycle: parked nearby\nbrick wall: background\nwindow: with a sign in the background\nother person: partially visible behind the violinist",
+    "relations": "person is playing the violin\nviolin is held by the person\nperson is standing in front of the brick wall\nbicycle is parked near the person\nwindow is part of the background behind the person\nother person is behind the violinist"
+}

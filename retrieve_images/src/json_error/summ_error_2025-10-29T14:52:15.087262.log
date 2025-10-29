@@ -1,0 +1,4 @@
+{
+    "entities": "person: red hair, green jacket, crop top, ripped blue jeans\nbow: wooden, curved\narrow: nocked, attached to bow\nrocky terrain: background, uneven surface",
+    "relations": "person is holding bow\nperson is aiming with arrow\nbow is positioned horizontally\nperson is standing on rocky terrain"
+}

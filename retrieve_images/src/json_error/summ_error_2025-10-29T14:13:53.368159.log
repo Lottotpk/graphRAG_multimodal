@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a cap and dark clothing\nmopping tool: being used to clean the floor\nred barriers: cordoning off the area\ncones: placed alongside the barriers\nshiny floor: reflecting light\npolished floor: indicating a commercial or public space",
+    "relations": "person is using the mopping tool on the shiny floor\nred barriers are placed along the shiny floor\ncones are positioned next to the red barriers\nperson is bending over while mopping the floor\nshiny floor reflects the light from the surroundings"
+}

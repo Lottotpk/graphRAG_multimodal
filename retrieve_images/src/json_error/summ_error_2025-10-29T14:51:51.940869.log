@@ -1,0 +1,4 @@
+{
+    "entities": "child: wearing a light blue shirt and green shorts\nperson: partially visible, wearing a blue outfit\narchery target: with colorful concentric circles\ngrass: covering the ground\n trees: in the background",
+    "relations": "child is aiming at the archery target\nperson is observing the child\narchery target is suspended from a tree\nchild is standing on the grass\ntrees are in the background"
+}

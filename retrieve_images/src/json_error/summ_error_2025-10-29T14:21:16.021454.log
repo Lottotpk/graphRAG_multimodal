@@ -1,0 +1,4 @@
+{
+    "entities": "child: young, light hair, wearing pink long-sleeve shirt\nlarge glass mug: beverage inside, being held by child\nbook or magazine: open, on table in front of child\nsmartphone: partially visible, to the right of child\nwindow: shows snowy landscape, in background",
+    "relations": "child is holding large glass mug\nchild is sipping from large glass mug\nbook or magazine is in front of child\nsmartphone is to the right of child\nwindow is in the background showing snowy landscape"
+}

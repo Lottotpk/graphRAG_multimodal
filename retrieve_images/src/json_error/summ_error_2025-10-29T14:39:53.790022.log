@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing a red bandana, white shirt, black apron\npitcher: glass, containing yellow liquid\n玻璃杯: tall, containing yellow liquid\n背景: display case, blurred kitchen or café setting",
+    "relations": "man is pouring liquid from pitcher into glass\nman is holding the glass with his other hand\npitcher is above the glass\nman is working in a kitchen or café setting"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "child: young, standing, mouth open, holding cart\nshopping cart: contains items, child standing in\nNivea cream: pack, in shopping cart\nshelves: stocked with colorful products, background\nitems: various, in shopping cart, on shelves",
+    "relations": "child is standing in the shopping cart\nshopping cart contains Nivea cream\nshopping cart contains various items\nchild is holding the shopping cart\nshelves are stocked with colorful products in the background"
+}

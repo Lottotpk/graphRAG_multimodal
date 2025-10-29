@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing a black dress, sunglasses, holding a cigarette, long brown hair\nmetal gate: ornate design, vertical bars\nstone wall: decorative elements",
+    "relations": "woman is leaning against the metal gate\nwoman is holding a cigarette\nmetal gate is attached to the stone wall\nwoman is standing outdoors"
+}

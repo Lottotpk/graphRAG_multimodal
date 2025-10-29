@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing glasses, white shirt, suspenders\nkitchen: wooden cabinets, dish rack with dishes, various kitchen items on the counter\nsink: man is washing dishes\nmicrowave: on the counter\n鐘: on the wall\n圖片: in the background",
+    "relations": "man is standing in the kitchen\nman is washing dishes at the sink\nkitchen has wooden cabinets\nkitchen has a dish rack with dishes\nvarious kitchen items are on the counter\nmicrowave is on the counter\n鐘 is on the wall\n圖片 is in the background"
+}

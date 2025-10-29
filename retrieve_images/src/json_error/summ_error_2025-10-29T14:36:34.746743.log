@@ -1,0 +1,4 @@
+{
+    "entities": "woman on the left: wearing a colorful headscarf and a black jacket, sitting behind the counter\nwoman on the right: wearing a patterned headscarf and a black jacket, standing and talking on a mobile phone\nPCO sign: in the background\ncounter: with various items including papers and a cash register",
+    "relations": "woman on the left is sitting behind the counter\nwoman on the right is standing in front of the counter\nwoman on the right is talking on a mobile phone\nPCO sign is in the background behind the counter\ncounter has various items including papers and a cash register"
+}

@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing white t-shirt and khaki shorts\narms: raised\nlegs: bent\nbackground: trees with sparse leaves\nsky: partly cloudy",
+    "relations": "person is jumping in the air\nperson is in front of the trees\nperson is against the sky background"
+}

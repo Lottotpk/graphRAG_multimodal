@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing pajamas with a floral pattern, smiling, holding a mop with a blue handle, standing on a wooden floor, wearing gray socks\nmop: blue handle, being used to clean the floor\nwhite cloth: on the floor near the woman's feet\nkitchen cabinets: white, with silver handles\nwooden countertop: in the background\nwhite towel: hanging from the woman's left hand",
+    "relations": "woman is mopping the floor with the mop\nwoman is standing near the white cloth on the floor\nwoman is holding a white towel in her left hand\nkitchen cabinets are in the background\nwooden countertop is behind the woman"
+}

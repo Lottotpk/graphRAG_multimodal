@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing blue jacket and jeans, bending over\npink car: hood open, spare tire mounted on back\nheadphones: on the ground\nother car: parked in the background\nresidential building: in the background",
+    "relations": "person is working on the engine of the pink car\npink car is parked on the street\nheadphones are near the pink car\nother car is parked behind the pink car\nresidential building is in the background"
+}

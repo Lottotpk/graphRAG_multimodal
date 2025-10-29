@@ -1,0 +1,4 @@
+{
+    "entities": "girl1: wearing gray t-shirt with 'WE UNITED' text, glasses, headband, washing a large bowl under running water\n女孩2: wearing gray t-shirt with 'WE UNITED' text, washing a large bowl under running water\n现代水龙头: chrome, running water\n木制橱柜: brown, in the background\n白色炉灶: in the background\n干净的盘子堆: white, stacked nearby\n其他人物: in the background, partially visible\n厨房环境: wooden cabinets, white stove, communal activity",
+    "relations": "girl1 and girl2 are washing dishes together\n现代水龙头 is providing running water for washing dishes\n木制橱柜 and 白色炉灶 are part of the kitchen background\n干净的盘子堆 is located near the sink\n其他人物 are in the background, suggesting a communal or group activity"
+}

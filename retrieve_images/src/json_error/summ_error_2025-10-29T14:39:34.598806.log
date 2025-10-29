@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a black and white striped sweater over a blue shirt, black pants, and black shoes\nviolin: being played by the person\nviolin case: open on the ground beside the person\nwhite hat: placed in front of the person for tips\nstore: with a 'Mobile' sign in the background",
+    "relations": "person is playing the violin\nviolin case is beside the person\nwhite hat is in front of the person\nperson is standing in front of the store"
+}

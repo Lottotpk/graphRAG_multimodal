@@ -1,0 +1,4 @@
+{
+    "entities": "man on the left: wearing sunglasses, light-colored shirt, holding a fishing rod\nman on the right: wearing sunglasses, blue striped shirt, cheering or encouraging\nboat: white, in the foreground\nfishing rod: held by the man on the left\nsea: clear blue waters\nsky: mostly clear with some clouds\nother boat: visible in the distance",
+    "relations": "man on the left is holding a fishing rod\nman on the right is cheering or encouraging\nboat is in the foreground\nsea surrounds the boat\nsky is above the sea\nother boat is in the distance"
+}

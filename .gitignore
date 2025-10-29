@@ -12,7 +12,7 @@ setupCSE.sh
 submit_*.sh
 output*
 dataset
-__pycache__/
+__pycache__
 LaViC/data/item2meta_train.json
 LaViC/data/train_images
 LaViC/data/valid_images
@@ -25,3 +25,4 @@ LaViC_Pratice
 COCO
 test_imgs
 flickr8k
+retrieve_images/src/description_embedding_databases

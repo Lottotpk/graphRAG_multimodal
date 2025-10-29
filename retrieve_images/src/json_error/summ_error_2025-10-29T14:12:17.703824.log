@@ -1,0 +1,4 @@
+{
+    "entities": "young man: smiling, holding a toothbrush in his right hand, wearing a black zip-up jacket over a light blue shirt\nwhite vehicle: parked in the background\nred brick building: in the background with trees around",
+    "relations": "young man is brushing his teeth\nwhite vehicle is behind the young man\nred brick building is behind the young man with trees around"
+}

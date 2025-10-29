@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing a black jacket, looking through binoculars\nbinocular viewer: coin-operated, mounted on a post\nrailing: wooden, along the waterfront\nbody of water: calm, reflecting city lights\n城市天际线: 背景中的建筑物, 远处的城市景观",
+    "relations": "person is using binocular viewer\nbinocular viewer is mounted on railing\nrailing is along the waterfront\nbody of water is in front of city skyline\nperson is looking towards city skyline"
+}

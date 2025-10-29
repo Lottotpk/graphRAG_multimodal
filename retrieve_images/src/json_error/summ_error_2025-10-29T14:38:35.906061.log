@@ -1,0 +1,4 @@
+{
+    "entities": "man: wearing a white shirt, dark vest, brown pants\nviolin: being played by the man\nwooden cabinets: in the background\nsmall table: with a basket of fruit and a decorative vase\nbasket of fruit: on the small table\ndecorative vase: on the small table\nvarious decorations: on the walls\ncouch: partially visible in the background",
+    "relations": "man is playing the violin\nman is standing in front of the wooden cabinets\nsmall table is in front of the wooden cabinets\nbasket of fruit is on the small table\ndecorative vase is on the small table\nvarious decorations are on the walls\ncouch is in the background"
+}
