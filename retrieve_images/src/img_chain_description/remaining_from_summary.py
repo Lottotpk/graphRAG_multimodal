@@ -358,7 +358,8 @@ def _generate_remaining(args, model, tokenizer, summary = None):
         if t.device.type != 'cuda':
             t = t.cuda()
         return t
-
+    
+    errors = []
     for start_idx in range(0, total, CAPTION_BATCH_SIZE):
         batch = successes[start_idx:start_idx + CAPTION_BATCH_SIZE]
         batch_paths = [p for _, p, _ in batch]
@@ -409,6 +410,7 @@ def _generate_remaining(args, model, tokenizer, summary = None):
                             'description': None,
                             'error': str(e)
                         })
+                        errors.append(str(e))
                         logger.info(f"Description: None at {pth}: {str(e)} from {resp.strip("```json")}")
                     idx += 1
 
@@ -437,6 +439,7 @@ def _generate_remaining(args, model, tokenizer, summary = None):
                         'description': None,
                         'error': str(e)
                     })
+                    errors.append(str(e))
                     logger.info(f"Description: None at {pth}: {str(e)} from {resp.strip("```json")}")
         records.extend(record)
 
@@ -448,7 +451,8 @@ def _generate_remaining(args, model, tokenizer, summary = None):
         'system_prompt': SYSTEM_PROMPT,
         'prompt': PROMPT,
         'model_path': MODEL_PATH,
-        'records': records
+        'records': records,
+        'error': errors if errors else None
     }
 
 

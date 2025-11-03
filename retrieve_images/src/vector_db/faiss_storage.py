@@ -322,6 +322,8 @@ class FAISSEmbeddingDatabase:
         # 2 dimensional vector on query_embedding only
         if self.index.ntotal == 0:
             return [], []
+        if query_embedding.ndim == 1:
+            query_embedding = query_embedding.reshape(1, -1).astype('float32') # faiss.normalize_L2 does not receive (D,)
         faiss.normalize_L2(query_embedding)
         
         candidate_img = set()

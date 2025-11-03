@@ -1,0 +1,4 @@
+{
+    "entities": "person: wearing dark jacket and sunglasses\nmagazine: being read by the person\nindustrial cranes: in the background\nconcrete bench: person is sitting on\nsky: clear blue",
+    "relations": "person is sitting on the concrete bench\nperson is reading the magazine\nindustrial cranes are in the background\nperson is wearing sunglasses"
+}

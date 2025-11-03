@@ -1,0 +1,22 @@
+{
+  "created_at": "2025-10-31T03:56:06.252103",
+  "database": "./description_embedding_databases/2025-10-31_01-31-01_-2_layer_mean_pooling_auto",
+  "model_path": "OpenGVLab/InternVL3_5-8B",
+  "result": [
+    {
+      "id": 0,
+      "query": "An elderly man wearing a suit and medals is clapping his hands.",
+      "result": "applauding_088 -- 0.9812\napplauding_277 -- 0.9777\napplauding_211 -- 0.9769\napplauding_013 -- 0.9760\ngardening_007 -- 0.9750\nwaving_hands_085 -- 0.9750\napplauding_257 -- 0.9746\napplauding_122 -- 0.9744\nlooking_through_a_telescope_103 -- 0.9741\nblowing_bubbles_129 -- 0.9740\n"
+    },
+    {
+      "id": 1,
+      "query": "An elderly man, dressed formally in a dark suit with a patterned tie, is seen clapping his hands in what appears to be a public or ceremonial event. He is wearing several medals around his neck and on his jacket, suggesting he has been honored for his achievements or service. His expression appears engaged and respectful, while photographers and others can be seen in the background, capturing the moment.",
+      "result": "applauding_211 -- 0.9887\napplauding_088 -- 0.9882\ntexting_message_064 -- 0.9828\napplauding_277 -- 0.9819\napplauding_248 -- 0.9817\nlooking_through_a_telescope_103 -- 0.9812\npushing_a_cart_174 -- 0.9812\napplauding_257 -- 0.9799\napplauding_142 -- 0.9796\njumping_117 -- 0.9794\n"
+    },
+    {
+      "id": 2,
+      "query": "- Objects: The man is clapping his hands.\n- Attributes: He is wearing a formal suit with medals.\n- Actions: He is expressing approval or celebration.\n- Scene: The man is standing in front of a crowd.\n- Style: The photograph has a candid and candid style.",
+      "result": "applauding_088 -- 0.9867\napplauding_277 -- 0.9858\napplauding_211 -- 0.9849\napplauding_257 -- 0.9840\napplauding_142 -- 0.9829\njumping_117 -- 0.9826\napplauding_203 -- 0.9814\napplauding_013 -- 0.9808\ntexting_message_064 -- 0.9806\nwaving_hands_085 -- 0.9795\n"
+    }
+  ]
+}

@@ -45,7 +45,9 @@ NUM_TOPIC: int = 2
 # """
 
 QUERY = [
-    "A male chef in a white suit cooking in the high-end restaurant image"
+    "An elderly man wearing a suit and medals is clapping his hands.",
+    "An elderly man, dressed formally in a dark suit with a patterned tie, is seen clapping his hands in what appears to be a public or ceremonial event. He is wearing several medals around his neck and on his jacket, suggesting he has been honored for his achievements or service. His expression appears engaged and respectful, while photographers and others can be seen in the background, capturing the moment.",
+    "- Objects: The man is clapping his hands.\n- Attributes: He is wearing a formal suit with medals.\n- Actions: He is expressing approval or celebration.\n- Scene: The man is standing in front of a crowd.\n- Style: The photograph has a candid and candid style."
 ]
 
 STRATEGY_CHOICES = [
@@ -130,6 +132,12 @@ def load_benchmark(filename: str, ds_name: str) -> Tuple[List[str], List[str], i
     return questions, answers, ds["total_questions"]
 
 
+def fixed_json(msg: str) -> str:
+    msg = msg.strip("```json")
+    begin = msg.find("{")
+    return msg[begin:]
+
+
 def process_query(model, tokenizer, queries: List[str], verbose: bool = False) -> List[str]:
     ensure_prompt_description_dir()
     prompts = []
@@ -146,7 +154,7 @@ def process_query(model, tokenizer, queries: List[str], verbose: bool = False) -
         while True:
             try:
                 summary = describe_single(model, tokenizer, SUMMARY_PROMPT(query), "summary", TEMPERATURE + loop * 0.1, verbose)
-                summary = json.loads(summary)
+                summary = json.loads(fixed_json(summary))
                 loop = 0
             except JSONDecodeError as e:
                 logger.info(f"Summary - Error at index {i}: {e}, Trying again... ({2 - loop} times left)")
@@ -158,13 +166,13 @@ def process_query(model, tokenizer, queries: List[str], verbose: bool = False) -
                     try:
                         records = []
                         record = describe_single(model, tokenizer, SUMMARY(query), topic, verbose)
-                        records.append(json.loads(record))
+                        records.append(json.loads(fixed_json(record)))
                         topic = "entity"
                         record = describe_single(model, tokenizer, ENTITY(query), topic, verbose)
-                        records.append(json.loads(record))
+                        records.append(json.loads(fixed_json(record)))
                         topic = "relation"
                         record = describe_single(model, tokenizer, RELATION(query), topic, verbose)
-                        records.append(json.loads(record))
+                        records.append(json.loads(fixed_json(record)))
                         summary = {key: val for record in records for key, val in record.items()}
                         loop = 0
                     except JSONDecodeError as e:
@@ -175,7 +183,7 @@ def process_query(model, tokenizer, queries: List[str], verbose: bool = False) -
                     continue
             try:
                 abstract = describe_single(model, tokenizer, ABSTRACT_PROMPT(range(8), query), "abstract", TEMPERATURE + loop * 0.1, verbose)
-                abstract = json.loads(abstract)
+                abstract = json.loads(fixed_json(abstract))
                 loop = 0
             except JSONDecodeError as e:
                 logger.info(f"Abstract - Error at index {i}: {e}, Trying again... ({2 - loop} times left)")
@@ -187,7 +195,7 @@ def process_query(model, tokenizer, queries: List[str], verbose: bool = False) -
                         records = []
                         for j in range(0, 8, NUM_TOPIC):
                             record = describe_single(model, tokenizer, ABSTRACT_PROMPT(range(j, min(j + NUM_TOPIC, 8)), query), "abstract", verbose)
-                            records.append(json.loads(record))
+                            records.append(json.loads(fixed_json(record)))
                         abstract = {key: val for record in records for key, val in record.items()}
                         loop = 0
                     except JSONDecodeError as e:
@@ -232,7 +240,7 @@ def main(args):
         query, answer, total = load_benchmark(args.benchmark, "/research/d7/fyp24/tpipatpajong2/graphRAG_multimodal/dataset/Stanford40Action_ImageLabelDescripion10template5")
     else:
         query = QUERY
-        total = 1
+        total = len(QUERY)
 
     # Format the query
     if not args.fprompt:
@@ -255,7 +263,7 @@ def main(args):
     )
 
     # Embed the query and search using ColBERT
-    k = 5
+    k = 10
     batch_size = 16
     embeddings = []
     for i in range(0, total, batch_size):
@@ -279,7 +287,7 @@ def main(args):
         if args.benchmark:
             ranking = None
         for j in range(k):
-            # TODO: Chage each full path img_path_retrieved[j] to only name
+            # TODO: Change each full path img_path_retrieved[j] to only name
             img_name = os.path.basename(img_path_retrieved[j])
             img_name, ext = os.path.splitext(img_name)
             result += "%s -- %.4f\n" % (img_name, scores[j])

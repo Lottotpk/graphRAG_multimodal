@@ -329,6 +329,7 @@ def _generate_summary(args, model, tokenizer):
             t = t.cuda()
         return t
 
+    errors = []
     for start_idx in range(0, total, CAPTION_BATCH_SIZE):
         batch = successes[start_idx:start_idx + CAPTION_BATCH_SIZE]
         batch_paths = [p for _, p, _ in batch]
@@ -368,6 +369,7 @@ def _generate_summary(args, model, tokenizer):
                             'description': None,
                             'error': str(e)
                         }
+                        errors.append(str(e))
         except Exception as be:
             # Batch failed (e.g., OOM). Fallback to per-image sequential within this batch
             # if VERBOSE:
@@ -385,6 +387,7 @@ def _generate_summary(args, model, tokenizer):
                         'description': None,
                         'error': str(e)
                     }
+                    errors.append(str(e))
 
     elapsed = time.time() - start
     logger.info(f'Generated {len(records)} descriptions in {elapsed:.2f}s')
@@ -394,7 +397,8 @@ def _generate_summary(args, model, tokenizer):
         'system_prompt': SYSTEM_PROMPT,
         'prompt': PROMPT,
         'model_path': MODEL_PATH,
-        'records': records
+        'records': records,
+        'error': errors if errors else None
     }
 
 

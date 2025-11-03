@@ -1,0 +1,21 @@
+{
+  "created_at": "2025-10-30T23:57:12.076398",
+  "model_path": "OpenGVLab/InternVL3_5-8B",
+  "records": [
+    {
+      "id": 0,
+      "query": "An elderly man wearing a suit and medals is clapping his hands.",
+      "format_prompt": "An elderly man in a suit adorned with medals is clapping his hands.\nelderly man: wearing a suit and medals\nclapping hands\nelderly man is clapping his hands\nJoyful,Uplifting,\n\n\n\n\n\n\n\n"
+    },
+    {
+      "id": 1,
+      "query": "An elderly man, dressed formally in a dark suit with a patterned tie, is seen clapping his hands in what appears to be a public or ceremonial event. He is wearing several medals around his neck and on his jacket, suggesting he has been honored for his achievements or service. His expression appears engaged and respectful, while photographers and others can be seen in the background, capturing the moment.",
+      "format_prompt": "An elderly man in a dark suit with a patterned tie is clapping at a public or ceremonial event. He is adorned with several medals, indicating recognition for his achievements or service. His expression is engaged and respectful, while photographers and others capture the moment in the background.\nelderly man: dressed formally in a dark suit with a patterned tie, wearing several medals around his neck and on his jacket\nphotographers: capturing the moment in the background\npublic or ceremonial event: the setting where the elderly man is clapping\nelderly man is clapping: indicating participation in the event\nphotographers are capturing the moment: documenting the event\nelderly man is adorned with medals: suggesting recognition for achievements or service\nelderly man's expression is engaged and respectful: showing his involvement and appreciation\nphotographers are in the background: indicating they are observers or documenters of the event\nRespectful,Formal,Honored,\nCeremonial Event,\nRealistic,\n\n\n\nPublic,\nAchievement,Recognition,\n"
+    },
+    {
+      "id": 2,
+      "query": "- Objects: The man is clapping his hands.\n- Attributes: He is wearing a formal suit with medals.\n- Actions: He is expressing approval or celebration.\n- Scene: The man is standing in front of a crowd.\n- Style: The photograph has a candid and candid style.",
+      "format_prompt": "A man in a formal suit with medals is clapping his hands in front of a crowd, expressing approval or celebration.\nman: wearing a formal suit with medals\nhands: clapping\nman is clapping his hands\nman is standing in front of a crowd\nman is expressing approval or celebration\nJoyful,Uplifting,Dynamic,\nEvent Poster,\nCandid,Photorealistic,\nRaster,\nWarm,\n\nMainstream,\nCelebration,Community,\n"
+    }
+  ]
+}

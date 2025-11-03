@@ -1,0 +1,21 @@
+{
+  "created_at": "2025-10-30T23:40:02.192946",
+  "model_path": "OpenGVLab/InternVL3_5-8B",
+  "records": [
+    {
+      "id": 0,
+      "query": "An old man clapping",
+      "format_prompt": "An old man is clapping his hands.\nold man: person\nclapping hands: action\nold man: performing action of clapping hands\nJoyful,Nostalgic,Uplifting,\nFine Art,\nRealistic,Dynamic,\n\n\n\nArt-Enthusiast,Comtemplative,\nCommunity,Hope,\n"
+    },
+    {
+      "id": 1,
+      "query": "An old man in his 80s wearing the high-end suit is applauding with joyfulness in the sunny day",
+      "format_prompt": "An elderly man in his 80s, dressed in a high-end suit, is joyfully applauding on a sunny day.\nold man: in his 80s, wearing a high-end suit\napplauding: with joyfulness\nsunny day: background\nold man is applauding\nold man is on a sunny day\nJoyful,Vibrant,\nOthers,\nRealistic,\n\nWarm,\n\nMainstream,\nHope,\n"
+    },
+    {
+      "id": 2,
+      "query": "- Objects: The man is clapping his hands.\n- Attributes: He is wearing a formal suit with medals.\n- Actions: He is expressing approval or celebration.\n- Scene: The man is standing in front of a crowd.\n- Style: The photograph has a candid and candid style.",
+      "format_prompt": "A man in a formal suit with medals is clapping his hands in front of a crowd, expressing approval or celebration.\nman: wearing a formal suit with medals\nhands: clapping\nman is clapping his hands\nman is standing in front of a crowd\nman is expressing approval or celebration\nJoyful,Uplifting,Dynamic,\nEvent Poster,\nCandid,Photorealistic,\n\n\n\nMainstream,\nCelebration,Community,\n"
+    }
+  ]
+}

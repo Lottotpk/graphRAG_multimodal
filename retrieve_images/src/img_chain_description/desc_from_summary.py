@@ -441,6 +441,7 @@ def _generate_abstract(args, model, tokenizer, summary = None):
 
     # Combine abstract elements
     tmp = {}
+    errors = []
     for output in records:
         if output["image_path"] not in tmp:
             tmp[output["image_path"]] = {
@@ -450,10 +451,13 @@ def _generate_abstract(args, model, tokenizer, summary = None):
             }
         else:
             tmp[output["image_path"]]["description"].update(output["description"])
+        if output["error"]:
+            errors.append(output["error"])
     
     payload["records"] = []
     for _, value in tmp.items():
         payload["records"].append(value)
+    payload["error"] = errors if errors else None
     return payload
 
 

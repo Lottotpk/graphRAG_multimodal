@@ -1,0 +1,4 @@
+{
+    "entities": "woman: wearing white lab coat, glasses, holding open book\nbookshelf: filled with red books\nbook: open, held by woman\nlab coat: white\nbookshelf: multiple shelves\nbook: red, organized\nbook: red, spine visible",
+    "relations": "woman standing in front of bookshelf\nwoman holding book\nbookshelf filled with books\nbook open and being read by woman\nbookshelf behind woman"
+}
