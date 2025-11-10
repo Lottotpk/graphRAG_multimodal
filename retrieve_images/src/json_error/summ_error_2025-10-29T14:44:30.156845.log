@@ -1,4 +1,0 @@
-{
-    "entities": "child: young, wearing glasses, shirtless\nbook: titled 'American', features an illustration of a person in historical attire\nchair: beige, cushioned\nfloor: wooden",
-    "relations": "child is lying on the chair\nchild is holding the book\nbook is open\nchild is looking at the book\nbook is resting on the child's lap"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a black cowboy hat with red stars, red arm bands, red leg bands, fishnet stockings, black boots with 'COSTAL' text, holding a blue guitar with stickers and designs\nblue guitar: decorated with stickers and designs\nred double-decker bus: in the background\nstorefront: in the background",
-    "relations": "person is standing on the sidewalk\nperson is holding the blue guitar\nred double-decker bus is in the background\nstorefront is in the background"
-}

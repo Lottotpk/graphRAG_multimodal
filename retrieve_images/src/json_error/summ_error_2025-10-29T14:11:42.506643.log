@@ -1,4 +1,0 @@
-{
-    "entities": "child: wearing a green beanie and a camouflage jacket\nbubble wand: creating a large bubble\nbubble: large, in front of the child's face\nperson: partially visible on the right side, wearing a brown jacket\nsnow: covering the ground\n树木: in the background\n天空: clear and blue",
-    "relations": "child is blowing bubbles with the bubble wand\nbubble wand is creating a bubble\nbubble is in front of the child's face\nchild is standing on the snow\nperson is standing next to the child\n树木 are in the background\n天空 is clear and blue"
-}

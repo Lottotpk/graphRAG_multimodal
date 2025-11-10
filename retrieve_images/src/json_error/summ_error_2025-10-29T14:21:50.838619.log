@@ -1,4 +1,0 @@
-{
-    "entities": "child: young, curly blonde hair, wearing a purple shirt, denim shorts, pink sneakers with white socks\nwater bottle: large, green, being held by the child\npaved surface: ground, scattered with fallen leaves\nfallen leaves: scattered around, suggesting autumn",
-    "relations": "child is standing on the paved surface\nchild is drinking from the water bottle\nwater bottle is held by the child\nfallen leaves are scattered on the paved surface"
-}

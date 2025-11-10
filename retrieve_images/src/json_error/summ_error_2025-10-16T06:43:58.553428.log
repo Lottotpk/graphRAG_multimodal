@@ -1,5 +1,0 @@
-{
-    "summary": "A man is clapping and smiling, wearing a blue suit, white shirt, green tie, and a dark sweater underneath. He has shoulder-length hair and is wearing red-tinted sunglasses. The background is blurred, suggesting an outdoor setting with indistinct elements.",
-    "entities": "man: wearing a blue suit, white shirt, green tie, dark sweater, red-tinted sunglasses, shoulder-length hair\nsunglasses: red-tinted\nsuit: blue\nshirt: white\ntie: green\nsweater: dark\nhands: clapping",
-    "relations": "man is clapping\nman is smiling\nman is wearing sunglasses\nman is wearing a suit\nman is wearing a shirt\nman is wearing a tie\nman is wearing a sweater\nbackground is blurred"
-}

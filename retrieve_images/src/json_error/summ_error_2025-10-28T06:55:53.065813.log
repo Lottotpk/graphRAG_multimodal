@@ -1,4 +1,0 @@
-{
-    "entities": "boy: young, curly hair, wearing light blue shirt\nboy: brushing teeth\nboy: smiling or laughing\nboy: holding toothbrush\nboy: with toothpaste foam around toothbrush\nboy: with colorful toothpaste bubbles floating in air\nwindow: brightly lit\nwindow: view of patterned wall outside",
-    "relations": "boy is brushing teeth with toothbrush\nboy is smiling or laughing\ntoothpaste foam is around boy's toothbrush\ncolorful toothpaste bubbles are floating in air near boy\nwindow is in the background\nwindow shows a view of a patterned wall outside"
-}

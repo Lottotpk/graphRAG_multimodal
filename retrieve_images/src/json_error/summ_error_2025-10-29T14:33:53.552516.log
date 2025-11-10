@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing yellow cap, pink shirt, brown pants, red shoes\nyellow cap: on person's head\npink shirt: person is wearing\nbrown pants: person is wearing\nred shoes: person is wearing\ntelescope: mounted on tripod\ntripod: supporting telescope\ndrying rack: with clothes hanging on it\nclothes: hanging on drying rack\ntrees: dense green in background\nwooden deck: person is standing on",
-    "relations": "person is standing on wooden deck\nperson is using telescope\nperson is looking through telescope\ntelescope is mounted on tripod\ndrying rack is to the left of person\nclothes are hanging on drying rack\ntrees are in the background"
-}

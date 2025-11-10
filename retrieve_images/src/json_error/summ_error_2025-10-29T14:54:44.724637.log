@@ -1,4 +1,0 @@
-{
-    "entities": "elderly man: dressed in dark clothing, kneeling on the ground, holding a camera\nblack bag: placed on the ground, near the man\nbuilding: large, with metal doors, industrial look\nmetal doors: part of the building, large, worn\nwood pieces: scattered on the ground\npaper debris: scattered on the ground",
-    "relations": "elderly man is kneeling on the ground\nelderly man is holding a camera\nblack bag is placed near the elderly man\nwood pieces are scattered on the ground\npaper debris are scattered on the ground\nbuilding is in the background\nmetal doors are part of the building"
-}

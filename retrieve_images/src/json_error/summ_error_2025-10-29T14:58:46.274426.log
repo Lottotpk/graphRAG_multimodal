@@ -1,4 +1,0 @@
-{
-    "entities": "girl: young, short black hair, wearing a white shirt and red pants, joyful expression\nfrisbee: purple, being held by the girl\ngrass: green, outdoor field",
-    "relations": "girl is holding the frisbee\nfrisbee is in motion, possibly being thrown or caught by the girl\ngirl is on the grassy field"
-}

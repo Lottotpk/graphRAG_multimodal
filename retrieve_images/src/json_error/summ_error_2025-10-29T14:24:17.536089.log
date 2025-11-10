@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a cap, gray jacket, jeans, white shoes\nfishing rod: held by the person\nfish: held up in front of the person\nbird: flying nearby\nrocks: person is standing on\nwater: background",
-    "relations": "person is standing on rocks\nperson is holding a fishing rod\nperson is holding a fish\nbird is flying nearby\nfishing rod is connected to the person\nfish is in front of the person\nrocks are near the water"
-}

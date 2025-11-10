@@ -1,4 +1,0 @@
-{
-    "entities": "woman: long hair, black sleeveless top, arms crossed\nATM machine: white, red top, keypad, cash dispenser\npen: green\nbackground: greenery",
-    "relations": "woman is standing in front of ATM machine\nwoman is holding pen\nwoman is looking at ATM screen\nATM machine is outdoors\nwoman is interacting with ATM machine"
-}

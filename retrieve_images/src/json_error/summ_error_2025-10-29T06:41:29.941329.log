@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing gray t-shirt, blue shorts, white sneakers, dark cap\nfrisbee: white\nbackground: green trees, grassy area",
-    "relations": "person is holding frisbee\nperson is standing on grassy area\nperson is looking upwards\nfrisbee is in front of person\nbackground features green trees"
-}

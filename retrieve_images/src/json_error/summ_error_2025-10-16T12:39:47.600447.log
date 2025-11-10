@@ -1,5 +1,0 @@
-{
-    "summary": "A person is using a telescope in a crowded setting, surrounded by other individuals who appear to be observing or waiting their turn. The scene suggests a public or educational event focused on astronomy or science. The atmosphere is one of curiosity and engagement, with the central figure intently looking through the telescope.",
-    "entities": "telescope: large, mounted on a tripod\nperson: using the telescope, wearing a headband, focused on looking through the telescope\nindividuals: surrounding the central person, observing or waiting their turn\ntripod: supporting the telescope\ncrowd: multiple people in the background, engaged in the event",
-    "relations": "person is using the telescope\nindividuals are surrounding the person\ntripod is supporting the telescope\ncrowd is in the background\nperson is focused on looking through the telescope"
-}

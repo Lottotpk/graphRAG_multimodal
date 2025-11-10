@@ -1,4 +1,0 @@
-{
-    "entities": "boy: young, wearing a long-sleeved shirt with text\nmicroscope: black and white, placed on a table\nchair: wooden, boy is sitting on it\ntable: wooden, has a roll of paper towels on it\nroll of paper towels: white, placed on the table\ncalendar: displaying 'Holiday Break', in the background\nshelf: wooden, has decorative items on it",
-    "relations": "boy is sitting on the chair\nboy is looking through the microscope\nmicroscope is placed on the table\nroll of paper towels is on the table\ncalendar is in the background\nshelf is in the background"
-}

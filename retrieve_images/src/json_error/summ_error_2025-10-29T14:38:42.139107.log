@@ -1,4 +1,0 @@
-{
-    "entities": "elderly man: wearing a checkered shirt and gray pants\nviolin: being played by the elderly man\nfolding chair: the elderly man is seated on it\nblack bag: placed beside the elderly man on the ground\ngreen object: partially visible in front of the black bag\ngraffiti-covered wall: in the background",
-    "relations": "elderly man is seated on the folding chair\nelderly man is playing the violin\nfolding chair is positioned against the graffiti-covered wall\nblack bag is placed beside the folding chair\ngreen object is in front of the black bag\nelderly man is positioned in front of the graffiti-covered wall"
-}

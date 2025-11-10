@@ -1,5 +1,0 @@
-{
-    "summary": "A man is repairing a bicycle on a sidewalk. He is focused on fixing the wheel, using tools. There is another bicycle wheel nearby, and a person is partially visible in the background. The setting appears to be an urban street with a parked car in the background.",
-    "entities": "man: wearing a light gray shirt and shorts, crouching, focused on repairing a bicycle\nbicycle: blue, with a wheel being repaired\nbicycle wheel: detached, placed on the ground\n工具: wrench, being used to repair the bicycle\nperson: partially visible, standing in the background\nparked car: silver, in the background\nurban street: with a sidewalk and road visible",
-    "relations": "man is repairing the bicycle\nman is using a wrench on the bicycle wheel\nbicycle wheel is detached and placed on the ground\nperson is standing in the background\nparked car is in the background on the street"
-}

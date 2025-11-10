@@ -1,5 +1,0 @@
-{
-    "summary": "A person is captured mid-jump on a grassy hill under a bright, sunny sky with scattered clouds. The individual is wearing a yellow shirt and blue shorts, with their arms and legs spread out in a joyful pose. The sun is shining brightly in the background, creating a cheerful and energetic atmosphere. The scene conveys a sense of freedom and happiness, with the lush green grass and trees adding to the vibrant outdoor setting.",
-    "entities": "person: wearing a yellow shirt and blue shorts\ngrass: green and lush\nsky: bright and sunny with scattered clouds\nsun: shining brightly in the background\ntrees: in the background\n",
-    "relations": "person is jumping on the grass\nperson is positioned under the sun\ngrass is in the foreground\nsky is in the background\nsun is shining brightly\n"
-}

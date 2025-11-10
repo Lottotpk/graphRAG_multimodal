@@ -1,5 +1,0 @@
-{
-    "summary": "A young child wearing an orange shirt is standing at a kitchen sink, washing dishes. The sink area is cluttered with various kitchen items, including a dish rack with dishes, a sponge, and several glass jars with decorative labels. The kitchen counter is filled with household items, and there is a faucet with a soap dispenser nearby. The scene conveys a casual, everyday atmosphere of household chores.",
-    "entities": "child: young, wearing an orange shirt\nsink: kitchen sink, cluttered with various kitchen items\nfaucet: with a soap dispenser\nsoap dispenser: attached to the faucet\ndish rack: with dishes\nsponge: near the sink\nkitchen counter: filled with household items\nglass jars: decorative labels\nkitchen items: various, cluttered around the sink area",
-    "relations": "child is standing at the sink\nchild is washing dishes\nchild is interacting with the faucet\nsoap dispenser is attached to the faucet\nsink is cluttered with kitchen items\ndish rack is near the sink\nsponge is near the sink\nglass jars are on the kitchen counter\nkitchen counter has household items"
-}

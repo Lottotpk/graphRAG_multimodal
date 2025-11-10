@@ -1,5 +1,0 @@
-{
-    "summary": "A person is using a large telescope mounted on a tripod near a railing by a body of water. The individual is adjusting the telescope, which is labeled '天狼 D-80'. The background shows a foggy or misty landscape with trees and a faint outline of buildings. A lifebuoy is attached to the railing, and a red sign with white text is visible nearby. The scene conveys a sense of curiosity and exploration.",
-    "entities": "person: wearing a brown jacket, adjusting a telescope\nlarge telescope: labeled '天狼 D-80', mounted on a tripod\ntripod: supporting the telescope\nrailing: green, with a lifebuoy attached\nbody of water: foggy or misty background with trees and buildings\nlifebuoy: attached to the railing\nred sign: with white text, near the railing",
-    "relations": "person is adjusting the telescope\nlarge telescope is mounted on the tripod\ntripod is positioned near the railing\nrailing is by the body of water\nlifebuoy is attached to the railing\nred sign is visible near the railing"
-}

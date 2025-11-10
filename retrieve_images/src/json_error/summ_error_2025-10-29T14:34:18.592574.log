@@ -1,4 +1,0 @@
-{
-    "entities": "Person 1: Using binoculars, smiling, wearing a purple striped shirt\nPerson 2: In uniform, neutral expression\nBinoculars: Black, being used to look at something in the distance\nBackground: Greenery, outdoor setting",
-    "relations": "Person 1 is using binoculars\nPerson 2 is observing the scene\nPerson 1 is smiling\nPerson 2 has a neutral expression\nBinoculars are directed towards something in the distance\nBackground greenery indicates an outdoor setting"
-}

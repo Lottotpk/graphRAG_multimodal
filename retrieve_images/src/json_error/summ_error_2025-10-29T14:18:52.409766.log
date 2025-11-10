@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing camouflage jacket, red pants, helmet, earmuffs, gloves\nchainsaw: being used by the person\nlarge tree: being cut by the person\nforest: background with dense greenery",
-    "relations": "person is cutting the large tree with the chainsaw\nforest surrounds the person and the large tree\nperson is wearing protective gear including helmet and earmuffs"
-}

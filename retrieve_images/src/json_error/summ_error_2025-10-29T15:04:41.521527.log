@@ -1,4 +1,0 @@
-{
-    "entities": "young boy: blonde hair, striped shirt, sitting on a stool\nadult: short hair, sitting nearby, watching television\nwoman: seated on the floor, smiling, holding a baby wrapped in a blanket\nbaby: wrapped in a blanket\nwooden doors: in the background\nwooden cabinets: in the background\nsnacks: scattered around\nbag: scattered around",
-    "relations": "young boy is sitting on a stool facing the television\nadult is sitting nearby watching the television\nwoman is seated on the floor holding a baby\nbaby is wrapped in a blanket and being held by the woman\nwooden doors and cabinets are in the background\nsnacks and a bag are scattered around the room"
-}

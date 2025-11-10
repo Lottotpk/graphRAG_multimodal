@@ -1,4 +1,0 @@
-{
-    "entities": "girl: young, long hair, wearing a white sleeveless top\nwater bottle: clear plastic, being held by the girl\nhedge: dense green, in the background",
-    "relations": "girl is drinking from the water bottle\nwater bottle is in front of the girl\nhedge is behind the girl"
-}

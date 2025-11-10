@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing patterned shirt, carrying black bag, holding checkered umbrella\nhouse: white siding, wooden staircase, porch\numbrella: checkered\nbag: black\nstairs: wooden\nporch: wooden\nhouse siding: white\nstaircase: wooden",
-    "relations": "person standing outside house\nperson holding umbrella\nperson carrying bag\numbrella positioned above person\nstairs leading to porch\nhouse siding adjacent to person\nporch connected to house\nstairs positioned next to house siding"
-}

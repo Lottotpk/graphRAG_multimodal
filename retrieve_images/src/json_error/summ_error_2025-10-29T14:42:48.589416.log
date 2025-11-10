@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing a dark polo shirt, has a lanyard with an ID badge around his neck\nshopping cart: contains a box of ice cream and other items\nbox of ice cream: partially visible, red and white packaging\nparking lot: with cars parked nearby\nbuilding: visible in the background\ntrees: visible in the background",
-    "relations": "man is holding the shopping cart\nshopping cart contains the box of ice cream\nman is standing in the parking lot\nparking lot has cars parked nearby\nbuilding is in the background\ntrees are in the background"
-}

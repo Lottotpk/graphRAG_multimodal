@@ -1,4 +1,0 @@
-{
-    "entities": "adult1: person wearing a yellow shirt\nadult2: person wearing a blue shirt holding a newspaper\nchild1: person wearing a pink dress sitting on the floor facing the TV\nchild2: person wearing a light blue shirt sitting on the floor turned away from the TV\nTV: television displaying a soccer game\nbookshelf: wooden bookshelf filled with books and framed photos\ncouch: patterned couch with two adults sitting on it\nrug: light-colored rug on the floor\nside table: small wooden table next to the couch",
-    "relations": "adult1 and adult2 are sitting on the couch\nadult2 is holding a newspaper\nchild1 is sitting on the floor facing the TV\nchild2 is sitting on the floor turned away from the TV\nTV is placed on a stand in front of the couch\nbookshelf is located behind the couch\nrug is under the couch and the children\nside table is next to the couch"
-}

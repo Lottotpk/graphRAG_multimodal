@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing dark jacket and jeans, holding hand with woman\nwoman: wearing light jacket, scarf, dark pants, holding patterned umbrella\numbrella: patterned, held by woman\npedestrians: in background\nbuilding: in background\ntrash can: on left side",
-    "relations": "man and woman are holding hands\nwoman is holding an umbrella\nman and woman are walking together\npedestrians are in the background\nbuilding is in the background\ntrash can is on the left side"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing black shirt, shorts, gloves\nbicycle wheel: placed on tire\ngravel surface: outdoor setting\nwhite van: parked in background\nmotorcycles: parked in background",
-    "relations": "person is working on bicycle wheel\nbicycle wheel is placed on tire\nperson is standing on gravel surface\nwhite van is in background\nmotorcycles are in background"
-}

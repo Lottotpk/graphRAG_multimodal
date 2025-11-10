@@ -1,4 +1,0 @@
-{
-    "entities": "baby: young child with short brown hair, sitting in a bathtub\nbathtub: white, filled with water and bubbles\nblue support: blue, positioned behind the baby\nyellow rubber duck: yellow, held by the baby in one hand\ntoothbrush: yellow handle with a blue grip, held by the baby in the other hand",
-    "relations": "baby is sitting in the bathtub\nbaby is holding the toothbrush in one hand\nbaby is holding the yellow rubber duck in the other hand\nblue support is positioned behind the baby\nwater and bubbles are visible around the baby"
-}

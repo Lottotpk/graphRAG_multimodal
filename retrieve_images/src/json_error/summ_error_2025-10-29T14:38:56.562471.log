@@ -1,4 +1,0 @@
-{
-    "entities": "girl: wearing pink and white striped shirt, pink pants with decorative belt\nviolin: wooden, with bow\nchairs: wooden, with cushions\n桌子: wooden\nfloor: tiled",
-    "relations": "girl is sitting on the floor\n girl is playing the violin\nviolin is held by the girl\nchairs are in the background\n桌子 is in the background\nfloor is under the girl and chairs"
-}

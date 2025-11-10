@@ -1,5 +1,0 @@
-{
-    "summary": "An elderly person wearing a white cap, glasses, a plaid shirt, and an apron stands next to a large black pot on a metal stand. The pot is over an open fire made of logs. The person holds a white cloth in one hand. They are outside, in front of a wooden barn with a window and a small overhang. The grassy area is surrounded by trees with bare branches, suggesting a late autumn or early winter setting.",
-    "entities": "elderly person: wearing a white cap, glasses, a plaid shirt, and an apron\nlarge black pot: on a metal stand\nmetal stand: supporting the large black pot\nopen fire: made of logs\nwhite cloth: held by the elderly person\nwooden barn: with a window and a small overhang\ngrassy area: surrounded by trees with bare branches",
-    "relations": "elderly person is standing next to the large black pot\nlarge black pot is on the metal stand\nmetal stand is over the open fire\nelderly person is holding the white cloth\nelderly person is in front of the wooden barn\ngrassy area is in front of the wooden barn"
-}

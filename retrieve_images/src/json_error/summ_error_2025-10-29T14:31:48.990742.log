@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing black top and white pants, jumping with arms outstretched\ngrass: covering the hilltop\nhills: rolling hills in the background\nmountain range: distant in the background\nsky: cloudy",
-    "relations": "person is jumping on the grass\ngrass is on the hilltop\nhilltop is in front of the hills\nhills are in front of the mountain range\nmountain range is under the sky\nsky is above the mountain range"
-}

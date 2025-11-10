@@ -1,4 +1,0 @@
-{
-    "entities": "cyclist: wearing a red and blue jersey, black shorts, a blue helmet, sunglasses, red gloves, black backpack\nmountain bike: black frame, front suspension\ngrass: covering the hill\nhills: in the background\nsky: clear",
-    "relations": "cyclist is riding the mountain bike\nmountain bike is on the grass\ngrass is on the hill\nhills are in the background\nsky is above the hills"
-}

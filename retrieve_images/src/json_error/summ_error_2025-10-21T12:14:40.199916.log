@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing blue shirt and cap, holding pink object and leash\nsmall white dog: on leash, being walked by man\nwoman: wearing sunglasses, holding microphone\nperson with camera: taking photo\npink object: held by man\nmicrophone: held by woman\nleash: held by man, attached to dog",
-    "relations": "man walking small white dog\nman holding pink object\nwoman holding microphone\nperson with camera taking photo\nman holding leash attached to dog\nwoman standing behind man\nperson with camera standing behind man"
-}

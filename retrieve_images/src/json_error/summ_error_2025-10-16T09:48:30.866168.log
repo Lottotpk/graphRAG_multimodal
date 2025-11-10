@@ -1,5 +1,0 @@
-{
-    "summary": "A young girl in a pink jacket is feeding a horse from a white bucket. The horse is wearing a red halter and is standing behind a fence. The scene takes place outdoors with trees and a clear blue sky in the background.",
-    "entities": "girl: young, wearing a pink jacket\nhorse: brown, wearing a red halter\nbucket: white\nfence: metal\nbucket: being held by the girl\nhorse: standing behind the fence\nbackground: trees, clear blue sky",
-    "relations": "girl is feeding the horse\nhorse is standing behind the fence\nbucket is in front of the horse\ngirl is holding the bucket\nscene is outdoors with trees and a clear blue sky in the background"
-}

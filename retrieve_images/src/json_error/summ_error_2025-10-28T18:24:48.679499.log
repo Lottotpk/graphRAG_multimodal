@@ -1,4 +1,0 @@
-{
-    "entities": "person on the left: wearing a light blue shirt, writing in a notebook\nperson on the right: wearing a purple shirt, leaning forward, smiling\nnotebook: on the table, being written in by the person on the left\npapers: on the table, near the person on the right\nblue water bottle: on the table, near the person on the right\nchairs: in the background, part of the classroom or study area\ntable: in the foreground, where the individuals and objects are placed",
-    "relations": "person on the left is writing in a notebook\nperson on the right is leaning forward and smiling\nperson on the left is seated at the table\nperson on the right is seated at the table\nnotebook is on the table\npapers are on the table\nblue water bottle is on the table\nchairs are in the background\n"
-}

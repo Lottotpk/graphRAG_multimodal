@@ -1,4 +1,0 @@
-{
-    "entities": "jockey: wearing pink helmet and jacket, white pants\nhorse: black, with blue saddlecloth\nracetrack: fenced area with green grass\nbackground: distant hills under cloudy sky",
-    "relations": "jockey riding horse\nhorse galloping on racetrack\nracetrack fenced\nbackground showing distant hills and cloudy sky"
-}

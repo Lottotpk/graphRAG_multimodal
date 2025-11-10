@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing light blue shirt, black pants, gloves\nbow: held by person\narrow: attached to bow\ntargets: multiple, placed in distance\ngrass: field\nbuildings: in background\ntrees: surrounding field\nsky: clear and blue",
-    "relations": "person aiming at targets\nperson holding bow\nbow attached to arrow\nperson standing on grass\nbuildings in background\n trees surrounding field\nsky above scene"
-}

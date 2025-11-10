@@ -1,4 +1,0 @@
-{
-    "entities": "woman: wearing red shirt and white shorts, holding smartphone in left hand, gesturing with right hand, wearing flip-flops\nbench: woman is sitting on it\nwoven bag: beside the woman\nmetal fence: in the background\npaved area: where the woman is sitting\nmetal grate: on the ground near the woman",
-    "relations": "woman is sitting on the bench\nwoman is holding a smartphone\nwoman is gesturing with her right hand\nwoven bag is beside the woman\nmetal fence is in the background\nwoman is wearing flip-flops\nmetal grate is on the ground near the woman"
-}

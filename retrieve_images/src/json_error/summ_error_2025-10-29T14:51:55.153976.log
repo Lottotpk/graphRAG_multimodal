@@ -1,4 +1,0 @@
-{
-    "entities": "archer: person wearing sunglasses, white and blue uniform, wrist guard\nbow: archer's bow\nbackground banner: blue banner with partial text",
-    "relations": "archer is drawing the bow\narcher is aiming at a target\nbackground banner is behind the archer"
-}

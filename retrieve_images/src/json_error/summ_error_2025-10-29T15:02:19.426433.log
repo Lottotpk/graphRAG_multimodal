@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing sunglasses, black hoodie, blue jeans, black shoes\nblack hoodie: with text on it\nshaggy dog: on a leash\nretractable dog leash: blue handle\npeople: in the background, observing\nsidewalk: with trees lining the street",
-    "relations": "man is walking the shaggy dog\nman is holding the retractable dog leash\nman is on the sidewalk\npeople are in the background\nsidewalk is lined with trees"
-}

@@ -1,5 +1,0 @@
-{
-    "summary": "A child is walking on a sidewalk, pulling a red wagon with a smaller child sitting inside. The child is holding an umbrella decorated with the American flag design. They are near a driveway and a brick wall, with green grass and a bush in the background.",
-    "entities": "child: wearing a pink shirt and black shorts, holding an umbrella\numbrella: decorated with the American flag design\nwagon: red, with a smaller child sitting inside\nsmaller child: sitting in the wagon\nbrick wall: in the background\nbush: in the background\ngreen grass: in the background\ndriveway: near the sidewalk",
-    "relations": "child is walking on the sidewalk\nchild is pulling the wagon\nsmaller child is sitting in the wagon\nchild is holding the umbrella\nwagon is near the driveway\nbush is near the brick wall\nbrick wall is in the background\ngreen grass is in the background"
-}

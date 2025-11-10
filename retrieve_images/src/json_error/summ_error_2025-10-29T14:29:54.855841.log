@@ -1,4 +1,0 @@
-{
-    "entities": "man: elderly, short gray hair, purple polo shirt, blue jeans, smiling\nplants: small green plants in pots\nsoil: garden soil\nwall: brown wall\ngrass: grassy area\nsunlight: filtering through",
-    "relations": "man is kneeling in the garden\nman is planting or tending to plants\nplants are in pots\nman is interacting with the soil\nman is positioned near the wall\ngrass surrounds the garden area\nsunlight is illuminating the garden"
-}

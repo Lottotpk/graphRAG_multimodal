@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a blue vest, jeans, and a beanie\nsnow: falling around\nwooden fence: in the background\nhouse: in the background",
-    "relations": "person is jumping in the air\nsnow is falling around the person\nwooden fence is behind the person\nhouse is behind the person"
-}

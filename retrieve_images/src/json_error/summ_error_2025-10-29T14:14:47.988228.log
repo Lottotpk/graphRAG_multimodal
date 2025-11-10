@@ -1,4 +1,0 @@
-{
-    "entities": "child: young, wearing white shirt with red pants\nmop: with a long handle\nbucket: white with blue rim, filled with water\nwindow: large, with a view of the outside\nkitchen cabinets: wooden\nfloor: tiled",
-    "relations": "child is using the mop\nchild is standing near the bucket\nbucket is on the floor\nwindow is on the left side of the image\nkitchen cabinets are in the background"
-}

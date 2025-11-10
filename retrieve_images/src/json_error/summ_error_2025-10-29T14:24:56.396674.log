@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a cap, light-colored vest over a shirt, dark pants\nfishing rod: extending over the water\nchair: person is sitting on\nrailing: has the word 'FROLIC'\nlarge building: partially obscured by fog in the background\nfog: obscuring the large building\nwater: behind the person and railing",
-    "relations": "person is sitting on the chair\nfishing rod is positioned next to the person\nchair is placed by the railing\nrailing has the word 'FROLIC'\nlarge building is in the background\nfog is obscuring the large building\nperson is facing away from the camera\nfishing rod is extending over the water"
-}

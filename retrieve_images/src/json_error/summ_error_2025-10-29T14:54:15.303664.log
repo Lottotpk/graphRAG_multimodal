@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a black hooded jacket, sitting on a folding chair, holding a camera\npenguin: standing on the rocky shore, looking towards the person\nocean: background with waves\ntripod: supporting the camera\nfolding chair: person is sitting on it",
-    "relations": "person is sitting on the folding chair\nperson is holding a camera mounted on a tripod\npenguin is standing on the rocky shore near the person\nocean is in the background behind the person and penguin\ntripod is positioned in front of the person"
-}

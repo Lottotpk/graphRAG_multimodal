@@ -1,4 +1,0 @@
-{
-    "entities": "boy: young, short hair, wearing a white shirt and light-colored pants\nboat: small, green\nlake: calm\nforest: shoreline, with trees\nhouses: few, in the background\ntrees: forested, in the background\nmountain range: distant, under partly cloudy sky",
-    "relations": "boy is rowing the boat\nboat is on the lake\nlake is surrounded by forest\nforest has houses in the background\nmountain range is in the background under partly cloudy sky"
-}

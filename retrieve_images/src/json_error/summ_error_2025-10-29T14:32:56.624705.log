@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing blue lab coat and gloves\nmicroscope: white and black with eyepiece\nshelves: with various items\nwall: with framed certificates or notices",
-    "relations": "person is using the microscope\nmicroscope is on a table\nshelves are in the background\nwall with certificates is in the background"
-}

@@ -411,6 +411,8 @@ def ABSTRACT_PROMPT(cate_num: range, img_sum: str) -> str:
     - Reasons and evidence can be found from the Query image; No making up the answer.
     - Using the example only as a reference, generate the output for the image.
     - All the keywords with confidence score lower than 0.7 are excluded from the output.
+    - Output only valid JSON text — no Markdown, no explanations, no extra characters, no thinking part.
+    - Your output must pass json.loads() in Python without errors.
 """ % (example, img_sum, cate_prompt, output)
 
 SYSTEM_PROMPT: str = """

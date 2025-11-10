@@ -1,4 +1,0 @@
-{
-    "entities": "person: young, wearing glasses, checkered jacket, graphic t-shirt\nviolin: wooden, held with left hand\nbow: silver, held with right hand\nbicycle: partially visible, on the left\nbrick wall: background\nwindow: background, with a sign\nperson: sitting, observing, to the right",
-    "relations": "person playing violin\nviolin and bow held by person\nperson positioned in front of brick wall\nbicycle positioned to the left of person\nwindow positioned behind person\nsitting person positioned to the right of person\n"
-}

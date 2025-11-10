@@ -1,4 +1,0 @@
-{
-    "entities": "boy: wearing a white t-shirt and blue shorts\nbubble wand: orange\nbubbles: floating around the boy\nhouse: with green siding and white trim\nporch: in front of the house\ndog: partially visible on the left side\norange cone: on the ground near the boy",
-    "relations": "boy is standing on the porch\nboy is blowing bubbles with the bubble wand\nbubbles are floating around the boy\nhouse is behind the porch\ndog is on the left side of the porch\norange cone is near the boy"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a yellow jacket, straw hat, glasses, gloves\nflower: white, yellow\nbuilding: light-colored wall\nplant: green shrubs",
-    "relations": "person is gardening\nperson is wearing gloves\nperson is tending to flowers\nbuilding is in the background\nplants surround the area"
-}

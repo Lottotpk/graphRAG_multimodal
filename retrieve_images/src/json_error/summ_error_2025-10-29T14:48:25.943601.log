@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing dark shirt and shorts\nboat: white, sleek design\noars: black with yellow and green accents\nwater: clear, greenish, calm\nbeach: sandy, lined with palm trees\npeople: few, enjoying the beach\nsky: mostly clear, few clouds",
-    "relations": "person is rowing the boat\nboat is on the water\noars are attached to the boat\nperson is seated in the boat\nbeach is in the background\npeople are on the beach\nsky is above the scene"
-}

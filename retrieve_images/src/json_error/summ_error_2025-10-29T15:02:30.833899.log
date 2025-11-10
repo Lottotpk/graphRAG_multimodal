@@ -1,4 +1,0 @@
-{
-    "entities": "child: young, wearing a blue apron, holding a sponge\nsink: stainless steel, double basin\nbowl: white\nbottle: cleaning supplies, various\napron: blue\ncurtain: floral\nwindow: with floral curtains\nwall: tiled\nitems: bottles, bowl, cleaning supplies",
-    "relations": "child is standing in front of the sink\nchild is holding a sponge\nchild is wearing an apron\nsink is on the kitchen counter\nbowl is on the counter near the sink\nbottles are on the counter near the sink\napron is worn by the child\ncurtain is on the window in the background\nwindow is in the background\nwall is tiled in the background"
-}

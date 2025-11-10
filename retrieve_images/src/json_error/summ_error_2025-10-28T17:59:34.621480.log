@@ -1,4 +1,0 @@
-{
-    "entities": "boy: young, curly hair, wearing light blue shirt\ntoothbrush: green handle, with toothpaste foam\nwindow: with patterned curtain\nbackground: brightly lit bathroom, cheerful atmosphere",
-    "relations": "boy is brushing teeth with toothbrush\nboy is in front of window\nwindow is part of the background\ncheerful atmosphere is suggested by the background elements"
-}

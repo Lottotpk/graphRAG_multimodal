@@ -1,4 +1,0 @@
-{
-    "entities": "girl: wearing a pink shirt, blue jeans, helmet, climbing shoes\nadult woman: wearing a maroon shirt, black pants, pointing towards the wall\nclimbing wall: adorned with various colorful holds\nother children: engaged in climbing activities in the background\nposters: on the walls in the background",
-    "relations": "girl is climbing the wall\nadult woman is supervising the girl\nadult woman is pointing towards the wall\nother children are climbing in the background\nposters are on the walls in the background"
-}

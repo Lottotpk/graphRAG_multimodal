@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing red jacket, green shirt, dark pants\numbrella: large, beige\nbench: black metal, white cushion\nfence: wooden\nbushes: with pink flowers\ngrass: green\npaved area: nearby",
-    "relations": "person holding umbrella\numbrella positioned in front of person\nbench located on paved area\ngarden setting with grass and bushes\nfence in the background"
-}

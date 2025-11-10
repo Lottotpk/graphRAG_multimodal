@@ -43,6 +43,7 @@ if PROJECT_ROOT not in sys.path:
 from utils.img_processing import (
     find_image_files, load_image_with_error_handling, load_images_parallel
 )
+from utils.json_processing import fix_json
 from config import (
     MODEL_PATH, DEVICE_MAP, TORCH_DTYPE, MAX_TILES, INPUT_SIZE,
     BATCH_SIZE,
@@ -62,7 +63,7 @@ IMAGE_SOURCE_PATHS: List[str] = [
 ]
 
 # Image summary directory
-LATEST_IMAGE_SUMMARY_PATH: str = os.path.join(IMAGE_ONLY_SUMMARY_DIR, os.listdir(IMAGE_ONLY_SUMMARY_DIR)[-1])
+LATEST_IMAGE_SUMMARY_PATH: str = os.path.join(IMAGE_ONLY_SUMMARY_DIR, os.listdir(IMAGE_ONLY_SUMMARY_DIR)[-1]) if os.listdir(IMAGE_ONLY_SUMMARY_DIR) else None
 
 # Prompt written at the top of the output JSON and used for generation
 # PROMPT: str = 'Please describe the image in detail.'
@@ -223,7 +224,7 @@ def generate_descriptions(args):
                     for pth, resp in zip(batch_paths, responses):
                         records.append({
                             'image_path': pth,
-                            'description': json.loads(resp.strip("```json")),
+                            'description': json.loads(fix_json(resp)),
                             'error': None
                         })
                 else:
@@ -233,7 +234,7 @@ def generate_descriptions(args):
                             resp = model.chat(tokenizer, t, questions[0], gen_cfg)
                             records.append({
                                 'image_path': pth,
-                                'description': json.loads(resp.strip("```json")),
+                                'description': json.loads(fix_json(resp)),
                                 'error': None
                             })
                         except Exception as e:
@@ -254,7 +255,7 @@ def generate_descriptions(args):
                             wfile.write(str(resp) + '\n')
                         records.append({
                             'image_path': pth,
-                            'description': json.loads(resp.strip("```json")),
+                            'description': json.loads(fix_json(resp)),
                             'error': None
                         })
                     except Exception as e:
@@ -291,6 +292,7 @@ def _generate_abstract(args, model, tokenizer, summary = None):
     # Since the HUGE amount of data cannot be loaded into the memory in one go.
 
     images = _collect_images_from_sources(args.img_dir)
+    images = images[args.start_index : min(args.start_index+args.size, len(images))]
     if not images:
         logger.info('No images found from IMAGE_SOURCE_PATHS; nothing to do.')
         return None
@@ -373,9 +375,11 @@ def _generate_abstract(args, model, tokenizer, summary = None):
         for j in range(0, 8, NUM_TOPIC):
             questions = [f'<image>\n{ABSTRACT_PROMPT(range(j, min(j + NUM_TOPIC, 8)), summary[path]["description"]["summary"])}' for path in batch_paths]
             model.system_message = SYSTEM_PROMPT
+            saved = 0
 
             try:
                 # Concatenate along tiles dimension per talk_test.py example
+                gen_cfg['temperature'] = TEMPERATURE
                 pixel_values_cat = torch.cat(batch_tensors, dim=0)
                 if hasattr(model, 'batch_chat'):
                     responses = model.batch_chat(
@@ -388,46 +392,58 @@ def _generate_abstract(args, model, tokenizer, summary = None):
                     for pth, resp in zip(batch_paths, responses):
                         records.append({
                             'image_path': pth,
-                            'description': json.loads(resp.strip("```json")),
+                            'description': json.loads(fix_json(resp)),
                             'error': None
                         })
+                        saved += 1
                 else:
                     # Fallback: per-image chat
-                    for t, pth in zip(batch_tensors, batch_paths):
-                        try:
-                            resp = model.chat(tokenizer, t, questions[0], gen_cfg)
-                            records.append({
-                                'image_path': pth,
-                                'description': json.loads(resp.strip("```json")),
-                                'error': None
-                            })
-                        except Exception as e:
-                            records.append({
-                                'image_path': pth,
-                                'description': None,
-                                'error': str(e)
-                            })
+                    for itr, (t, pth) in enumerate(zip(batch_tensors, batch_paths)):
+                        for chance in range(3):
+                            gen_cfg['temperature'] = TEMPERATURE + chance * 0.1
+                            try:
+                                resp = model.chat(tokenizer, t, questions[itr], gen_cfg)
+                                records.append({
+                                    'image_path': pth,
+                                    'description': json.loads(fix_json(resp)),
+                                    'error': None
+                                })
+                                break
+                            except Exception as e:
+                                logger.info(f"Error from per-image at {pth}: {str(e)} remaining {2 - chance} to go")
+                                if chance == 2:
+                                    records.append({
+                                        'image_path': pth,
+                                        'description': {},
+                                        'error': str(e)
+                                    })
             except Exception as be:
                 # Batch failed (e.g., OOM). Fallback to per-image sequential within this batch
                 # if VERBOSE:
                 if args.verbose:
                     logger.info(f'Batch captioning failed, falling back per-image: {be}')
-                for t, pth in zip(batch_tensors, batch_paths):
-                    try:
-                        resp = model.chat(tokenizer, t, f'<image>\n{ABSTRACT_PROMPT(range(j, min(j + NUM_TOPIC, 8)), summary[pth]["description"]["summary"])}', gen_cfg)
-                        with open(f"json_error/desc_error_{datetime.now().isoformat()}.log", "a") as wfile:
-                            wfile.write(str(resp) + '\n')
-                        records.append({
-                            'image_path': pth,
-                            'description': json.loads(resp.strip("```json")),
-                            'error': None
-                        })
-                    except Exception as e:
-                        records.append({
-                            'image_path': pth,
-                            'description': None,
-                            'error': str(e)
-                        })
+                for itr, (t, pth) in enumerate(zip(batch_tensors, batch_paths)):
+                    if itr < saved:
+                        continue
+                    for chance in range(3):
+                        gen_cfg['temperature'] = TEMPERATURE + chance * 0.1
+                        try:
+                            resp = model.chat(tokenizer, t, questions[itr], gen_cfg)
+                            with open(f"json_error/desc_error_{datetime.now().isoformat()}.log", "a") as wfile:
+                                wfile.write(str(resp) + '\n')
+                            records.append({
+                                'image_path': pth,
+                                'description': json.loads(fix_json(resp)),
+                                'error': None
+                            })
+                        except Exception as e:
+                            logger.info(f"Error from per-image at {pth}: {str(e)} remaining {2 - chance} to go")
+                            if chance == 2:
+                                records.append({
+                                    'image_path': pth,
+                                    'description': {},
+                                    'error': str(e)
+                                })
 
     elapsed = time.time() - start
     logger.info(f'Generated {len(records)} descriptions in {elapsed:.2f}s')
@@ -441,7 +457,7 @@ def _generate_abstract(args, model, tokenizer, summary = None):
 
     # Combine abstract elements
     tmp = {}
-    errors = []
+    errors = {}
     for output in records:
         if output["image_path"] not in tmp:
             tmp[output["image_path"]] = {
@@ -452,12 +468,12 @@ def _generate_abstract(args, model, tokenizer, summary = None):
         else:
             tmp[output["image_path"]]["description"].update(output["description"])
         if output["error"]:
-            errors.append(output["error"])
+            errors[output["image_path"]] = output["error"]
     
     payload["records"] = []
     for _, value in tmp.items():
         payload["records"].append(value)
-    payload["error"] = errors if errors else None
+    payload["error"] = errors
     return payload
 
 

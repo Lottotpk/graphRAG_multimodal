@@ -1,4 +1,0 @@
-{
-    "entities": "girl: young, long dark hair, wearing a light blue sleeveless dress\nsmartphone: black, being held by the girl\nbed: colorful patterned blanket\npillow: white with black spots",
-    "relations": "girl is sitting on the bed\nsmartphone is being held by the girl\ngirl is looking at the smartphone\npillow is near the girl"
-}

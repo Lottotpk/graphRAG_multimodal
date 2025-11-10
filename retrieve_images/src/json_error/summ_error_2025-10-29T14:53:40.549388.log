@@ -1,4 +1,0 @@
-{
-    "entities": "woman: wearing a green top with white trim and maroon pants, carrying a brown shoulder bag\ncamera: being held by the woman\nhouse: in the background\nstreet: in the background\nsunlight: casting shadows",
-    "relations": "woman is holding the camera\nwoman is wearing the green top and maroon pants\nwoman is carrying the brown shoulder bag\nhouse is in the background\nstreet is in the background\nsunlight is casting shadows"
-}

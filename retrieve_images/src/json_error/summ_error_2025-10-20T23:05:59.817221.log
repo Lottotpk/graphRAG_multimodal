@@ -1,5 +1,0 @@
-{
-    "summary": "The image depicts a street scene with a wall covered in red graffiti. Two people are walking dogs on a sidewalk. One person is wearing a cap and shorts, while the other is dressed in a black outfit. There is a black fire hydrant and two metal bollards on the sidewalk. The setting gives off a casual, urban vibe with a sense of everyday life.",
-    "entities": "wall: covered in red graffiti\nperson1: wearing a cap and shorts\nperson2: dressed in a black outfit\nfire hydrant: black\nmetal bollards: two\ndogs: two\n",
-    "relations": "wall is in the background\nperson1 is walking a dog\nperson2 is walking a dog\nfire hydrant is on the sidewalk\nmetal bollards are on the sidewalk\n"
-}

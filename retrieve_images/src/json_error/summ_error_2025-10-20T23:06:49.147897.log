@@ -1,5 +1,0 @@
-{
-    "summary": "A man in a blue shirt and cap is walking a small white dog on a leash in a grassy area. He is holding a pink object in his other hand. A woman with sunglasses and a person with a camera are in the background. The scene appears to be outdoors with trees and a street visible. The overall vibe is casual and relaxed.",
-    "entities": "man: wearing a blue shirt and cap, holding a pink object\nsmall white dog: on a leash\nwoman: wearing sunglasses\nperson: holding a camera\npink object: in the man's hand\nleash: attached to the dog\ngrass: ground surface\nstreet: in the background\ntrees: in the background",
-    "relations": "man walking the dog\nman holding a pink object\nwoman in the background\nperson with a camera in the background\nman standing on grass\nstreet visible in the background\ntrees visible in the background"
-}

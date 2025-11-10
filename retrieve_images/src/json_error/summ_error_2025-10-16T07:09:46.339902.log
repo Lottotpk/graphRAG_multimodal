@@ -1,5 +1,0 @@
-{
-    "summary": "A young child with blonde hair is blowing bubbles using a green wand and a pink bubble solution container. The child is wearing a turquoise swimsuit with a colorful pattern. The scene appears to be outdoors, possibly in a backyard or patio area, with greenery visible in the background. The atmosphere is playful and carefree.",
-    "entities": "child: young, blonde hair, wearing turquoise swimsuit with colorful pattern\nbubble wand: green\nbubble solution container: pink\nbackground: greenery, patio area",
-    "relations": "child is blowing bubbles with the bubble wand\nchild is holding the bubble solution container\nbubble wand is connected to the bubble solution container\nchild is in front of the background"
-}

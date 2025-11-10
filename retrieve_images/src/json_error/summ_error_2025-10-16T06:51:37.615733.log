@@ -1,5 +1,0 @@
-{
-    "summary": "A young girl is blowing bubbles on a sunny street. She holds a small container with bubble solution and a wand, creating iridescent bubbles that float around her. She wears a white shirt and a red collar, with her hair tied back. In the background, there are parked cars and a large red balloon. The scene conveys a playful and carefree atmosphere.",
-    "entities": "girl: young, wearing white shirt with red collar, hair tied back\nbubble wand: small, blue\nbubble solution container: small, blue\nbubbles: iridescent, floating\nlarge red balloon: in background\nparked cars: in background\nstreet: sunny",
-    "relations": "girl blowing bubbles with bubble wand\nbubble wand dipped in bubble solution container\nbubbles floating around girl\nlarge red balloon in background\nparked cars in background"
-}

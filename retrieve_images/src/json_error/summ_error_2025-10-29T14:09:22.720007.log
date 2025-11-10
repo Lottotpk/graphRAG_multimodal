@@ -1,4 +1,0 @@
-{
-    "entities": "elderly man: white hair, dark suit, white shirt, patterned tie, medal with red ribbon, star-shaped badge, gold wristwatch\nperson: partially visible, holding a camera\nbackground: blurred, outdoor event, other people present",
-    "relations": "elderly man is clapping\nelderly man is wearing a medal with a red ribbon\nelderly man is wearing a star-shaped badge\nelderly man is wearing a gold wristwatch\nperson is holding a camera in the background\nbackground suggests an outdoor event with other people present"
-}

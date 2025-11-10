@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a yellow shirt, shorts, helmet, harness, and climbing shoes\nrock: large, rugged, with visible cracks and crevices\nrope: attached to the person's harness, extending upwards\nclimbing gear: attached to the person's harness\nright hand: gripping the rock\nleft hand: holding the rope",
-    "relations": "person is climbing on the rock\nperson is using the rope for safety\nperson's right hand is gripping the rock\nperson's left hand is holding the rope\nclimbing gear is attached to the person's harness"
-}

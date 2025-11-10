@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing light-colored shirt and glasses\nmicroscope: placed on wooden surface\nstone wall: in the background\nwhiteboard: in the background",
-    "relations": "man is looking through the microscope\nmicroscope is on the wooden surface\nstone wall is behind the man\nwhiteboard is behind the man"
-}

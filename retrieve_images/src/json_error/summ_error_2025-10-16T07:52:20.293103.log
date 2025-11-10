@@ -1,7 +1,0 @@
-```json
-{
-    "summary": "A young person is climbing a wooden wall with colorful handholds. They are wearing a white shirt, dark shorts, and a helmet for safety. The climber is using both hands and feet to ascend the wall, which is outdoors under a clear blue sky. The scene conveys a sense of adventure and physical activity.",
-    "entities": "climber: young person wearing white shirt, dark shorts, helmet\nwooden wall: vertical structure with colorful handholds\nsky: clear blue background",
-    "relations": "climber is ascending the wooden wall\nclimber is using hands and feet for support\nwooden wall is positioned outdoors under the sky"
-}
-```

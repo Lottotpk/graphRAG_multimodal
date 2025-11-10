@@ -1,5 +1,0 @@
-{
-    "summary": "A man is sitting and clapping, smiling broadly. He is wearing a black jacket and appears to be at an event, possibly a tennis match, as there are posters of tennis players in the background. The atmosphere seems lively and positive.",
-    "entities": "man: wearing a black jacket, smiling, clapping\nposter: tennis players, black and white\nchair: red\nwatch: on the man's wrist",
-    "relations": "man is sitting on the chair\nman is clapping\nman is in front of the poster\nposter is in the background"
-}

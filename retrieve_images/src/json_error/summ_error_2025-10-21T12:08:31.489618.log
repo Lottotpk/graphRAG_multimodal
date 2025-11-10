@@ -1,4 +1,0 @@
-{
-    "entities": "woman: long hair, black top\nATM: white, red top, keypad, card slot\nlighter: green\n-cigarette: held in hand",
-    "relations": "woman is standing in front of ATM\nwoman is holding lighter in one hand\nwoman is holding cigarette in other hand\nATM has keypad and card slot"
-}

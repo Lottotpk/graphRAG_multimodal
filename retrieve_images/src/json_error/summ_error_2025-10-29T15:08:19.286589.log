@@ -1,4 +1,0 @@
-{
-    "entities": "person: writing on whiteboard\nwhiteboard: with text written on it\nfan: on the left side\nstack of books: on a shelf\nshelf: holding books and papers\ncalendar: hanging on the wall above the whiteboard",
-    "relations": "person is writing on the whiteboard\nwhiteboard is on the wall\nfan is to the left of the person\nstack of books is on the shelf\nshelf is below the whiteboard\ncalendar is above the whiteboard"
-}

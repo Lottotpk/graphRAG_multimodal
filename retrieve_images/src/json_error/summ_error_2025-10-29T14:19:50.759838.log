@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a red shirt, smiling, chopping vegetables\nvegetables: chopped, on a plate, on a cutting board\nkitchen: with a sink, dish rack with bottles and containers\nchair: dark colored, person is sitting on it\ncutting board: on a table, person is using it\nplate: white, with chopped vegetables on it",
-    "relations": "person is chopping vegetables on the cutting board\nperson is sitting on the chair\nplate with chopped vegetables is in front of the person\ncutting board is on the table\nkitchen sink and dish rack are in the background"
-}

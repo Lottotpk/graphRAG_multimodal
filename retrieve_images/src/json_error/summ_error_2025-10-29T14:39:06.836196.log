@@ -1,4 +1,0 @@
-{
-    "entities": "girl: young, shoulder-length brown hair, wearing a white shirt with a pink design, light pink cardigan\nviolin: brown, being played by the girl\nbow: held in the girl's right hand, used to play the violin\nwindow: in the background, decorated with string lights\ncurtain: green patterned, on the right side of the image",
-    "relations": "girl is playing the violin\nbow is held by the girl\nviolin is being held by the girl\nwindow is in the background\ncurtain is on the right side of the image"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "rider: young person wearing a helmet and casual clothing\nhorse: brown horse with bridle and saddle\nbarrel: red and white barrel\nfence: wooden fence\nbackground: greenery",
-    "relations": "rider is riding the horse\nhorse is near the barrel\nbarrel is in front of the horse\nfence is in the background\nbackground includes greenery"
-}

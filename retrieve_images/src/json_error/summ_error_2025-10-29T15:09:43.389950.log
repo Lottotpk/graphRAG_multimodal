@@ -1,4 +1,0 @@
-{
-    "entities": "woman: young, wearing a white t-shirt with a Superman logo, denim shorts, sitting cross-legged\nbook: open, being read by the woman\nbackpack: purple, beside the woman\nfield: tall, golden grass\nsky: gradient of blue and orange\n",
-    "relations": "woman is sitting in the field\nwoman is reading the book\nbackpack is beside the woman\nfield is under the sky\n"
-}

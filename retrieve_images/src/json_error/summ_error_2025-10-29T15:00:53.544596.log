@@ -1,4 +1,0 @@
-{
-    "entities": "person: sitting, facing computer monitor, typing on keyboard, wearing brown shirt, blonde hair tied in ponytail\ncomputer monitor: CRT, displaying text\nkeyboard: being used by person\nmouse: on desk\npens: on desk\npapers: on desk\nposters: on wall, advertising album release on June 3rd",
-    "relations": "person is sitting at desk\nperson is facing computer monitor\nperson is typing on keyboard\ncomputer monitor is on desk\nkeyboard is in front of person\nmouse is on desk\npens are on desk\npapers are on desk\nposters are on wall behind person"
-}

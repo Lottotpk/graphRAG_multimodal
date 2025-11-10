@@ -1,5 +1,0 @@
-{
-    "summary": "A person is joyfully jumping on a beach with arms raised high. They are wearing a beige sweatshirt, navy blue pants, and a yellow waistband. The ocean is in the background with gentle waves, and the sky is clear. The overall vibe is one of happiness and freedom.",
-    "entities": "person: wearing beige sweatshirt, navy blue pants, yellow waistband\nocean: gentle waves\nsky: clear",
-    "relations": "person is jumping on the beach\nperson has arms raised high\nocean is in the background\nsky is clear above the ocean"
-}

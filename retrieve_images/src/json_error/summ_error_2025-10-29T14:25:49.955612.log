@@ -1,4 +1,0 @@
-{
-    "entities": "person: male, wearing red shirt, standing\nbicycle: mounted on a stand, being worked on\nworkshop: equipped with tools, organized\npegboard: with wrenches, screwdrivers\nred chair: in the background\nfire extinguisher: in the background\nclock: on the wall\n工具板: 工具, 包括扳手和螺丝刀\n红色椅子: 在背景中\n灭火器: 在背景中\n时钟: 在墙上",
-    "relations": "person is standing next to the bicycle\nbicycle is mounted on a stand\nperson is working on the bicycle\npegboard is on the wall with tools\nred chair is in the background\nfire extinguisher is in the background\nclock is on the wall"
-}

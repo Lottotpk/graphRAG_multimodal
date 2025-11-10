@@ -1,4 +1,0 @@
-{
-    "entities": "person1: wearing a red shirt and a helmet, standing with a bicycle\nperson2: wearing a light-colored shirt and a helmet, standing with a bicycle\nperson3: wearing a gray shirt and a helmet, seated on the ground, working on a bicycle wheel\nbicycle1: being held by person1\nbicycle2: being held by person2\nbicycle wheel: being worked on by person3\nforest: background with trees lining the path",
-    "relations": "person1 is standing with bicycle1\nperson2 is standing with bicycle2\nperson3 is seated on the ground working on a bicycle wheel\nperson1 and person2 are standing in the background\nforest is the background setting"
-}

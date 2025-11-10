@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing beige vest, white shirt, blue jeans, white cap\nwhite plastic chair\nriver\nlarge tree trunk\ngrass",
-    "relations": "person is seated on white plastic chair\nwhite plastic chair is positioned near river\nperson is facing the river\nlarge tree trunk is to the right of the person\ngrass surrounds the person and the chair"
-}

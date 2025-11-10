@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing colorful striped sweater and light-colored pants\nbow: being held by the person\narrow: attached to the bow\nbow: aimed forward\nwooden fence: in the background\nplants: in the garden\n garden hose reel: in the background",
-    "relations": "person is holding the bow\nbow is aimed forward by the person\nperson is standing in front of the wooden fence\nplants are near the wooden fence\n garden hose reel is near the wooden fence"
-}

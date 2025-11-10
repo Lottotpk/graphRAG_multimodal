@@ -1,5 +1,0 @@
-{
-    "summary": "A woman is vacuuming a bright room with large windows. She is wearing a white tank top and striped pajama pants. The room has a potted plant with large leaves near the window and light-colored curtains on one side. The overall vibe is warm and inviting, suggesting a cozy home environment.",
-    "entities": "woman: wearing a white tank top and striped pajama pants\nvacuum cleaner: green and black\npotted plant: with large leaves\nwindow: large with light coming through\ncurtains: light-colored on one side",
-    "relations": "woman is using the vacuum cleaner\nvacuum cleaner is on the floor\npotted plant is near the window\nwindow is letting in light\ncurtains are on the side of the window"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "Person: Wearing a gray hoodie, holding a clipboard, writing on a chalkboard\nChalkboard: Green, with mathematical symbols and equations\nClipboard: Held in the person's left hand\nSign: Attached to the person's back, reads 'Kick Me'\nChalk: In the person's right hand",
-    "relations": "Person is writing on the chalkboard\nPerson is holding a clipboard\nSign is attached to the person's back\nChalkboard has mathematical symbols and equations\nPerson is interacting with the chalkboard using chalk"
-}

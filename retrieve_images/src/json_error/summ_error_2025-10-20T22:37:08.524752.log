@@ -1,5 +1,0 @@
-{
-    "summary": "A person is bending over on a tiled floor, wearing a white hoodie and black pants. They are using yellow rubber gloves, possibly cleaning or picking something up from the floor. A metal bucket is nearby, suggesting they might be engaged in some cleaning activity. The setting appears to be indoors, with a plain wall in the background.",
-    "entities": "person: wearing a white hoodie and black pants\nrubber gloves: yellow\nmetal bucket: nearby on the floor\ntiled floor: the surface the person is on\nplain wall: in the background",
-    "relations": "person is bending over on the tiled floor\nperson is wearing rubber gloves\nmetal bucket is near the person\nplain wall is in the background"
-}

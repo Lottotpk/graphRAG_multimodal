@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing a black sleeveless athletic shirt with yellow accents, black shorts, white running shoes, and a black beanie\nsidewalk: concrete path with grass on the side\nparking meter: metallic structure near the sidewalk\norange traffic cone: small, cone-shaped object on the sidewalk\nperson: walking in the background\nparking lot: area with cars and parking meters\nparking car: vehicle parked near the sidewalk\n",
-    "relations": "man is running on the sidewalk\nparking meter is near the sidewalk\norange traffic cone is on the sidewalk\nperson is walking in the background\nparking car is near the sidewalk\n"
-}

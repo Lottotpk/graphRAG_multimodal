@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing gray t-shirt, rolled-up jeans, sandals\nbow: held by person\narrow: on bow\ngrass: ground surface\n trees: background\n sky: background",
-    "relations": "person is holding bow\narrow is on bow\nperson is aiming\nbow is pointed towards distance\nperson is standing on grass\ntrees are in background\nsky is in background"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "woman: wearing gray shirt and denim overalls\nlaptop: open and on desk\nkeyboard: white, in front of woman\nmonitor: white, on desk\nlamp: on desk, warm light\nvase: with flowers, in background\nflowers: in vase\ndesk: wooden\nwatch: on woman's wrist",
-    "relations": "woman is sitting at the desk\nwoman is working on the laptop\nlaptop is on the desk\nkeyboard is in front of the woman\nmonitor is on the desk\nlamp is on the desk\nlamp is providing warm light\nvase is in the background\nflowers are in the vase\ndesk supports the laptop and lamp\nwoman is wearing a watch"
-}

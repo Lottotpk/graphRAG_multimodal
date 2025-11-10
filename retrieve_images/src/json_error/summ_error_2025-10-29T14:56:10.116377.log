@@ -1,4 +1,0 @@
-{
-    "entities": "woman: wearing red shirt, looking at phone\nbench: several people sitting on it\npeople: seated on benches, engaged in conversation or activities\ntrees: in the background\nlights: illuminating the area\nbuilding: on the left side\nhandbag: beside the woman",
-    "relations": "woman is sitting on the bench\nwoman is looking at her phone\npeople are seated on the bench\nbench is in front of the trees\nlights are illuminating the trees and area\nbuilding is on the left side of the image\nhandbag is beside the woman"
-}

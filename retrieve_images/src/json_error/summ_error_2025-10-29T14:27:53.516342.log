@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing a dark blue long-sleeve shirt, holding a rusted brake disc\nrusted brake disc: being inspected or repaired by the man\nwheel: removed from the car, exposing brake components\ncar: partially visible, with its wheel removed\ngarage: setting suggests maintenance or repair activity",
-    "relations": "man is inspecting the rusted brake disc\nman is holding the rusted brake disc\nwheel is removed from the car\nrusted brake disc is part of the car's brake system\ncar is in a garage setting"
-}

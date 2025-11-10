@@ -1,4 +1,0 @@
-{
-    "entities": "person: young, long hair, black shirt, eyes closed\nviolin: brown, being played\nchair: wooden, in the foreground\nanother person: holding a cello, in the background\ncello: brown, being held\nwindow: large, with natural light\nglobe: blue, near the window\ntable: wooden, in the background",
-    "relations": "person is playing the violin\nviolin is in front of the person\nperson is seated on a chair\nanother person is holding a cello in the background\ncello is behind the person with the violin\nwindow is providing natural light\nglobe is near the window\ntable is in the background"
-}

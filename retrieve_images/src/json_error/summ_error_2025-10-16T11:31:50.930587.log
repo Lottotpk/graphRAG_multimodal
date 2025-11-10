@@ -1,5 +1,0 @@
-{
-    "summary": "A person is standing on a path next to a grassy area with rocks and debris. They are holding a blue umbrella and wearing a white top and denim shorts. The environment appears to be outdoors with greenery around.",
-    "entities": "person: holding a blue umbrella, wearing a white top, wearing denim shorts\numbrella: blue\npath: concrete\ngrass: green\nrocks: scattered\ndebris: present\n",
-    "relations": "person standing on the path\nperson holding the umbrella\numbrella above the person\npath next to grassy area\nrocks and debris near the grassy area\n"
-}

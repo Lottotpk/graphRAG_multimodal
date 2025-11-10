@@ -24,6 +24,7 @@ import torch
 from transformers import AutoModel, AutoTokenizer
 import logging
 from utils.logging_config import setup_logger
+from utils.json_processing import fix_json
 from img_chain_description.prompt_gen_summary import PROMPT, SYSTEM_PROMPT
 NUM_TOPIC = 2
 
@@ -193,6 +194,7 @@ def generate_summary(args):
 
         try:
             # Concatenate along tiles dimension per talk_test.py example
+            gen_cfg['temperature'] = TEMPERATURE
             pixel_values_cat = torch.cat(batch_tensors, dim=0)
             if hasattr(model, 'batch_chat'):
                 responses = model.batch_chat(
@@ -204,23 +206,24 @@ def generate_summary(args):
                 )
                 for pth, resp in zip(batch_paths, responses):
                     records[pth] = {
-                        'description': json.loads(resp.strip("```json")),
+                        'description': json.loads(fix_json(resp)),
                         'error': None
                     }
             else:
                 # Fallback: per-image chat
                 for t, pth in zip(batch_tensors, batch_paths):
-                    try:
-                        resp = model.chat(tokenizer, t, questions[0], gen_cfg)
-                        records[pth] = {
-                            'description': json.loads(resp.strip("```json")),
-                            'error': None
-                        }
-                    except Exception as e:
-                        records[pth] = {
-                            'description': None,
-                            'error': str(e)
-                        }
+                    while True:
+                        try:
+                            resp = model.chat(tokenizer, t, questions[0], gen_cfg)
+                            records[pth] = {
+                                'description': json.loads(fix_json(resp)),
+                                'error': None
+                            }
+                        except Exception as e:
+                            records[pth] = {
+                                'description': None,
+                                'error': str(e)
+                            }
         except Exception as be:
             # Batch failed (e.g., OOM). Fallback to per-image sequential within this batch
             # if VERBOSE:
@@ -230,7 +233,7 @@ def generate_summary(args):
                 try:
                     resp = model.chat(tokenizer, t, f'<image>\n{PROMPT}', gen_cfg)
                     records[pth] = {
-                        'description': json.loads(resp.strip("```json")),
+                        'description': json.loads(fix_json(resp)),
                         'error': None
                     }
                 except Exception as e:
@@ -264,6 +267,7 @@ def _generate_summary(args, model, tokenizer):
     # Because of big data, SLURM will kill the job if it requests too much memory.
     
     images = _collect_images_from_sources(args.img_dir)
+    images = images[args.start_index : min(args.start_index+args.size, len(images))]
     if not images:
         logger.info('No images found from img_dir; nothing to do.')
         return None
@@ -329,7 +333,7 @@ def _generate_summary(args, model, tokenizer):
             t = t.cuda()
         return t
 
-    errors = []
+    errors = {}
     for start_idx in range(0, total, CAPTION_BATCH_SIZE):
         batch = successes[start_idx:start_idx + CAPTION_BATCH_SIZE]
         batch_paths = [p for _, p, _ in batch]
@@ -338,8 +342,10 @@ def _generate_summary(args, model, tokenizer):
 
         questions = [f'<image>\n{PROMPT}' for _ in batch_tensors]
         model.system_message = SYSTEM_PROMPT
+        saved = 0
 
         try:
+            gen_cfg['temperature'] = TEMPERATURE
             # Concatenate along tiles dimension per talk_test.py example
             pixel_values_cat = torch.cat(batch_tensors, dim=0)
             if hasattr(model, 'batch_chat'):
@@ -352,42 +358,55 @@ def _generate_summary(args, model, tokenizer):
                 )
                 for pth, resp in zip(batch_paths, responses):
                     records[pth] = {
-                        'description': json.loads(resp.strip("```json")),
+                        'description': json.loads(fix_json(resp)),
                         'error': None
                     }
+                    saved += 1
             else:
                 # Fallback: per-image chat
-                for t, pth in zip(batch_tensors, batch_paths):
-                    try:
-                        resp = model.chat(tokenizer, t, questions[0], gen_cfg)
-                        records[pth] = {
-                            'description': json.loads(resp.strip("```json")),
-                            'error': None
-                        }
-                    except Exception as e:
-                        records[pth] = {
-                            'description': None,
-                            'error': str(e)
-                        }
-                        errors.append(str(e))
+                for itr, (t, pth) in enumerate(zip(batch_tensors, batch_paths)):
+                    for chance in range(3):
+                        gen_cfg['temperature'] = TEMPERATURE + chance * 0.1
+                        try:
+                            resp = model.chat(tokenizer, t, questions[itr], gen_cfg)
+                            records[pth] = {
+                                'description': json.loads(fix_json(resp)),
+                                'error': None
+                            }
+                            break
+                        except Exception as e:
+                            logger.info(f"Error from per-image at {pth}: {str(e)} remaining {2 - chance} to go")
+                            if chance == 2:
+                                records[pth] = {
+                                    'description': None,
+                                    'error': str(e)
+                                }
+                                errors[pth] = str(e)
         except Exception as be:
             # Batch failed (e.g., OOM). Fallback to per-image sequential within this batch
             # if VERBOSE:
             if args.verbose:
                 logger.info(f'Batch captioning failed, falling back per-image: {be}')
-            for t, pth in zip(batch_tensors, batch_paths):
-                try:
-                    resp = model.chat(tokenizer, t, f'<image>\n{PROMPT}', gen_cfg)
-                    records[pth] = {
-                        'description': json.loads(resp.strip("```json")),
-                        'error': None
-                    }
-                except Exception as e:
-                    records[pth] = {
-                        'description': None,
-                        'error': str(e)
-                    }
-                    errors.append(str(e))
+            for itr, (t, pth) in enumerate(zip(batch_tensors, batch_paths)):
+                if itr < saved:
+                    continue
+                for chance in range(3):
+                    gen_cfg['temperature'] = TEMPERATURE + chance * 0.1
+                    try:
+                        resp = model.chat(tokenizer, t, questions[itr], gen_cfg)
+                        records[pth] = {
+                            'description': json.loads(fix_json(resp)),
+                            'error': None
+                        }
+                        break
+                    except Exception as e:
+                        logger.info(f"Error from per-image at {pth}: {str(e)} remaining {2 - chance} to go")
+                        if chance == 2:
+                            records[pth] = {
+                                'description': None,
+                                'error': str(e)
+                            }
+                            errors[pth] = str(e)
 
     elapsed = time.time() - start
     logger.info(f'Generated {len(records)} descriptions in {elapsed:.2f}s')
@@ -398,7 +417,7 @@ def _generate_summary(args, model, tokenizer):
         'prompt': PROMPT,
         'model_path': MODEL_PATH,
         'records': records,
-        'error': errors if errors else None
+        'error': errors
     }
 
 

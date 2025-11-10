@@ -1,4 +1,0 @@
-{
-    "entities": "child: young, wearing a sleeveless pink top with floral patterns, denim shorts with embroidered flowers, waving with one hand, gentle smile\nbrick wall: background, red bricks\npaved surface: ground, where the child is sitting",
-    "relations": "child is sitting on the paved surface\nchild is in front of the brick wall\nchild is waving with one hand\nchild is smiling"
-}

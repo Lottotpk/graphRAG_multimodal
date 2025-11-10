@@ -24,6 +24,7 @@ import torch
 from transformers import AutoModel, AutoTokenizer
 import logging
 from utils.logging_config import setup_logger
+from utils.json_processing import fix_json
 from img_chain_description.prompt_gen_remaining import ABSTRACT_PROMPT, SYSTEM_PROMPT
 from img_chain_description.img_summary_gen import _generate_summary
 
@@ -59,7 +60,7 @@ IMAGE_SOURCE_PATHS: List[str] = [
 
 # Image summary directory
 # IMAGE_SUMMARY_PATH: str = os.path.join(IMAGE_ONLY_SUMMARY_DIR, "2025-10-12_22-20-48_desc.json")
-LATEST_IMAGE_SUMMARY_PATH: str = os.path.join(IMAGE_ONLY_SUMMARY_DIR, os.listdir(IMAGE_ONLY_SUMMARY_DIR)[-1])
+LATEST_IMAGE_SUMMARY_PATH: str = os.path.join(IMAGE_ONLY_SUMMARY_DIR, os.listdir(IMAGE_ONLY_SUMMARY_DIR)[-1]) if os.listdir(IMAGE_ONLY_SUMMARY_DIR) else None
 
 
 # Prompt written at the top of the output JSON and used for generation
@@ -74,6 +75,8 @@ TOP_P: float = 0.9
 # Caption batch size (GPU batch for chat). Defaults to config.BATCH_SIZE
 # Increase to better utilize GPU memory; decrease if you hit OOM.
 CAPTION_BATCH_SIZE: int = 3
+# Trial and error
+TRIAL = 7
 
 
 def _load_model():
@@ -217,7 +220,7 @@ def generate_summary(args):
                     generation_config=gen_cfg
                 )
                 for pth, resp in zip(batch_paths, responses):
-                    remaining = json.loads(resp.strip("```json"))
+                    remaining = json.loads(fix_json(resp))
                     records.append({
                         'image_path': pth,
                         'description': dict(summary[pth]["description"], **remaining),
@@ -228,7 +231,7 @@ def generate_summary(args):
                 for t, pth in zip(batch_tensors, batch_paths):
                     try:
                         resp = model.chat(tokenizer, t, questions[0], gen_cfg)
-                        remaining = json.loads(resp.strip("```json"))
+                        remaining = json.loads(fix_json(resp))
                         records.append({
                             'image_path': pth,
                             'description': dict(summary[pth]["description"], **remaining),
@@ -250,7 +253,7 @@ def generate_summary(args):
                     resp = model.chat(tokenizer, t, f'<image>\n{ABSTRACT_PROMPT(summary[pth]["description"]["summary"])}', gen_cfg)
                     with open(f"json_error/summ_error_{datetime.now().isoformat()}.log", "a") as wfile:
                         wfile.write(str(resp) + '\n')
-                    remaining = json.loads(resp.strip("```json"))
+                    remaining = json.loads(fix_json(resp))
                     records.append({
                         'image_path': pth,
                         'description': dict(summary[pth]["description"], **remaining),
@@ -286,6 +289,7 @@ def _generate_remaining(args, model, tokenizer, summary = None):
     # TODO: Improve scalability (see 2 previous files, do the same)
 
     images = _collect_images_from_sources(args.img_dir)
+    images = images[args.start_index : min(args.start_index+args.size, len(images))]
     if not images:
         logger.info('No images found from IMAGE_SOURCE_PATHS; nothing to do.')
         return None
@@ -359,7 +363,7 @@ def _generate_remaining(args, model, tokenizer, summary = None):
             t = t.cuda()
         return t
     
-    errors = []
+    errors = {}
     for start_idx in range(0, total, CAPTION_BATCH_SIZE):
         batch = successes[start_idx:start_idx + CAPTION_BATCH_SIZE]
         batch_paths = [p for _, p, _ in batch]
@@ -368,10 +372,11 @@ def _generate_remaining(args, model, tokenizer, summary = None):
 
         questions = [f'<image>\n{ABSTRACT_PROMPT(summary[path]["description"]["summary"])}' for path in batch_paths]
         model.system_message = SYSTEM_PROMPT
-        record = []
+        saved = 0
 
         try:
             # Concatenate along tiles dimension per talk_test.py example
+            gen_cfg['temperature'] = TEMPERATURE
             pixel_values_cat = torch.cat(batch_tensors, dim=0)
             if hasattr(model, 'batch_chat'):
                 responses = model.batch_chat(
@@ -382,66 +387,69 @@ def _generate_remaining(args, model, tokenizer, summary = None):
                     generation_config=gen_cfg
                 )
                 for pth, resp in zip(batch_paths, responses):
-                    desc = resp.strip("```json")
-                    begin = desc.find("{")
-                    remaining = json.loads(desc[begin:])
-                    record.append({
+                    remaining = json.loads(fix_json(resp))
+                    records.append({
                         'image_path': pth,
                         'description': dict(summary[pth]["description"], **remaining),
                         'error': None
                     })
+                    saved += 1
             else:
                 # Fallback: per-image chat
-                idx = 0
-                for t, pth in zip(batch_tensors, batch_paths):
-                    try:
-                        resp = model.chat(tokenizer, t, questions[idx], gen_cfg)
-                        desc = resp.strip("```json")
-                        begin = desc.find("{")
-                        remaining = json.loads(desc[begin:])
-                        record.append({
-                            'image_path': pth,
-                            'description': dict(summary[pth]["description"], **remaining),
-                            'error': None
-                        })
-                    except Exception as e:
-                        record.append({
-                            'image_path': pth,
-                            'description': None,
-                            'error': str(e)
-                        })
-                        errors.append(str(e))
-                        logger.info(f"Description: None at {pth}: {str(e)} from {resp.strip("```json")}")
-                    idx += 1
+                for itr, (t, pth) in enumerate(zip(batch_tensors, batch_paths)):
+                    for chance in range(TRIAL):
+                        gen_cfg['temperature'] = TEMPERATURE + chance * 0.1
+                        try:
+                            resp = model.chat(tokenizer, t, questions[itr], gen_cfg)
+                            remaining = json.loads(fix_json(resp))
+                            records.append({
+                                'image_path': pth,
+                                'description': dict(summary[pth]["description"], **remaining),
+                                'error': None
+                            })
+                            break
+                        except Exception as e:
+                            logger.info(f"Error from per-image at {pth}: {str(e)} remaining {TRIAL - 1 - chance} to go")
+                            if chance == TRIAL - 1:
+                                records.append({
+                                    'image_path': pth,
+                                    'description': None,
+                                    'error': str(e)
+                                })
+                                errors[pth] = str(e)
+                                logger.info(f"Description: None at {pth}: {str(e)} from {fix_json(resp)}")
 
         except Exception as be:
             # Batch failed (e.g., OOM). Fallback to per-image sequential within this batch
             # if VERBOSE:
             if args.verbose:
                 logger.info(f'Batch captioning failed, falling back per-image: {be}')
-            record.clear()
-            for t, pth in zip(batch_tensors, batch_paths):
-                try:
-                    resp = model.chat(tokenizer, t, f'<image>\n{ABSTRACT_PROMPT(summary[pth]["description"]["summary"])}', gen_cfg)
-                    with open(f"json_error/summ_error_{datetime.now().isoformat()}.log", "a") as wfile:
-                        wfile.write(str(resp) + '\n')
-                    desc = resp.strip("```json")
-                    begin = desc.find("{")
-                    remaining = json.loads(desc[begin:])
-                    record.append({
-                        'image_path': pth,
-                        'description': dict(summary[pth]["description"], **remaining),
-                        'error': None
-                    })
-                except Exception as e:
-                    record.append({
-                        'image_path': pth,
-                        'description': None,
-                        'error': str(e)
-                    })
-                    errors.append(str(e))
-                    logger.info(f"Description: None at {pth}: {str(e)} from {resp.strip("```json")}")
-        records.extend(record)
+            for itr, (t, pth) in enumerate(zip(batch_tensors, batch_paths)):
+                if itr < saved:
+                    continue
+                for chance in range(TRIAL):
+                    gen_cfg['temperature'] = TEMPERATURE + chance * 0.1
+                    try:
+                        resp = model.chat(tokenizer, t, questions[itr], gen_cfg)
+                        with open(f"json_error/summ_error_{datetime.now().isoformat()}.log", "a") as wfile:
+                            wfile.write(str(resp) + '\n')
+                        remaining = json.loads(fix_json(resp))
+                        records.append({
+                            'image_path': pth,
+                            'description': dict(summary[pth]["description"], **remaining),
+                            'error': None
+                        })
+                        break
+                    except Exception as e:
+                        logger.info(f"Error from per-image at {pth}: {str(e)} remaining {TRIAL - 1 - chance} to go")
+                        if chance == TRIAL - 1:
+                            records.append({
+                                'image_path': pth,
+                                'description': None,
+                                'error': str(e)
+                            })
+                            errors[pth] = str(e)
+                            logger.info(f"Description: None at {pth}: {str(e)} from {fix_json(resp)}")
 
     elapsed = time.time() - start
     logger.info(f'Generated {len(records)} descriptions in {elapsed:.2f}s')
@@ -452,7 +460,7 @@ def _generate_remaining(args, model, tokenizer, summary = None):
         'prompt': PROMPT,
         'model_path': MODEL_PATH,
         'records': records,
-        'error': errors if errors else None
+        'error': errors
     }
 
 

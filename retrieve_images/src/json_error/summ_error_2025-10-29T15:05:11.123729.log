@@ -1,4 +1,0 @@
-{
-    "entities": "child: sitting on the floor, wearing a green sweater\nTV: displaying two people in costumes, placed on a white shelf\nyellow storage bins: three bins under the TV shelf\nshelf: white, holding the TV and storage bins\ncarpeted floor: textured, covering the floor",
-    "relations": "child is watching the TV\nTV is placed on the shelf\nstorage bins are under the shelf\nTV is displaying two people in costumes\nchild is sitting on the carpeted floor"
-}

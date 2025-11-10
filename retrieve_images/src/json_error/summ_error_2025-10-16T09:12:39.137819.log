@@ -1,5 +1,0 @@
-{
-    "summary": "A young child is standing in a park, holding a camera and looking through the viewfinder. The child is wearing a striped shirt and yellow shorts. Beside the child is a black and white dog on a red leash, looking away. To the right, there is a black stroller. The scene is set in a grassy area with trees and bushes in the background, creating a peaceful outdoor atmosphere.",
-    "entities": "child: wearing a striped shirt and yellow shorts\nblack and white dog: on a red leash\nblack stroller: to the right\ngrass: ground surface\n棵树: background element\nbushes: background element",
-    "relations": "child is holding a camera and looking through the viewfinder\nchild is standing next to the dog\nblack and white dog is on a red leash\nblack stroller is to the right of the child\ngrass is the ground surface\n树 is in the background\nbushes are in the background"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a blue jacket, carrying a blue backpack, wearing brown pants\nhorse: brown\nobject: small object in person's hand\nbackground: greenery, bushes",
-    "relations": "person is feeding the horse with a small object\nperson and horse are interacting closely\nperson is standing outdoors with greenery and bushes in the background"
-}

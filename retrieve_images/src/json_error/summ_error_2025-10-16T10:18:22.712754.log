@@ -1,5 +1,0 @@
-{
-    "summary": "A young boy is kneeling on the grass, focused on repairing a bicycle. The bike is lying on its side, with one wheel detached and the boy working on the spokes. The setting is outdoors in a sunny, grassy area, giving a calm and serene vibe.",
-    "entities": "boy: young, kneeling, focused\nbicycle: lying on its side, one wheel detached\nwheel: detached, being worked on by the boy\ngrass: green, outdoors\nsun: shining, sunny setting",
-    "relations": "boy is repairing the bicycle\nbicycle is lying on its side\nwheel is detached from the bicycle\nboy is kneeling on the grass\nsun is shining on the grassy area"
-}

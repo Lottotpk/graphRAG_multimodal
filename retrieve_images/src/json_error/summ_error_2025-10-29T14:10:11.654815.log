@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing blue shirt and tie\nbanquet hall: with round tables covered in white tablecloths\nwine glasses: on tables\nfloral centerpieces: on tables\nlarge windows: revealing a view of a body of water and greenery outside\npeople: mingling near a bar\nbar: stocked with bottles",
-    "relations": "man is standing in the banquet hall\nman is clapping his hands\nbanquet hall has round tables with white tablecloths\nwine glasses are on the tables\nfloral centerpieces are on the tables\nlarge windows are revealing a view of a body of water and greenery outside\npeople are mingling near the bar\nbar is stocked with bottles"
-}

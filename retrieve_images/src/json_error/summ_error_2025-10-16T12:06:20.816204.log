@@ -1,5 +1,0 @@
-{
-    "summary": "A person is captured mid-air, performing a jump with one leg extended and arms reaching upwards. They are wearing a hat, a striped top, and light-colored pants. The background features a clear blue sky and some grass at the bottom, suggesting an outdoor setting. The image conveys a sense of freedom and joy.",
-    "entities": "person: wearing a hat, striped top, light-colored pants\nleg: extended\narms: reaching upwards\nsky: clear blue\ngrass: at the bottom",
-    "relations": "person is jumping\nperson is against the sky\ngrass is at the bottom of the image"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing gray t-shirt with 'CHAMPIONS' logo, white shorts, yellow gloves, white sneakers, sunglasses\nchainsaw: black and silver\nlog: large tree stump\ngrass: green\nhouses: residential background\nstreet: residential background",
-    "relations": "man is standing on the log\nman is holding the chainsaw\nman is wearing sunglasses\nlog is on the grass\nhouses are in the background\nstreet is in the background"
-}

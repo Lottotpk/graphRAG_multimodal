@@ -1,4 +1,0 @@
-{
-    "entities": "person: young, wearing beige shirt, blue checkered pants\nbook: red and white floral cover\nchair: wooden\nplant: large green\nwall: blue",
-    "relations": "person is sitting on chair\nperson is reading book\nbook is held by person\nperson is in front of plant\nplant is against wall"
-}

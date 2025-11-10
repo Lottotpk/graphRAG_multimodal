@@ -1,4 +1,0 @@
-{
-    "entities": "older man: seated, typing on keyboard, wearing light-colored sweater\nyounger woman: seated beside older man, observing, wearing light-colored sweater\ncomputer monitor: displaying email interface, placed on desk\nkeyboard: being used by older man\ncomputer tower: placed on desk, next to monitor\nprinter: placed on desk, behind monitor\nboxes: stacked in background, indicating possible move or storage\nsign: on wall, reads 'Shut Down PC Windows Key, U, U'\noffice supplies: on desk, near computer tower",
-    "relations": "older man is seated at the desk\nyounger woman is seated beside the older man\nolder man is typing on the keyboard\nkeyboard is connected to the computer monitor\ncomputer tower is next to the computer monitor\nprinter is behind the computer monitor\nboxes are stacked in the background\nsign is on the wall\noffice supplies are on the desk"
-}

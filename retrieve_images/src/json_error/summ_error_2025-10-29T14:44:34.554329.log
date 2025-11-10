@@ -1,4 +1,0 @@
-{
-    "entities": "child on the left: wearing a gray sweater, dark hair in a braid\nchild on the right: wearing a light blue sweater with a graphic design, glasses\nbook: colorful, open\nred couch: children are sitting on\nchildren's artwork: hanging on the wall\nyellow bucket: nearby",
-    "relations": "children are sitting on the red couch\nchildren are reading books\nchildren's artwork is hanging on the wall\nyellow bucket is nearby"
-}

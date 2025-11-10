@@ -1,4 +1,0 @@
-{
-    "entities": "adult: man wearing white shirt and black shorts\nadult: woman wearing blue shirt and blue shorts\nchild: standing near a building\nsmall dog: walking on the dirt path\nbuilding: with clothes hanging on a line\npath: dirt path\nplants: surrounding the area",
-    "relations": "adults walking down the path\nchild observing near the building\nsmall dog walking on the path\nbuilding with clothes hanging in the background\nplants surrounding the path"
-}

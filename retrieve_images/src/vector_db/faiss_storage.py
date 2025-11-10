@@ -355,7 +355,59 @@ class FAISSEmbeddingDatabase:
             sim_result = max_row.sum()
             similarity_scores.append(sim_result)
 
-        # Report top 5 candidates
+        # Report top k candidates
+        result = torch.topk(torch.Tensor(similarity_scores), k)
+        return result.values, [candidate_img[i] for i in result.indices]
+
+    def search_hierarchy(self, query_embedding: List[np.ndarray], weight: List[float], k: int = 5) -> Tuple[List[float], List[str]]:
+
+        if self.index.ntotal == 0:
+            return [], []
+        for i in range(len(query_embedding)):
+            if query_embedding[i].ndim == 1:
+                query_embedding[i] = query_embedding[i].reshape(1, -1).astype('float32') # faiss.normalize_L2 does not receive (D,)
+            faiss.normalize_L2(query_embedding[i])
+        
+        # 2 dimensional vector on query_embedding only
+        ndim = query_embedding[0].shape[1]
+        print(ndim)
+
+        candidate_img = set()
+        for i in range(len(query_embedding)):
+            for j in range(len(query_embedding[i])):
+                _, ids = self.search_similar(query_embedding[i][j], k=k)
+                for emb_id in ids:
+                    candidate_img.add(self.metadata[emb_id]['image_path'])
+        candidate_img = list(candidate_img)
+        logger.info(f"ColBERT searching: Found {len(candidate_img)} candidate image(s) from {(k)*sum([len(x) for x in query_embedding])} searches.")
+
+        # Combine the corresponding vector from the metadata
+        all_candidates = []
+        for target_img in candidate_img:
+            flag = False # Start appending vector flag since the same img will be cluster in one range only.
+            components = ['summary', 'entities', 'relations', 'abstract']
+            candidate_embedding = [np.empty((0, ndim)), np.empty((0, ndim)), np.empty((0, ndim)), np.empty((0, ndim))] # [summary, entities, relations, abstract]
+            for _, val in self.metadata.items():
+                if val['image_path'] == target_img:
+                    idx = components.index(val['type'])
+                    candidate_embedding[idx] = np.append(candidate_embedding[idx], self.index.reconstruct_n(val['index_position'], 1), axis=0)
+                    flag |= True
+                elif val['image_path'] != target_img and flag:
+                    break
+            all_candidates.append(candidate_embedding)
+
+        # Compute MaxSim
+        similarity_scores = []
+        for candidate in all_candidates:
+            total_score = []
+            for i in range(len(candidate)):
+                scores = np.matmul(query_embedding[i], candidate[i].T)
+                max_row = scores.max(axis=1)
+                total_score.append(max_row.sum() * weight[i])
+            # May adjust scoring here. Note: [summary, entities, relations, abstract]
+            similarity_scores.append(sum(total_score))
+
+        # Report top k candidates
         result = torch.topk(torch.Tensor(similarity_scores), k)
         return result.values, [candidate_img[i] for i in result.indices]
     

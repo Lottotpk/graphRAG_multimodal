@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a red and green jacket with 'SURFS' written on the back, black pants, white socks\nstone wall: with two signs attached\nblue sign: reads 'VERBODEN OP DE MUUR TE KLIMMEN'\nwhite sign: with a red cross, reads 'EHBO aan ontval Sportoase'",
-    "relations": "person is climbing the stone wall\nblue sign is attached to the stone wall\nwhite sign is attached to the stone wall\nperson is ignoring the blue sign"
-}

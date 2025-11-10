@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing pink shirt and black pants\numbrella: pink with white patterns\nbackground people: holding umbrellas\nred building: visible in the background\nwet street: indicating rain",
-    "relations": "person is holding the umbrella\nperson is standing on the wet street\nbackground people are near the person with the umbrella\nred building is in the background\numbrella is open above the person"
-}

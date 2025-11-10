@@ -1,4 +1,0 @@
-{
-    "entities": "Person 1: Male, resting head on hand, smiling\nPerson 2: Female, arm around Person 1, smiling\nLaptop: Open, on table\nTable: Dark, rectangular\nCouch: Light-colored, with armrests\nPainting: Abstract, on wall\nBackground: Bright, modern living room",
-    "relations": "Person 1 and Person 2 are sitting on the couch\nPerson 1 and Person 2 are looking at the laptop\nPerson 2 has their arm around Person 1\nLaptop is on the table\nTable is in front of the couch\nPainting is on the wall in the background\nLiving room is bright and modern"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "Person: Wearing a red helmet, high-visibility vest, and dark clothing. Riding a Segway. Waving hand.\nSegway: Black with a visible front display.\nHigh-visibility vest: Bright yellow with reflective strips.\nRed helmet: Worn by the person.\nBackground people: Some on bicycles, others walking.\nCar: Parked on the right side of the path.\nWaterfront: Visible in the background with boats and a bridge.\nHills: In the distant background.\nBridge: Visible in the distance across the water.",
-    "relations": "Person is riding the Segway on a paved path.\nPerson is waving their hand.\nSegway is on the paved path near the waterfront.\nBackground people are near the waterfront, some on bicycles.\nCar is parked on the right side of the path.\nWaterfront is in the background with boats and a bridge.\nHills are visible in the distant background.\nBridge is visible across the water in the distance."
-}

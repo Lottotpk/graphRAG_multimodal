@@ -1,4 +1,0 @@
-{
-    "entities": "student: wearing a white shirt with 'VIET' on the back\nchalkboard: contains handwritten Vietnamese text\nchalk: on the board's ledge\nyellow wall: in the background",
-    "relations": "student is writing on the chalkboard\nchalk is placed on the chalkboard's ledge\nchalkboard is mounted on the yellow wall"
-}

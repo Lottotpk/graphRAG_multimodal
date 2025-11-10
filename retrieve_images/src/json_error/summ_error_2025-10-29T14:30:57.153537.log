@@ -1,4 +1,0 @@
-{
-    "entities": "child: young, curly hair, wearing light blue hoodie with monkey graphic, black pants\numbrella: transparent with blue stripes\nhouse: green exterior, visible window, parked car in driveway\nlawn: green, wet\nsidewalk: wet",
-    "relations": "child is holding umbrella\numbrella is open\nchild is standing on sidewalk\nhouse is in background\nlawn is beside sidewalk\nparked car is near house"
-}

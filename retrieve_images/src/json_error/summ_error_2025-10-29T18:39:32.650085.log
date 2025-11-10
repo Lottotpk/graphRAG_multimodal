@@ -1,4 +1,0 @@
-{
-    "entities": "woman: long dark hair, smiling, wearing a light blue jacket over a white top\npitcher: pouring orange juice\norange juice: being poured into a glass\nkitchen: white cabinets, wooden shelves with various kitchen items\nwhite cabinets: in the background\nwooden shelves: in the background with various kitchen items",
-    "relations": "woman is pouring orange juice from the pitcher into a glass\nwoman is smiling\npitcher is being held by the woman\norange juice is in the pitcher\nkitchen has white cabinets\nkitchen has wooden shelves with various kitchen items\nwoman is in the kitchen"
-}

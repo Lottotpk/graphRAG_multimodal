@@ -1,4 +1,0 @@
-{
-    "entities": "jockey: wearing white attire and a white helmet\nhorse: brown racehorse with a red bridle marked 'RC'\ndirt track: surface being galloped on",
-    "relations": "jockey riding horse\nhorse galloping on dirt track\njockey holding reins"
-}

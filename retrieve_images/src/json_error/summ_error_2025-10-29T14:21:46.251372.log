@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing a beanie and a light blue shirt, drinking from a paper cup\nwoman: wearing a green jacket, holding a bag\numbrellas: blue and black\nbridge: visible in the distance\npeople: several in the background, some holding umbrellas\nsteps: in the foreground\nbaby stroller: in the background",
-    "relations": "man is drinking from a paper cup\nwoman is standing beside the man\numbrellas are being held by people in the background\nbridge is visible in the distance\nsteps are in the foreground\nbaby stroller is in the background"
-}

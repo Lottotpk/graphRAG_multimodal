@@ -1,4 +1,0 @@
-{
-    "entities": "woman: red hair tied back, wearing sunglasses on head, name tag reading 'Petals Potters', holding smartphone\nperson: wearing blue shirt, arms crossed\nhallway: indoor setting, warm lighting, framed pictures on walls",
-    "relations": "woman is looking at her smartphone\nwoman is standing in the hallway\nperson is standing in the background\nhallway has warm lighting and framed pictures"
-}

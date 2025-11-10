@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing dark jacket and white pants\nbeach: sandy\nocean: with waves\nmountain: in the background\nsky: overcast",
-    "relations": "person is jogging on the beach\nbeach is adjacent to the ocean\nmountain is in the background\nsky is overcast above the scene"
-}

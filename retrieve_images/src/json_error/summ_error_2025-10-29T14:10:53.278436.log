@@ -1,4 +1,0 @@
-{
-    "entities": "boy: young, wearing a pink hoodie\nbubble solution bottle: green\nbubble wand: yellow\nbubbles: colorful\nfoliage: green, background",
-    "relations": "boy is holding bubble solution bottle\nboy is blowing bubbles through bubble wand\nbubbles are floating around boy\nfoliage is in the background"
-}

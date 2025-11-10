@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing a bright yellow Adidas tank top and a black cap\nrace bib: attached to the man's shirt\nbicycle: in the background\npeople: walking in the background\nbuilding: in the background\nstreet: where the man is running",
-    "relations": "man is running on the street\nrace bib is attached to the man's shirt\nbicycle is in the background\npeople are walking in the background\nbuilding is in the background"
-}

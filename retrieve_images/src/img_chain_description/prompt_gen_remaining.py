@@ -17,9 +17,10 @@ def ABSTRACT_PROMPT(img_sum: str) -> str:
     - Consider the Subject Placement, Object Placement, Inter-Subject & Inter-Object relations, Background Elements, Gaze & Interaction, Composition & Lightning of an image.
 
     The output format should be in JSON format, remember, just plain JSON text, no markdown.
+    Output Schema:
     {
-        "entities": "(the format should be \'entity: details\' separated by \'\\n\')",
-        "relations": "(the format should be \'relation description\' separated by \'\\n\')",
+        "entities": "string (required, formatted as 'entity: details' separated by '\\n')",
+        "relations": "string (required, formatted as 'relation description' separated by '\\n')"
     }
 
     Validation Checklist (must pass before you output)
@@ -29,7 +30,8 @@ def ABSTRACT_PROMPT(img_sum: str) -> str:
     - Each relation truly shows connections between objects; no number. They are separated clearly with \'\\n\'.
     - Relation must be a single phrase of relation description.
     - Entities and relations can be found from the Query image; No making up the answer
-    - Strict to the output format; output only JSON format; no thinking part
+    - Output only valid JSON text — no Markdown, no explanations, no extra characters, no thinking part.
+    - Your output must pass json.loads() in Python without errors.
 """ % (img_sum)
 
 SYSTEM_PROMPT: str = """

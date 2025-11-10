@@ -1,4 +1,0 @@
-{
-    "entities": "man1: wearing a beige jacket, dark pants, focused on the engine\nman2: wearing a brown jacket, dark pants, focused on the engine\ncar: hood open, engine visible\n工具: various tools scattered on the engine compartment\n容器: various containers scattered on the engine compartment\n背景: outdoor setting, possibly rural",
-    "relations": "man1 and man2 are working together on the car engine\nman1 is using a tool on the engine\nman2 is inspecting the engine\n工具 and 容器 are placed on the engine compartment\n背景 indicates an outdoor setting"
-}

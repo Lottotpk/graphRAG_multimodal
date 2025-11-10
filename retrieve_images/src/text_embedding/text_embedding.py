@@ -95,7 +95,8 @@ def main(args):
         with open(LATEST_IMAGE_ALL_PATH, 'r') as f:
             payload = json.load(f)
     else:
-        with open(args.descriptions, 'r') as f:
+        with open(args.input, 'r') as f:
+            logger.info(f"Loading generated text from {args.input}")
             payload = json.load(f)
 
     # Collect valid texts and metadata

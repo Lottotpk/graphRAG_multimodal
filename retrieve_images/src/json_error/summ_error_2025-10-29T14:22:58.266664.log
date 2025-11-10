@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing light blue shirt, with a backpack, reaching out hand\nchain-link fence: separating person and goat\ngrass: in the background\nbuilding: in the distance\ngoat: reaching through fence to eat food\n",
-    "relations": "person is feeding the goat through the chain-link fence\nchain-link fence separates the person and the goat\ngrass is in the background behind the chain-link fence\nbuilding is in the distance behind the chain-link fence\nperson is interacting with the goat\n"
-}

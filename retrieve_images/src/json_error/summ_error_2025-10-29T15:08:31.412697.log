@@ -1,4 +1,0 @@
-{
-    "entities": "person: individual with long hair, wearing a gray jacket and blue pants\nscreen: large display showing a map of the world with various colored regions\nposters: numerous small posters or images arranged on the walls\nroom: classroom or learning environment\ncomputer: partially visible on the right side of the image",
-    "relations": "person is pointing at the screen\nperson is standing in front of the screen\nposters are on the walls of the room\nscreen is displaying a map\ncomputer is on a desk near the screen"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing colorful striped shirt, red shorts, black cap with white logo\nboat: single scull\noars: with pink and yellow accents\nwater: calm",
-    "relations": "person is rowing the boat\nboat is on the water\nperson is holding the oars\noars are attached to the boat"
-}

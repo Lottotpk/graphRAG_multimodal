@@ -1,5 +1,0 @@
-{
-    "summary": "A woman is mopping the floor in a kitchen. She is wearing a light-colored pajama set with a floral pattern and gray slippers. The kitchen has white cabinets and a wooden countertop. The woman is smiling and holding a mop and a cloth, creating a casual and cheerful atmosphere.",
-    "entities": "woman: wearing light-colored pajama set with floral pattern, gray slippers\nmop: blue handle, cleaning cloth attached\nkitchen: white cabinets, wooden countertop\nwhite cloth: on the floor near the mop",
-    "relations": "woman is holding the mop\nwoman is standing on the kitchen floor\nwoman is smiling\nmop is on the kitchen floor\nwhite cloth is near the mop"
-}

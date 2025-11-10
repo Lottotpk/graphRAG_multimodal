@@ -1,4 +1,0 @@
-{
-    "entities": "child on the left: wearing a white shirt with 'CHEER' printed on it, waving\nchild on the right: wearing a white shirt with 'CHEER' printed on it, hands on hips\ntrack field: with distance markings\ngrass field: with white and blue markings\nblue and green mat: on the ground",
-    "relations": "child on the left is standing on the track field\nchild on the right is standing on the track field\nchild on the left is waving\nchild on the right has hands on hips\ntrack field is in front of the grass field\nblue and green mat is on the track field"
-}

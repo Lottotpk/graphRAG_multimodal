@@ -1,4 +1,0 @@
-{
-    "entities": "woman: wearing green shirt and white apron\nchild: wearing white shirt and red apron, chef's hat\npurple cabbage: on wooden cutting board\nred peppers: on counter\nwooden cutting board: on counter\nchopsticks: held by child\nkitchen utensils: hanging on wall\nshelf: with jars and kitchen items",
-    "relations": "woman cutting purple cabbage\nchild watching woman\nchild holding chopsticks\npurple cabbage on wooden cutting board\nred peppers on counter\nwoman and child near kitchen utensils\nkitchen utensils hanging on wall\nshelf with jars and kitchen items in background"
-}

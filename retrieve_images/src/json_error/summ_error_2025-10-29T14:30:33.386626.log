@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a black top with red accents and a red plaid skirt\numbrella: plaid pattern\nfence: in the background\nwater: flooding up to the person's knees\nbackground: greenery",
-    "relations": "person is holding the umbrella\nperson is standing in the water\nfence is in the background\nbackground shows greenery"
-}

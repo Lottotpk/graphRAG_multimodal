@@ -18,6 +18,7 @@ from config import MODEL_PATH, DEVICE_MAP, TORCH_DTYPE, TEXT_DATABASE_BASE_DIR, 
 from retrieval.prompt import ABSTRACT_PROMPT, SUMMARY_PROMPT, SYSTEM_PROMPT, SUMMARY, ENTITY, RELATION
 
 from utils.logging_config import setup_logger
+from utils.json_processing import fix_json
 
 setup_logger()
 logger = logging.getLogger(__name__)
@@ -132,12 +133,6 @@ def load_benchmark(filename: str, ds_name: str) -> Tuple[List[str], List[str], i
     return questions, answers, ds["total_questions"]
 
 
-def fixed_json(msg: str) -> str:
-    msg = msg.strip("```json")
-    begin = msg.find("{")
-    return msg[begin:]
-
-
 def process_query(model, tokenizer, queries: List[str], verbose: bool = False) -> List[str]:
     ensure_prompt_description_dir()
     prompts = []
@@ -154,7 +149,7 @@ def process_query(model, tokenizer, queries: List[str], verbose: bool = False) -
         while True:
             try:
                 summary = describe_single(model, tokenizer, SUMMARY_PROMPT(query), "summary", TEMPERATURE + loop * 0.1, verbose)
-                summary = json.loads(fixed_json(summary))
+                summary = json.loads(fix_json(summary))
                 loop = 0
             except JSONDecodeError as e:
                 logger.info(f"Summary - Error at index {i}: {e}, Trying again... ({2 - loop} times left)")
@@ -166,13 +161,13 @@ def process_query(model, tokenizer, queries: List[str], verbose: bool = False) -
                     try:
                         records = []
                         record = describe_single(model, tokenizer, SUMMARY(query), topic, verbose)
-                        records.append(json.loads(fixed_json(record)))
+                        records.append(json.loads(fix_json(record)))
                         topic = "entity"
                         record = describe_single(model, tokenizer, ENTITY(query), topic, verbose)
-                        records.append(json.loads(fixed_json(record)))
+                        records.append(json.loads(fix_json(record)))
                         topic = "relation"
                         record = describe_single(model, tokenizer, RELATION(query), topic, verbose)
-                        records.append(json.loads(fixed_json(record)))
+                        records.append(json.loads(fix_json(record)))
                         summary = {key: val for record in records for key, val in record.items()}
                         loop = 0
                     except JSONDecodeError as e:
@@ -183,7 +178,7 @@ def process_query(model, tokenizer, queries: List[str], verbose: bool = False) -
                     continue
             try:
                 abstract = describe_single(model, tokenizer, ABSTRACT_PROMPT(range(8), query), "abstract", TEMPERATURE + loop * 0.1, verbose)
-                abstract = json.loads(fixed_json(abstract))
+                abstract = json.loads(fix_json(abstract))
                 loop = 0
             except JSONDecodeError as e:
                 logger.info(f"Abstract - Error at index {i}: {e}, Trying again... ({2 - loop} times left)")
@@ -195,7 +190,7 @@ def process_query(model, tokenizer, queries: List[str], verbose: bool = False) -
                         records = []
                         for j in range(0, 8, NUM_TOPIC):
                             record = describe_single(model, tokenizer, ABSTRACT_PROMPT(range(j, min(j + NUM_TOPIC, 8)), query), "abstract", verbose)
-                            records.append(json.loads(fixed_json(record)))
+                            records.append(json.loads(fix_json(record)))
                         abstract = {key: val for record in records for key, val in record.items()}
                         loop = 0
                     except JSONDecodeError as e:
@@ -245,6 +240,8 @@ def main(args):
     # Format the query
     if not args.fprompt:
         prompt = process_query(model, tokenizer, query, args.verbose)
+    elif args.fprompt == "raw":
+        prompt = query
     else:
         with open(args.fprompt, "r") as f:
             data = json.load(f)
@@ -263,9 +260,10 @@ def main(args):
     )
 
     # Embed the query and search using ColBERT
-    k = 10
+    k = 20
     batch_size = 16
     embeddings = []
+    start_time = time.time()
     for i in range(0, total, batch_size):
         batch_texts = prompt[i:i+batch_size]
         embedding, _ = embedder.embed(batch_texts, args.strategy)
@@ -307,16 +305,30 @@ def main(args):
         else:
             qa["result"] = result
         results.append(qa)
+    elapse = time.time() - start_time
+    if args.verbose:
+        logging.info(f"Elapsed time: {elapse}s")
 
     ensure_retrieval_result_dir()
     filename = get_description_filename(prompt_slug='search_re')
     out_path = get_description_path(filename, "result")
     if args.benchmark:
+        recall = {
+            "Recall@1": rankings[0] / total,
+            "Recall@3": sum(rankings[0: 3]) / total,
+            "Recall@5": sum(rankings[0: 5]) / total,
+            "Recall@10": sum(rankings[0: 10]) / total,
+            "Recall@15": sum(rankings[0: 15]) / total,
+            "Recall@20": sum(rankings[0: 20]) / total
+        }
         payload = {
         'created_at': datetime.now().isoformat(),
         'database': args.db_dir,
         'model_path': MODEL_PATH,
         'ranking_stat': rankings,
+        'recall': recall,
+        'retrieval_time': elapse,
+        'average_time': elapse / len(results),
         'result': results
         }
     else:
@@ -324,6 +336,8 @@ def main(args):
             'created_at': datetime.now().isoformat(),
             'database': args.db_dir,
             'model_path': MODEL_PATH,
+            'retrieval_time': elapse,
+            'average_time': elapse / len(results),
             'result': results
         }
     with open(out_path, 'w') as f:

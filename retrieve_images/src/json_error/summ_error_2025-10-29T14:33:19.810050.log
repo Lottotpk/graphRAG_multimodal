@@ -1,4 +1,0 @@
-{
-    "entities": "child: young, blonde hair, wearing green shirt\nmicroscope: black and white, on a table\nshelves: in the background, containing various items\nadult: partially visible, wearing blue shirt",
-    "relations": "child is leaning over the microscope\nchild is covering their eyes with one hand\nmicroscope is on a table\nshelves are in the background\nadult is partially visible next to the child"
-}

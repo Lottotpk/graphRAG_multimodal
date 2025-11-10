@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing blue shirt and red skirt, holding bow and arrow\nbow: being held by the person\narrow: being aimed by the person\ngrass: covering the ground\nforest: in the background\ntarget: on the ground to the left",
-    "relations": "person is aiming with the bow and arrow towards the right side of the image\nperson is standing on the grass\nforest is in the background behind the person\ntarget is on the ground to the left of the person"
-}

@@ -1,5 +1,0 @@
-{
-    "summary": "A woman is sitting on the grass outdoors, blowing bubbles. She is wearing a pink sleeveless top and black pants. She holds a bubble wand in one hand and a green bubble solution container in the other. Bubbles are floating around her, creating a playful and relaxed atmosphere.",
-    "entities": "woman: wearing a pink sleeveless top and black pants\nbubble wand: yellow\nbubble solution container: green\nbubbles: floating around\ngrass: background",
-    "relations": "woman is blowing bubbles with the bubble wand\nwoman is holding the bubble solution container in her other hand\nbubbles are floating around the woman\nwoman is sitting on the grass"
-}

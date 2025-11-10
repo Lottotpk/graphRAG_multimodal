@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 import json
 import argparse
 import logging
@@ -43,24 +44,37 @@ def main(args):
     # TODO: Improve wrapper functionality to make it more customizable, e.g., select (or skip) step(s), select pre-defined summary, etc. 
 
     model, tokenizer = load_model()
+    start_time = time.time()
     summary = _generate_summary(args, model, tokenizer)
     abstract = _generate_abstract(args, model, tokenizer, summary)
     remaining = _generate_remaining(args, model, tokenizer, summary)
+    elapse = time.time() - start_time
 
     # TODO: Do JSON Stream here as well
     abst, rema = abstract['records'], remaining['records']
     if not (len(abst) == len(rema)):
         raise ValueError(f"The lengths of abstract and remaining are not the same ({len(abst)}, {len(rema)}), something went wrong.")
     records = []
+    errors = {}
     for i in range(len(abst)):
+        img_path = rema[i]['image_path']
         records.append({
             'id': i,
-            'image_path': rema[i]['image_path'],
-            'summary': rema[i]['description']['summary'],
-            'entities': rema[i]['description']['entities'],
-            'relations': rema[i]['description']['relations'],
+            'image_path': img_path,
+            'summary': rema[i]['description']['summary'] if rema[i]['description'] else None,
+            'entities': rema[i]['description']['entities'] if rema[i]['description'] else None,
+            'relations': rema[i]['description']['relations'] if rema[i]['description'] else None,
             'abstract': abst[i]['description']
         })
+        error = []
+        if img_path in summary['error']:
+            error.append(summary['error'][img_path] + " from summary")
+        if img_path in abstract['error']:
+            error.append(abstract['error'][img_path] + " from abstract")
+        if img_path in remaining['error']:
+            error.append(remaining['error'][img_path] + " from remaining")
+        if error:
+            errors[img_path] = error
     
     ensure_image_description_dir('all')
     filename = get_description_filename(prompt_slug='all')
@@ -76,8 +90,10 @@ def main(args):
         'remaining_model_path': remaining['model_path'],
         'remaining_system_prompt': remaining['system_prompt'],
         'remaining_prompt': remaining['prompt'],
+        'total_time': elapse,
+        'average_time': elapse / len(abst),
+        'error': errors if errors else None,
         'records': records,
-        'error': None if not summary['error'] and not remaining['error'] else 'Something went wrong (check logs).'
     }
     with open(out_path, 'w') as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
@@ -87,6 +103,8 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="The wrapper script to generate all elements of images")
     parser.add_argument("--img_dir", nargs='*', required=True, help='Path(s) to image source')
-    parser.add_argument('--verbose', action='store_true')
+    parser.add_argument("--start_index", required=False, type=int, help='Start index of the batch')
+    parser.add_argument("--size", required=False, type=int, help='Number of image to process')
+    parser.add_argument('--verbose', action='store_true', help='Verbose output')
     args = parser.parse_args()
     main(args)

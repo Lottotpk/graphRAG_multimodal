@@ -1,5 +1,0 @@
-{
-    "summary": "A young boy wearing a purple shirt and a white apron with a gardening tool design is standing at a wooden table outdoors. He is pouring a blue liquid into a glass bottle. On the table, there are white flowers, a bunch of green leaves, and several bottles containing liquids of different colors, including red and yellow. The background features a garden with trees and a clear sky, creating a peaceful and natural setting.",
-    "entities": "boy: wearing a purple shirt and a white apron with a gardening tool design\nwooden table: with white flowers, green leaves, and several bottles containing liquids of different colors\nwhite flowers: on the wooden table\nbottles: containing liquids of different colors, including red and yellow\nblue liquid: being poured into a glass bottle\nbackground: garden with trees and a clear sky",
-    "relations": "boy is standing at the wooden table\nboy is pouring blue liquid into a glass bottle\nwhite flowers are on the wooden table\ngreen leaves are on the wooden table\nbottles are on the wooden table\nbackground features a garden with trees and a clear sky"
-}

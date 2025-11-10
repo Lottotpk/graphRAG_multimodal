@@ -1,5 +1,0 @@
-{
-    "summary": "A person with short blonde hair is sitting on a wooden bench, holding a glass to their mouth as if drinking. They are wearing a patterned dark blouse. The setting appears to be an outdoor area with stone walls and steps, suggesting a historical or scenic location. The sky is clear, indicating a sunny day.",
-    "entities": "person: short blonde hair, patterned dark blouse\nwooden bench\nstone walls\nstone steps\nglass\nsky",
-    "relations": "person is sitting on the wooden bench\nperson is holding the glass to their mouth\nwooden bench is against the stone walls\nstone walls are part of the outdoor area\nstone steps are adjacent to the stone walls\nsky is clear above the outdoor area"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "child: young, wearing green sweater with crest, dark pants\nbook: red and white cover\nbed: light-colored bedspread\nwindow: in the background\ndecorative item: hanging near the window",
-    "relations": "child is sitting on the bed\nchild is reading the book\nbook is held by the child\nchild is looking at the book\nwindow is in the background\ndecorative item is near the window"
-}

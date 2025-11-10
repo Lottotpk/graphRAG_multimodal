@@ -1,4 +1,0 @@
-{
-    "entities": "boy: young, wearing a blue checkered shirt\nwoman: adult, wearing a white shirt, sunglasses, hair tied back\nchild: young, partially visible, wearing a colorful outfit\ncoin-operated telescope: large, mounted on a stand\nsea: calm, blue\ncoastline: visible in the background\nwooden deck: platform with railing",
-    "relations": "boy is using the coin-operated telescope\nwoman is standing beside the boy\nchild is standing beside the woman\ncoin-operated telescope is on the wooden deck\nwooden deck is by the sea\ncoastline is in the background\nfamily is looking out at the ocean"
-}

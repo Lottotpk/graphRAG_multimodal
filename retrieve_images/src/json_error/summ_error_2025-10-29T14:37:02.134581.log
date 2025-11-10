@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing a black blazer, black shirt, ripped blue jeans\nacoustic guitar: wooden, being played\nstairs: outdoor, with sunlight casting shadows",
-    "relations": "man is playing the acoustic guitar\nman is standing on the stairs\nsunlight is casting shadows on the stairs"
-}

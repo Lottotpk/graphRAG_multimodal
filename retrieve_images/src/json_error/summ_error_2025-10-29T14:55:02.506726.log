@@ -1,4 +1,0 @@
-{
-    "entities": "man: beard, glasses, gray jacket\nmobile phone: in hand\nleaves: green, sunlight filtering through\nbuilding: partially visible, background",
-    "relations": "man is looking at mobile phone\nman is standing outdoors\nleaves are in the background\nbuilding is in the background\nsunlight is filtering through leaves"
-}

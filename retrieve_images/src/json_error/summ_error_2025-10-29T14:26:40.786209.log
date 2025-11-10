@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a cap and a dark shirt\nbicycle wheel: being held by the person\nposters: on the wall in the background\nwooden workbench: in the background\nlighting: warm and focused",
-    "relations": "person is holding the bicycle wheel\nperson is standing in front of the posters\nperson is near the wooden workbench\nwarm lighting is illuminating the scene"
-}

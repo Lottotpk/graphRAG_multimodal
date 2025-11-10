@@ -1,4 +1,0 @@
-{
-    "entities": "girl: young with brown hair, wearing a light pink dress with small polka dots\nnotebook: being written in\nblue pencil: held by the girl\nshelves: in the background\nroom: setting with shelves",
-    "relations": "girl is writing in the notebook\nblue pencil is held by the girl\ngirl is positioned in front of the shelves\nnotebook is on a surface in front of the girl\nshelves are in the background of the room"
-}

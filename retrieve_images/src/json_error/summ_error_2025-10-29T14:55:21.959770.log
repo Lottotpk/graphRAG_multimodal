@@ -1,4 +1,0 @@
-{
-    "entities": "person: blonde hair, large textured sweater\nmobile phone: in hands\nbeverage glass: with red straw\nice glass: with ice\nnotepad: with pen",
-    "relations": "person is sitting at the table\nperson is focused on the mobile phone\nbeverage glass is on the table\nice glass is on the table\nnotepad is on the table\nbackground shows other people engaged in various activities"
-}

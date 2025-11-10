@@ -1,4 +1,0 @@
-{
-    "entities": "woman: wearing tan jacket, sunglasses on head, name tag reading 'Petals Potters'\nmobile phone: being held by the woman\nname tag: reads 'Petals Potters'\nother woman: wearing blue shirt, standing with arms crossed\nhallway: well-lit, framed pictures on walls",
-    "relations": "woman is focused on her mobile phone\nother woman is observing the scene\nwoman is standing in the hallway\nhallway has framed pictures on the walls\nname tag is attached to the woman's jacket"
-}

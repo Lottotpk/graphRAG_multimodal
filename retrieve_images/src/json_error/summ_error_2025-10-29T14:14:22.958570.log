@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing white hoodie, black pants, yellow rubber gloves\nmetal bucket: nearby, on floor",
-    "relations": "person is kneeling on the floor\nperson is putting on yellow rubber gloves\nmetal bucket is near the person"
-}

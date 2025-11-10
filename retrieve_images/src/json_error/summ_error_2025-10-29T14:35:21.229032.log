@@ -1,4 +1,0 @@
-{
-    "entities": "telescope: large, mounted on a tripod, with a label on the body\nman: wearing a checkered shirt, looking through the eyepiece of the telescope\nwoman1: wearing a light pink top, observing the telescope\nwoman2: wearing a dark top, observing the telescope\nfence: metal chain-link fence in the background\nbuildings: structures in the background\ngrass: green grassy area\n",
-    "relations": "man is looking through the eyepiece of the telescope\nwomen are observing the telescope\nwomen are standing close to the man\nfence is in the background\nbuildings are in the background\ngrass is on the ground\n"
-}

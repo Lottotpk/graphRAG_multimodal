@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a blue shirt, sitting on the grass, tending to plants\npotted plants: with yellow flowers\nred bucket: on the grass\nwatering can: green, on the grass\nwooden wall: with a sign that reads 'WATER'\ngrass: in the foreground",
-    "relations": "person is sitting on the grass\nperson is tending to potted plants\nred bucket is on the grass near the person\nwatering can is on the grass near the person\nwooden wall is in the background with a sign that reads 'WATER'\npotted plants are in front of the person"
-}

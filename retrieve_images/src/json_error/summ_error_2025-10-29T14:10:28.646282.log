@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing a straw hat, sunglasses, black shirt with red and white designs, red gloves\ncrowd: people in the background\nchair: orange\naccessory: watch on left wrist\nbag: black strap across body",
-    "relations": "man is seated on the chair\nman is clapping his hands\nman is wearing a watch\nman has a bag strap across his body\ncrowd is in the background"
-}

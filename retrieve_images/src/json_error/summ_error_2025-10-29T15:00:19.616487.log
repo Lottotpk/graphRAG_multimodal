@@ -1,4 +1,0 @@
-{
-    "entities": "girl: young, light hair, wearing white shirt with plaid tie\nstuffed animal: black\nbed: floral-patterned pillow\ntoy laptop: green and white, red 'X' and blue droplet symbol",
-    "relations": "girl is holding stuffed animal\nstuffed animal is beside girl\ngirl is using toy laptop\nbed is beside girl"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "woman: seated, playing an acoustic guitar, wearing a dark shirt and jeans\nacoustic guitar: wooden, being played by the woman\nChristmas tree: adorned with lights, in the background\nbrick wall: in the background\nshelf: with various items, in the background",
-    "relations": "woman is seated and playing the acoustic guitar\nacoustic guitar is in front of the woman\nChristmas tree is in the background behind the woman\nbrick wall is in the background behind the Christmas tree\nshelf is in the background behind the woman"
-}

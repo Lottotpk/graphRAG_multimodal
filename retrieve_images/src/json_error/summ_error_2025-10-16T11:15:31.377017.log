@@ -1,5 +1,0 @@
-{
-    "summary": "A person stands outdoors holding a black umbrella, wearing a blue jacket and a scarf. They have a red bag slung over their shoulder. The background features lush green trees and a sandy ground, suggesting a park or natural setting. The overall vibe is calm and serene.",
-    "entities": "person: wearing a blue jacket and a scarf\nblack umbrella\nred bag\nlush green trees\nsandy ground",
-    "relations": "person holding black umbrella\nperson with red bag\nperson standing in front of lush green trees\nsandy ground in the background"
-}

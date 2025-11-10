@@ -1,4 +1,0 @@
-{
-    "entities": "children: two children lying on the floor\nTV: television screen displaying five children playing soccer\nfive children: on the TV screen, playing soccer outdoors\nentertainment unit: white unit below the TV\ngrass: grassy field in the TV scene\noutdoor: background of the TV scene shows trees and sky",
-    "relations": "two children are lying on the floor and watching the TV\nTV is mounted on the wall above the entertainment unit\nTV displays a scene of five children playing soccer\nfive children on the TV are running and appear to be enjoying themselves\nentertainment unit is positioned below the TV\noutdoor scene on the TV shows a grassy field with trees and sky"
-}

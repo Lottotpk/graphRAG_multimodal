@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing white shirt, blue jeans, sandals\nblack vehicle: hood open, tire being changed\nroad: paved surface, dim lighting\nbackground: trees, dim sky",
-    "relations": "person is changing tire on black vehicle\nblack vehicle is parked on road\nperson is interacting with vehicle's tire\nroad is beside black vehicle\nbackground elements include trees and dim sky"
-}

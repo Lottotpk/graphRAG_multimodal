@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a red jacket with a white bib, blue jeans, and brown shoes\ncamera: being held by the person\nhedge: dense, green, in the background\nbrick wall: behind the hedge\nsidewalk: with a red line and a yellow dashed line bordering the road",
-    "relations": "person is standing on the sidewalk\nperson is taking a photo with the camera\nperson is in front of the hedge\nhedge is behind the brick wall\nsidewalk is adjacent to the road"
-}

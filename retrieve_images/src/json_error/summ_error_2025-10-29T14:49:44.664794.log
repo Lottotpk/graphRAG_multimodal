@@ -1,4 +1,0 @@
-{
-    "entities": "female runner: wearing a blue tank top with the number 27, black shorts, black cap, knee brace on left knee, focused expression\nspectators: some standing, some sitting, wearing various clothing\nwooden fence: in the background\nroad: with yellow lines\n trees: in the background",
-    "relations": "female runner is running on the road\nspectators are watching the female runner\nwooden fence is behind the spectators\ntrees are behind the wooden fence"
-}

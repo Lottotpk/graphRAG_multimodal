@@ -1,4 +1,0 @@
-{
-    "entities": "woman: blonde hair, black top, necklace\nbookshelf: filled with books\nbook: multiple\nhand: holding a cigarette\nnecklace: silver\n",
-    "relations": "woman is sitting in front of the bookshelf\nwoman is holding a cigarette in her right hand\nbookshelf is filled with books\nwoman is looking at the camera\nbookshelf is in the background\n"
-}

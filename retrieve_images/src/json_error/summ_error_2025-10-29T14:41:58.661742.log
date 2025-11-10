@@ -1,4 +1,0 @@
-{
-    "entities": "child: young, wearing green vest and blue jeans\nshopping cart: small, filled with green vegetables\nstreet: residential area\nfence: metal, in the background\nbuildings: in the background",
-    "relations": "child is pushing shopping cart\nshopping cart is filled with green vegetables\nchild is walking on street\nfence is in the background\nbuildings are in the background"
-}

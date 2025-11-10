@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing red shirt and cap\nbicycle: suspended in air\nbike shop: busy environment with bicycle parts and accessories\npeople: working on bikes in background\nboxes: on the floor\nbicycle parts: various in the shop",
-    "relations": "man inspecting bicycle\nbicycle suspended in air\nman closely examining bicycle components\npeople working on bikes in background\nboxes on the floor\nvarious bicycle parts in the shop"
-}

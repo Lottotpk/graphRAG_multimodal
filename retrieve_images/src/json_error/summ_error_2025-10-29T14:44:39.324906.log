@@ -1,4 +1,0 @@
-{
-    "entities": "person: long hair, black leather jacket with red accents, patch that says 'Dedskins Riders', reading a book\nbook: red cover\nstreet: parked cars, buildings\n",
-    "relations": "person is sitting outdoors\nperson is reading a book\nperson is wearing a black leather jacket\nblack leather jacket has a patch that says 'Dedskins Riders'\nstreet has parked cars\nstreet has buildings\n"
-}

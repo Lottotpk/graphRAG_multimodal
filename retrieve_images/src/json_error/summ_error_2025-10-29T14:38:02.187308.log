@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing gray t-shirt, headphones, playing electric guitar\nelectric guitar: brown, with knobs and strings\nwindow: with blinds\nanother guitar: on stand in background\nspeaker: in background\nradiator: on wall\nwooden floor: in room",
-    "relations": "person is playing the electric guitar\nperson is sitting on the wooden floor\nperson is wearing headphones\nanother guitar is on a stand in the background\nspeaker is in the background near the window\nradiator is on the wall in the background"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "flight attendant 1: wearing white shirt, dark vest, colorful scarf, hair tied up\nflight attendant 2: wearing white shirt, dark vest, colorful scarf, hair tied up\norange juice carton: being poured into a glass\norange juice glass: being filled with orange juice\nkettle: in the background\n cabinets: in the background",
-    "relations": "flight attendant 2 is pouring orange juice into a glass\nflight attendant 1 is watching flight attendant 2\norange juice carton is above the orange juice glass\nkettle is near the cabinets"
-}

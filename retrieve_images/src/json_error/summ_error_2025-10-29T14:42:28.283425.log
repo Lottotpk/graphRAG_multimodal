@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing a light-colored shirt and khaki pants, pushing a cart\ncart: loaded with large sacks of green leafy vegetables, multiple wheels\nmotorcycle: with two riders, in the background\nbuildings: commercial buildings in the background\nstone wall: separating the road from the buildings\nroad: wide city street\nvehicles: other vehicles in the background",
-    "relations": "man is pushing the cart\ncart is loaded with sacks of vegetables\nmotorcycle is on the road\nbuildings are in the background\nstone wall is behind the man\nroad is wide and urban"
-}

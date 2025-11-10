@@ -1,4 +1,0 @@
-{
-    "entities": "woman: wearing sunglasses, white t-shirt with colorful text, holding a drink with a slice of lime and mint garnish\nsunglasses: dark lenses, purple frame\nwhite t-shirt: text reads 'I'm not going'\ndrink: clear glass, slice of lime, mint garnish\nbalcony: outdoor setting, glass railing\nbuildings: cityscape in the background\nplants: greenery visible in the background\nchair: wicker chair\nearring: dangling earring with a key pendant",
-    "relations": "woman is sitting on the balcony\nwoman is holding the drink\nwoman is wearing sunglasses\nwoman is wearing a white t-shirt\nwoman is interacting with the drink\nbalcony has a glass railing\nbalcony has a wicker chair\nbackground shows buildings\nbackground shows plants"
-}

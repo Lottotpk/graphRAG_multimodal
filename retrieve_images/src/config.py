@@ -20,12 +20,12 @@ IMAGE_DATABASE_BASE_DIR = "./img_embedding_databases/"
 # Align with workspace folder naming for text databases
 TEXT_DATABASE_BASE_DIR = "./description_embedding_databases/"
 # Where generated image descriptions will be saved
-IMAGE_DESCRIPTION_BASE_DIR = "./generated_img_description/"
+IMAGE_DESCRIPTION_BASE_DIR = "./generated/generated_img_description/"
 # Images summary, entities, relations
-IMAGE_SUMMARY_BASE_DIR = "./generated_img_summary/"
+IMAGE_SUMMARY_BASE_DIR = "./generated/generated_img_summary/"
 AUTO_TIMESTAMP_FORMAT = "%Y-%m-%d_%H-%M-%S"
 # Only image summary
-IMAGE_ONLY_SUMMARY_DIR = "./generated_only_summary/"
+IMAGE_ONLY_SUMMARY_DIR = "./generated/generated_only_summary/"
 # Formated prompt
 FORMAT_PROMPT_DIR = "./generated_format_prompt/"
 # Retrieval result

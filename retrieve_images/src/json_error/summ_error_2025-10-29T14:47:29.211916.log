@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing red shirt and white pants, has mustache, smiling\nboat: rowboat, wooden\nlake: calm water\nbackground: trees, another boat with people, park or recreational area",
-    "relations": "man is rowing the boat\nboat is on the lake\nbackground shows trees and another boat\nman is in the foreground with the lake in the background"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "child: young, sitting on the floor, holding a remote control\nTV screen: displaying 'baby gojiko' logo with tagline 'Discovering the Sky'\nremote control: held by the child\nwindow: in the background, allowing natural light\nfloor: where the child is sitting\nroom: softly lit with natural light",
-    "relations": "child is watching the TV screen\nchild is holding the remote control\nTV screen is displaying the 'baby gojiko' logo\nwindow is allowing natural light into the room\nchild is sitting on the floor"
-}

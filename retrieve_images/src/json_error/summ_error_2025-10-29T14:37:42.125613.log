@@ -1,4 +1,0 @@
-{
-    "entities": "man: elderly, long hair, wearing light jacket, blue scarf, jeans\nclassical guitar: wooden, being played\nstone wall: rustic, background",
-    "relations": "man is seated against the stone wall\nman is playing the classical guitar\nclassical guitar is resting on the man's lap"
-}

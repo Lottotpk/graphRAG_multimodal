@@ -46,6 +46,11 @@ def benchmark_to_ds(file_path: str):
 
     return ds_path
 
+def fix_json(msg: str) -> str:
+    msg = msg.strip("```json")
+    begin = msg.find("{")
+    return msg[begin:]
+
 if __name__ == "__main__":
     # combine_abstract("./generated_img_description/2025-10-07_13-49-42_desc.json")
     benchmark_to_ds("Stanford40Action_ImageLabelDescripion10template5.json")

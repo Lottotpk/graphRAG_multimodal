@@ -1,5 +1,0 @@
-{
-    "summary": "An older man is using a microscope in a laboratory setting. He is wearing glasses and a light-colored shirt. The microscope is positioned on a table, and there is a computer monitor nearby. The background features pink curtains, suggesting a clinical or research environment. The scene conveys a sense of focused scientific work.",
-    "entities": "man: older, wearing glasses, light-colored shirt\nmicroscope: positioned on a table\ncomputer monitor: nearby\npink curtains: in the background",
-    "relations": "man is using the microscope\nmicroscope is on the table\ncomputer monitor is near the man\npink curtains are in the background"
-}

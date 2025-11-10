@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing white shirt and blue jeans, kneeling\nsmall tree: being planted, held upright by the man\nshovel: being used by the man, in the ground\nbucket: filled with soil, placed nearby\nsoil: in the bucket and in the ground\nplants: various green plants and bushes in the garden\nwooden fence: in the background\nshed: in the background\nbackyard: setting of the scene\n",
-    "relations": "man is planting the small tree\nman is holding the small tree upright\nman is using the shovel with the other hand\nbucket is placed nearby the man\nsoil is in the bucket and in the ground\nplants are surrounding the area\nwooden fence is in the background\nshed is in the background\n"
-}

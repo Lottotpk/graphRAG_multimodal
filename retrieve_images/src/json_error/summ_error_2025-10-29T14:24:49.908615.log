@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a cap, jacket, and life vest\nfishing rod: extending into the water\nbody of water: calm, surrounded by rocks\nforest: in the background\nrocks: near the water\nsky: partly cloudy",
-    "relations": "person is fishing with a fishing rod\nfishing rod is extending into the body of water\nperson is standing near the rocks\nforest is in the background of the body of water\nsky is above the person and the body of water"
-}

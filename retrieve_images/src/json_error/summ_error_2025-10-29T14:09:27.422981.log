@@ -1,4 +1,0 @@
-{
-    "entities": "woman: short brown hair, wearing sunglasses on head, blue scarf, eyes closed, hands near face\nsunglasses: on head\nscarf: blue\npeople: surrounding the woman\nhands: near face, possibly wiping tears or shielding eyes",
-    "relations": "woman is surrounded by people\nwoman's hands are near her face\nwoman is wearing sunglasses on her head\nwoman is wearing a blue scarf"
-}

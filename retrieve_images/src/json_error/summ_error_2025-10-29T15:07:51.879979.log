@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing red and white striped shirt\nchalkboard: green with text 'Explain Mendeleev's last definition'\nchalk: white\nwhiteboard eraser: hanging on the board\nblue border: surrounding the image",
-    "relations": "person is writing on the chalkboard\nchalkboard has text written on it\nchalk is on the chalkboard\nwhiteboard eraser is hanging on the chalkboard\nblue border surrounds the image"
-}

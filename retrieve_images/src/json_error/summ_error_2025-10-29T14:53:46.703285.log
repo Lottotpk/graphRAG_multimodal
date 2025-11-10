@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a black leather jacket and a gray hat\nsmartphone: held in right hand\nmetal shutter: graffiti-covered\nbrick wall: with graffiti",
-    "relations": "person is standing in front of metal shutter\nperson is holding smartphone\nmetal shutter is next to brick wall"
-}

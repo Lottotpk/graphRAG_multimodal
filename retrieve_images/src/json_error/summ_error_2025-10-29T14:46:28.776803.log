@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a cowboy hat and plaid shirt\nhorse: brown and white, in motion\nmetal barrel: rusted, stationary\ngrass: green, covering the ground\ntrees: green, in the background",
-    "relations": "person riding horse\nhorse kicking up dust near metal barrel\nhorse moving on grass\nmetal barrel positioned on grass\nbackground featuring trees"
-}

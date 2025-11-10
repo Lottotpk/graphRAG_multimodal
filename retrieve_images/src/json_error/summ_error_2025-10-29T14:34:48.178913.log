@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing green patterned jacket and blue jeans, holding binoculars in one hand\nlarge telescope: mounted on a tripod\ntripod: supporting the telescope\nbody of water: in the background\nrock: in the foreground\ndistant hills: in the background\nclear sky: in the background",
-    "relations": "person is looking through the large telescope\nperson is holding binoculars in one hand\nlarge telescope is mounted on the tripod\ntripod is positioned on the rock\nbody of water is in the background behind the person\ndistant hills are in the background behind the body of water\nclear sky is above the distant hills"
-}

@@ -1,5 +1,0 @@
-{
-    "summary": "A child is joyfully jumping in a forested area, surrounded by tall pine trees. The child is wearing a gray sweater, blue pants, and white socks. The sky is visible through the branches, suggesting a sunny day. The atmosphere is lively and carefree.",
-    "entities": "child: wearing gray sweater, blue pants, white socks\npine trees: tall, surrounding the child\nsky: visible through branches\nbuilding: partially visible in the background",
-    "relations": "child is jumping amidst pine trees\nchild is positioned centrally in the image\npine trees form a natural backdrop\nsky is visible through the branches\nbuilding is located behind the child"
-}

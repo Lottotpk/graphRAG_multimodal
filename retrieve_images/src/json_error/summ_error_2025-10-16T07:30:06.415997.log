@@ -1,5 +1,0 @@
-{
-    "summary": "The image depicts a group of people in a gymnasium, participating in a cleaning activity. A person in a blue shirt is mopping the wooden floor with a mop, while others in matching shirts stand nearby, observing or waiting. The atmosphere appears casual and communal, with some individuals engaged in conversation. The setting suggests a team-building or group event, emphasizing cooperation and shared responsibility.",
-    "entities": "person in blue shirt: mopping the wooden floor with a mop\nperson in blue shirt: standing nearby, observing\nperson in black shirt: standing in the background\nperson in black shirt: holding a drink\nperson in black shirt: bending down, possibly cleaning\nwooden floor: marked with colored lines\nmop: being used by the person in blue shirt",
-    "relations": "person in blue shirt is mopping the wooden floor\nperson in blue shirt is standing nearby, observing\nperson in black shirt is standing in the background\nperson in black shirt is holding a drink\nperson in black shirt is bending down, possibly cleaning\nwooden floor is marked with colored lines\nmop is being used by the person in blue shirt"
-}

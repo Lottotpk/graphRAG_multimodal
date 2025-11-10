@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a red hard hat, checkered shirt, green pants\nbrush: wooden handle, black bristles\nred substance: in a container\nwooden floor\nwhite walls\nlarge window",
-    "relations": "person is lying on the wooden floor\nperson is holding the brush\nperson is applying the red substance with the brush\nlarge window is on the white wall\nwhite walls are in the background"
-}

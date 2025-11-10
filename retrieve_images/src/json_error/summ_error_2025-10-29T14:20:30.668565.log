@@ -1,4 +1,0 @@
-{
-    "entities": "woman: wearing a green shirt, chopping vegetables\nman: wearing a beige shirt, holding a glass of wine\ngreen bell peppers: on the counter\nwhite cabinets: in the background\nwine glass: held by the man\nkitchen counter: with various ingredients\nknives: being used by the woman",
-    "relations": "woman is chopping vegetables on the kitchen counter\nman is standing nearby holding a glass of wine\nwoman is focused on her task\nwhite cabinets are in the background\nwine glass is on the counter near the man\nvarious ingredients are on the kitchen counter\nknives are being used by the woman to chop vegetables"
-}

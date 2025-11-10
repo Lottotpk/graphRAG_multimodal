@@ -1,4 +1,0 @@
-{
-    "entities": "boy: young, light brown hair, smiling, wearing a brown shirt with white stripes on the sleeves, dark pants\nrock wall: indoor, covered with various colored holds\nsafety rope: attached to the boy\nholds: various colors on the rock wall",
-    "relations": "boy is climbing the rock wall\nboy is holding onto a hold with his right hand\nsafety rope is attached to the boy\nholds are on the rock wall"
-}

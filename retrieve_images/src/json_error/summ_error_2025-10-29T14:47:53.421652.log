@@ -1,4 +1,0 @@
-{
-    "entities": "raft: inflatable boat with red and gray colors\nperson1: wearing red helmet and black jacket with life jacket\nperson2: wearing white helmet and purple jacket with life jacket\nhelmet: protective headgear worn by both persons\nlife jacket: safety flotation device worn by both persons\ncooler: white insulated container on the raft\nbag: red and blue bags on the raft\npaddle: black oar used for rowing\nrocks: rocky terrain in the background\nriver: body of water they are on\nplants: sparse vegetation along the riverbank",
-    "relations": "raft is on the river\nperson1 and person2 are on the raft\nperson1 is holding a paddle\nperson2 is facing away from the camera\ncooler is on the raft\nbag is on the raft\nraft is surrounded by rocks\nplants are along the riverbank"
-}

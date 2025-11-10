@@ -1,5 +1,0 @@
-{
-    "summary": "Two men are seated on black boxes, each playing an acoustic guitar. The man on the left wears a white long-sleeve shirt and blue jeans, while the man on the right wears a black shirt with a decorative pattern and blue jeans. They are positioned against a plain gray background, creating a focused and intimate atmosphere. The scene conveys a sense of casual collaboration and musical engagement.",
-    "entities": "man on the left: wearing a white long-sleeve shirt and blue jeans\nman on the right: wearing a black shirt with a decorative pattern and blue jeans\nacoustic guitar: held by the man on the left\nacoustic guitar: held by the man on the right\nblack box: under the man on the left\nblack box: under the man on the right\ngray background: behind the two men",
-    "relations": "two men seated on black boxes\nboth men playing acoustic guitars\nman on the left positioned to the left of the man on the right\nblack boxes placed on the floor\ngray background behind the men"
-}

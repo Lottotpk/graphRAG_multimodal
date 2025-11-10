@@ -1,4 +1,0 @@
-{
-    "entities": "telescope: large, mounted on a tripod\nman in red shirt: wearing a red shirt and cap, looking up\nyoung boy: wearing a blue shirt, peering through the telescope\nadult in black shirt: wearing a black shirt and white cap, assisting the young boy\nperson in blue shirt: standing nearby, observing\nbuilding: in the background with garage doors\nballoons: blue, held by a person in the background",
-    "relations": "man in red shirt is looking at the telescope\nyoung boy is peering through the telescope with assistance from the adult in black shirt\nadult in black shirt is assisting the young boy with the telescope\nperson in blue shirt is observing the scene\nballoons are in the background near the person in blue shirt"
-}

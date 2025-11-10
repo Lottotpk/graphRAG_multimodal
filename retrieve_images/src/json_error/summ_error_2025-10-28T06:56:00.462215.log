@@ -1,4 +1,0 @@
-{
-    "entities": "child: young, wearing pink long-sleeve shirt, holding blue toothbrush\nblue toothbrush: being used by child to brush teeth\nwhite sink: located on the right side of the image\nbathtub: located on the left side of the image\nwhite toilet: located behind the child\nsoap dispenser: on the counter near the sink\nbasket: on the counter with various items\nfloor: tiled\nvarious toiletries: on the counter near the sink",
-    "relations": "child is brushing teeth with blue toothbrush\nchild is standing in front of white sink\nbathtub is to the left of the child\nwhite toilet is behind the child\nsoap dispenser is near the sink\nbasket is on the counter near the sink\nvarious toiletries are on the counter near the sink"
-}

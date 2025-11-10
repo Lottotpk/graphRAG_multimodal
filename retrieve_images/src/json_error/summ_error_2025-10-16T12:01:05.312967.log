@@ -1,5 +1,0 @@
-{
-    "summary": "A young child is captured mid-air while jumping above a large metallic object near a waterfront. The child is wearing a light-colored sweater and blue jeans, with their hair blowing in the wind. In the background, there is a calm sea with a few distant structures and a clear blue sky. A few people can be seen walking along the shoreline, and there are some cylindrical structures and a small building on a pier. The scene conveys a sense of playful energy and outdoor freedom.",
-    "entities": "child: wearing a light-colored sweater and blue jeans\nmetallic object: large, near the waterfront\nsea: calm, with distant structures\npeople: walking along the shoreline\nstructures: cylindrical, on a pier\nsky: clear and blue",
-    "relations": "child is jumping above the metallic object\nmetallic object is near the waterfront\npeople are walking along the shoreline\nstructures are on a pier in the background\nchild's hair is blowing in the wind"
-}

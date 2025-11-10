@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a cowboy hat and jacket\nhorse: brown\npath: dirt\nbackground: dry grass and trees",
-    "relations": "person is riding the horse\nhorse is on the path\nperson is holding the reins\npath is surrounded by dry grass and trees"
-}

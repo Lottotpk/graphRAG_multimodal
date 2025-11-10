@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing a maroon sweater and light-colored pants\n telescope: placed on a tripod\n tripod: supporting the telescope\n chairs: two nearby\n large windows: offering a view of a cityscape with tall buildings",
-    "relations": "man is looking through the telescope\n telescope is placed on the tripod\n man is standing near the chairs\n large windows are in the background showing a cityscape"
-}

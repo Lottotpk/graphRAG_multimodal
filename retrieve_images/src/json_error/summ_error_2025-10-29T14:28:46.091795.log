@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing a red shirt and shorts, kneeling, using a tool to dig or weed the ground\nwoman: wearing a floral top, smiling, holding a shovel\nshovel: held by the woman, placed on a log\nlog: in the foreground, with the shovel on it\ntool: being used by the man to dig or weed the ground\nbuilding: in the background, rustic\nvegetation: surrounding the man and woman, lush greenery and trees",
-    "relations": "man and woman are working together in a garden\nman is kneeling and using a tool to dig or weed the ground\nwoman is holding a shovel and smiling\nshovel is placed on a log in the foreground\ntool is being used by the man to dig or weed the ground\nbuilding is in the background, suggesting a rural environment\nvegetation surrounds the man and woman, indicating a lush garden setting"
-}

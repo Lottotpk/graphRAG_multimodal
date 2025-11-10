@@ -1,4 +1,0 @@
-{
-    "entities": "child: wearing red shirt, black pants, protective gear including knee pads and gloves\nbicycle: small, blue and yellow\npaved path: where the child is riding\nwooden posts: in the background\ngrassy area: in the background",
-    "relations": "child is riding the bicycle\nbicycle is on the paved path\nwooden posts are in the background\ngrassy area is in the background"
-}

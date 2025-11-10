@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing a red and white checkered garment and a patterned headscarf\npot: large, filled with food\nfood: in the pot, being stirred\nfire: open fire under the pot\nutensil: ladle being used to stir the food\nstructure: simple, rustic background\ncooking utensils: basic, visible in the setting",
-    "relations": "person is cooking over an open fire\nperson is stirring food in a pot with a ladle\npot is placed on the fire\nperson is interacting with the cooking utensils\nsimple structure is in the background"
-}

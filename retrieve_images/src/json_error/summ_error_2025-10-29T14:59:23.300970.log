@@ -1,4 +1,0 @@
-{
-    "entities": "girl: long blonde hair, wearing headphones, looking at computer monitor\ncomputer monitor: displays clocks and text, possibly educational program\nkeyboard: on desk, in front of girl\nmouse: on desk, near keyboard\npapers: on desk, near keyboard\nheadphones: worn by girl, connected to computer\ncomputer tower: on desk, behind monitor\nother computer monitors: in background, on desks",
-    "relations": "girl is looking at computer monitor\ncomputer monitor is displaying clocks and text\nkeyboard is in front of girl\nmouse is near keyboard\npapers are on desk\nheadphones are worn by girl and connected to computer\ncomputer tower is behind monitor\nother computer monitors are in the background"
-}

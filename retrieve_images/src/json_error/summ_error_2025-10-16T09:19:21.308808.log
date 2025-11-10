@@ -1,5 +1,0 @@
-{
-    "summary": "A man in a red cap and green jacket is holding a cup, standing in a public area with several people around. The background shows a bridge and some trees, with people engaged in various activities. The scene has a casual, social vibe.",
-    "entities": "man: wearing red cap, green jacket, red shirt, holding cup\npeople: standing around, engaged in various activities\nbridge: in the background\n trees: in the background\n",
-    "relations": "man holding cup\nman standing in public area\npeople around man\nbridge in background\ntrees in background"
-}

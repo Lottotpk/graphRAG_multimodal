@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing striped shirt, wearing watch, holding corded phone, examining items on shelf\nother person's hand: reaching towards shelf\nshelves: stocked with various products\nstore: well-lit",
-    "relations": "person is talking on a corded phone while examining items on the shelf\nother person's hand is reaching towards the shelf\nshelves are stocked with various products in the store\nstore is well-lit"
-}

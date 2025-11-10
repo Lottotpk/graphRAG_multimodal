@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing a white and red uniform\nuniform: white with red stripes and a badge\nautomobile: with the hood open, showing the engine compartment\nengine: visible within the open hood, with various components\nlighting: dim, possibly in a garage or workshop",
-    "relations": "man is working on the engine of the automobile\nman is adjusting or inspecting a component within the engine compartment\nautomobile is parked in a dimly lit area\nman is focused on the task at hand"
-}

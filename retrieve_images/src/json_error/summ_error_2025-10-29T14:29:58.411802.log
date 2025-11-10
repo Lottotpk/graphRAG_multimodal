@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing white top with red skirt, white tights, red shoes\numbrella: transparent with red trim\nforest: bare trees, wet ground\n",
-    "relations": "person holding umbrella\nperson standing on wet ground\numbrella positioned above person\nbare trees in background\nwet ground reflecting person and umbrella\n"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing a red shirt with the number 2482, black shorts, white running shoes\nroad: empty, with a yellow dividing line\nsky: partly cloudy\nbuildings: in the background, behind the trees\n树木: lining the street, behind the fence\nfence: along the side of the road",
-    "relations": "man is running on the road\nroad is in front of the man\nsky is above the man and buildings\nbuildings are behind the trees\n树木 are beside the road and behind the fence\nfence is along the side of the road"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "woman: wearing glasses, gray shirt, white long sleeves, brown hair\nchild: young, blonde hair tied in ponytail, green jacket\nchild: partially visible, blonde hair, green shirt\npitcher: red, pouring liquid\ncontainers: small, clear plastic\nmicrowave: white\nbrick wall: background\nphotos: collage, background",
-    "relations": "woman pouring liquid into containers\nchild watching woman\nchild partially visible in background\npitcher on table\ncontainers on table\nmicrowave on table\nbrick wall in background\nphotos on wall"
-}

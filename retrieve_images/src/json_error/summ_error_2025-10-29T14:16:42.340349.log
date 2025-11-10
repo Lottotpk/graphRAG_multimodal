@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing a dark striped shirt\nspatula: being used by the man\nbaking tray: with a large piece of food on it\nkitchen: with stainless steel surfaces\npots and pans: stacked in the background\nventilation ducts: overhead\nstack of plates: visible in the background\nyellow container: visible in the background",
-    "relations": "man is using the spatula on the baking tray\nbaking tray is on the kitchen counter\nman is standing in front of the pots and pans\nventilation ducts are above the man\nstack of plates is near the man\nyellow container is near the man"
-}

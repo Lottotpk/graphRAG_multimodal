@@ -1,5 +1,0 @@
-{
-    "summary": "A person is joyfully jumping in the middle of a street with arms raised, in front of the iconic Houses of Parliament and Big Ben in London. The scene appears to be on a cloudy day, with a few pedestrians walking nearby. The wet street suggests recent rain, adding a reflective quality to the pavement.",
-    "entities": "person: joyfully jumping, arms raised, wearing black jacket, blue jeans, brown boots\nHouses of Parliament: large, historic building, central background\nBig Ben: tall clock tower, right side background\npedestrians: walking, various clothing, near the jumping person\nstreet: wet, reflective, multiple lanes\nbridge: green railings, left side background\ncloudy sky: overcast, grey, covering the entire background",
-    "relations": "person is jumping in the middle of the street\nHouses of Parliament is in the background\nBig Ben is to the right of the Houses of Parliament\npedestrians are walking near the jumping person\nbridge is on the left side of the image\ncloudy sky is covering the entire background"
-}

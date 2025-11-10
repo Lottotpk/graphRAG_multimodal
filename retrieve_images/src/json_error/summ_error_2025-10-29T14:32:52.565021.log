@@ -1,4 +1,0 @@
-{
-    "entities": "Person 1: Wearing a surgical cap and mask, using a microscope\nPerson 2: Wearing a surgical cap and mask, using a microscope\nMicroscope: Large, white, with multiple lenses\nTable: Covered with a sterile blue cloth\nObjects: Small black rectangular items, tweezers, small bowls",
-    "relations": "Person 1 is using the microscope\nPerson 2 is using the microscope\nPerson 1 is handling small objects on the table\nPerson 2 is observing through the microscope\nMicroscope is placed on the table\nSmall objects are arranged on the table\nTweezers are on the table near the small objects"
-}

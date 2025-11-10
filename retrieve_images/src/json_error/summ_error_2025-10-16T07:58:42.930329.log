@@ -1,5 +1,0 @@
-{
-    "summary": "A young girl is climbing a rock wall at an outdoor climbing facility. She is wearing a pink shirt, pink shorts, and climbing shoes. The wall has various colored holds, and she is secured with a harness and safety rope. The sky is clear, suggesting a sunny day, and the girl appears focused and determined as she ascends.",
-    "entities": "girl: wearing a pink shirt, pink shorts, climbing shoes, secured with a harness and safety rope\nrock wall: various colored holds\nsky: clear\nsafety rope: attached to the girl and the rock wall",
-    "relations": "girl climbing rock wall\nrock wall has various colored holds\nsafety rope connected to girl and rock wall\nsky above the climbing area"
-}

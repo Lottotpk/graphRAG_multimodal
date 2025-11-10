@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing brown hoodie, blue jeans, white sneakers\ngray car: hood open, elevated on a jack, spare tire visible\njack: supporting the car\nbuilding: in the background",
-    "relations": "person is working on the rear tire of the gray car\ngray car is elevated on the jack\njack is positioned under the rear of the gray car\nbuilding is in the background behind the gray car"
-}

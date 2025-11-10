@@ -1,5 +1,0 @@
-{
-    "summary": "A young child stands in front of two horses, holding a bundle of hay. The horses, one white with black patches and the other brown with white patches, are wearing red halters and are eating the hay. The child is dressed in a red and blue vest over a brown long-sleeve shirt. The setting appears to be outdoors on a cobblestone surface, with other horses visible in the background. The scene conveys a calm and gentle interaction between the child and the animals.",
-    "entities": "child: young, blonde hair, wearing a red and blue vest over a brown long-sleeve shirt\nhorses: two horses, one white with black patches, one brown with white patches, wearing red halters\nhay: bundle of hay being held by the child\nother horses: visible in the background\nsurface: cobblestone",
-    "relations": "child is standing in front of the horses\nchild is holding the bundle of hay\nhorses are eating the hay\nhorses are wearing red halters\nother horses are in the background\nsurface is cobblestone"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing black t-shirt and jeans\nsmall brown dog: on a leash\nbuilding: with a fence\nflowering bushes: along the side of the path",
-    "relations": "man is walking the small brown dog\nman and dog are on a paved path\nbuilding is in the background\nflowering bushes are next to the path"
-}

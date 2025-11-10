@@ -1,4 +1,0 @@
-{
-    "entities": "telescope: large, white and green colored telescope\nperson1: man wearing a brown jacket, smiling and looking through the telescope\nperson2: man wearing a black jacket with white stripes, smiling and looking at the camera\nperson3: child wearing a green jacket, looking at the camera\nperson4: man wearing a gray jacket with a red lanyard, looking at the camera\nperson5: man wearing a red jacket, partially visible\nperson6: man wearing a blue shirt, partially visible in the background",
-    "relations": "person1 is looking through the telescope\nperson2 is standing next to person1 and smiling\nperson3 is standing next to person1 and smiling\nperson4 is standing next to person1 and smiling\nperson5 is standing behind person2\nperson6 is standing in the background"
-}

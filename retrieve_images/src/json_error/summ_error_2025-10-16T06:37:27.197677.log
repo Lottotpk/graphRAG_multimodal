@@ -1,5 +1,0 @@
-{
-    "summary": "A group of people is seated in a room, clapping. The room has a white ceiling and an orange curtain on one side. The individuals are dressed in casual and semi-formal attire. The atmosphere appears to be positive and engaged, suggesting a meeting or event where something has been appreciated or acknowledged.",
-    "entities": "people: group of individuals seated and clapping\nchairs: black chairs occupied by the people\norange curtain: on one side of the room\nwhite ceiling: overhead in the room\nhandbag: yellow handbag on the lap of a person in a yellow skirt\nshoes: various styles of shoes worn by the individuals",
-    "relations": "people are seated on chairs\npeople are clapping\norange curtain is on the side of the room\nwhite ceiling is overhead\nhandbag is on the lap of a person\npeople are interacting positively"
-}

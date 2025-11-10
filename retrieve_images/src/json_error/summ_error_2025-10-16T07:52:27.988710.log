@@ -1,5 +1,0 @@
-{
-    "summary": "A person is rock climbing on an indoor climbing wall. They are wearing a light-colored shirt with text on the back, dark pants, and climbing shoes. The climber is holding onto a handhold with one hand and balancing on a foot hold with one foot, while the other leg is bent. The climbing wall has various holds and is illuminated with warm lighting, creating a focused and active atmosphere.",
-    "entities": "person: wearing a light-colored shirt with text on the back, dark pants, climbing shoes\nclimbing wall: with various holds, illuminated with warm lighting",
-    "relations": "person is climbing on the climbing wall\nperson is holding onto a handhold with one hand\nperson is balancing on a foot hold with one foot\nperson's other leg is bent\nclimbing wall has various holds\nclimbing wall is illuminated with warm lighting"
-}

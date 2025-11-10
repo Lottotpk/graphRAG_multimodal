@@ -1,4 +1,0 @@
-{
-    "entities": "person: walking, wearing dark clothing\n dog: medium-sized, light-colored\n trees: multiple, with autumn leaves\n path: wide, sandy\n benches: several, in the background\n street lamps: multiple, lined along one side of the path\n leaves: scattered on the ground\n background people: few, in the distance",
-    "relations": "person walking dog\n dog following person\n person and dog on the path\n trees lining the path\n street lamps along the path\n benches near the trees\n leaves scattered on the path\n background people near benches"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "woman: wearing a red dress with decorative patterns\nbook: with a yellow cover\nbeige couch\nplain white wall\nblue object",
-    "relations": "woman is sitting on the beige couch\nwoman is holding the book\nbook is open\nwoman is reading the book\nblue object is beside the woman on the couch"
-}

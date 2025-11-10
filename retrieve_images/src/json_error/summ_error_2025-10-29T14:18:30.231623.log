@@ -1,4 +1,0 @@
-{
-    "entities": "worker: wearing an orange shirt and a white helmet\nchainsaw: being used by the worker to cut a tree branch\nropes: securing the worker in the air\nharness: attached to the worker for safety\nbranches: leafless, being cut by the worker\nsky: clear and blue in the background",
-    "relations": "worker is suspended in the air using ropes and harness\nworker is cutting a tree branch with a chainsaw\nworker is interacting with the branches\nropes are connected to the worker for safety\nbranches are part of the tree being trimmed\nsky is in the background providing context"
-}

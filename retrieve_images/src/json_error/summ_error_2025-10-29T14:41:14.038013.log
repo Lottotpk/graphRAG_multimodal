@@ -1,4 +1,0 @@
-{
-    "entities": "chef: person in white coat and black apron\nmetal pitcher: container being used to pour liquid\nliquid: being poured from the metal pitcher\nsteam: emanating from the glass container\nglass container: filled with dessert or drink\nCoca-Cola can: red can on the counter\nchocolate truffles: two dark truffles on the counter\nbottles: various bottles on shelves in the background",
-    "relations": "chef is pouring liquid from the metal pitcher into the glass container\nsteam is rising from the glass container\nCoca-Cola can is placed beside the glass container\nchocolate truffles are placed beside the Coca-Cola can\nbottles are displayed on shelves in the background\nchef is looking at the glass container"
-}

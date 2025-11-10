@@ -1,4 +1,0 @@
-{
-    "entities": "woman: wearing a pink floral robe and a bunny headband\nkitchen counter: with various items including a coffee maker, a kettle, and some containers\ncoffee maker: on the kitchen counter\nkettle: on the kitchen counter\ncontainers: on the kitchen counter\nwhite gloves: worn by the woman\nsink: in the kitchen with a faucet",
-    "relations": "woman is washing dishes in the sink\nwoman is wearing white gloves\nkitchen counter has a coffee maker\nkitchen counter has a kettle\nkitchen counter has containers\nwoman is interacting with the sink"
-}

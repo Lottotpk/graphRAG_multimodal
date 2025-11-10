@@ -1,4 +1,0 @@
-{
-    "entities": "woman: long, multicolored hair\noutfit: dark, galaxy-patterned\njacket: leather\nvape device: handheld\nocean: calm\nsand: shore",
-    "relations": "woman is standing on the beach\nwoman is wearing a galaxy-patterned outfit\nwoman is wearing a leather jacket\nwoman is holding a vape device\nvape device is near woman's lips\nocean is in the background\nsand is in the foreground"
-}

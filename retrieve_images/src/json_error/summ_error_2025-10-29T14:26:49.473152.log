@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing black leather jacket and jeans\nbicycle: mounted on a stand, yellow handlebars\nbicycle: leaning against the wall, blue and red\nroom: with wooden walls, window, boxes on the floor",
-    "relations": "man is adjusting the bicycle on the stand\nbicycle is leaning against the wall\nman is focused on the bicycle\nroom has a workshop vibe"
-}

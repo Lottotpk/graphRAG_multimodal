@@ -1,5 +1,0 @@
-{
-    "summary": "A person is holding a bright pink umbrella against a wooden background. They are wearing a stylish black coat with white outlines and a belt. The scene conveys a chic and modern vibe.",
-    "entities": "person: holding a bright pink umbrella\numbrella: bright pink\ncoat: black with white outlines and a belt\nbackground: wooden",
-    "relations": "person holding umbrella\numbrella against background\nperson wearing coat\ncoat with belt"
-}

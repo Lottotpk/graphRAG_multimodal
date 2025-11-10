@@ -1,4 +1,0 @@
-{
-    "entities": "person: standing in shallow water, wearing a beige shirt and red shorts, holding a fishing rod\nlake: calm water, reflecting the person and surroundings\nbackground: treeline, clear sky",
-    "relations": "person is standing in the lake\nperson is holding a fishing rod\nlake is in front of the person\nbackground features a treeline and clear sky"
-}

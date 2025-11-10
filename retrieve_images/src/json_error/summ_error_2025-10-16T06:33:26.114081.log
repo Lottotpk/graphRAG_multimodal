@@ -1,5 +1,0 @@
-{
-    "summary": "The image shows a soccer player on the field wearing a white jersey with black accents. He is clapping his hands and looking forward. The jersey features a logo on the chest. The background is blurred, suggesting it's during a game with possible rain or mist in the air.",
-    "entities": "soccer player: male, wearing a white jersey with black accents, clapping hands, looking forward\njersey: white with black accents, features a logo on the chest\nbackground: blurred, suggesting rain or mist",
-    "relations": "soccer player is clapping hands\nsoccer player is looking forward\njersey is worn by the soccer player\nbackground suggests rain or mist during a game"
-}

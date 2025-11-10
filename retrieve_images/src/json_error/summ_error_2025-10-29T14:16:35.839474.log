@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing green apron with white polka dots, smiling\nbaking tray: with loaf of bread\noven: door open\nkitchen cabinets: white with brass handles\ncountertop: with various kitchen items including loaf of bread in container labeled 'BREAD' and frying pan\tiled backsplash",
-    "relations": "person is holding baking tray\nperson is taking baking tray out of oven\noven is next to kitchen cabinets\nkitchen cabinets are above countertop\nloaf of bread in container is on countertop\nfrying pan is on countertop"
-}

@@ -1,5 +1,0 @@
-{
-    "summary": "A young child with curly hair is brushing their teeth with a green toothbrush. They appear to be in a brightly lit bathroom, as indicated by the window behind them. The child is smiling and seems to be enjoying the activity. There are colorful toothpaste shapes floating in the air, adding a playful and cheerful vibe to the scene.",
-    "entities": "child: young, curly hair\ntoothbrush: green\nwindow: brightly lit\ntoothpaste shapes: colorful, floating",
-    "relations": "child is brushing teeth with toothbrush\nchild is in front of window\ncolorful toothpaste shapes are floating near child"
-}

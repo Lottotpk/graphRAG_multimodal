@@ -1,4 +1,0 @@
-{
-    "entities": "woman: wearing white bikini, standing, fishing\nfishing rod: extended into water\nrocky shore: foreground\nsandy beach: background\npeople: walking, seated\numbrella: green and white\nboat: in distance\nwater: background",
-    "relations": "woman is fishing with a fishing rod\nfishing rod is extended into the water\nwoman is standing on the rocky shore\nrocky shore is in the foreground\nsandy beach is in the background\npeople are walking along the shore\npeople are seated under the umbrella\numbrella is on the sandy beach\nboat is on the water\nwater is in the background"
-}

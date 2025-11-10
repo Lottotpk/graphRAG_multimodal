@@ -1,5 +1,0 @@
-{
-    "summary": "A woman is joyfully jumping on a sidewalk in front of a house. She is wearing a black dress with white collar details and a black hat. The scene includes a parked car on the street, trees, and residential buildings. The atmosphere appears lively and carefree.",
-    "entities": "woman: wearing a black dress with white collar details and a black hat\nhouse: with blue shutters and a beige exterior\nsidewalk: where the woman is jumping\nparked car: on the street\nstreet: with trees and residential buildings in the background",
-    "relations": "woman is jumping on the sidewalk\nwoman is in front of the house\nparked car is on the street\nstreet is next to the sidewalk\nhouse is adjacent to the sidewalk"
-}

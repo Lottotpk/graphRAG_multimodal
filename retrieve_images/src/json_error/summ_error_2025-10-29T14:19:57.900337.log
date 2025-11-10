@@ -1,4 +1,0 @@
-{
-    "entities": "chef: wearing white uniform and tall chef's hat\nclontarf milk carton: on the counter\nwooden cutting board: on the counter\nvegetables: being chopped on the cutting board\npeppers: on a plate\nbowl of sauce: on the counter\nshopping basket: on the counter\nkitchen items: on the shelves\nsink area: in the background",
-    "relations": "chef is chopping vegetables on the wooden cutting board\nclontarf milk carton is next to the wooden cutting board\nshopping basket is near the peppers\nbowl of sauce is on the counter near the chef\nkitchen items are on the shelves in the background\nsink area is in the background behind the chef"
-}

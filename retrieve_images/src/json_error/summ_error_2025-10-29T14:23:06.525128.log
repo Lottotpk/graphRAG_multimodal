@@ -1,4 +1,0 @@
-{
-    "entities": "child: red hair, blue hoodie, jeans\nhorse: black and white, eating hay\nfence: wire\nfield: dry grass",
-    "relations": "child feeding horse\nhorse standing calmly\nchild and horse separated by fence\nscene in open field"
-}

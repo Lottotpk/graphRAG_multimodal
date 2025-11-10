@@ -1,4 +1,0 @@
-{
-    "entities": "man: wearing a black sleeveless athletic shirt with yellow accents, black shorts, white running shoes, and a black beanie\nblurred figure: walking in the background\nparked car: in the background\ntraffic cone: on the path\ngrass: on the left side of the path\nsidewalk: where the man is running",
-    "relations": "man is running on the sidewalk\nblurred figure is walking in the background\nparked car is in the background\ntraffic cone is on the path\ngrass is adjacent to the sidewalk\nsidewalk is in front of the grass"
-}

@@ -1,4 +1,0 @@
-{
-    "entities": "person: curly hair, sunglasses, black outfit, red scarf\nshopping cart: filled with boxes, recyclable materials sign\nblack car: parked nearby\ntraffic light: in the background\ntrees: in the background",
-    "relations": "person is pushing shopping cart\nshopping cart is filled with boxes\nperson is interacting with black car\nshopping cart has a recyclable materials sign\nblack car is parked nearby\ntraffic light is in the background\ntrees are in the background"
-}

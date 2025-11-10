@@ -1,4 +1,0 @@
-{
-    "entities": "chef: wearing a white uniform and tall chef's hat\nwhite cutting board: on the counter\ntomato: being sliced by the chef\nmetal bowl: on the counter\npepper: on the counter\nperson: partially visible in the background",
-    "relations": "chef is slicing tomato on the cutting board\nmetal bowl is on the counter\npepper is on the counter\nperson is in the background\nchef is focused on the task"
-}

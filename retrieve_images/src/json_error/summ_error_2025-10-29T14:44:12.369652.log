@@ -1,4 +1,0 @@
-{
-    "entities": "person: wearing dark jacket, sunglasses, red scarf, reading magazine\nindustrial cranes: large, in background, suggesting port or harbor setting\nmagazine: being read by person\nsunglasses: worn by person\nred scarf: visible underneath dark jacket\nconcrete bench: person is sitting on\n",
-    "relations": "person is sitting on concrete bench\nperson is reading magazine\nindustrial cranes are in the background\nperson is wearing sunglasses\nred scarf is underneath dark jacket\n"
-}

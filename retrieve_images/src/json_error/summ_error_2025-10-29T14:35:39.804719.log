@@ -1,4 +1,0 @@
-{
-    "entities": "woman: wearing a dark jacket, black leggings, red flats, with a green bag slung over her shoulder\npublic transportation map: on a metallic pillar\nman: in the background, walking towards the entrance\nmetallic pillar: with a public transportation map and digital displays\nmetallic door: in the background\n",
-    "relations": "woman is standing next to the public transportation map\nwoman is talking on her phone\npublic transportation map is on a metallic pillar\nman is walking towards the entrance\nmetallic pillar has digital displays\nmetallic door is in the background\n"
-}

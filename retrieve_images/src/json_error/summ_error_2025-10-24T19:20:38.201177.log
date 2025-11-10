@@ -1,4 +1,0 @@
-{
-    "entities": "child: young, wearing a red and black jacket, with a ponytail\nbubble wand: in the child's hand, creating bubbles\nbubble: floating in the air\nhouse: in the background, with a gray exterior\ngrass: in the foreground, where the child stands\nsidewalk: where the child is standing\nbush: in the background, to the right of the child",
-    "relations": "child is blowing bubbles with the bubble wand\nbubbles are floating in the air\nchild is standing on the sidewalk\nsidewalk is adjacent to the grass\nhouses are in the background\nbush is in the background"
-}

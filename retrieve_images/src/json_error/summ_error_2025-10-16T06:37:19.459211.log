@@ -1,5 +1,0 @@
-{
-    "summary": "A man in a suit and tie is clapping in a room with other people. He is wearing glasses and has a mustache. The audience appears to be seated, with some individuals visible in the background. The setting seems to be a formal event or meeting.",
-    "entities": "man: wearing suit and tie, glasses, mustache, clapping\naudience: seated, visible in background\nroom: formal event or meeting setting",
-    "relations": "man is clapping\nman is facing audience\naudience is seated\nman is in the foreground\naudience is in the background"
-}
