@@ -411,9 +411,14 @@ class FAISSEmbeddingDatabase:
         result = torch.topk(torch.Tensor(similarity_scores), k)
         return result.values, [candidate_img[i] for i in result.indices]
     
-    def get_embedding_by_id(self, embedding_id: str) -> Optional[Dict]:
+    def get_metadata_by_id(self, embedding_id: str) -> Optional[Dict]:
         """Get embedding metadata by ID"""
         return self.metadata.get(embedding_id)
+    
+    def get_embedding_by_id(self, embedding_id: str) -> np.ndarray:
+        """Get embedding by ID"""
+        metadata = self.get_metadata_by_id(embedding_id)
+        return self.index.reconstruct(metadata["index_position"])
     
     def list_all_embeddings(self) -> List[str]:
         """Get all embedding IDs"""

@@ -480,7 +480,7 @@ def ENTITY(query: str) -> str:
     Query text
     %s
 
-    Workflow (apply for each category in Categories)
+    Workflow
     Identify entities
     - Identify objects presented in the Query text.
     - Add details of those objects. If it is a person, describe the details of that person in details.
@@ -507,7 +507,7 @@ def RELATION(query: str) -> str:
     Query text
     %s
 
-    Workflow (apply for each category in Categories)
+    Workflow
     Analyze relationships
     - Consider the Subject Placement, Object Placement, Inter-Subject & Inter-Object relations, Background Elements, Gaze & Interaction, Composition & Lightning of an image from the text.
 
@@ -530,3 +530,73 @@ SYSTEM_PROMPT = """
     Your task: analyze the provided text and break it down into categories.
     Follow the workflow strictly and output format only.
 """
+
+TAG_SYSTEM_PROMPT = """
+    You are an expert at finding relevant image tags for the provided description.
+    Your task: provide the possible names, descriptions, and candidates/tags based on the given query.
+    Follow the workflow strictly and output format only.
+"""
+
+# TODO: CHANGE EXAMPLE HERE, I DON'T THINK THAT THIS IS A GOOD EXAMPLE
+EXAMPLE_TAG = """
+    EXAMPLE USER QUERY: cats
+    EXAMPLE ANSWER:
+    {
+        "dimensions": [
+        {
+            "name": "Breed",
+            "description": "Cat breed classification",
+            "candidates": ["Orange Cat", "British Shorthair", "American Shorthair", "Ragdoll", "Domestic Cat"]
+        },
+        {
+            "name": "Action",
+            "description": "Cat action poses",
+            "candidates": ["Sleeping", "Playing", "Stretching", "Sitting", "Grooming"]
+        },
+        {
+            "name": "Environment",
+            "description": "Scene location of cats",
+            "candidates": ["Sofa", "Grass", "Window", "Floor", "Bed"]
+        }
+        ]
+    }
+"""
+
+# TODO: DO PROMPT ENGINEERING HERE
+def TAG_PROMPT(query: str):
+    return """Inputs (always provided)
+    - Query text: The query to extract related tags
+    - Example tag: An example of tag generation results from an example query
+
+    Example tag: %s
+
+    Query text: %s
+
+    Workflow
+    1. Analyze relationships
+    - Understand the mutual information between the example query and answer
+    2. Tag extraction
+    - Generate the image tags based on the Query text.
+    - Try to think what kind of image the user wants to see based on the given query and generate the possible answer.
+    - Provide the candidates field as clear as possible, do not provide ambiguous words.
+
+    Output Requirements
+    - Return strictly valid JSON only (no prose, no markdown, no comments, no thinking part).
+    - Follow this output format strictly:
+    {
+        "dimensions": [
+            {
+                "name": "*Tag*",
+                "description": "*Tag description*",
+                "candidates": [*List of tag candidates*]
+            }
+        ]
+    }
+
+    Validation Checklist (must pass before you output)
+    - JSON is strictly valid: no trailing commas; correct double quotes; correct the comma delimiter; beware of unterminated string; enclose the double quotes.
+    - Tag must be an aspect about that Query text.
+    - Tag description must be a single crispy phrase, explaining that tag.
+    - Tag candidates must be texts, related to the Query text in the tag-specific aspect.
+    - Strict to the output format.
+"""% (EXAMPLE_TAG, query)
