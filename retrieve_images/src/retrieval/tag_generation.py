@@ -10,7 +10,7 @@ from transformers import AutoModel, AutoTokenizer
 from text_embedding.text_embedder import TextEmbedder
 from vector_db.faiss_storage import FAISSEmbeddingDatabase
 from utils.logging_config import setup_logger
-from utils.json_processing.py import fix_json
+from utils.json_processing import fix_json
 from retrieval.prompt import TAG_PROMPT, TAG_SYSTEM_PROMPT
 
 # Generation parameters
@@ -67,13 +67,28 @@ def get_relevant_tags(dimensions, retrieved_matrix, threshold: list[float, float
     passed_tags = []
     for i in range(len(dimensions)):
         similarity = retrieved_matrix @ dimensions[i]["embeddings"].T
+        del dimensions[i]["embeddings"]
+        dimensions[i]["similarity_matrix"] = similarity
+
         matched = (similarity >= threshold[0])
         covered = matched.sum(axis=0) / matched.shape[0]
         valid_tags = [dimensions[i]["candidates"][j] for j in np.where(covered > threshold[1])[0]]
         if len(valid_tags) >= threshold[2]:
             passed_tags.extend(valid_tags)
 
-    return passed_tags
+    return passed_tags, dimensions
+
+
+def get_images_from_tag(dimensions, tag, retrieved_images_id, threshold=0.7):
+    for dimension in dimensions:
+        if tag in dimension["candidates"]:
+            idx = dimension["candidates"].index(tag)
+            scores = dimension["similarity_matrix"][:, idx]
+            matched_indices = np.where(scores >= threshold)[0]
+            sorted_indices = matched_indices[np.argsort(scores[matched_indices])[::-1]]
+            return [retrieved_images_id[i] for i in sorted_indices]
+    logger.info("Invalid tag")
+    return None
 
 
 # FOR TESTING ONLY
@@ -131,22 +146,30 @@ if __name__ == "__main__":
     )
     k = 50
     embedding, _ = embedder.embed([test_prompt1, test_prompt2, test_prompt3], embedding_method)
-    scores, indices = db.search_similar(embedding[0].float().numpy(), k=k) # throw away search_colbert because time overhead
+    scores, indices1 = db.search_similar(embedding[0].float().numpy(), k=k) # throw away search_colbert because time overhead
     # Get embedding from indices
-    retrieved_matrix1 = np.array([db.get_embedding_by_id(x) for x in indices]) # Only addition to the original (?)
+    retrieved_matrix1 = np.array([db.get_embedding_by_id(x) for x in indices1]) # Only addition to the original (?)
     # Do the same for other queries
-    scores, indices = db.search_similar(embedding[1].float().numpy(), k=k)
-    retrieved_matrix2 = np.array([db.get_embedding_by_id(x) for x in indices])
-    scores, indices = db.search_similar(embedding[2].float().numpy(), k=k)
-    retrieved_matrix3 = np.array([db.get_embedding_by_id(x) for x in indices])
+    scores, indices2 = db.search_similar(embedding[1].float().numpy(), k=k)
+    retrieved_matrix2 = np.array([db.get_embedding_by_id(x) for x in indices2])
+    scores, indices3 = db.search_similar(embedding[2].float().numpy(), k=k)
+    retrieved_matrix3 = np.array([db.get_embedding_by_id(x) for x in indices3])
 
     # 4. Compute Similarity and output relevant tags
-    threshold = [0.66, 0.2, 1] # threshold[0] may be adjusted by the user (?)
-    output1 = get_relevant_tags(ex1, retrieved_matrix1, threshold)
-    output2 = get_relevant_tags(ex2, retrieved_matrix2, threshold)
-    output3 = get_relevant_tags(ex3, retrieved_matrix3, threshold)
+    threshold = [0.65, 0.2, 1] # threshold[0] may be adjusted by the user (?)
+    output1, ex1 = get_relevant_tags(ex1, retrieved_matrix1, threshold)
+    output2, ex2 = get_relevant_tags(ex2, retrieved_matrix2, threshold)
+    output3, ex3 = get_relevant_tags(ex3, retrieved_matrix3, threshold)
 
     # Done
     logger.info(f"QUERY: {test_prompt1}\nTAGS: {output1}")
     logger.info(f"QUERY: {test_prompt2}\nTAGS: {output2}")
     logger.info(f"QUERY: {test_prompt3}\nTAGS: {output3}")
+
+    # 5. Get additional image results
+    while True:
+        selected_tag = input("Select tag: ")
+        if selected_tag == "":
+            break
+        additional_idx = get_images_from_tag(ex1, selected_tag, indices1)
+        logger.info(f"ADDTIONAL RETRIEVED IMGES:\n{[db.get_metadata_by_id(x)['image_path'] for x in additional_idx]}")
