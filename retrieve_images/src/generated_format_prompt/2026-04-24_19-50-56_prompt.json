@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-04-24T19:50:56.102360",
+  "model_path": "OpenGVLab/InternVL3_5-8B",
+  "records": [
+    {
+      "id": 0,
+      "query": "An elderly man wearing a suit and medals is clapping his hands.",
+      "format_prompt": "An elderly man dressed in a suit and adorned with medals is clapping his hands.\nelderly man: wearing a suit and medals\nhands: clapping\nelderly man is clapping his hands\nJoyful,Uplifting,\n\n\n\n\n\n\n\n"
+    },
+    {
+      "id": 1,
+      "query": "An elderly man",
+      "format_prompt": "The text describes an elderly man.\nelderly man: A person who is old, possibly with visible signs of aging such as wrinkles or grey hair.\n\nMelancholic,Pensive,Nostalgic,\nFine Art,\nRealistic,Naturalistic,\nOil-based,\nWarm,Soft,\n\nArt-Enthusiast,Comtemplative,\nMortality,Wisdom,\n"
+    },
+    {
+      "id": 2,
+      "query": "Party",
+      "format_prompt": "The query text is about a party.\nParty: A social gathering or celebration.\nParty is the central event in the text.\nJoyful,Vibrant,Hopeful,\nEvent Poster,Social Media Post,\nDynamic,Stylized,\nDigital,\nWarm,High-Contrast,\nGlobal,\nMainstream,Youthful,\nCommunity,Celebration,\n"
+    }
+  ]
+}

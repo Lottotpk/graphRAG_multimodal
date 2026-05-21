@@ -333,6 +333,7 @@ class FAISSEmbeddingDatabase:
                 candidate_img.add(self.metadata[emb_id]['image_path'])
         candidate_img = list(candidate_img)
         logger.info(f"ColBERT searching: Found {len(candidate_img)} candidate image(s) from {k*len(query_embedding)} searches.")
+        k = min(k, len(candidate_img))
 
         # Combine the corresponding vector from the metadata
         all_candidates = []
@@ -370,7 +371,6 @@ class FAISSEmbeddingDatabase:
         
         # 2 dimensional vector on query_embedding only
         ndim = query_embedding[0].shape[1]
-        print(ndim)
 
         candidate_img = set()
         for i in range(len(query_embedding)):

@@ -1,0 +1,21 @@
+{
+  "created_at": "2025-11-28T15:08:44.134456",
+  "model_path": "OpenGVLab/InternVL3_5-8B",
+  "records": [
+    {
+      "id": 0,
+      "query": "People clapping",
+      "format_prompt": "The image depicts a group of people clapping, suggesting a celebratory or appreciative atmosphere.\nPeople: individuals participating in clapping\nClapping: action performed by the people\nPeople are clapping\nClapping indicates a celebratory or appreciative event\nJoyful,Vibrant,Hopeful,\nEvent Poster,Social Media Post,\nDynamic,Stylized,\n\n\n\nMainstream,Family-oriented,\nCommunity,Hope,\n"
+    },
+    {
+      "id": 1,
+      "query": "An elderly man",
+      "format_prompt": "The text describes an elderly man.\nelderly man: A person who is old, possibly with visible signs of aging such as wrinkles, grey hair, and a slower pace.\n\nMelancholic,Pensive,Subtle,\n\n\n\n\n\n\n\n"
+    },
+    {
+      "id": 2,
+      "query": "Party",
+      "format_prompt": "The query text is about a party.\nParty: A social gathering or celebration.\nParty is the central event in the text.\nJoyful,Vibrant,Hopeful,\nEvent Poster,Social Media Post,\nMaximalist,Dynamic,\nDigital,\nWarm,Vibrant,\nGlobal,\nYouthful,Family-oriented,\nCommunity,Celebration,\n"
+    }
+  ]
+}

@@ -11,7 +11,7 @@ import time
 from datetime import datetime
 from json.decoder import JSONDecodeError
 from typing import List, Dict, Any, Tuple
-from transformers import AutoModel, AutoTokenizer
+from transformers import AutoModel, AutoTokenizer, Qwen3VLForConditionalGeneration
 from text_embedding.text_embedder import TextEmbedder
 from vector_db.faiss_storage import FAISSEmbeddingDatabase
 from config import MODEL_PATH, DEVICE_MAP, TORCH_DTYPE, TEXT_DATABASE_BASE_DIR, ensure_prompt_description_dir, ensure_retrieval_result_dir, get_description_filename, get_description_path
@@ -45,11 +45,12 @@ NUM_TOPIC: int = 2
 # \n
 # """
 
-QUERY = [
-    "An elderly man wearing a suit and medals is clapping his hands.",
-    "An elderly man, dressed formally in a dark suit with a patterned tie, is seen clapping his hands in what appears to be a public or ceremonial event. He is wearing several medals around his neck and on his jacket, suggesting he has been honored for his achievements or service. His expression appears engaged and respectful, while photographers and others can be seen in the background, capturing the moment.",
-    "- Objects: The man is clapping his hands.\n- Attributes: He is wearing a formal suit with medals.\n- Actions: He is expressing approval or celebration.\n- Scene: The man is standing in front of a crowd.\n- Style: The photograph has a candid and candid style."
-]
+# QUERY = [
+#     "A young child stands in a shopping cart at a grocery store, holding the handle and shouting or talking loudly.",
+#     "In a grocery store aisle filled with colorful items, a child stands in a shopping cart full of groceries. The child is holding the cart’s handle and has their mouth open as if calling out, creating a lively moment in the busy store setting.",
+#     "- Objects: A young child pushing a shopping cart filled with groceries.\n- Attributes: The child has a joyful expression and is wearing a dark jacket.\n- Actions: The child is pushing a shopping cart with enthusiasm, possibly excited about the shopping experience.\n- Scene: The setting is a well-stocked grocery store aisle with various products on the shelves.\n- Style: The image has a candid and lively feel, capturing a moment of everyday life with a touch of playfulness."
+# ]
+QUERY = ["A grown-up mas is washing dishes."]
 
 STRATEGY_CHOICES = [
     'last_layer_token_level',
@@ -61,18 +62,26 @@ STRATEGY_CHOICES = [
 ]
 
 
-
 def load_model():
     torch_dtype = torch.bfloat16 if TORCH_DTYPE == 'bfloat16' else torch.float16
-    model = AutoModel.from_pretrained(
-        MODEL_PATH,
-        dtype=torch_dtype,
-        load_in_8bit=False,
-        low_cpu_mem_usage=True,
-        use_flash_attn=True,
-        trust_remote_code=True,
-        device_map=DEVICE_MAP
-    ).eval()
+    if MODEL_PATH.split("/")[0] == "Qwen":
+        logger.info("Qwen detected, Loading Qwen3VLForConditionalGeneration...")
+        model = Qwen3VLForConditionalGeneration.from_pretrained(
+            MODEL_PATH,
+            dtype=torch.bfloat16,
+            attn_implementation="flash_attention_2",
+            device_map="auto",
+        )
+    else:
+        model = AutoModel.from_pretrained(
+            MODEL_PATH,
+            dtype=torch_dtype,
+            load_in_8bit=False,
+            low_cpu_mem_usage=True,
+            use_flash_attn=True,
+            trust_remote_code=True,
+            device_map=DEVICE_MAP
+        ).eval()
     tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, trust_remote_code=True, use_fast=False)
     return model, tokenizer
 
@@ -133,7 +142,7 @@ def load_benchmark(filename: str, ds_name: str) -> Tuple[List[str], List[str], i
     return questions, answers, ds["total_questions"]
 
 
-def process_query(model, tokenizer, queries: List[str], verbose: bool = False) -> List[str]:
+def process_query(model, tokenizer, queries: List[str], saved: bool = True, verbose: bool = False) -> List[str]:
     ensure_prompt_description_dir()
     prompts = []
     format_prompt = []
@@ -210,17 +219,18 @@ def process_query(model, tokenizer, queries: List[str], verbose: bool = False) -
         prompts.append(prompt)
         format_prompt.append(prompt['format_prompt'])
 
-    payload = {
-        'created_at': datetime.now().isoformat(),
-        'model_path': MODEL_PATH,
-        'records': prompts
-    }
-    filename = get_description_filename(prompt_slug='prompt')
-    out_path = get_description_path(filename, "prompt")
-    with open(out_path, 'w') as f:
-        json.dump(payload, f, indent=2, ensure_ascii=False)
+    if saved:
+        payload = {
+            'created_at': datetime.now().isoformat(),
+            'model_path': MODEL_PATH,
+            'records': prompts
+        }
+        filename = get_description_filename(prompt_slug='prompt')
+        out_path = get_description_path(filename, "prompt")
+        with open(out_path, 'w') as f:
+            json.dump(payload, f, indent=2, ensure_ascii=False)
 
-    logger.info(f'Descriptions saved to: {out_path}')
+        logger.info(f'Descriptions saved to: {out_path}')
 
     return format_prompt
 
@@ -239,7 +249,8 @@ def main(args):
 
     # Format the query
     if not args.fprompt:
-        prompt = process_query(model, tokenizer, query, args.verbose)
+        prompt = process_query(model, tokenizer, query, False, args.verbose)
+        logger.info(prompt)
     elif args.fprompt == "raw":
         prompt = query
     else:
@@ -260,7 +271,7 @@ def main(args):
     )
 
     # Embed the query and search using ColBERT
-    k = 20
+    k = 50
     batch_size = 16
     embeddings = []
     start_time = time.time()
@@ -284,7 +295,7 @@ def main(args):
         result = ""
         if args.benchmark:
             ranking = None
-        for j in range(k):
+        for j in range(len(scores)):
             # TODO: Change each full path img_path_retrieved[j] to only name
             img_name = os.path.basename(img_path_retrieved[j])
             img_name, ext = os.path.splitext(img_name)
@@ -319,7 +330,8 @@ def main(args):
             "Recall@5": sum(rankings[0: 5]) / total,
             "Recall@10": sum(rankings[0: 10]) / total,
             "Recall@15": sum(rankings[0: 15]) / total,
-            "Recall@20": sum(rankings[0: 20]) / total
+            "Recall@20": sum(rankings[0: 20]) / total,
+            "Recall@50": sum(rankings[0: 50]) / total
         }
         payload = {
         'created_at': datetime.now().isoformat(),

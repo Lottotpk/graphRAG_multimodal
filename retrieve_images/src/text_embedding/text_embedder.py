@@ -119,17 +119,24 @@ class TextEmbedder:
                 # Record token positions of valid tokens
                 token_indices = torch.arange(layer_states.shape[1], device='cuda')[valid_mask].tolist()
                 metadata.append({'token_level': True, 'token_indices': token_indices})
-        elif strategy.endswith('cls_token'):
-            # First non-pad token as CLS
+        # elif strategy.endswith('cls_token'):
+        #     # First non-pad token as CLS
+        #     for i in range(layer_states.shape[0]):
+        #         # Find first valid token index
+        #         valid_mask = attention_mask[i].bool()
+        #         if valid_mask.any():
+        #             first_idx = int(valid_mask.nonzero(as_tuple=False)[0])
+        #         else:
+        #             first_idx = 0
+        #         cls_vec = layer_states[i, first_idx]
+        #         pooled.append(cls_vec.detach().cpu())
+        #         metadata.append({'token_level': False, 'pooled': 'cls'})
+        elif strategy.endswith('last_token') or strategy.endswith('cls_token'):
             for i in range(layer_states.shape[0]):
-                # Find first valid token index
-                valid_mask = attention_mask[i].bool()
-                if valid_mask.any():
-                    first_idx = int(valid_mask.nonzero(as_tuple=False)[0])
-                else:
-                    first_idx = 0
-                cls_vec = layer_states[i, first_idx]
-                pooled.append(cls_vec.detach().cpu())
+                seq_len = attention_mask[i].sum().item()
+                last_idx = int(max(0, seq_len - 1))
+                last_token_vec = layer_states[i, last_idx]
+                pooled.append(last_token_vec.detach().cpu())
                 metadata.append({'token_level': False, 'pooled': 'cls'})
         elif strategy.endswith('mean_pooling'):
             mean_vec = self._masked_mean(layer_states, attention_mask)  # (B, D)

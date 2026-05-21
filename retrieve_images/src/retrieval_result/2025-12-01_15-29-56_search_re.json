@@ -1,0 +1,24 @@
+{
+  "created_at": "2025-12-01T15:29:56.020931",
+  "database": "./description_embedding_databases/2025-11-13_21-33-13_-2_layer_mean_pooling_auto",
+  "model_path": "OpenGVLab/InternVL3_5-8B",
+  "retrieval_time": 0.7525262832641602,
+  "average_time": 0.2508420944213867,
+  "result": [
+    {
+      "id": 0,
+      "query": "A young child stands in a shopping cart at a grocery store, holding the handle and shouting or talking loudly.",
+      "result": "pushing_a_cart_194 -- 0.9901\npushing_a_cart_153 -- 0.9900\npushing_a_cart_140 -- 0.9897\npushing_a_cart_033 -- 0.9895\npushing_a_cart_075 -- 0.9894\npushing_a_cart_212 -- 0.9887\npushing_a_cart_094 -- 0.9886\npushing_a_cart_115 -- 0.9882\npushing_a_cart_004 -- 0.9882\npushing_a_cart_030 -- 0.9882\npushing_a_cart_048 -- 0.9875\npushing_a_cart_137 -- 0.9870\npushing_a_cart_063 -- 0.9869\npushing_a_cart_069 -- 0.9868\npushing_a_cart_226 -- 0.9866\npushing_a_cart_101 -- 0.9866\npushing_a_cart_204 -- 0.9865\npushing_a_cart_082 -- 0.9865\npushing_a_cart_010 -- 0.9864\npushing_a_cart_015 -- 0.9863\n"
+    },
+    {
+      "id": 1,
+      "query": "In a grocery store aisle filled with colorful items, a child stands in a shopping cart full of groceries. The child is holding the cart’s handle and has their mouth open as if calling out, creating a lively moment in the busy store setting.",
+      "result": "pushing_a_cart_194 -- 0.9945\npushing_a_cart_153 -- 0.9941\npushing_a_cart_140 -- 0.9934\npushing_a_cart_212 -- 0.9931\npushing_a_cart_115 -- 0.9931\npushing_a_cart_004 -- 0.9928\npushing_a_cart_094 -- 0.9927\npushing_a_cart_204 -- 0.9916\npushing_a_cart_069 -- 0.9915\npushing_a_cart_075 -- 0.9915\npushing_a_cart_048 -- 0.9914\npushing_a_cart_033 -- 0.9913\npushing_a_cart_010 -- 0.9912\npushing_a_cart_137 -- 0.9912\npushing_a_cart_057 -- 0.9912\npushing_a_cart_218 -- 0.9906\npushing_a_cart_226 -- 0.9905\npushing_a_cart_106 -- 0.9901\npushing_a_cart_229 -- 0.9900\npushing_a_cart_026 -- 0.9899\n"
+    },
+    {
+      "id": 2,
+      "query": "- Objects: A young child pushing a shopping cart filled with groceries.\n- Attributes: The child has a joyful expression and is wearing a dark jacket.\n- Actions: The child is pushing a shopping cart with enthusiasm, possibly excited about the shopping experience.\n- Scene: The setting is a well-stocked grocery store aisle with various products on the shelves.\n- Style: The image has a candid and lively feel, capturing a moment of everyday life with a touch of playfulness.",
+      "result": "pushing_a_cart_115 -- 0.9940\npushing_a_cart_212 -- 0.9927\npushing_a_cart_194 -- 0.9926\npushing_a_cart_140 -- 0.9922\npushing_a_cart_153 -- 0.9918\npushing_a_cart_010 -- 0.9917\npushing_a_cart_075 -- 0.9916\npushing_a_cart_004 -- 0.9916\npushing_a_cart_217 -- 0.9915\npushing_a_cart_033 -- 0.9915\npushing_a_cart_069 -- 0.9911\npushing_a_cart_226 -- 0.9910\njumping_234 -- 0.9905\npushing_a_cart_057 -- 0.9904\npushing_a_cart_218 -- 0.9902\npushing_a_cart_094 -- 0.9901\npushing_a_cart_144 -- 0.9899\npushing_a_cart_204 -- 0.9899\npushing_a_cart_101 -- 0.9895\npushing_a_cart_048 -- 0.9892\n"
+    }
+  ]
+}

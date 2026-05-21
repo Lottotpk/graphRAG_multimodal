@@ -27,3 +27,4 @@ test_imgs
 flickr8k
 retrieve_images/src/description_embedding_databases
 # retrieve_images/src/json_error
+retrieve_images/src/img_embedding_databases

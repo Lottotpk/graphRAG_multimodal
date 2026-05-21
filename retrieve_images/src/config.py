@@ -7,6 +7,7 @@ from datetime import datetime
 
 # Model Configuration
 MODEL_PATH = 'OpenGVLab/InternVL3_5-8B'
+# MODEL_PATH = 'Qwen/Qwen3-VL-8B-Instruct'
 DEVICE_MAP = "auto"
 TORCH_DTYPE = "bfloat16"
 
@@ -32,6 +33,8 @@ FORMAT_PROMPT_DIR = "./generated_format_prompt/"
 RETRIEVAL_RESULT = "./retrieval_result/"
 # Store all generated content
 IMAGE_ALL_BASE_DIR = "./generated_all/"
+# Store generated tag
+TAG_BASE_DIR = "./generated_tag/"
 
 # Supported extraction strategies
 EXTRACTION_STRATEGIES = {
@@ -204,5 +207,7 @@ def get_description_path(filename: str, type: str = None):
         return os.path.join(RETRIEVAL_RESULT, filename)
     elif type == "all":
         return os.path.join(IMAGE_ALL_BASE_DIR, filename)
+    elif type == "tag":
+        return os.path.join(TAG_BASE_DIR, filename)
     else:
         return os.path.join(IMAGE_DESCRIPTION_BASE_DIR, filename)

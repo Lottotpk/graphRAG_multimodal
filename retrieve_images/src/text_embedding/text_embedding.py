@@ -19,7 +19,7 @@ from datetime import datetime
 from typing import List
 
 import torch
-from transformers import AutoModel, AutoTokenizer
+from transformers import AutoModel, AutoTokenizer, Qwen3VLForConditionalGeneration
 
 from text_embedding.text_embedder import TextEmbedder
 from vector_db.faiss_storage import FAISSEmbeddingDatabase
@@ -65,15 +65,24 @@ def construct_prompt(desc: dict, smry: dict):
 
 def load_model():
     torch_dtype = torch.bfloat16 if TORCH_DTYPE == 'bfloat16' else torch.float16
-    model = AutoModel.from_pretrained(
-        MODEL_PATH,
-        dtype=torch_dtype,
-        load_in_8bit=False,
-        low_cpu_mem_usage=True,
-        use_flash_attn=True,
-        trust_remote_code=True,
-        device_map=DEVICE_MAP
-    ).eval()
+    if MODEL_PATH.split("/")[0] == "Qwen":
+        logger.info("Qwen detected, Loading Qwen3VLForConditionalGeneration...")
+        model = Qwen3VLForConditionalGeneration.from_pretrained(
+            MODEL_PATH,
+            dtype=torch.bfloat16,
+            attn_implementation="flash_attention_2",
+            device_map="auto",
+        )
+    else:
+        model = AutoModel.from_pretrained(
+            MODEL_PATH,
+            dtype=torch_dtype,
+            load_in_8bit=False,
+            low_cpu_mem_usage=True,
+            use_flash_attn=True,
+            trust_remote_code=True,
+            device_map=DEVICE_MAP
+        ).eval()
     tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, trust_remote_code=True, use_fast=False)
     return model, tokenizer
 

@@ -1,0 +1,21 @@
+{
+  "created_at": "2025-12-01T15:29:54.863825",
+  "model_path": "OpenGVLab/InternVL3_5-8B",
+  "records": [
+    {
+      "id": 0,
+      "query": "A young child stands in a shopping cart at a grocery store, holding the handle and shouting or talking loudly.",
+      "format_prompt": "A young child is standing in a shopping cart at a grocery store, holding the handle and shouting or talking loudly.\nchild: young, standing, holding the handle of a shopping cart, shouting or talking loudly\nshopping cart: at a grocery store\nshopping cart handle: being held by the child\ngrocery store: background setting\nchild is standing in the shopping cart\nchild is holding the shopping cart handle\nchild is shouting or talking loudly\nshopping cart is located in the grocery store\nJoyful,Vibrant,Dynamic,\nSocial Media Post,E-commerce Catalog,\nPhotorealistic,Clean,\nRaster,\nWarm,High-key,\n\nFamily-oriented,Child-friendly,\nFreedom,Hope,\n"
+    },
+    {
+      "id": 1,
+      "query": "In a grocery store aisle filled with colorful items, a child stands in a shopping cart full of groceries. The child is holding the cart’s handle and has their mouth open as if calling out, creating a lively moment in the busy store setting.",
+      "format_prompt": "A child stands in a shopping cart filled with groceries in a grocery store aisle. The child is holding the cart's handle and appears to be calling out, adding to the lively atmosphere of the busy store.\nchild: standing in a shopping cart, holding the cart's handle, mouth open as if calling out\nshopping cart: filled with groceries, being held by the child\ngroceries: inside the shopping cart\naisle: in a grocery store, filled with colorful items\nstore: busy setting\nchild is in the shopping cart\nchild is holding the shopping cart's handle\nchild is calling out\nshopping cart is filled with groceries\nshopping cart is in the grocery store aisle\naisle is filled with colorful items\nstore is busy\nJoyful,Vibrant,Dynamic,\nE-commerce Catalog,\nPhotorealistic,Clean,\n\nWarm,High-Contrast,\n\nFamily-oriented,Mainstream,\nHope,Community,\n"
+    },
+    {
+      "id": 2,
+      "query": "- Objects: A young child pushing a shopping cart filled with groceries.\n- Attributes: The child has a joyful expression and is wearing a dark jacket.\n- Actions: The child is pushing a shopping cart with enthusiasm, possibly excited about the shopping experience.\n- Scene: The setting is a well-stocked grocery store aisle with various products on the shelves.\n- Style: The image has a candid and lively feel, capturing a moment of everyday life with a touch of playfulness.",
+      "format_prompt": "A young child with a joyful expression and wearing a dark jacket is pushing a shopping cart filled with groceries through a well-stocked grocery store aisle. The scene captures a moment of everyday life with a candid and lively feel, highlighting the child's enthusiasm and excitement about the shopping experience.\nchild: young, joyful expression, wearing a dark jacket\nshopping cart: filled with groceries\nproducts: various, on shelves\nchild pushing shopping cart\nshopping cart filled with groceries\nchild interacting with products\nscene set in a grocery store aisle\nJoyful,Vibrant,Whimsical,\nE-commerce Catalog,\nCandid,Lively,\n\nWarm,High-Contrast,\n\nFamily-oriented,Youthful,\nHope,Community,\n"
+    }
+  ]
+}

@@ -575,10 +575,20 @@ def TAG_PROMPT(query: str):
     Workflow
     1. Analyze relationships
     - Understand the mutual information between the example query and answer
-    2. Tag extraction
-    - Generate the image tags based on the Query text.
-    - Try to think what kind of image the user wants to see based on the given query and generate the possible answer.
-    - Provide the candidates field as clear as possible, do not provide ambiguous words.
+    2. Semantic Analysis
+    - Understand the intent behind the query and what kind of image the user wants to see.
+    - Identify implicit aspects or attributes that *extend* the query without repeating it.
+    3. Tag extraction
+    - Generate image tags that reflect meaningful aspects related to the query.
+    - **Do NOT use any word or direct synonym already present in the query text.**
+    (e.g., if the query contains “men sitting,” tags must NOT include “sitting,” “male,” “man,” etc.)
+    - Tags must represent *aspects*, not restatements (e.g., “emotion,” “location,” “lighting,” “event type,” “camera angle,” etc.).
+    - Tag candidates must be:
+    - Specific
+    - Non-overlapping with each other
+    - Not explicitly stated or directly implied by the query
+    - Concrete descriptors relevant to the image a user might expect from the query
+    - Avoid vague or overly broad terms.
 
     Output Requirements
     - Return strictly valid JSON only (no prose, no markdown, no comments, no thinking part).

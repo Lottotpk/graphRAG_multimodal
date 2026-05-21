@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-04-24T18:49:02.832607",
+  "model_path": "OpenGVLab/InternVL3_5-8B",
+  "records": [
+    {
+      "id": 0,
+      "query": "An elderly man wearing a suit and medals is clapping his hands.",
+      "format_prompt": "An elderly man dressed in a suit and adorned with medals is clapping his hands.\nelderly man: wearing a suit and medals\nclapping hands\nelderly man is clapping his hands\nJoyful,Uplifting,Nostalgic,\nOthers,\nRealistic,Clean,\n\n\n\nMainstream,Family-oriented,\nHope,Celebration,\n"
+    },
+    {
+      "id": 1,
+      "query": "An elderly man",
+      "format_prompt": "The text describes an elderly man.\nelderly man: A person who is old, possibly showing signs of aging such as wrinkles and grey hair.\n\nMelancholic,Pensive,Serene,\nFine Art,\nRealistic,Naturalistic,\nOil-based,\nWarm,Soft,\n\nArt-Enthusiast,Mature,\nWisdom,Reflection,\n"
+    },
+    {
+      "id": 2,
+      "query": "Party",
+      "format_prompt": "The query text is a single word: 'Party'. This suggests a social event characterized by celebration, entertainment, and gathering of people.\nParty: A social event involving celebration, entertainment, and gathering of people.\nParty involves gathering of people, celebration, and entertainment.\nJoyful,Vibrant,Hopeful,\nEvent Poster,\nDynamic,Stylized,\nOil-based,\nWarm,High-Contrast,\nFrance,\nFamily-oriented,Social,\nCommunity,Celebration,\n"
+    }
+  ]
+}

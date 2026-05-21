@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-04-24T18:35:15.213064",
+  "model_path": "OpenGVLab/InternVL3_5-8B",
+  "records": [
+    {
+      "id": 0,
+      "query": "An elderly man wearing a suit and medals is clapping his hands.",
+      "format_prompt": "An elderly man in a suit adorned with medals is clapping his hands.\nelderly man: wearing a suit and medals\nhands: clapping\nelderly man is clapping his hands\nJoyful,Uplifting,Nostalgic,\nOthers,\nRealistic,Clean,\n\n\n\nMainstream,Family-oriented,\nHope,Celebration,\n"
+    },
+    {
+      "id": 1,
+      "query": "An elderly man",
+      "format_prompt": "An elderly man is the central focus of the image, depicted in a serene and contemplative state. The man appears to be standing alone, with no other individuals or significant objects in the immediate vicinity. The background is minimalistic, possibly suggesting an outdoor setting with natural light casting soft shadows on the man's figure. The overall vibe is calm and reflective, emphasizing the man's age and the quietness of the scene.\nelderly man: The man is depicted as elderly, with features that suggest advanced age such as a possibly gray beard or mustache, a slightly bent posture, and a calm expression on his face.\nSubject Placement: The elderly man is the central subject of the image, positioned prominently in the frame. Object Placement: There are no other significant objects in the immediate vicinity of the man. Inter-Subject & Inter-Object relations: The man stands alone, with no interaction with other subjects or objects. Background Elements: The background is minimalistic, possibly indicating an outdoor setting with natural light. Gaze & Interaction: The man appears to be gazing thoughtfully into the distance, suggesting a moment of contemplation. Composition & Lightning: The composition centers on the man, with soft lighting casting gentle shadows, enhancing the serene and reflective atmosphere.\nMelancholic,Pensive,Serene,\nFine Art,\nRealistic,Naturalistic,\n\nWarm,Soft,\n\nArt-Enthusiast,Comtemplative,\nMortality,Wisdom,\n"
+    },
+    {
+      "id": 2,
+      "query": "Party",
+      "format_prompt": "The query text is a single word: 'Party'. This suggests a social event characterized by celebration, entertainment, and gathering of people.\nParty: A social event involving celebration, entertainment, and gathering of people.\nParty is a social event.\nJoyful,Vibrant,Hopeful,\nEvent Poster,Social Media Post,\nDynamic,Stylized,\nDigital,\nWarm,High-Contrast,\nGlobal,\nMainstream,Youthful,\nCommunity,Celebration,\n"
+    }
+  ]
+}
